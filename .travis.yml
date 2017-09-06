@@ -3,6 +3,7 @@ rvm:
   - 2.4
 
 install:
+  - rm -rf public || exit 0
   - mkdir ~/_bin
   - wget https://github.com/gohugoio/hugo/releases/download/v0.26/hugo_0.26_Linux-64bit.tar.gz -O hugo.tgz
   - tar xfv hugo.tgz -C ~/_bin
@@ -10,7 +11,7 @@ install:
   - export PATH=$HOME/_bin:$PATH
 
 script:
-  - mkdir "${TRAVIS_BUILD_DIR}/public"
+  - hugo --theme=hugo_theme_pickles
 
 deploy:
   provider: pages
