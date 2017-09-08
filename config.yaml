@@ -2,3 +2,4 @@ baseURL: https://hizkifw.github.io/artsy.github.io-hugo
 disablePathToLower: true
 languageCode: en-us
 title: Artsy Engineering
+theme: hugo-redlounge
