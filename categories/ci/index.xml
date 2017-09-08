@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ci on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/ci/</link>
+    <description>Recent content in Ci on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Xcode 8 Manual Codesigning with Fastlane</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/</guid>
+      <description>&lt;p&gt;New year, new deploy process! Late last year our mobile team completed the update to Swift 3 (and thus, the update to Xcode 8). The latest version of Apple&amp;rsquo;s IDE includes a lovely feature: automating provisioning profile management! (Note: not sarcasm, the feature is really nice. Check out the &lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2016/401/&#34;&gt;WWDC video&lt;/a&gt; for an in-depth exploration.)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2017-01-13-xcode-8-fastlane-codesigning/xcode-screenshot.png&#34; alt=&#34;Automatic code signing settings&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, when I went to make our first &lt;a href=&#34;http://artsy.github.io/blog/2015/12/15/Automating-Testflight-Deploys/&#34;&gt;automated deploy&lt;/a&gt; today, things didn&amp;rsquo;t work; I got a somewhat cryptic error about code signing.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Automating TestFlight Deploys using Fastlane</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been a really &lt;a href=&#34;http://artsy.github.io/blog/2015/09/18/Cocoa-Architecture-Dependencies/&#34;&gt;strong supporter&lt;/a&gt; of the &lt;a href=&#34;https://fastlane.tools&#34;&gt;fastlane&lt;/a&gt; toolset. I think it fixes a lot of common developer problems, in a space that Apple doesn&amp;rsquo;t really touch. The command line.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve added hints of fastlane to our apps at different rates, &lt;a href=&#34;https://github.com/artsy/eidolon/&#34;&gt;Eidolon&lt;/a&gt; uses fastlane for everything but &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;/&lt;a href=&#34;https://github.com/artsy/energy&#34;&gt;Energy&lt;/a&gt;/&lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Emergence&lt;/a&gt; have been pretty slow on the uptake, though they have more complicated setups, being App Store apps.&lt;/p&gt;
+
+&lt;p&gt;When &lt;a href=&#34;https://krausefx.com/&#34;&gt;Felix&lt;/a&gt; announced &lt;a href=&#34;https://krausefx.com/blog/introducing-match-a-new-approach-to-code-signing&#34;&gt;match&lt;/a&gt; this week, I felt like he tackled a problem we face in our &lt;a href=&#34;http://artsy.net/job/mobile-engineer&#34;&gt;small dev team&lt;/a&gt;. I integrated this, only to find that it could also fix my problems with deployment. The rest of this post goes into the &amp;ldquo;how I did this.&amp;rdquo; You can also cheat and look at the &lt;a href=&#34;https://github.com/artsy/eigen/compare/d06270882aadec8f03927455a5229b53dd0a73c8...9eaf9082ebdcdf75f12ad2804260587e01526f2d&#34;&gt;commits&lt;/a&gt; directly.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

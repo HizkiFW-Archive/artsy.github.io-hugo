@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Responsive Layouts with CSS3 // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="mattm">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Responsive Layouts with CSS3" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#the-philosophy">The Philosophy</a></li>
+<li><a href="#media-queries">Media Queries</a></li>
+<li><a href="#making-it-cross-browser">Making It Cross-Browser</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/">Responsive Layouts with CSS3</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">mattm</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Design" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Design">Design</a>
+				
+					<a class="post-category post-category-CSS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/CSS">CSS</a>
+				
+					<a class="post-category post-category-HTML5" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/HTML5">HTML5</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>All of the <a href="http://sass-lang.com/">SCSS</a> stylesheets used to design this blog compile down to one file (view the source of this page and check out screen.css), and there isn&rsquo;t any JavaScript affecting the layout. But there are really three versions of this page. If you&rsquo;re reading this on a smartphone, what you see is almost entirely different from what you would see if you were reading this in a full screen browser. If you&rsquo;re on a computer, try making this page full screen and slowly resize it to make it smaller. You&rsquo;ll first notice that the Artsy logo disappears just before it would cover the text in the main column. Keep reducing the viewport and eventually the page will snap into a mobile format with the Artsy logo centered at the top, followed by the centered header text and mobile search box all above the index of recent posts.</p>
+
+<h2 id="the-philosophy">The Philosophy</h2>
+
+<p>Why bother? It&rsquo;s true that smartphone web browsers are pretty advanced and certainly can handle rendering the full version of this blog. But there&rsquo;s a big difference between ensuring a site works and creating a good experience for your audience regardless of the device they&rsquo;re using. If anything, advances in the mobile web make responsive layouts like the one on this blog even more necessary — as it becomes more and more likely that your users are viewing your site on a handheld screen, it becomes less acceptable to force your audience to zoom way into your page and follow the text with their thumbs.</p>
+
+<p>The key to a good mobile design is to fix at least one axis — it&rsquo;s fine if the user has to scroll down or to the right to see the rest of the content, but making the user scroll diagonally means that the layout doesn&rsquo;t fit the screen. For text-heavy sites like this blog, it&rsquo;s best to just allow vertical scrolling. Aside from this consideration, links, text fields, and buttons must be large enough to allow for easy navigation with thumbs. The font size may need to be adjusted to optimize viewing on a mobile screen. On a Mac, you can use mobile Safari on the iPhone Simulator that comes with <a href="http://developer.apple.com/xcode/">Xcode</a> to see how your site will look on a phone.</p>
+
+<h2 id="media-queries">Media Queries</h2>
+
+<p>The good news is that these responsive layouts aren&rsquo;t difficult to implement. When I set out to theme this <a href="http://octopress.org/">Octopress</a> blog, our designer gave me two comps, one for the full version of the site and the other for the mobile version. The first step towards a responsive layout is to notice common elements between the two designs. If you compare the two versions of the blog, you&rsquo;ll notice that they contain essentially the same content. This means that we need only one template file for both designs, and definitely do not need to resort to creating a whole mobile subdomain to serve different content to small screens. For elements that aren&rsquo;t the same in the two designs, we can simply hide them by setting <code>display: none</code> for devices where the elements shouldn&rsquo;t be shown. I used this technique in a couple of places on the blog: the right sidebar is hidden on the mobile version, while the mobile search bar (which differs from the search bar on the side in that it has placeholder text and appears in the main content <code>div</code>) isn&rsquo;t displayed on the full version of the site.</p>
+
+<p>But how do you apply different styles to the same elements depending on the size of the browser&rsquo;s viewport? There are a couple of ways, but by far the cleanest way is to use CSS3 media queries. Media queries allow developers to apply different styles to elements on a page depending on the media on which they are displayed, whether that medium is a screen, a projection, print, braille, etc. The most common use of media queries, however, is to create responsive layouts. Media queries come after an <code>@media</code> declaration. Directly after comes the definition of the media type: we&rsquo;re concerned with creating responsive layouts for screens, and as a result, we&rsquo;ll declare our styles under <code>@media screen</code>. To apply custom styles based on the size of the screen, we&rsquo;ll use media features, which come after the keyword <code>and</code> and are enclosed in parentheses. Here&rsquo;s the SCSS code used to style the Artsy logo on this blog:</p>
+
+<pre><code class="language-scss">    #lrg-mark {
+        background-image: url(&quot;../images/Logo.png&quot;);
+        background-repeat: no-repeat;
+        display: block;
+        height: 92px;
+        width: 249px;
+
+        span {
+          display: none;
+        }
+
+        @media screen and (min-width: 482px) {
+          left: 35px;
+          position: fixed;
+          top: 15px;
+        }
+        @media screen and (max-width: 1280px) and (min-width: 482px) {
+          display: none;
+        }
+        @media screen and (max-width: 481px) {
+          margin: 0 auto 20px auto;
+          background-position: center top;
+        }
+    }
+</code></pre>
+
+<p>The styles that are common to all viewports are written outside of <code>@media</code> declarations at the top of the styles for <code>#lrg-mark</code> — regardless of the screen size, we want the logo to be the same image and the same size, and we don&rsquo;t want to display the span inside of the div that contains fallback text. The rest of the styles are given in media queries: for a large viewport, we want the logo fixed in the upper right corner, for slightly smaller viewports, we want it to disappear, and for mobile viewports, we want it centered on the screen. Note that 481px is a magic number: it&rsquo;s the width of an iPhone in landscape mode.</p>
+
+<p>The media features <code>max-width</code> and <code>min-width</code> are a little misleading: they don&rsquo;t mean the maximum or minimum possible width of the user&rsquo;s screen. It&rsquo;s best to think of <code>max-</code> as &ldquo;less-than-or-equal-to&rdquo; and <code>min-</code> as &ldquo;greater-than-or-equal-to.&rdquo; See <a href="http://www.w3.org/TR/css3-mediaqueries/">the W3C&rsquo;s website</a> for a complete reference on CSS media queries.</p>
+
+<h2 id="making-it-cross-browser">Making It Cross-Browser</h2>
+
+<p>CSS3 media queries are awesome, but even though all the latest versions of the major browsers support them, it&rsquo;s very likely that a portion of your site&rsquo;s visitors will be using browsers that don&rsquo;t support these new CSS features. Luckily, this problem has already been solved by great people who like to give away things for free. Just include <a href="https://github.com/Modernizr/Modernizr">modernizr.js</a> on your page, and it will provide a JavaScript fallback for media queries, as well as for many other potentially unsupported CSS3 features.</p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/">Octopress and Jekyll</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/01/05/hello-world/">Hello World</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

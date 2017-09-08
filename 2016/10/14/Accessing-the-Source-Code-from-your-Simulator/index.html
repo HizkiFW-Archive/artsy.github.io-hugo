@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Accessing the app&#39;s Source Code from your Simulator // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Accessing the app&#39;s Source Code from your Simulator" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#root-react-components">Root React Components</a></li>
+<li><a href="#submodule-introspection">Submodule Introspection</a></li>
+<li><a href="#tooling">Tooling</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/">Accessing the app&#39;s Source Code from your Simulator</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+				
+					<a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+				
+					<a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>In the last few months twice I&rsquo;ve wanted to access the source code of our application. The first time I did it I came up with a pretty neat hack, but it wouldn&rsquo;t really work in many places. The second time however, I <a href="https://twitter.com/orta/status/786470282093625344">asked the internet</a>, and the <a href="https://twitter.com/saniul/status/786470857635827712">internet</a> <a href="https://twitter.com/0xced/status/786619335116750848">replied</a>.</p>
+
+<p>TLDR: You can use your <a href="https://github.com/artsy/emission/pull/350/commits/2a39c743bcaaf2e3b848ad60621198f40365fdd2">project&rsquo;s scheme</a> to expose derived Xcode environment variables to your source code.</p>
+
+<p>The rest of the blog post is a little bit about <em>why</em> I wanted to do that and what I did with it.</p>
+
+<p></p>
+
+<p>Both times I&rsquo;ve wanted to access the source code of our apps is because I&rsquo;ve wanted to make better admin tools. It should come as no surprise to people who know me that I care about tooling, but I also care a lot about making it possible for our admins to do their own thing. As such, our <a href="https://github.com/artsy/eigen/blob/master/Artsy/View_Controllers/Admin/ARAdminSettingsViewController.m">admin settings panel</a> in Eigen is extensive.</p>
+
+<h3 id="root-react-components">Root React Components</h3>
+
+<p>The first time came when I started to think about what admin options I&rsquo;d like to see for people using our React Native side. These are the options I came up with:</p>
+
+<p><img src="/images/source-code-sim/react-admin-eigen.png" alt="/images/source-code-sim/react-admin-eigen.png" /></p>
+
+<p>There are two interesting things about it:</p>
+
+<ul>
+<li>We support running any master commit of our React Native code inside Eigen, for Admins, <a href="https://apphub.io">via AppHub</a></li>
+<li>We allow loading arbitrary React components as an admin.</li>
+</ul>
+
+<p>It&rsquo;s this last bit that&rsquo;s interesting, right now I&rsquo;m working on a new root Gene component (read: new view controller) in Emission, our React Native implementation. As this work has not moved upstream into Eigen, I can access it through a commit on AppHub, and then open it using our custom module loader:</p>
+
+<p><img src="/images/source-code-sim/react-module-eigen.png" alt="/images/source-code-sim/react-module-eigen.png" /></p>
+
+<p>In order to show the available root components (Artist/Home/Gene), we use GitHub&rsquo;s raw URLs to download the source code of our Open Source apps. Hah, a nice hack right? I <a href="https://github.com/artsy/eigen/blob/master/Artsy/View_Controllers/Admin/ARAdminNetworkModel.m">created</a> a <code>ARAdminNetworkModel</code> with an API like this:</p>
+
+<pre><code class="language-objc">@interface ARAdminNetworkModel : NSObject
+
+- (void)getEmissionJSON:(NSString *)path completion:(void (^)(NSDictionary *json, NSError *error))completion;
+
+- (void)getEmissionFile:(NSString *)path completion:(void (^)(NSString *fileContents, NSError *error))completion;
+
+@end
+</code></pre>
+
+<p>Which simply uses <code>NSURLSession</code> under the hood:</p>
+
+<pre><code class="language-objc">- (void)getEmissionData:(NSString *)path completion:(void (^)(NSData *data, NSError *error))completion;
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSString *urlFormat = @&quot;https://raw.githubusercontent.com/artsy/emission/master/%@&quot;;
+    NSString *url = [NSString stringWithFormat: urlFormat, path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            completion(data, error);
+    }];
+    [task resume];
+}
+</code></pre>
+
+<p>Nothing special, but it required a cognitive jump to get there.</p>
+
+<h3 id="submodule-introspection">Submodule Introspection</h3>
+
+<p>The second time I wanted this is inside <a href="https://github.com/artsy/emission/tree/master/Example">the example app</a> for Emission. This is a typical example application for a library made by <code>pod lib create</code>. This example app is basically just the admin settings panel from Eigen, shown above.</p>
+
+<p>When I <a href="https://github.com/artsy/emission/pull/347">switched the</a> example app to use a similar theme and menu DSL as Eigen, I also took the chance to expand on the buttons we had available. Previously there was the ability to load the view controller for one specific artist, but I knew we had a <a href="https://github.com/artsy/metaphysics/blob/master/schema/artist/maps/artist_title_slugs.js">giant list of artist slugs</a> inside one of our optional sub-modules. What I wanted to do, was offer a random Artist from that if the submodule was <code>init</code>&rsquo;d.</p>
+
+<p>This required introspecting the source, which I could have also done via the GitHub API, but it was also feasible to do by accessing the filesystem outside of the simulator. This is totally possible ( and is <a href="https://www.objc.io/issues/15-testing/snapshot-testing/">how FBSnapshots works</a> ) but I needed to access the project root, then I could build relative links. Thus, <a href="https://twitter.com/orta/status/786470282093625344">I asked the internet</a>. I knew these variables existed, but that they were a part of the build process - and not exposed to the app runtime.</p>
+
+<p>There are two ways to do it, both make sense for different contexts:</p>
+
+<ul>
+<li><a href="https://github.com/artsy/emission/blob/74d0bc6cc45da906436f8bbc33710ea030657ee8/Example/Emission/Info.plist#L5-L6">Baking the value into your Info.plist</a> - which makes it available for all consumers at runtime, e.g. you could deploy this value, but it&rsquo;s not too useful for my problem.</li>
+<li><a href="https://github.com/artsy/emission/pull/350/commits/2a39c743bcaaf2e3b848ad60621198f40365fdd2">Exposing it as an environment variable via your scheme</a> - perfect for this case, the variable won&rsquo;t be exported when you deploy.<br /></li>
+</ul>
+
+<p>Now our scheme looks like this:</p>
+
+<p>{% expanded_img /images/source-code-sim/scheme-settings-emission.png %}</p>
+
+<p>I can then use the value of <code>SRCROOT</code> as the start of an absolute path to get to any of the source code in our project. Making the <a href="https://github.com/artsy/emission/blob/dda57636e424ab7d4517de57f3e8bd917fcb3c6f/Example/Emission/ARRootViewController.m#L85-L108">final code</a>:</p>
+
+<pre><code class="language-obj-c">- (ARCellData *)jumpToRandomArtist
+{
+  NSString *sourceRoot = [NSProcessInfo processInfo].environment[@&quot;SRCROOT&quot;];
+  NSString *artistListFromExample = @&quot;../externals/metaphysics/schema/artist/maps/artist_title_slugs.js&quot;;
+  NSString *slugsPath = [sourceRoot stringByAppendingPathComponent:artistListFromExample];
+
+  NSFileManager *manager = [NSFileManager defaultManager];
+
+  // Don't have the submodule? bail, it's no biggie
+  if (![manager fileExistsAtPath:slugsPath]) { return nil; }
+
+  // Otherwise lets support jumping to a random Artist
+  return [self tappableCellDataWithTitle:@&quot;Artist (random from metaphysics)&quot; selection: ^{
+    NSString *data = [NSString stringWithContentsOfFile:slugsPath encoding:NSUTF8StringEncoding error:nil];
+
+    ... and so on
+</code></pre>
+
+<h3 id="tooling">Tooling</h3>
+
+<p>Paying attention to your admin tools, and improving your development experience for the whole team is a great way to win friends and influence people. Introspecting your source code may help that.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/">JSON Web Tokens: Artsy&#39;s Journey</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/10/10/Help-Im-becoming-Post-Junior/">Help! I&#39;m becoming Post-Junior</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/tools/</link>
+    <description>Recent content in Tools on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Releasecop Tracks Stale Releases</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</guid>
+      <description>&lt;p&gt;Artsy practices a sort of &lt;a href=&#34;http://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;continuous delivery&lt;/a&gt;. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices &lt;a href=&#34;http://artsy.github.io/blog/categories/testing/&#34;&gt;multiple&lt;/a&gt; &lt;a href=&#34;http://artsy.github.io/blog/categories/continuous-integration&#34;&gt;times&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From developers&amp;rsquo; working branches&lt;/li&gt;
+&lt;li&gt;To the master branch&lt;/li&gt;
+&lt;li&gt;Through a hopefully-successful build&lt;/li&gt;
+&lt;li&gt;To a staging environment&lt;/li&gt;
+&lt;li&gt;To production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The number of apps and services we deploy has grown to &lt;em&gt;dozens&lt;/em&gt; per team, so sometimes things fall through the cracks. We&amp;rsquo;ve been using &lt;a href=&#34;https://github.com/joeyAghion/releasecop&#34;&gt;Releasecop&lt;/a&gt; for the last few months to get gentle email reminders when an environment could use a deploy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How Artsy Uses GitHub to Build Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/</link>
+      <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/</guid>
+      <description>Zach Holman gave a good talk on How GitHub uses GitHub to build GitHub at Rubyconf. It was great to hear how similar our own processes are at Artsy, with a few notable differences.
+Artsy engineers store almost everything on GitHub. We use GitHub Wikis, but don&amp;rsquo;t use GitHub Issues much. We work in 3-week sprints with Pivotal Tracker instead. This blog is on GitHub. And, of course, we have our own Hubot which feeds funny animated GIFs after each successful deploy to our IRC channel.</description>
+    </item>
+    
+  </channel>
+</rss>

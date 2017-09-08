@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rest on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/rest/</link>
+    <description>Recent content in Rest on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Jun 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/rest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RESTful API Caching with Garner</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</link>
+      <pubDate>Sat, 23 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</guid>
+      <description>&lt;p&gt;Implementing server-side RESTful API caching is hard. In a straightforward API all the expiry decisions can be made automatically based on the URL, but most real world APIs that add requirements around object relationships or user authorization make caching particularly challenging.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;http://goruco.com/&#34;&gt;GoRuCo&lt;/a&gt; we open-sourced &lt;a href=&#34;http://github.com/artsy/garner&#34;&gt;Garner&lt;/a&gt;, a cache implementation of the concepts described in this post. To &amp;ldquo;garner&amp;rdquo; means to gather data from various sources and to make it readily available in one place, kind-of like a cache! Garner works today with the &lt;a href=&#34;http://github.com/intridea/grape&#34;&gt;Grape API framework&lt;/a&gt; and the &lt;a href=&#34;http://github.com/mongoid/mongoid&#34;&gt;Mongoid ODM&lt;/a&gt;. We encourage you to fork the project, extend our library to other systems and contribute your code back, if you find it useful.&lt;/p&gt;
+
+&lt;p&gt;Garner implements the Artsy API caching cookbook that has been tried by fire in production.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Data Corruption and Concurrent Updates to Embedded Objects with MongoDB // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Data Corruption and Concurrent Updates to Embedded Objects with MongoDB" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#data-model">Data Model</a></li>
+<li><a href="#incomplete-record-corruption">Incomplete Record Corruption</a></li>
+<li><a href="#null-record-corruption">Null Record Corruption</a></li>
+<li><a href="#solutions">Solutions</a></li>
+<li><a href="#links">Links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/">Data Corruption and Concurrent Updates to Embedded Objects with MongoDB</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+				
+					<a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>We use <a href="http://www.mongodb.org/">MongoDB</a> at Artsy as our primary data store via the <a href="http://mongoid.org/">Mongoid ODM</a>. Eventually, we started noticing data corruption inside embedded objects at an alarming rate of 2-3 records a day. The number of occurrences increased rapidly with load as our user growth accelerated.</p>
+
+<p>The root cause was not a HN-worthy sensational declaration about how MongoDB trashes data, but our lack of understanding of what can and cannot be concurrently written to the database, neatly hidden behind the object data mapping layer.</p>
+
+<p></p>
+
+<h3 id="data-model">Data Model</h3>
+
+<p>Consider the following artwork model with embedded images.</p>
+
+<pre><code class="language-ruby">class Artwork
+  include Mongoid::Document
+  field :title, type: String
+  embeds_many :images
+end
+
+class Image
+  include Mongoid::Document
+  embedded_in :artwork
+  field :filename, type: String
+  field :width, type: Integer  
+  field :height, type: Integer
+end
+</code></pre>
+
+<p>Let&rsquo;s create a few objects and examine the database queries executed when constructing this relationship by setting a <code>DEBUG</code> logger level on the Moped driver used underneath the ODM.</p>
+
+<pre><code class="language-ruby">Moped.logger = Logger.new($stdout)
+Moped.logger.level = Logger::DEBUG
+
+# db.artworks.insert({
+#   _id: ObjectId(&quot;510f22c5db8e540aab000001&quot;),
+#   title: &quot;Mona Lisa&quot;
+# })
+artwork = Artwork.create!(title: &quot;Mona Lisa&quot;)
+
+image1 = Image.new(filename: &quot;framed.jpg&quot;)
+
+# db.artworks.update(
+#   { _id: ObjectId(&quot;510f22c5db8e540aab000001&quot;) },
+#   { $push :
+#     { images:
+#       {
+#         _id: ObjectId(&quot;510f22c5db8e540aab000002&quot;),
+#         filename: &quot;framed.jpg&quot;
+#       }
+#     }
+#   }
+# )
+artwork.images &lt;&lt; image1
+
+image2 = Image.new(filename: &quot;unframed.jpg&quot;)
+# db.artworks.update(
+#   { _id: ObjectId(&quot;510f22c5db8e540aab000001&quot;) },
+#   { $push :
+#     { images:
+#       {
+#         _id: ObjectId(&quot;510f22c5db8e540aab000003&quot;),
+#         filename: &quot;unframed.jpg&quot;
+#       }
+#     }
+#   }
+# )
+artwork.images &lt;&lt; image2
+</code></pre>
+
+<p>Here&rsquo;s the artwork data in MongoDB retrieved from a <code>mongo</code> shell:</p>
+
+<pre><code>&gt; db.artworks.findOne()
+{
+  &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000001&quot;),
+  &quot;title&quot; : &quot;Mona Lisa&quot;,
+  &quot;images&quot; : [
+    {
+      &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000002&quot;),
+      &quot;filename&quot; : &quot;framed.jpg&quot;
+    },
+    {
+      &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000003&quot;),
+      &quot;filename&quot; : &quot;unframed.jpg&quot;
+    }
+  ]
+}
+</code></pre>
+
+<p>We can modify the attributes of the second image.</p>
+
+<pre><code class="language-ruby"># db.artworks.update(
+#   { _id: ObjectId(&quot;510f22c5db8e540aab000001&quot;) },
+#   { $set : { &quot;images.1.width&quot; : 30, &quot;images.1.height&quot; : 40 } }
+# )
+image2.update_attributes!(width: 30, height: 40)
+</code></pre>
+
+<p>The image has been updated correctly.</p>
+
+<pre><code>&gt; db.artworks.findOne()
+{
+  &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000001&quot;),
+  &quot;title&quot; : &quot;Mona Lisa&quot;,
+  &quot;images&quot; : [
+    {
+      &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000002&quot;),
+      &quot;filename&quot; : &quot;framed.jpg&quot;
+    },
+    {
+      &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000003&quot;),
+      &quot;filename&quot; : &quot;unframed.jpg&quot;,
+      &quot;height&quot; : 40,
+      &quot;width&quot; : 30
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="incomplete-record-corruption">Incomplete Record Corruption</h3>
+
+<p>Examining the query you will notice that it uses a so-called &ldquo;positional&rdquo; operator, <code>images.1.width</code> to update the second record. Imagine what would happen if the first record was deleted from another process immediately before the update. That&rsquo;s right, the update will be performed on a record that doesn&rsquo;t exist, in which case the default MongoDB behavior is to create it!</p>
+
+<p>We can simulate this by loading the object in Ruby, pulling the first record directly from the database and then performing the update.</p>
+
+<pre><code class="language-ruby">artwork.images &lt;&lt; image2
+
+# pull the first artwork directly from the database
+Artwork.collection.where(_id: artwork.id).update(
+  &quot;$pull&quot; =&gt; { &quot;images&quot; =&gt; { _id: image1.id } })
+
+image2.update_attributes!(width: 30, height: 40)
+</code></pre>
+
+<p>This yields a nasty surprise. We now have two records in the embedded collection, the second one missing an <code>_id</code>.</p>
+
+<pre><code>&gt; db.artworks.findOne()
+{
+  &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000001&quot;),
+  &quot;title&quot; : &quot;Mona Lisa&quot;,
+  &quot;images&quot; : [
+    {
+      &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000003&quot;),
+      &quot;filename&quot; : &quot;unframed.jpg&quot;
+    },
+    {
+      &quot;height&quot; : 40,
+      &quot;width&quot; : 30
+    }
+  ]
+}
+</code></pre>
+
+<p>When reloaded, Mongoid will assign an automatic <code>_id</code> to the second object, the correct height and width, but no filename.</p>
+
+<h3 id="null-record-corruption">Null Record Corruption</h3>
+
+<p>A similar scenario can play out by pulling both image records out of the embedded collection and making a positional update. This will create a <code>null</code> record, which is much worse, because Mongoid can&rsquo;t even destroy it, attempting to pull a record with an <code>_id</code> that does not exist.</p>
+
+<pre><code class="language-ruby">artwork.images &lt;&lt; image2
+
+Artwork.collection.where(_id: artwork.id).update(
+  &quot;$pull&quot; =&gt; { &quot;images&quot; =&gt; { _id: image1.id } })
+Artwork.collection.where(_id: artwork.id).update(
+  &quot;$pull&quot; =&gt; { &quot;images&quot; =&gt; { _id: image2.id } })
+
+image2.update_attributes!(width: 30, height: 40)
+</code></pre>
+
+<pre><code>&gt; db.artworks.findOne()
+{
+  &quot;_id&quot; : ObjectId(&quot;510f22c5db8e540aab000001&quot;),
+  &quot;title&quot; : &quot;Mona Lisa&quot;
+  &quot;images&quot; : [
+    null,
+    {
+      &quot;height&quot; : 40,
+      &quot;width&quot; : 30
+    }
+  ],
+}
+</code></pre>
+
+<h3 id="solutions">Solutions</h3>
+
+<p>A first obvious solution is not to use embedded objects or to never modify them. Both <code>$push</code> and <code>$pull</code> are atomic operations, but not the positional update.</p>
+
+<p>A general solution to this problem is to make all update operations transactional. You can take a lock on the parent model by using <a href="https://github.com/afeld/mongoid-locker">mongoid-locker</a>. It works, but can be quite tedious depending on the complexity of your application.</p>
+
+<p>Finally, MongoDB supports something called a &ldquo;positional operator&rdquo; for embedded objects. This means you can atomically update a record found by its embedded object&rsquo;s field using a reference to the position of that embedded object. This solves our problem, as long as the object is not embedded below the first level. Mongoid 3.1 (currently HEAD) implements this behavior by default (see <a href="https://github.com/mongoid/mongoid/issues/2545">#2545</a> for details), adjusting the selector to look for the embedded object&rsquo;s <code>_id</code> and replacing the position with a <code>$</code> positional operator.</p>
+
+<pre><code class="language-ruby"># db.artworks.update(
+#   {
+#     _id: ObjectId(&quot;510f22c5db8e540aab000001&quot;),
+#     &quot;images._id&quot; : ObjectId(&quot;510f22c5db8e540aab000003&quot;)
+#   },
+#   { $set : { &quot;images.$.width&quot; : 30, &quot;images.$.height&quot; : 40 }}
+# )
+image2.update_attributes!(width: 30, height: 40)
+</code></pre>
+
+<p>We&rsquo;ve been successfully running this in production for a few weeks now, without any more data corruption issues.</p>
+
+<p>While this is a huge step forward, covering all of our application&rsquo;s scenarios, we would like complete native support for atomic updates inside MongoDB at all levels of nesting. Please add your +1 to <a href="https://jira.mongodb.org/browse/SERVER-831">SERVER-831</a>.</p>
+
+<h3 id="links">Links</h3>
+
+<ul>
+<li><a href="https://gist.github.com/dblock/4699070">Code to Detect Corrupt Embedded Objects</a></li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-831">MongoDB SERVER-831: Positional Operator Matching Nested Arrays</a></li>
+<li><a href="https://github.com/mongoid/mongoid/issues/2545">Mongoid #2545: Use $ Positional Operator for Updating Embedded Documents</a></li>
+<li><a href="https://github.com/dblock/mongoid/tree/master-issues/spec/dblock">Repro Specs for Mongoid #2545 and Similar</a></li>
+</ul>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/">Infinite Scroll with MongoDB</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/02/01/master-heroku-command-line-with-heroku-commander/">Master the Heroku CLI with Heroku Commander</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

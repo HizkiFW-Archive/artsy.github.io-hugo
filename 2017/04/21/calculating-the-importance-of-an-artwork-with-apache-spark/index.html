@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Calculating the Importance of an Artwork with Apache Spark // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Calculating the Importance of an Artwork with Apache Spark" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/04/21/calculating-the-importance-of-an-artwork-with-apache-spark/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#extracting-features">Extracting Features</a></li>
+<li><a href="#normalizing-and-weighing-features">Normalizing and Weighing Features</a></li>
+<li><a href="#scoring-artworks">Scoring Artworks</a></li>
+<li><a href="#storing-data">Storing Data</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/04/21/calculating-the-importance-of-an-artwork-with-apache-spark/">Calculating the Importance of an Artwork with Apache Spark</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Big-Data" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Big-Data">Big Data</a>
+				
+					<a class="post-category post-category-Apache-Spark" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Apache-Spark">Apache Spark</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>How important is a single artwork within the artist&rsquo;s body of work? At Artsy we try to answer this question by extracting and scoring a set of features across roughly one million artworks. We call it an <em>iconicity</em> score and we calculate that in Apache Spark for the entire dataset in under 5 minutes.</p>
+
+<p></p>
+
+<h3 id="extracting-features">Extracting Features</h3>
+
+<p>First, we retrieve artwork features (eg. artwork size or number of users that liked the work), artist features (eg. number of users following an artist), the origin of the work (eg. the work is in a museum) and art genome data (eg. an art historically important sculpture) from HDFS using Hive. Here&rsquo;s a subset of the query.</p>
+
+<pre><code class="language-scala">case class Artwork(
+  val id: Int,
+  val partnerType: String,
+  val artistFollowsCount: Long = 0
+) = {
+  def isMuseumWork: Boolean = {
+    partnerType == &quot;museum&quot;
+  }
+}
+
+def getArtworks(hc: HiveContext): RDD[Artwork] = {
+  hc.sql(
+    s&quot;&quot;&quot;
+     |SELECT
+     |  artwork.id,
+     |  partner.type,
+     |  artist_follows_count,
+     |FROM
+     |  db.artworks AS artwork
+     |LEFT JOIN db.partners partner
+     |  ON partner.id = partner_id
+     |LEFT JOIN db.artists artist
+     |  ON artist.id = artwork.artist_id
+     |LEFT JOIN (
+     |  SELECT follow_artists.artist_id, COUNT(*) AS artist_follows_count FROM db.follow_artists GROUP BY follow_artists.artist_id
+     |) artist_follows_count ON artist_follows_count.artist_id = artwork.artist_id
+    &quot;&quot;&quot;.stripMargin
+  ).rdd.map {
+    row =&gt;
+      Artwork(
+        id = row.getString(0)
+        partnerType = row.getString(1)
+        artistFollowsCount = row.getLong(2)
+      )
+  }
+}
+</code></pre>
+
+<p>Some features are binary and others require minor transforms. For example, the fact that the work belongs to a museum scores 1, and otherwise scores a 0.</p>
+
+<pre><code class="language-scala">case class Features(
+  val artworkId: Int,
+  val artistFollowsCount: Long = 0,
+  val isMuseumWork: Int = 0
+)
+
+def extractFeatures(artworks: RDD[Artwork]): RDD[Features] = {
+  artworks.map { artwork =&gt;
+    Features(
+      artworkId = artwork.id,
+      artistFollowsCount = artwork.artistFollowsCount,
+      isMuseumWork = if (artwork.isMuseumWork) 1 else 0
+    )
+  }
+}
+</code></pre>
+
+<p>Features are packed in a vector to become usable by the built-in Spark functions.</p>
+
+<pre><code class="language-scala">case class Features(
+   ...
+) = {
+  def vector: Vector = {
+    Vectors.dense(
+      numArtistFollowers.toDouble,
+      isMuseumWork.toDouble
+    )
+  }
+}
+</code></pre>
+
+<h3 id="normalizing-and-weighing-features">Normalizing and Weighing Features</h3>
+
+<p>Since having 10,000 artist followers doesn&rsquo;t make a work 10,000 times more important than the fact that it belongs to a museum, we must normalize them for unit variance across the entire data set. This is also a good time to weigh some features more than others according to our understanding of the art world.</p>
+
+<pre><code class="language-scala">import org.apache.spark.mllib.feature._
+import org.apache.spark.mllib.linalg._
+
+def normalize(features: RDD[Features]): RDD[(Int, Vector)] = {
+  val scaler = new StandardScaler().fit(features.map(f =&gt; f.vector))
+
+  val weightAdjuster = new ElementwiseProduct(Vectors.dense(
+    0.5, // number of users following an artist is a popularity contest
+    2.0  // having a work in a museum is a big deal
+  ))
+
+  features.map { f =&gt;
+    (
+      f.artworkId,
+      weightAdjuster.transform(
+        scaler.transform(f.vector)
+      )
+    )
+  }
+}
+</code></pre>
+
+<h3 id="scoring-artworks">Scoring Artworks</h3>
+
+<p>The score is just the sum of the normalized and weighted features.</p>
+
+<pre><code class="language-scala">def score(normalizedFeatures: RDD[(Int, Vector)]): RDD[(Int, Double)] = {
+  normalizedFeatures.map {
+    f =&gt; (f._1, f._2.toArray.sum)
+  }
+}
+</code></pre>
+
+<h3 id="storing-data">Storing Data</h3>
+
+<p>We write this data in JSON format to S3, then load it in a system that serves the Artsy API.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>In our dataset this creates a nice distribution. Here&rsquo;s an example of iconicity across <a href="https://www.artsy.net/artist/banksy/works">works by the street artist Banksy</a>.</p>
+
+<p><img src="/images/2017-04-21-calculating-the-importance-of-an-artwork-with-apache-spark/banksy-iconicity.png" alt="banksy iconicity" /></p>
+
+<p>We notably sort works by iconicity in <a href="https://www.artsy.net/search?q=banksy">search results</a> and in the carousel on top of artist pages. We also have made it available in our <a href="https://developers.artsy.net">public API</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/04/26/Relay-Mutations/">Relay Mutations</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/">Artsy&#39;s Technology Stack, 2017</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

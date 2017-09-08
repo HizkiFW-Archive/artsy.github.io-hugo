@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Teaching Swift at Artsy // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Teaching Swift at Artsy" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/26/swift-at-artsy/">Teaching Swift at Artsy</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-review" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/review">review</a>
+				
+					<a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+				
+					<a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+				
+					<a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+				
+					<a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+				
+					<a class="post-category post-category-teaching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching">teaching</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.</p>
+
+<p></p>
+
+<p>Like most project ideas, the first step was to create a <a href="https://github.com/orta/Swift-at-Artsy">GitHub repo</a>. We made it open source because <a href="http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html">why not</a>. Orta and I chatted and realized that to teach the company Swift, we would need two tracks:</p>
+
+<ul>
+<li>A track for newcomers who may have never programmed before.</li>
+<li>A track for anyone who could explain what &ldquo;object-oriented programming&rdquo; meant.</li>
+</ul>
+
+<p>It was really important to us to include beginners who had no exposure to programming – the digital marketing and genoming teams specifically were keen to learn how to program.</p>
+
+<p>I&rsquo;m a big believer in using &ldquo;newcomer&rdquo; and &ldquo;informed&rdquo; to describe the two groups of developers – it helps prevent newcomers from feeling inadequate and better describes the expectations for students.</p>
+
+<p>We also focused on Swift-only, no iOS. That allowed us to focus on the language – which was fun because it let us focus on us learning new stuff, too – and we kept the course to five one-hour sessions (per track).</p>
+
+<p>Next step was obviously to create a Slack chatroom. We re-purposed the oft-neglected room dedicated to Taylor Swift and turned it into a place where anyone could ask questions and share resources. It&rsquo;s also a helpful place to @channel everyone to remind them about the classes.</p>
+
+<p>{% expanded_img /images/2016-01-26-swift-at-artsy/chatroom.png %}</p>
+
+<p>Orta taught the beginner course and I TA&rsquo;d it, answering questions as he instructed and offering suggestions when I felt something should be clarified (kind of like pair-programming except for teaching). We switched roles for the informed class. Preparing course materials was done through GitHub pull requests, which integrated well into our existing workflow on the mobile team.</p>
+
+<p>We ran into some troubles in the first classes of both tracks: Swift 2 was in beta, and getting everyone on the correct versions of Xcode proved&hellip; difficult. Keeping them up-to-date as Xcode betas continued to be released over five weeks was also challenging. This was a problem in both tracks, but some problems were track-specific.</p>
+
+<p>Explaining fundamental concepts like variables and for-loops to beginners is challenging. It reminded me of when I TA&rsquo;d intro-to-Java courses in University (while the code then was obviously much uglier, <code>javac</code> is arguably more user-friendly than Xcode). Having the pair-programming approach worked well to help explain these concepts.</p>
+
+<p>The biggest challenge with the informed class was rounding everyone up to actually attend the classes. Engineers are addicted to being busy, and like most side-projects, everyone was initially very excited about the course, but that interest dropped off quickly. Orta would help by physically going to our colleagues&rsquo; desks and gently reminding them.</p>
+
+<p>Regardless of the challenges, the course had a significant impact, both within Artsy and in the larger Swift community. Some of the course materials have been <a href="https://github.com/orta/Swift-at-Artsy/blob/master/Beginners/Lesson%20One/README_ZH.md">translated into Chinese</a> and we regularly received suggestions (and occasionally corrections) about our content. Newcomers to programming gained insights into <em>what exactly engineers do</em> and why bugs happen, while informed colleagues saw parallels between Swift and their own favourite languages (most often Scala). The course materials have also helped other mobile team members (who usually write only Objective-C) get started with Swift.</p>
+
+<p>The beginner students really appreciated <a href="https://github.com/orta/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three">lesson three</a> because we used real-world (scaled down) data structures that Artsy actually uses. We presented problems to solve – problems our colleagues were familiar with from their day-to-day work – and we showed how they can be solved with programming. <a href="https://github.com/orta/Swift-at-Artsy/tree/master/Beginners/Lesson%20Four">Lesson four </a> was the most well-received lesson as it featured some concrete &ldquo;making the computer do cool stuff&rdquo; material.</p>
+
+<p>Finally, there was just a great sense of accomplishment. Orta and I had taken time during a downtime in engineering work and turned it into something that helped the company and helped the community. We got thanked internally and externally, and that felt great; helping others has a lot of tangible benefits, but feeling good about it is one of my favourites.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/">Being a Good OSS Citizen</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/01/14/eidolon-code-review/">Code Review: Eidolon</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

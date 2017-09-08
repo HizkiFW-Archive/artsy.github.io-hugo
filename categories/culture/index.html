@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Culture // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Culture" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/09/04/Introducing-Peril/">Introducing Peril to the Artsy Org</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[orta]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+					        <a class="post-category post-category-peril" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/peril">peril</a>
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-typescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript">typescript</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Once Danger Ruby was stable enough for everyday use in 2015, it became obvious that running Danger on CI was both a
+positive and a negative. On the positive side, Danger has access to all artifacts created during testing - and on the negative
+side it takes a long time to get feedback. It was obvious that Danger could <a href="https://github.com/danger/danger/issues/42">run on a server</a>, but it was a big unknown what that could look like.</p>
+
+<p>Eventually, <a href="/blog/2017/06/30/danger-one-oh-again/">I came to the conclusion</a> that we would need a JavaScript replacement of Danger - and so I applied
+constraints to Danger JS that made a server-side version of Danger a possibility. It was a stroke of luck that around the
+time Danger JS became usable for day to day usage, that GitHub introduced <a href="https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/">GitHub Apps</a> - so I started work on Peril. Peril is server-side Danger. The rest of this post talks about how we use it Artsy today, how you can use it yourself and where it&rsquo;s heading.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/09/04/Introducing-Peril/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/">Danger</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Danger came out of two needs. One from the needs of a growing dev team working together full-time, and the other from the needs of a completely asymmetric large Open Source project.</p>
+
+<p>A work environment dev team is a complex place. You naturally grow, and to grow safely you add process. Process is a mixed bag, it&rsquo;s a net benefit at the trade-off of individual&rsquo;s time vs team cohesion. You want to grow your team guided by smart applications of process.</p>
+
+<p>On the other hand, working on a large open source project, it&rsquo;s easy to feel overwhelmed at the amount of work that needs to get done on a daily basis. The growth of your OSS team probably doesn&rsquo;t tie to the amount of work that needs to be done. Especially if you&rsquo;re like me, and you don&rsquo;t want to be maintaining OSS as a 2nd full-time job.</p>
+
+<p>So what do you do? Well in a work environment you don&rsquo;t really have a choice, as a team you hold each other to the rules that you set. In OSS, you sacrifice your spare time or you can find time at work, you could stop or you could burn out.</p>
+
+<p>And this is the environment in which the idea of Danger was incubated.</p>
+
+<p>Today mark version 1.0 of the second version of Danger. I&rsquo;m going to cover what they are, how they continue to grow and what I see their trajectory as.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/01/04/OSS-FAQ/">Open Source FAQ for Engineers</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[orta yayoi]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We have a lot of Open Source code. For engineers without considerable experience in the open source realm, understanding some of the copyright issues around code ownership can be tricky. I&rsquo;ve been working with our CTO <a href="http://artsy.github.io/author/db/">dB.</a>, and our senior counsel <a href="http://www.theartgorgeous.com/yayoi-shionoiri/">Yayoi Shionoiri</a> on creating an open-source FAQ for engineers.</p>
+
+<h3 id="what-is-open-source">What is Open Source?</h3>
+
+<p>Open Source code is code that can be freely examined, used, adapted, and shared by all through a license that sets forth these principles.  The only potential limitation that an Open Source license is likely to impose is that future copies of the code (whether in adapted or un-adapted form) be themselves licensed in a manner consistent with the original license.  At Artsy, we are committed to making our engineering work <a href="http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html">Open Source by default</a>.  A list of our Open Source projects can be <a href="http://artsy.github.io/open-source/">found here</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/01/04/OSS-FAQ/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/10/10/Help-Im-becoming-Post-Junior/">Help! I&#39;m becoming Post-Junior</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>10</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-juniors" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/juniors">juniors</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I’ve lived in NYC for 2 years now. I’ve been around long enough that some of the people I helped when they started learning have begun to feel like they’re not “Juniors” anymore.</p>
+
+<p>They have begun feeling confident in their code, their responsibilities at the company and wanting to improve both. It&rsquo;s a feeling that maybe, just maybe, <a href="https://ashfurrow.com/blog/normalizing-struggle/">you&rsquo;re not struggling to stay afloat anymore</a>.</p>
+
+<p>This post aims to be technology-agnostic, and if you sit somewhere at 1.5 - 3 years of programming experience then you’ll probably get something out of it. On top of that,  I’ll give some pragmatic JS and iOS specific tips at the end.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/10/10/Help-Im-becoming-Post-Junior/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/09/16/Dev-Interview-Maxim-Cramer/">Dev Interviews: Maxim Cramer</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[orta maxim]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-interview" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/interview">interview</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I&rsquo;m happy to introduce the next in the <a href="http://artsy.github.io/series/dev-interviews/">Dev Interviews</a> series - <a href="http://www.mennenia.com/">Maxim Cramer</a>.</p>
+
+<p>Maxim has been at Artsy for 6 month, working on our mobile app Eigen. Our interview covers how being a remote developer, advice for people at a HQ working with remotes, her work with React Native and what the future holds for the Artsy mobile team.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=ftsBR_KqHcE">to YouTube</a> for the video, or click more for a inline video.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/09/16/Dev-Interview-Maxim-Cramer/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/09/Dev-Interview-Craig-Spaeth/">Dev Interviews: Craig Spaeth</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[orta craig]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-interview" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/interview">interview</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Hello everyone! Orta here, over the summer I&rsquo;ve started a series of interviews with the entire development team at Artsy. They&rsquo;re all on different topics, notably around technical and cultural issues. I&rsquo;ve recorded a few of them already, and will be sporadically releasing them. I&rsquo;m still getting the hang of editing and recording side of this, so give me some slack.</p>
+
+<p>Anyway, I&rsquo;m pumped to introduce the first in the series - <a href="http://craigspaeth.com/">Craig Spaeth</a>.</p>
+
+<p>Craig has been at Artsy for 6 years, moving from the first on-site developer to Director of Web. Our interview covered how Artsy&rsquo;s development team has adapted over time to the changing demands of a growing company. When he joined, Artsy was 6 people, we&rsquo;re now at ~145 people, ~20 developers and 3 businesses.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=-0WK1Ebis3M">to YouTube</a> for the video, or click more for a inline video.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/09/Dev-Interview-Craig-Spaeth/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/07/03/handling-big-projects/">Handling Large OSS Projects Defensively</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I help maintain big OSS projects: from a third-party <a href="https://cocoapods.org">dependency manager</a> used in most iOS apps (<a href="https://github.com/CocoaPods/cocoapods.org">CocoaPods</a>), to the most popular Objective-C <a href="http://cocoapods.org/pods/Specta">testing framework</a> and the most popular Swift <a href="http://cocoapods.org/pods/Moya">networking API client</a>. I&rsquo;ve been doing this for years.</p>
+
+<p>Projects with this much impact are big time-sinks. This time comes from ensuring infrastructure continues to work, support tickets need replies, new code needs reviewing and releases need coordinating.</p>
+
+<p><img src="/images/2016-07-03-big-oss/danger_logo_black@2x.png" alt="" /></p>
+
+<p>Last September, almost a year ago, I started work on a new project, <a href="https://github.com/danger/danger/">Danger</a>. Danger fixes a problem we were seeing in the Artsy mobile team around adding &ldquo;<a href="https://github.com/artsy/mobile/issues/31">process</a>&rdquo; to our team.</p>
+
+<p>As a part of discussing Danger internally, I&rsquo;ve referenced that building CocoaPods has greatly influenced Danger. This blog post is about the way I&rsquo;ve built Danger, knowing fully well that I cannot afford the level of time to maintain it at the scale it may get to.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/07/03/handling-big-projects/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/03/02/Lazily-Automation/">Being a Better Programmer When You&#39;re Actually Lazy.</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>2</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-automation" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/automation">automation</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-teams" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teams">teams</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I juggle a bunch of projects, both in Artsy and in the Open Source community. If you don&rsquo;t work with me directly, you&rsquo;d be mistaken for believing that I was an organized person. I&rsquo;m pretty far from that, and <a href="https://github.com/artsy/mobile/issues/68">don&rsquo;t really</a> plan on changing that.</p>
+
+<p>However, I work with other people and very strongly believe that programming is mostly a social problem once you&rsquo;re good enough at writing code. It&rsquo;d be hypocritical of me to not improve the people process side, so I try to automate processes that makes me a better team-mate.</p>
+
+<p>I&rsquo;m going to cover four things I&rsquo;ve worked on lately to improve this: <a href="https://github.com/danger/danger/">Danger</a>, <a href="https://github.com/orta/github-clippers">GitHub-Clippers</a> and improving how I write commits and prefixing my name on branches.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/03/02/Lazily-Automation/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

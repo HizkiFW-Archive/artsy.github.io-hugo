@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    GraphQL for iOS Developers // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="GraphQL for iOS Developers" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#so-what-is-graphql">So what is GraphQL</a></li>
+<li><a href="#using-graphql">Using GraphQL</a></li>
+<li><a href="#how-graphql-changed-how-we-write-native-code">How GraphQL Changed How We Write Native Code</a>
+<ul>
+<li><a href="#view-models">View Models</a></li>
+<li><a href="#react-native">React Native</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/">GraphQL for iOS Developers</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-graphql" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/graphql">graphql</a>
+				
+					<a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>GraphQL is something you may have heard in passing, usually from the web team. It&rsquo;s a Facebook API technology, that describes itself as a <em>A Data Query Language and Runtime</em>. GraphQL is a <a href="http://facebook.github.io/graphql/">spec</a>, and there are <a href="https://github.com/chentsulin/awesome-graphql#libraries">multiple implementations</a> of it. As mobile engineers, we can consider it an API, where the front-end team have as much control as the backend.</p>
+
+<p>This blog post covers our usage of GraphQL, and what I&rsquo;ve learned in the last 3 months of using it in <a href="https://github.com/artsy/eigen/">Eigen</a>.</p>
+
+<p></p>
+
+<h3 id="so-what-is-graphql">So what is GraphQL</h3>
+
+<p>You can get the full explanation on <a href="http://graphql.org">the GraphQL website</a>. Though, I found running through <a href="https://learngraphql.com">Learn GraphQL</a> site to really hammer down how it works. Reading the <a href="https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html">introduction blog post</a> can be useful too.</p>
+
+<p>We use GraphQL as an API middle-layer. It acts as an intermediate layer between multiple front-end clients and multiple back-end APIs. This means it can easily coalesce many API calls into a single request, this can be a <em>massive</em> user experience improvement when you have a screen that requires information from varied sources before you can present anything to a user.</p>
+
+<p><img src="/images/2016-06-19-graphql-for-iOS-devs/graphQL.svg" width=100%></p>
+
+<p>As a client, you <a href="https://github.com/artsy/eigen/blob/dac7c80b66b600f9a45aaae6095544fe420f0bbc/Artsy/Networking/ARRouter.m#L1011">send</a> a &ldquo;<a href="http://graphql.org/docs/getting-started/#queries">JSON-shaped query</a>&rdquo; structure, which is hierarchical and easy to read:</p>
+
+<pre><code class="language-json">{
+  artwork(id: &quot;kimber-berry-as-close-to-magic-as-you-can-get&quot;) {
+    id
+    additional_information
+
+    is_price_hidden
+    is_inquireable
+  }
+}
+
+</code></pre>
+
+<blockquote>
+<p>This will search for a <a href="https://www.artsy.net/artwork/kimber-berry-as-close-to-magic-as-you-can-get">specific artwork</a>, sending back the Artwork&rsquo;s <code>id</code>, <code>additional_information</code>, <code>is_price_hidden</code> and <code>is_inquireable</code>.</p>
+</blockquote>
+
+<p>It&rsquo;s important to note here, the data being sent <em>back</em> is only what you ask for. This is not defined on the server as a <em>short</em> or <em>embedded</em> version of a model, but the specific data the client requested. When bandwidth and speed is crucial, this is the other way in which GraphQL improves the app-user experience.</p>
+
+<p>That&rsquo;s the two killer features:</p>
+
+<ol>
+<li>Coalesce Multiple Network Requests. Reducing the amount of network requests that need to be made.</li>
+<li>Only Send The Data You Want. Only sending the data you are interested in.</li>
+</ol>
+
+<p>With mobile apps you&rsquo;re working with unreliable, slow networks with high bandwidth costs. Optimising towards less networking with richer data means your app is more resiliant to things outside of your control.</p>
+
+<p>This is in stark contrast to existing API concepts, like <a href="http://stateless.co/hal_specification.html">HAL</a> and <a href="http://jsonapi.org">JSON-API</a> - both of which are optimised for caching, and rely on &ldquo;one model, one request&rdquo; types of API access. E.g. a list of Artworks would actually contain a list of hrefs instead of the model data, and you have to fetch each model as a separate request.</p>
+
+<h3 id="using-graphql">Using GraphQL</h3>
+
+<p>Artsy&rsquo;s GraphQL server is (unsurprisingly) open-source, it&rsquo;s at <a href="https://github.com/artsy/metaphysics">artsy/metaphysics</a>. However, it&rsquo;s not publicly accessible, (<a href="https://github.com/artsy/metaphysics/issues/279">yet?</a>). One of the coolest things about developing against a GraphQL server is GraphiQL - an IDE for exploring your API. I can&rsquo;t show you ours, but I can send you to <a href="http://clayallsopp.com">Clay Allsop&rsquo;s</a> <a href="https://www.graphqlhub.com">GraphQLHub</a>:</p>
+
+<p><a href="https://www.graphqlhub.com/playground?query=%23%20Hit%20the%20Play%20button%20above!%0A%23%20Hit%20%22Docs%22%20on%20the%20right%20to%20explore%20the%20API%0A%0A%7B%0A%20%20graphQLHub%0A%20%09reddit%20%7B%0A%20%20%20%20user(username%3A%20%22orta%22)%20%7B%0A%20%20%20%20%20%20username%0A%20%20%20%20%20%20commentKarma%0A%20%20%20%20%20%20createdISO%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20subreddit(name%3A%20%22swift%22)%7B%0A%20%20%20%20%20%20newListings(limit%3A%202)%20%7B%0A%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%20%20comments%20%7B%0A%20%20%20%20%20%20%20%20%20%20body%0A%20%20%20%20%20%20%20%20%20%20author%20%7B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20username%0A%20%20%20%20%20%20%20%20%20%20%09commentKarma%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">Here</a> ( I strongly recommend pausing to open that link in a new window. Press cmd + enter to see the results. We also have an example of refactoring that request <a href="https://www.graphqlhub.com/playground?query=%23%20Hit%20the%20Play%20button%20above!%0A%23%20Hit%20%22Docs%22%20on%20the%20right%20to%20explore%20the%20API%0A%0A%7B%0A%20%20graphQLHub%0A%20%09reddit%20%7B%0A%20%20%20%20user(username%3A%20%22orta%22)%20%7B%0A%09%09%09...userFields%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20subreddit(name%3A%20%22swift%22)%20%7B%0A%20%20%20%20%20%20newListings(limit%3A%202)%20%7B%0A%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%20%20comments%20%7B%0A%20%20%20%20%20%20%20%20%20%20body%0A%20%20%20%20%20%20%20%20%20%20author%20%7B%20%0A%09%09%09%20%20%20%20%20%20...userFields%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0Afragment%20userFields%20on%20RedditUser%20%7B%0A%20%20username%0A%20%20commentKarma%0A%20%20createdISO%0A%7D">here</a>. )</p>
+
+<p>GraphQL comes with a playground for the API! It&rsquo;s amazing! Clay called it the <a href="https://medium.com/the-graphqlhub/graphiql-graphql-s-killer-app-9896242b2125#.6ht6374bq">&ldquo;Killer App&rdquo; of GraphQL</a> - I&rsquo;m inclined to concur. I&rsquo;ve never had API docs this useful. This is built on top of the schema/docs/type reflection APIs inside the GraphQL spec.</p>
+
+<p>{% expanded_img /images/2016-06-19-graphql-for-iOS-devs/graphiql.png Selection diagram %}</p>
+
+<h3 id="how-graphql-changed-how-we-write-native-code">How GraphQL Changed How We Write Native Code</h3>
+
+<h4 id="view-models">View Models</h4>
+
+<p>Our GraphQL server is owned by the <a href="http://artsy.github.io/blog/2016/03/28/artsy-engineering-organization-stack/">web-practice</a> and the mobile practice also help out occasionally. This ownership distinction is important, an API like this would normally be handled by our platform team.</p>
+
+<p>Because of Metaphysics&rsquo; ownership as a &ldquo;front-end&rdquo; product, it can contain additional information that is specific to front-end needs. For example, in our first example of a request to our GraphQL server we requested <code>id</code>, <code>additional_information</code>, <code>is_price_hidden</code> and <code>is_inquireable</code> - only two of these items come from the database. Both is <code>is_price_hidden</code> and <code>is_inquireable</code> are derived from the API results on the server.</p>
+
+<p>This is <em>awesome</em>, because before a <a href="https://github.com/artsy/eigen/blob/dac7c80b66b600f9a45aaae6095544fe420f0bbc/Artsy/Views/Artwork/ARArtworkActionsView.m#L310-L362">lot of this logic</a> existed in a <a href="https://github.com/artsy/eigen/blob/dac7c80b66b600f9a45aaae6095544fe420f0bbc/Artsy/Views/Artwork/ARArtworkActionsView.m#L108-L109">Google Doc</a> which needed to be re-implemented in 3-4 clients. On the native side we would find we were out-of-date mid-release cycle and needed to rush to catch up.</p>
+
+<p>So, what does this mean for view models? It lessens the need for them. If you can move a lot of your derived data to the server - this handles the logic that goes in a view model for you. Now it is provided server-side, and is consistent across platforms.</p>
+
+<p>We&rsquo;ve not stopped writing view models, but now discussions on them includes &ldquo;should this move to Metaphysics?&rdquo;.</p>
+
+<h4 id="react-native">React Native</h4>
+
+<p>We&rsquo;ve already <a href="https://twitter.com/orta/status/734880605322776576">shipped one full view controller</a> in <a href="https://facebook.github.io/react-native/">React Native</a> for our flagship app, <a href="https://github.com/artsy/eigen/">Eigen</a>. The advantages that came from GraphQL were a big part of the discussion around using React Native.</p>
+
+<p>There will be longer articles on the &ldquo;why&rdquo; and &ldquo;how&rdquo; we choose to work this way. However, the key thing that we&rsquo;re excited about in using React Native is Relay. Using Relay, our <a href="https://github.com/artsy/emission/tree/2ac6e9fc0f85ca81483bcbd6c841841104f07833/lib/components/artist">views</a> can declare a fragment of the GraphQL query that each respective <a href="https://github.com/artsy/emission/blob/2ac6e9fc0f85ca81483bcbd6c841841104f07833/lib/components/artist/biography.js#L60-L69">view needs</a>.</p>
+
+<p>So, in our Artist View Controller, the Biography &ldquo;View&rdquo; (<a href="https://facebook.github.io/react-native/docs/native-components-ios.html">component</a>) declares &ldquo;when I am in the view hierarchy, you need to grab a <code>bio</code>, and <code>blurb</code>&ldquo;</p>
+
+<pre><code class="language-js">export default Relay.createContainer(Biography, {
+  fragments: {
+    artist: () =&gt; Relay.QL`
+      fragment on Artist {
+        bio
+        blurb
+      }
+    `,
+  }
+});
+</code></pre>
+
+<p>Once your views are declaring what data they need, and are acting on that data - you see less of a need to use models.</p>
+
+<hr />
+
+<p>GraphQL is having a massive impact in the way that we write our apps. It means we can make much faster mobile apps, as the network is our critical path. Faster apps means happier users, happier users means happier developers. I want to be happy. So I&rsquo;m thankful that the <a href="https://github.com/artsy/metaphysics/graphs/contributors">Web practice</a> gave GraphQL a try, and <a href="https://github.com/artsy/metaphysics/pull/243">welcome&rsquo;d</a> <a href="https://github.com/artsy/metaphysics/pull/313">us</a> <a href="https://github.com/artsy/metaphysics/pull/226">to</a> <a href="https://github.com/artsy/metaphysics/pull/302">the</a> <a href="https://github.com/artsy/metaphysics/issues/2">party</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/">Swift Type Aliases: Use Early and Often</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/05/03/podspec-checksums/">Why does my team&#39;s Podfile.lock Podspec checksums change?</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

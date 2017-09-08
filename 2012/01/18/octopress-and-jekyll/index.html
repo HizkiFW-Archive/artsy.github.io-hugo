@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Octopress and Jekyll // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Octopress and Jekyll" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/">Octopress and Jekyll</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Blog" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Blog">Blog</a>
+				
+					<a class="post-category post-category-Open-Source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Open-Source">Open-Source</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>This blog is powered by static pages.</p>
+
+<p>I think it&rsquo;s quite ironic that, while we spend a lot of time building complex large scale dynamic websites, our new favorite publishing platform is a system that compiles static content. But, in many ways, <a href="http://octopress.org/">Octopress</a> and <a href="https://github.com/mojombo/jekyll">Jekyll</a> fit our philosophy and developer workflow perfectly. Writing an article for this blog means using the same tools and processes as contributing to a project on Github. And everyone is welcome to browse and learn from <a href="https://github.com/artsy/artsy.github.com/tree/source">the source</a> of this blog, and even fork it and contribute fixes to the layout or even blog features.</p>
+
+<p>Here&rsquo;s what Artsy engineers do to get setup (once) and publish a new post.</p>
+
+<pre><code class="language-bash">    $ git clone git@github.com:artsy/artsy.github.com.git
+     Cloning into artsy.github.com...
+
+    $ cd artsy.github.com
+
+    artsy.github.com$ git checkout source
+     Branch source set up to track remote branch source from origin.
+     Switched to a new branch 'source'
+
+    artsy.github.com$ mkdir _deploy
+
+    artsy.github.com$ cd _deploy
+
+    artsy.github.com/_deploy$ git init
+     Initialized empty Git repository in artsy.github.com/_deploy/.git/
+
+    artsy.github.com/_deploy$ git remote add origin git@github.com:artsy/artsy.github.com.git
+
+    artsy.github.com/_deploy$ git pull origin master
+     From github.com:artsy/artsy.github.com
+      * branch            master     -&gt; FETCH_HEAD
+
+    artsy.github.com/_deploy$ cd ..
+
+    artsy.github.com$ rake create_post[&quot;Octopress and Jekyll&quot;]
+     Creating new post: source/_posts/2012-01-18-octopress-and-jekyll.md
+
+    artsy.github.com$ git commit -am &quot;Octopress and Jekyll&quot;
+     1 files changed, 52 insertions(+), 0 deletions(-)
+     create mode 100644 source/_posts/2012-01-18-octopress-and-jekyll.md
+
+    artsy.github.com$ rake deploy
+</code></pre>
+
+<p>(If you&rsquo;re confused by the setup, check out <a href="http://code.dblock.org/octopress-setting-up-a-blog-and-contributing-to-an-existing-one">this post</a>).</p>
+
+<p>We believe in simple systems and love the opportunity to understand technology in-depth. Everything you see, short of the blog content and styles, is written in Ruby by very smart people. The source is open and free, which helps us learn and make progress, together.</p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/">How Artsy Uses GitHub to Build Artsy</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/">Responsive Layouts with CSS3</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

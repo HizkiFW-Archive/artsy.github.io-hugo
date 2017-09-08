@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Product Management on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/product-management/</link>
+    <description>Recent content in Product Management on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Jul 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/product-management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spend Time With Your Site</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/05/spend-time-with-your-site/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/05/spend-time-with-your-site/</guid>
+      <description>&lt;p&gt;Empathy with end users is critical when developing consumer-facing software. Many go &lt;a href=&#34;http://innonate.com/2011/03/09/hackers-the-canon-of-consumer-facing-products/&#34;&gt;even&lt;/a&gt; &lt;a href=&#34;http://www.uie.com/articles/self_design/&#34;&gt;further&lt;/a&gt; and argue that you should &lt;em&gt;be&lt;/em&gt; your own user to effectively deliver the best experience.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;I&amp;rsquo;d encourage anyone starting a startup to become one of its users, however unnatural it seems.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;mdash; Paul Graham &lt;a href=&#34;http://paulgraham.com/organic.html&#34;&gt;Organic Startup Ideas&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In practice, though, this can be difficult:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;As a developer, you&amp;rsquo;re just not representative of the intended audience.&lt;/li&gt;
+&lt;li&gt;You&amp;rsquo;re [appropriately] focused on the product&amp;rsquo;s next iteration, while your audience is occupied with the current state.&lt;/li&gt;
+&lt;li&gt;You spend countless hours focused on product details&amp;mdash;of course it&amp;rsquo;s a challenge to empathize with a casual visitor&amp;rsquo;s first impression.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;keeping-it-real&#34;&gt;Keeping it Real&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ve tried some best practices to overcome these tendencies. User feedback is emailed to everyone in the company. Engineers share customer support responsibilities. But one simple tool has been surprisingly useful: we stole a page from the agile development handbook and built an &lt;a href=&#34;http://alistair.cockburn.us/Information+radiator&#34;&gt;information radiator&lt;/a&gt;. Like a &lt;a href=&#34;http://en.wikipedia.org/wiki/Kanban_board&#34;&gt;kanban board&lt;/a&gt;, news ticker, or &lt;a href=&#34;https://demo.geckoboard.com/dashboard/B6782E562794C2F2/&#34;&gt;analytics wall board&lt;/a&gt;, our information radiator gives us an ambient awareness of end users&amp;rsquo; experiences. How?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

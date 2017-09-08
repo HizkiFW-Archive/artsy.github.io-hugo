@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tooling on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling/</link>
+    <description>Recent content in Tooling on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On our implementation of React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</link>
+      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/emission/emission-logo-artsy.svg&#34; style=&#34;height:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I arrived fashionably late to the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;React Native party&lt;/a&gt; in Artsy. I had been a part of our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;Auctions Team&lt;/a&gt;, where we worked in Swift with &lt;a href=&#34;https://cocoapods.org/pods/Interstellar&#34;&gt;some light-FRP&lt;/a&gt;. We were not affected by the 4 months of simultaneous work on moving to React Native, at all.&lt;/p&gt;
+
+&lt;p&gt;It was a quiet revolution. I did not have to install &lt;code&gt;npm&lt;/code&gt;, I made zero changes to the code for auctions and the whole app&amp;rsquo;s infrastructure barely changed. Yet we moved to making all new code inside our 3 year old iOS app use React Native. What gives?&lt;/p&gt;
+
+&lt;p&gt;Well, first up we weren&amp;rsquo;t planning a re-write, we don&amp;rsquo;t have that kind of luxury and the scope of our app is too big compared to the team working on it. Second, we reused existing dependency infrastructure to support JavaScript based apps. Read on to find out what that looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using VS Code for JavaScript</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/vscode/vscode_logo_artsy.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m an old school TextMate user, who has also been using Xcode for the last decade. These two sit at a very opposite ends of an &amp;ldquo;editor&amp;rdquo; spectrum.&lt;/p&gt;
+
+&lt;p&gt;TextMate is extremely bare bones at the core, but introduced the idea of bundles as plugins. Making it really easy for others to build their own plugins for their own contexts. Xcode on the other-hand includes a 3D scene editor, the best interface builder I&amp;rsquo;ve seen, super rich debugging tools and close to zero support for improving it yourself.&lt;/p&gt;
+
+&lt;p&gt;As we agreed on moving to React Native, we needed to decide what the team should use for &lt;a href=&#34;https://github.com/artsy/emission/blob/master/docs/vscode.md&#34;&gt;working in that environment&lt;/a&gt;. After experimentation with many editors, we decided on Microsoft&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wanted to keep a lot of the best features from Xcode, while working in a completely JavaScript environment. For example: debuggers, inline errors, auto-complete, symbol mapping and to ideally have them all inside a single editor.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s dig into the principals of how Visual Studio Code works, what makes it a better option for us, and what parts of it really shine.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Spelunking: Injection for Xcode Plugin</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</guid>
+      <description>&lt;p&gt;It was only three months ago that I came to the conclusion of just how much time I had wasted &lt;a href=&#34;http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/&#34;&gt;on code compilation cycles&lt;/a&gt;, once I started to play with &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection for Xcode&lt;/a&gt;. I still feel guilt about the time I wasted. However, I&amp;rsquo;m trying to turn that into something constructive. In order to do that, I need to have a solid understanding of the fundamentals on how Injection For Xcode works.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/&#34;&gt;Ash&lt;/a&gt; says one of the best ways to &lt;a href=&#34;https://ashfurrow.com/blog/teaching-learning/&#34;&gt;learn is to teach&lt;/a&gt;. So I&amp;rsquo;m going to try take you through a guided tour of the code-base. You need some pretty reasonable Objective-C chops to get this, but anyone with an app or two under their belt should be able to &lt;a href=&#34;https://en.wikipedia.org/wiki/Grok&#34;&gt;grok&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

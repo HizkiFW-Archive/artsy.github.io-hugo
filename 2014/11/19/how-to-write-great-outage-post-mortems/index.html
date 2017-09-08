@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How to Write Great Outage Post-Mortems // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="How to Write Great Outage Post-Mortems" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2014/11/19/how-to-write-great-outage-post-mortems/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#whose-job-is-it">Whose Job is It?</a></li>
+<li><a href="#recipients">Recipients</a></li>
+<li><a href="#outage-email-subject">Outage Email Subject</a></li>
+<li><a href="#outage-summary">Outage Summary</a></li>
+<li><a href="#what-caused-the-outage">What Caused the Outage</a></li>
+<li><a href="#how-was-the-outage-resolved">How was the Outage Resolved</a></li>
+<li><a href="#the-post-mortem">The Post-Mortem</a></li>
+<li><a href="#outage-history">Outage History</a></li>
+<li><a href="#don-t-bury-it">Don&rsquo;t Bury It</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/11/19/how-to-write-great-outage-post-mortems/">How to Write Great Outage Post-Mortems</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Best-Practices" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Best-Practices">Best Practices</a>
+				
+					<a class="post-category post-category-DevOps" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/DevOps">DevOps</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>The website is finally back up after crashing hard for 4 hours straight.</p>
+
+<p>Recently AWS decided to <a href="http://aws.amazon.com/blogs/aws/ec2-maintenance-update">reboot a few of your servers for a critical update</a>. It didn&rsquo;t seem like it was going to be a big deal, except that the schedule was only accommodating if you were in the Pacific Northwest. The first reboot took out a secondary replica of our MongoDB database. Unfortunately <a href="https://github.com/mongoid/moped/issues/321">the driver handled that poorly</a> and spent the first 400ms of every subsequent HTTP request trying to reconnect to the missing instance. That server came back up, but failed to find its storage volumes because of a human mistake in a past migration and the alerts were mistakenly silenced by someone monitoring the system. A few hours later the primary was being stepped down and rebooted, sending the driver into panic over <a href="https://github.com/mongoid/moped/issues/323">another bug</a>. The site went down.</p>
+
+<p>None of this was obvious while it was happening as the rate of automated alerts grew. Engineers communicated to the team that they are actively focusing on bringing the systems back up. This helped to fend off a large amount of instant messages, e-mails, texts and phone calls from various people on the team that were in the middle of demoing something to a very important prospective customer on the other side of the planet. It was also the middle of the night in New York.</p>
+
+<p>Now that all the systems are back up, lets write a detailed outage post-mortem.</p>
+
+<p></p>
+
+<h2 id="whose-job-is-it">Whose Job is It?</h2>
+
+<p>In a small or medium-sized company, the most senior engineering manager, CTO, VP or Head of Engineering should be writing an outage post-mortem. It&rsquo;s their job and responsibility to acknowledge, understand and explain what happened. Focusing attention away from the individual contributors allows the team to learn from the mistakes and address the root causes in time without the unnecessary stress or pressure during a crisis.</p>
+
+<h2 id="recipients">Recipients</h2>
+
+<p>The post-mortem audience includes customers, direct reports, peers, the company&rsquo;s executive team and often investors. The e-mail may be published on your website, and otherwise goes to the entire team. It&rsquo;s critical to bcc everyone. This is the equivalent of a locked thread, avoiding washing the laundry in public: one of the worst possible things to see is when a senior manager replies back pointing an individual who made a mistake, definitely not an email you want accidentally sent to the entire company.</p>
+
+<p>I usually begin my e-mails with <em>Team (on the bcc), &hellip;</em>.</p>
+
+<p>I also bcc myself and label the e-mail &ldquo;Outages&rdquo;, to be able to easily find the incident history next time around.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/header.png" alt="header" /></p>
+
+<h2 id="outage-email-subject">Outage Email Subject</h2>
+
+<p>Post-mortem subjects should include a date and a duration. This gets right to the point and offers a summary of the impact.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/subject.png" alt="subject" /></p>
+
+<h2 id="outage-summary">Outage Summary</h2>
+
+<p>The outage e-mail begins with a summary, a slightly expanded version of the subject line. Many people won&rsquo;t read the details, so include graphs. These should tell the same story as the description of the outage. I use <a href="http://newrelic.com">NewRelic&rsquo;s</a>.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/summary.png" alt="summary" /></p>
+
+<h2 id="what-caused-the-outage">What Caused the Outage</h2>
+
+<p>Explain what caused the outage on a timeline. Every incident begins with a specific trigger at a specific time, which often causes some unexpected behavior. For example, our servers were rebooted and we expected them to come back up intact, which didn&rsquo;t happen. Furthermore, every incident has a root cause: the reboot itself was trigger, however a bug in the driver caused the actual outage. Finally, there&rsquo;re consequences to every incident, the most obvious one is that the site goes down.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/cause.png" alt="cause" /></p>
+
+<h2 id="how-was-the-outage-resolved">How was the Outage Resolved</h2>
+
+<p>Now that the timeline of the outage is established, we explain what actions took place to resolve it.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/resolution.png" alt="resolution" /></p>
+
+<h2 id="the-post-mortem">The Post-Mortem</h2>
+
+<p>The post-mortem answers the single most important question of what could have prevented the outage.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/post-mortem.png" alt="post-mortem" /></p>
+
+<h2 id="outage-history">Outage History</h2>
+
+<p>To most humans that encounter bugs, it may seem like your systems have failures all the time. It&rsquo;s important to educate everyone that an outage is much more than a bug and that it hopefully doesn&rsquo;t happen frequently. Provide a history of outages, referencing the last one.</p>
+
+<p><img src="/images/2014-11-19-how-to-write-great-outage-post-mortems/history.png" alt="history" /></p>
+
+<h2 id="don-t-bury-it">Don&rsquo;t Bury It</h2>
+
+<p>A few final words. Despite how painful an outage may have been, the worst thing you can do is to bury it and never properly close the incident in a clear and transparent way. Most humans come together in times of crisis and communication around outage post-mortems, in my experience, has always been met with positive energy, understanding comments, constructive suggestions and numerous offers to help.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/">CocoaPods and Frameworks</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2014/11/18/debugging-our-hardware-problem/">Close to the Metal: Debugging Our Hardware Problem</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

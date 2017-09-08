@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How Artsy Uses GitHub to Build Artsy // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="How Artsy Uses GitHub to Build Artsy" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/">How Artsy Uses GitHub to Build Artsy</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Tools" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Tools">Tools</a>
+				
+					<a class="post-category post-category-GitHub" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/GitHub">GitHub</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><a href="http://zachholman.com/">Zach Holman</a> gave a good talk on <a href="http://zachholman.com/talk/how-github-uses-github-to-build-github">How GitHub uses GitHub to build GitHub</a> at Rubyconf. It was great to hear how similar our own processes are at Artsy, with a few notable differences.</p>
+
+<p>Artsy engineers store almost everything on GitHub. We use GitHub Wikis, but don&rsquo;t use GitHub Issues much. We work in 3-week sprints with <a href="http://pivotaltracker.com/">Pivotal Tracker</a> instead. This blog is on GitHub. And, of course, we have our own Hubot which feeds funny animated GIFs after each successful deploy to our IRC channel.</p>
+
+<p>The most interesting part for me was around these two slides.</p>
+
+<p><img src="/images/2012-01-29-how-art-dot-sy-uses-github-to-build-art-dot-sy/github-pull.png" alt="Pull" /></p>
+
+<p><img src="/images/2012-01-29-how-art-dot-sy-uses-github-to-build-art-dot-sy/github-fork.png" alt="Fork" /></p>
+
+<p>Zach emphasized that you don&rsquo;t need forks to make pull requests. While technically true, I find forks particularly useful to keep things clean.</p>
+
+<p>At Artsy we use personal forks to work on features, create topical branches and make pull requests into the master from there. This is the workflow of the vast majority of open-source projects too. Now, Zach is right, you don&rsquo;t want to create any second class developers - our entire team has write access to the master. We use pull requests from forks to do peer code reviews, even for trivial things. I would typically make a pull request including the person I&rsquo;d like to code review my changes in the title. Here&rsquo;s an example.</p>
+
+<p><img src="/images/2012-01-29-how-art-dot-sy-uses-github-to-build-art-dot-sy/github-pull-request.png" alt="Targeted Pull Request" /></p>
+
+<p>(Notice the use of hash rocket. Zach, Ruby has transcended our lives too.)</p>
+
+<p>Working on forks keeps developer branches away from &ldquo;master&rdquo;. The main repository only has three branches: &ldquo;master&rdquo;, &ldquo;staging&rdquo; and &ldquo;production&rdquo; and each developer can make up whatever branching strategy they like in individual forks.</p>
+
+<p>Code reviews have nothing to do with hierarchy or organization, any developer will code review any other developer&rsquo;s work. We tend to avoid using the same person for two subsequent code reviews to prevent excessive buddying. Zach called his pull requests &ldquo;collective experiments&rdquo; - a place for active discussions, rejections and praise. I really like that. Each of my rejected pull requests has been a great learning experience.</p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/">Delaying CarrierWave Image Processing</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/">Octopress and Jekyll</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

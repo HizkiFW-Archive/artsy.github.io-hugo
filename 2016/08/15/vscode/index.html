@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Using VS Code for JavaScript // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Using VS Code for JavaScript" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-visual-studio-code">What is Visual Studio Code?</a>
+<ul>
+<li><a href="#ide-editor-hybrid">IDE - Editor hybrid</a></li>
+</ul></li>
+<li><a href="#making-intellisense">Making Intellisense</a></li>
+<li><a href="#runtime">Runtime</a></li>
+<li><a href="#wrapup">Wrapup</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/15/vscode/">Using VS Code for JavaScript</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-tooling" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling">tooling</a>
+				
+					<a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+				
+					<a class="post-category post-category-node" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node">node</a>
+				
+					<a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><center>
+ <img src="/images/vscode/vscode_logo_artsy.svg" style="width:300px;">
+</center></p>
+
+<p>I&rsquo;m an old school TextMate user, who has also been using Xcode for the last decade. These two sit at a very opposite ends of an &ldquo;editor&rdquo; spectrum.</p>
+
+<p>TextMate is extremely bare bones at the core, but introduced the idea of bundles as plugins. Making it really easy for others to build their own plugins for their own contexts. Xcode on the other-hand includes a 3D scene editor, the best interface builder I&rsquo;ve seen, super rich debugging tools and close to zero support for improving it yourself.</p>
+
+<p>As we agreed on moving to React Native, we needed to decide what the team should use for <a href="https://github.com/artsy/emission/blob/master/docs/vscode.md">working in that environment</a>. After experimentation with many editors, we decided on Microsoft&rsquo;s <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+
+<p>We wanted to keep a lot of the best features from Xcode, while working in a completely JavaScript environment. For example: debuggers, inline errors, auto-complete, symbol mapping and to ideally have them all inside a single editor.</p>
+
+<p>Let&rsquo;s dig into the principals of how Visual Studio Code works, what makes it a better option for us, and what parts of it really shine.</p>
+
+<p></p>
+
+<hr />
+
+<h3 id="what-is-visual-studio-code">What is Visual Studio Code?</h3>
+
+<p>Visual Studio Code (VS Code) is <em>yet another</em>, JavaScript-based text editor. It&rsquo;s built atop of GitHub&rsquo;s <a href="http://electron.atom.io">Electron</a>. Electron is a framework for writing native apps as easy as building websites. It started as a web component for some Microsoft web-service, and eventually evolved into a fully-fledged text editor.</p>
+
+<h4 id="ide-editor-hybrid">IDE - Editor hybrid</h4>
+
+<p>Visual Studio Code (VS Code) believes that the sweet-spot between and IDE and a plain Text Editor, is somewhere a little bit closer to the IDE side.</p>
+
+<p>{% expanded_img /images/vscode/editors.png %}</p>
+
+<p>This means instead of the Text-Editor style folder based approach, VS Code expects to set up a project structure per-project to start supporting from of the more useful IDE-like features.</p>
+
+<p>It supports TextMate style plugins (called Extensions) through a controlled, but expanding <a href="https://code.visualstudio.com/docs/extensions/overview">extension API</a>. The extension API work takes an <a href="https://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingXPCServices.html">Apple-like</a> approach to ensuring stability by having all extensions run outside of the host process. <a href="https://code.visualstudio.com/docs/extensions/our-approach">This approach</a> ensures any extension crash does not take down the editor.</p>
+
+<p>It&rsquo;s also smart about deciding when to load an extension, for example, my <a href="https://marketplace.visualstudio.com/items?itemName=Orta.vscode-danger">Danger</a> extension will <a href="https://github.com/orta/vscode-danger/blob/a21ccc101b2b1c1be595b10565bca9c88242fb6f/package.json#L18-L20">only load</a> if there is a <code>Dangerfile</code> in the root of the workspace.</p>
+
+<p>These two approaches to extensions are specifically aimed at <a href="https://discuss.atom.io/t/why-is-atom-so-slow/11376">addressing issues</a> seen inside Atom, where any user actions can be / are blocked by extensions, and extensions have full-reign to make any change they want. Even on my Mac Pro, there is a noticable lag. I initially assumed this was the &ldquo;JavaScript tax&rdquo; for all Electron apps, but VS Code is fast.</p>
+
+<h3 id="making-intellisense">Making Intellisense</h3>
+
+<p>By default a JavaScript project does not have a way to provide auto-completion, or in VS Code&rsquo;s terminology: Intellisense. Trying to make auto-complete based on a <a href="https://en.wikipedia.org/wiki/Read–eval–print_loop">REPL</a> can only get you so far, because it has to be wary against functions with side-effects. Other alternatives are to build an <a href="http://jointjs.com/demos/javascript-ast">AST</a> from the code, and then introspect that.</p>
+
+<p>In Xcode the auto-complete tools are powered by the type systems of Objective-C and Swift. This means that you can know the structure of an object, without having to dig inside it, potentially breaking it in the process. Vanilla JavaScript does not have a type system. There are a few root classes though: String, Object, Number etc.</p>
+
+<p>To work around this problem, VS Code uses <a href="http://www.typescriptlang.org">TypeScript</a> behind the scenes. TypeScript is a language that compiles down to JavaScript which provides a typing structure on top of JavaScript. This is a similar approach to how <a href="https://flowtype.org">Flow works</a> too, which is the language <a href="https://github.com/artsy/emission/pull/220">we write React Native</a> in.</p>
+
+<p>This can work out really well for your own classes if you are declaring your types, but the npm ecosystem is <em>full</em> of untyped JavaScript, and a lot of your work is about sitting atop those abstractions. The fix for this is offered via <a href="http://definitelytyped.org">DefinitelyTyped</a> which provides type definitions for popular npm modules. For example here is <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/redux/redux.d.ts">one for Redux</a> - these act like <a href="https://github.com/artsy/eigen/blob/master/Artsy/App/ARSwitchBoard.h">header files in Objective-C</a> - offering inline documentation, and the shape of the object.</p>
+
+<p>I use an extension to keep these up to date and to have them installed in every project I work in: <a href="https://marketplace.visualstudio.com/items?itemName=jvitor83.types-autoinstaller">Types auto installer</a>. Here&rsquo;s an example of auto-complete for <a href="http://redux.js.org/docs/api/Store.html">a Redux store</a>.</p>
+
+<p>{% expanded_img /images/vscode/redux.png %}</p>
+
+<p>It&rsquo;ll also provide information about the parameters, which is a life-saver for me. Having grown up with <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html">named</a> <a href="https://robots.thoughtbot.com/ruby-2-keyword-arguments">parameters</a>.</p>
+
+<p>{% expanded_img /images/vscode/redux-params.png %}</p>
+
+<h3 id="runtime">Runtime</h3>
+
+<p>Using console logs to debug isn&rsquo;t an acceptable answer when debugging for me anymore. <a href="http://blog.cleancoder.com/uncle-bob/2016/07/27/TheChurn.html">That&rsquo;s churn</a> that I&rsquo;m not willing to lose time to. Luckily for me, VS Code supports debugging across many languages.</p>
+
+<p>It does this by having a generic VS Code <a href="https://code.visualstudio.com/docs/extensions/example-debuggers">Debug Protocol</a> which lets extensions use their own processes to run the debugger. So the ruby debugger runs on the <a href="https://github.com/rubyide/vscode-ruby#debugger"><code>ruby-debug-ide</code></a> gem, and for node-based projects it uses the debugger built into node.</p>
+
+<p>So, here is a common case. I want to start up my web-server, so I need to run <code>npm dev</code>. I can run this from VS Code:</p>
+
+<p>{% expanded_img /images/vscode/start.png %}</p>
+
+<p>Once that&rsquo;s running - I can attach a debugger. This is listing all of the available node processes on my computer:</p>
+
+<p>{% expanded_img /images/vscode/attatch.png %}</p>
+
+<p>Then I can add a breakpoint, and when it is triggered, I have a full stack trace and REPL. The REPL is very barebones, for example - there&rsquo;s no auto-complete. However, it&rsquo;s good for quick exploration. I keep <a href="https://www.objc.io/issues/19-debugging/lldb-debugging/#printing-objects">accidentally prefixing</a> my REPL code with <code>po</code>.</p>
+
+<p>{% expanded_img /images/vscode/debug.png %}</p>
+
+<p>The breakpoint works through a <a href="http://blog.teamtreehouse.com/introduction-source-maps">source map</a>, and so the line you expect is the one that you&rsquo;re working in. That stuff is all pretty magic to me. Good on Microsoft, and the node community for pulling that off.</p>
+
+<h3 id="wrapup">Wrapup</h3>
+
+<p>I still feel a little bit uncomfortable in JavaScript projects, as a long-time native developer. However feel like VS Code is a nice mix of the freeform &ldquo;just do something&rdquo; style of Text Editors, which work across a lot of systems and the tight-knit IDEs that are bound to a specific domain. It can be a bridge between worlds.</p>
+
+<p>VS Code has become my main editor in Ruby and JavaScript, due to having great support for the projects and being an OSS project which I feel like I can contribute to. No more being <a href="https://github.com/alcatraz/Alcatraz/issues/475">locked out</a> of improving my editor. Awesome!</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/08/15/React-Native-at-Artsy/">React Native at Artsy</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/08/09/Dev-Interview-Craig-Spaeth/">Dev Interviews: Craig Spaeth</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

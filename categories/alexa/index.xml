@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alexa on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/alexa/</link>
+    <description>Recent content in Alexa on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/alexa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bringing Artsy to Amazon Echo &#34;Alexa&#34;</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/24/bringing-artsy-to-amazon-echo-alexa/</link>
+      <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/24/bringing-artsy-to-amazon-echo-alexa/</guid>
+      <description>&lt;p&gt;tl;dr You can try Artsy on your Amazon Echo now, say &amp;ldquo;Alexa, enable Artsy&amp;rdquo; or see &lt;a href=&#34;http://alexa.artsy.net&#34;&gt;alexa.artsy.net&lt;/a&gt; for more info.&lt;/p&gt;
+
+&lt;p&gt;With its powerful automatic speech recognizer, accurate natural language understanding and outstanding text-to-speech capabilities, the Amazon Echo, nicknamed &amp;ldquo;Alexa&amp;rdquo;, always impressed me. While not the first in its category and introduced in late 2014, Alexa was the first consumer device in my home to truly enable the conversation between human and machine. It was stationary, always listening for a wake word, and clearly outperformed all previous attempts when it came to the ability to receive commands from the other side of the apartment.&lt;/p&gt;
+
+&lt;p&gt;Alexa knows about the weather, but it doesn&amp;rsquo;t know much about art.&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;ll dig a little inside the Alexa software platform and go over the technical details of bringing Artsy to the Echo, starting with a very simple &amp;ldquo;Ask Artsy about Norman Rockwell.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#39;https://www.youtube.com/watch?v=zi3OubNiV9U&#39; target=&#39;_blank&#39;&gt;
+&lt;iframe width=&#34;280&#34; height=&#34;280&#34; src=&#34;https://www.youtube.com/embed/zi3OubNiV9U&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Find the &lt;a href=&#34;http://alexa.amazon.com/spa/index.html#skills/dp/B01MYLJO1N&#34;&gt;Artsy skill in the Alexa app&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/elderfield&#34;&gt;the complete Skill code on Github&lt;/a&gt;. And if you just want to learn to write a skill quickly, watch &lt;a href=&#34;https://www.youtube.com/watch?v=pzM4jv7k7Rg&#34;&gt;@dblock live-code a skill in this video&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

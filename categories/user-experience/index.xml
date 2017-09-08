@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>User Experience on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/user-experience/</link>
+    <description>Recent content in User Experience on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Nov 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/user-experience/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Friendly URLs with Mongoid::Slug</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</link>
+      <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</guid>
+      <description>&lt;p&gt;All Artsy URLs shared publicly are humanly readable. For example, you&amp;rsquo;ll find all Barbara Kruger&amp;rsquo;s works at &lt;a href=&#34;https://artsy.net/artist/barbara-kruger&#34;&gt;artsy.net/artist/barbara-kruger&lt;/a&gt; and a post by Hyperallergic entitled &amp;ldquo;Superfluous Men Can&amp;rsquo;t Get No Satisfaction&amp;rdquo; at artsy.net/hyperallergic/post/superfluous-men-cant-get-no-satisfaction. This is a lot prettier than having &lt;code&gt;id=42&lt;/code&gt; in the browser&amp;rsquo;s address and is a big improvement for SEO.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-22-friendly-urls-with-mongoid-slug/barbara-kruger.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;We construct these URLs with a gem called &lt;a href=&#34;https://github.com/digitalplaywright/mongoid-slug&#34;&gt;mongoid_slug&lt;/a&gt;. Interesting implementation details under the cut.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

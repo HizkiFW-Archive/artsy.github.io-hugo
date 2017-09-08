@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thickclient on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/thickclient/</link>
+    <description>Recent content in Thickclient on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Jun 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/thickclient/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Replacing #! Routes with PushState Using Backbone.js</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/25/replacing-hashbang-routes-with-pushstate/</link>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/25/replacing-hashbang-routes-with-pushstate/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;The only constant is change, continuing change, inevitable change, that is the dominant factor in society
+[and web apps!] today. No sensible decision can be made any longer without taking into account not only
+the world as it is, but the world as it will be.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Isaac Asimov&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;r-i-p&#34;&gt;R.I.P #!&lt;/h2&gt;
+
+&lt;p&gt;It did not take us long to discover we shared the concerns of Twitter&amp;rsquo;s
+&lt;a href=&#34;http://danwebb.net/2011/5/28/it-is-about-the-hashbangs&#34;&gt;Dan Webb on hashbang routes&lt;/a&gt;,
+but it was almost a year before we were able to remove them from Artsy. Here&amp;rsquo;s how it went down.&lt;/p&gt;
+
+&lt;p&gt;Artsy relies on the &lt;a href=&#34;http://documentcloud.github.com/backbone/&#34;&gt;Backbone.js&lt;/a&gt; framework for our client application
+which offers a solid pushState routing scheme. This includes a seamless hashtag fallback for
+&lt;a href=&#34;http://caniuse.com/#feat=history&#34;&gt;browsers that don&amp;rsquo;t support the HTML5 History API&lt;/a&gt; (looking at you IE 9).&lt;/p&gt;
+
+&lt;p&gt;The pushState routing is optional, but &lt;em&gt;&amp;ldquo;the world as it should be&amp;rdquo;&lt;/em&gt; suggests we say &amp;ldquo;Yes!&amp;rdquo; (or true) to pushState.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-coffeescript&#34;&gt;Backbone.history.start({ pushState: true })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

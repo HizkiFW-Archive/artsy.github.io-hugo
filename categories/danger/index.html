@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Danger // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Danger" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/09/04/Introducing-Peril/">Introducing Peril to the Artsy Org</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[orta]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+					        <a class="post-category post-category-peril" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/peril">peril</a>
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-typescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript">typescript</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Once Danger Ruby was stable enough for everyday use in 2015, it became obvious that running Danger on CI was both a
+positive and a negative. On the positive side, Danger has access to all artifacts created during testing - and on the negative
+side it takes a long time to get feedback. It was obvious that Danger could <a href="https://github.com/danger/danger/issues/42">run on a server</a>, but it was a big unknown what that could look like.</p>
+
+<p>Eventually, <a href="/blog/2017/06/30/danger-one-oh-again/">I came to the conclusion</a> that we would need a JavaScript replacement of Danger - and so I applied
+constraints to Danger JS that made a server-side version of Danger a possibility. It was a stroke of luck that around the
+time Danger JS became usable for day to day usage, that GitHub introduced <a href="https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/">GitHub Apps</a> - so I started work on Peril. Peril is server-side Danger. The rest of this post talks about how we use it Artsy today, how you can use it yourself and where it&rsquo;s heading.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/09/04/Introducing-Peril/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/">Danger</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>11 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Danger came out of two needs. One from the needs of a growing dev team working together full-time, and the other from the needs of a completely asymmetric large Open Source project.</p>
+
+<p>A work environment dev team is a complex place. You naturally grow, and to grow safely you add process. Process is a mixed bag, it&rsquo;s a net benefit at the trade-off of individual&rsquo;s time vs team cohesion. You want to grow your team guided by smart applications of process.</p>
+
+<p>On the other hand, working on a large open source project, it&rsquo;s easy to feel overwhelmed at the amount of work that needs to get done on a daily basis. The growth of your OSS team probably doesn&rsquo;t tie to the amount of work that needs to be done. Especially if you&rsquo;re like me, and you don&rsquo;t want to be maintaining OSS as a 2nd full-time job.</p>
+
+<p>So what do you do? Well in a work environment you don&rsquo;t really have a choice, as a team you hold each other to the rules that you set. In OSS, you sacrifice your spare time or you can find time at work, you could stop or you could burn out.</p>
+
+<p>And this is the environment in which the idea of Danger was incubated.</p>
+
+<p>Today mark version 1.0 of the second version of Danger. I&rsquo;m going to cover what they are, how they continue to grow and what I see their trajectory as.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/11/14/JS-Glossary/">JavaScript Glossary for 2017</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>24 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Getting to grips with the entire JavaScript ecosystem is a tough job when you&rsquo;re getting started. Coming from the native mobile space, there&rsquo;s a lot to learn. I&rsquo;ve spent a few months immersed in the environment now, and can try summerize a lot of topics. This should make it easier to find more information when you need it. This post is semi-opinionated, with links for further reading so you can get a different perspective too.</p>
+
+<p>This post focus specifically on the JavaScript tooling around React Native projects, but is applicable to all JavaScript projects.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/11/14/JS-Glossary/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/15/vscode/">Using VS Code for JavaScript</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-tooling" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling">tooling</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+					        <a class="post-category post-category-node" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node">node</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><center>
+ <img src="/images/vscode/vscode_logo_artsy.svg" style="width:300px;">
+</center></p>
+
+<p>I&rsquo;m an old school TextMate user, who has also been using Xcode for the last decade. These two sit at a very opposite ends of an &ldquo;editor&rdquo; spectrum.</p>
+
+<p>TextMate is extremely bare bones at the core, but introduced the idea of bundles as plugins. Making it really easy for others to build their own plugins for their own contexts. Xcode on the other-hand includes a 3D scene editor, the best interface builder I&rsquo;ve seen, super rich debugging tools and close to zero support for improving it yourself.</p>
+
+<p>As we agreed on moving to React Native, we needed to decide what the team should use for <a href="https://github.com/artsy/emission/blob/master/docs/vscode.md">working in that environment</a>. After experimentation with many editors, we decided on Microsoft&rsquo;s <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+
+<p>We wanted to keep a lot of the best features from Xcode, while working in a completely JavaScript environment. For example: debuggers, inline errors, auto-complete, symbol mapping and to ideally have them all inside a single editor.</p>
+
+<p>Let&rsquo;s dig into the principals of how Visual Studio Code works, what makes it a better option for us, and what parts of it really shine.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/15/vscode/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/07/03/handling-big-projects/">Handling Large OSS Projects Defensively</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I help maintain big OSS projects: from a third-party <a href="https://cocoapods.org">dependency manager</a> used in most iOS apps (<a href="https://github.com/CocoaPods/cocoapods.org">CocoaPods</a>), to the most popular Objective-C <a href="http://cocoapods.org/pods/Specta">testing framework</a> and the most popular Swift <a href="http://cocoapods.org/pods/Moya">networking API client</a>. I&rsquo;ve been doing this for years.</p>
+
+<p>Projects with this much impact are big time-sinks. This time comes from ensuring infrastructure continues to work, support tickets need replies, new code needs reviewing and releases need coordinating.</p>
+
+<p><img src="/images/2016-07-03-big-oss/danger_logo_black@2x.png" alt="" /></p>
+
+<p>Last September, almost a year ago, I started work on a new project, <a href="https://github.com/danger/danger/">Danger</a>. Danger fixes a problem we were seeing in the Artsy mobile team around adding &ldquo;<a href="https://github.com/artsy/mobile/issues/31">process</a>&rdquo; to our team.</p>
+
+<p>As a part of discussing Danger internally, I&rsquo;ve referenced that building CocoaPods has greatly influenced Danger. This blog post is about the way I&rsquo;ve built Danger, knowing fully well that I cannot afford the level of time to maintain it at the scale it may get to.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/07/03/handling-big-projects/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

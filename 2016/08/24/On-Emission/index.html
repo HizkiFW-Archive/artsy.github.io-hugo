@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    On our implementation of React Native // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="On our implementation of React Native" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#why-we-were-in-a-good-position-to-do-this">Why we were in a good position to do this</a></li>
+<li><a href="#introducing-emission">Introducing Emission</a>
+<ul>
+<li><a href="#the-node-module">The Node Module</a></li>
+<li><a href="#the-ios-app">The iOS App</a></li>
+<li><a href="#the-pod">The Pod</a></li>
+<li><a href="#pod-deployment">Pod Deployment</a></li>
+</ul></li>
+<li><a href="#on-emission">On Emission</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/24/On-Emission/">On our implementation of React Native</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-tooling" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling">tooling</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+				
+					<a class="post-category post-category-node" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node">node</a>
+				
+					<a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><center>
+ <img src="/images/emission/emission-logo-artsy.svg" style="height:300px;">
+</center></p>
+
+<p>I arrived fashionably late to the <a href="/blog/2016/08/15/React-Native-at-Artsy/">React Native party</a> in Artsy. I had been a part of our <a href="/blog/2016/08/09/the-tech-behind-live-auction-integration/">Auctions Team</a>, where we worked in Swift with <a href="https://cocoapods.org/pods/Interstellar">some light-FRP</a>. We were not affected by the 4 months of simultaneous work on moving to React Native, at all.</p>
+
+<p>It was a quiet revolution. I did not have to install <code>npm</code>, I made zero changes to the code for auctions and the whole app&rsquo;s infrastructure barely changed. Yet we moved to making all new code inside our 3 year old iOS app use React Native. What gives?</p>
+
+<p>Well, first up we weren&rsquo;t planning a re-write, we don&rsquo;t have that kind of luxury and the scope of our app is too big compared to the team working on it. Second, we reused existing dependency infrastructure to support JavaScript based apps. Read on to find out what that looks like.</p>
+
+<p></p>
+
+<h3 id="why-we-were-in-a-good-position-to-do-this">Why we were in a good position to do this</h3>
+
+<p>Let&rsquo;s talk a little about the Artsy flagship app, <a href="https://github.com/artsy/eigen/">Eigen</a>. It&rsquo;s an app that aimed to comprehensively cover the art world. From <a href="https://www.artsy.net/shows">Shows</a> to <a href="https://www.artsy.net/galleries">Galleries</a>, <a href="https://www.artsy.net/art-fairs">Fairs</a> to <a href="https://www.artsy.net/auctions">Auctions</a>, <a href="https://www.artsy.net/institutions">Museums</a> to <a href="https://www.artsy.net/articles">Magazines</a>.</p>
+
+<p>It all looks a bit like this:</p>
+
+<p>{% expanded_img /images/emission/eigen-overview.jpg %}</p>
+
+<p>Our app neatly splits into two areas of view controllers, ones that act as a browser chrome, and individual view controllers that normally map 1:1 to <a href="https://github.com/artsy/eigen/blob/master/Artsy/App/ARSwitchBoard.m#L122">routes</a> on the Artsy website.</p>
+
+<p>For example, the route <code>artsy.net/artwork/glenn-brown-suffer-well</code> maps to the native <code>ARArtworkViewController</code>.</p>
+
+<p>{% expanded_img /images/emission/eigen.svg %}</p>
+
+<p>Just as a browser knows very little about the individual content of the pages that it&rsquo;s rendering, the eigen chrome exists <em>relatively</em> independent of the view controllers that are showing.</p>
+
+<p>Each view controller also knows very little about each-other, so actions that trigger a new view controller are generally done by creating a string route and passing it through the routing system. I&rsquo;ve wrote about this pattern in <a href="https://artsy.github.io/blog/2015/08/15/Cocoa-Architecture-Router-Pattern/">Cocoa Architecture: Router Pattern</a>.</p>
+
+<p>Interestingly, if the router cannot route a view controller, it will pass through to a web view. This is why we consider the app a <a href="http://artsy.github.io/blog/2015/08/24/Cocoa-Architecture-Hybrid-Apps/">hybrid app</a>. This pattern means adding new view controllers is extremely easy.</p>
+
+<h3 id="introducing-emission">Introducing Emission</h3>
+
+<p>Emission is what we use to contain all of our React Native components. Our flagship app Eigen, can depend on and use without needing to bother with the implementation details of React Native. At it&rsquo;s core, Emission is:</p>
+
+<ul>
+<li>A node module.</li>
+<li>A CocoaPod.</li>
+<li>An iOS App.</li>
+</ul>
+
+<h4 id="the-node-module">The Node Module</h4>
+
+<p>Emission itself, is a node module. In our case, it is a JavaScript library that exposes 3 JavaScript objects.</p>
+
+<pre><code class="language-javascript">/* @flow */
+'use strict';
+
+import Containers from './lib/containers';
+import Components from './lib/components';
+import Routes from './lib/relay/routes';
+
+import './lib/relay/config';
+import './lib/app_registry';
+
+export default {
+  Containers,
+  Components,
+  Routes,
+};
+</code></pre>
+
+<p>Another node project can have Emission as a dependency - then can access our <code>Container</code>s, <code>Component</code>s and <code>Route</code>s. A container is a <a href="https://facebook.github.io/relay/docs/api-reference-relay-container.html">Relay container</a>, a component is a <a href="https://facebook.github.io/react/docs/component-api.html">React Component</a> and a Route is a <a href="https://facebook.github.io/relay/docs/guides-routes.html#content">Relay Route</a>.</p>
+
+<p>The thing that&rsquo;s interesting from the integration side, is that each <code>Container</code> is effectively a View Controller that Emission provides to a host application. React Native ignores  the concept of view controllers from the Cocoa world, so we have an <a href="https://github.com/artsy/emission/blob/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/Pod/Classes/ViewControllers/ARComponentViewController.m">ARComponentViewController</a> which is subclassed for each exposed <code>Component</code> class.</p>
+
+<h4 id="the-ios-app">The iOS App</h4>
+
+<p>The iOS app acts as a host target for the CocoaPod, and provides an instance of an <a href="https://github.com/artsy/emission/blob/master/Pod/Classes/Core/AREmission.m">AREmission</a> object to the view controllers using React Native. The app is nothing special, it is the default app that is created using <code>pod lib create</code>. We then <a href="https://github.com/artsy/emission/blob/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/Example/Podfile">use CocoaPods</a> to bring in React from inside the <code>node_modules/</code> folder the Emission node module creates.</p>
+
+<p>The <code>AREmission</code> instance is the intermediary between the host-app (<a href="https://github.com/artsy/emission/blob/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/Example/Emission/AppDelegate.m#L56">The Emission Example app</a>, or <a href="https://github.com/artsy/eigen/blob/41b00f6fe497de9e902315104089370dea417017/Artsy/App/ARAppDelegate%2BEmission.m">Eigen</a>.) It has an API for handling routing, and passing authentication credentials into the React Native world.</p>
+
+<p>We use the example app to do development inside React Native. As of right now, it is simply a tableview that provides a list of view controllers <a href="https://github.com/artsy/emission/blob/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/Example/Emission/AppDelegate.m#L159-L169">that represent an exposed Container</a>. Once you are in the right view controller, you can rely on <a href="http://facebook.github.io/react-native/releases/0.31/docs/debugging.html#automatic-reloading">Hot Reloading</a> to simplify your work.</p>
+
+<h4 id="the-pod">The Pod</h4>
+
+<p>An important part of working with React Native, is that you can choose to use native code when appropriate. The <a href="https://github.com/artsy/emission/blob/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/Emission.podspec">Pod for</a> Emission, created entirely in Objective-C, provides:</p>
+
+<ul>
+<li>Communication between React Native and the host app objects via <a href="https://facebook.github.io/react-native/docs/native-modules-ios.html">native modules</a>.</li>
+<li><code>UIViewController</code> subclasses for Host apps to consume.</li>
+<li>Bridges for existing native views (like our <a href="https://github.com/artsy/extraction/blob/d6a32186f7098eb2ec5d05e2fb5302a8378eff70/Extraction/Classes/ARSwitchView.m">SwitchView</a>) into React Native.</li>
+</ul>
+
+<p>The choice of Objective-C is for simplicity, and language stability. Swift is technically an option, but it&rsquo;s not  worth the complications for <a href="https://github.com/artsy/emission/tree/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/Pod/Classes">a few simple objects</a>.</p>
+
+<p>In order to share native views with our host app, Eigen, we created a library to just hold the shared UI components, <a href="https://github.com/artsy/extraction">Extraction</a>. These are <a href="https://github.com/artsy/extraction/tree/d6a32186f7098eb2ec5d05e2fb5302a8378eff70/Extraction/Classes">factored out of Eigen</a>, and into a pod. Emission and Eigen have this as a dependency.</p>
+
+<h4 id="pod-deployment">Pod Deployment</h4>
+
+<p>What makes this work well, from the perspective of Eigen is that the React Native comes in atomically. The Podspec <a href="https://github.com/artsy/emission/blob/master/Emission.podspec#L17-L18">references</a> the few native classes, and a single JavaScript file.</p>
+
+<p>This JavaScript file is the bundled version of all our React Native code. It&rsquo;s <a href="https://github.com/artsy/emission/blob/eb9d0f6ca0edd3eb9f07dd9ff3b8499f095bc45b/package.json#L7">updated  by running</a> <code>npm run bundle</code>. This generates both the minified JS, and a source map so that we can transcribe the error reports into the code we write.</p>
+
+<p>Using the CocoaPod, Emission can provide native view controllers that use React Native under the hood. The host app does not need to know the underlying details like <code>npm</code>.</p>
+
+<h3 id="on-emission">On Emission</h3>
+
+<p>Whether this is a pattern other apps can follow is hard to say, we were in a great position to do this. Our app has view controllers that have very little communication with each other and the host app does not need to bridge large amounts of information.</p>
+
+<p>As ever, our work is open source, and we ensure that anyone can download and run Emission, so if you&rsquo;d like to understand more, clone <a href="https://github.com/artsy/emission#reactions--emissions">artsy/emission</a> and study the implementation.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/">Learn Swift at Artsy, Beginners Lesson Three</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/">Learn Swift at Artsy, Beginners Lesson Two</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

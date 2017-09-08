@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    An Easter Egg for Curl // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="An Easter Egg for Curl" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/04/01/an-easter-egg-for-curl/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#webrick">WEBrick</a></li>
+<li><a href="#unicorn">Unicorn</a></li>
+<li><a href="#more-eggs">More Eggs?</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/04/01/an-easter-egg-for-curl/">An Easter Egg for Curl</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Fun" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Fun">Fun</a>
+				
+					<a class="post-category post-category-Easter-Eggs" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Easter-Eggs">Easter Eggs</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Let&rsquo;s implement an Easter egg that requires <a href="http://curl.haxx.se/">curl</a> and is HTTP-compliant.</p>
+
+<p>We accept access tokens on our API endpoints. These can come from an <code>access_token</code> query string parameter.</p>
+
+<pre><code>curl https://api.artsy.net/api/v1/system/up?access_token=invalid -v
+
+&lt; HTTP/1.1 401 Unauthorized
+&lt; Content-Type: application/json
+&lt; Content-Length: 24
+
+{ &quot;error&quot; : &quot;Unauthorized&quot; }
+</code></pre>
+
+<p>So far, so good. Now try this:</p>
+
+<pre><code>curl https://api.artsy.net/api/v1/system/up?access_token=10013 -v
+
+&lt; HTTP/1.1 401 Broadway
+&lt; Content-Type: application/json
+&lt; Content-Length: 76
+
+{ &quot;error&quot; : &quot;Inspiration from the Engineering team at http://artsy.github.com&quot; }
+</code></pre>
+
+<p>What?! <strong>401 Broadway</strong>? See, our office address is <em>401 Broadway, 10013, New York, NY</em>. We just tried to add a more developer-friendly way to find us in the New York grid. And here&rsquo;s the view from our 25th floor office - that&rsquo;s SOHO right below us and the Empire State Building a bit North.</p>
+
+<p><img src="/images/2013-04-01-an-easter-egg-for-curl/artsy-office-view.jpg" /></p>
+
+<p>Photo by <a href="https://github.com/zamiang">@zamiang</a>.</p>
+
+<p>Easter egg implementation follows.</p>
+
+<p></p>
+
+<p>Implementing a custom HTTP response is surprisingly hard with most web servers. Changing the text that follows error codes is not something most people need. Our API will have to return a custom error code and some monkey-patching will translate the status message. We use <a href="https://github.com/intridea/grape">grape</a>, which is Rack-based and supports inserting middleware, where we do authentication. We randomly chose the number 2600 for an internal status code.</p>
+
+<p>``` ruby api/api_action_dispatch_request.rb
+class ApiActionDispatchRequest &lt; ActionDispatch::Request</p>
+
+<p>def initialize(env)
+    super(env)
+  end</p>
+
+<p>def [](key)
+    params[key] || headers[&ldquo;X_#{key.to_s.upcase}&ldquo;]
+  end</p>
+
+<p>end</p>
+
+<pre><code>
+``` ruby api/api_auth_middleware.rb
+class ApiAuthMiddleware &lt; Grape::Middleware::Base
+
+  def before
+    if access_token == &quot;10013&quot;
+      throw :error,
+        message: 'Inspiration from the Engineering team at http://artsy.github.com',
+        status: 2600
+    else
+      ...
+    end
+  end
+
+  private
+
+    def access_token
+      @access_token ||= request[:access_token]
+    end
+
+    def request
+      @request ||= ApiActionDispatchRequest.new(env)
+    end
+
+end
+</code></pre>
+
+<h3 id="webrick">WEBrick</h3>
+
+<p>``` ruby config/initializers/broadway/webrick.rb
+module WEBrick
+  class HTTPResponse
+    def status=(status)
+      if status == 2600
+        @status = 401
+        @reason_phrase = &ldquo;Broadway&rdquo;
+      else
+        @status = status
+        @reason_phrase = HTTPStatus::reason_phrase(status)
+      end
+    end
+  end
+end</p>
+
+<pre><code>
+### Thin
+
+``` ruby config/initializers/broadway/thin.rb
+module Thin
+  class Response
+    def head
+      if @status == 2600
+        &quot;HTTP/1.1 401 Broadway\r\n#{headers_output}\r\n&quot;
+      else
+        &quot;HTTP/1.1 #{@status} #{HTTP_STATUS_CODES[@status.to_i]}\r\n#{headers_output}\r\n&quot;
+      end
+    end
+  end
+end
+</code></pre>
+
+<h3 id="unicorn">Unicorn</h3>
+
+<p><code>ruby config/initializers/broadway/unicorn.rb
+require 'unicorn/http_response'
+module Unicorn::HttpResponse
+  CODES[2600] = '401 Broadway'
+end
+</code></p>
+
+<h3 id="more-eggs">More Eggs?</h3>
+
+<p>Check out <a href="https://api.artsy.net/humans.txt">artsy.net/humans.txt</a> for more Easter eggs and please feel free to email me at <strong>db[at]artsy[dot]net</strong> if you want to come visit or <a href="https://artsy.net/jobs">work here</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/04/10/aranalytics/">ARAnalytics - Analytics for iOS Apps</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/03/29/musical-chairs/">Musical Chairs</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Organization on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/organization/</link>
+    <description>Recent content in Organization on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Sep 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/organization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Professional Development at Artsy Engineering</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/22/professional-development-at-artsy-engineering/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/22/professional-development-at-artsy-engineering/</guid>
+      <description>&lt;p&gt;In considering an offer to join us at Artsy, one of our newest incoming engineers asked me a great question: &lt;em&gt;How does the tech team do professional development?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As I thought about it, I began to realize that the answer is “a lot”! Most of our efforts evolved organically. Someone had an idea, and people rallied around it. I thought it would be useful to share, in case others are inspired by what&amp;rsquo;s caught on here. Here are some of the things we do.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

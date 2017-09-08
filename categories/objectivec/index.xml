@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Objectivec on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/objectivec/</link>
+    <description>Recent content in Objectivec on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/objectivec/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Workshop: React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</link>
+      <pubDate>Mon, 06 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</guid>
+      <description>&lt;p&gt;Hey there, so you&amp;rsquo;ve decided to take a look at React Native? Well, last week I ran a workshop inside Artsy on &lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; and &lt;a href=&#34;https://facebook.github.io/relay/&#34;&gt;Relay&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The video takes you from &lt;code&gt;react-native init&lt;/code&gt; to having the initial structure of a View Controller based on Relay with a real working API request. The video is about 45 minutes, with inline questions.&lt;/p&gt;
+
+&lt;p&gt;If you wanted to just run through the notes, you could probably get it working in about 10 minutes.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=PYC47YKnK4k&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes to copy &amp;amp; paste from. There is also a full copy of the end-result at &lt;a href=&#34;https://github.com/orta/Relay-Artist-Example&#34;&gt;orta/Relay-Artist-Example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Retrospective: Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/swift-in-rn/swift-in-react-native.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Swift became public in June 2014, by August we had started using it in Artsy. By October, we had &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Swift in production&lt;/a&gt; channelling hundreds of thousands of dollars in auction bids.&lt;/p&gt;
+
+&lt;p&gt;It is pretty obvious that Swift is the future of native development on Apple platforms. It was a no-brainer to then build an &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Apple TV app&lt;/a&gt; in Swift, integrated Swift-support into our key app Eigen and built non-trivial parts of that &lt;a href=&#34;http://artsy.github.io/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;application in Swift&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We first started experimenting with React Native in February 2016, and by August 2016, we announced that &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;Artsy moved to React Native&lt;/a&gt; effectively meaning new code would be in JavaScript from here onwards.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re regularly asked &lt;em&gt;why&lt;/em&gt; we moved, and it was touched on briefly in our announcement but I&amp;rsquo;d like to dig in to this and try to cover a lot of our decision process. So, if you&amp;rsquo;re into understanding why a small team of iOS developers with decades of native experience switched to JavaScript, read on.&lt;/p&gt;
+
+&lt;p&gt;This post will cover: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#What.are.Artsy.s.apps.&#34;&gt;What are Artsy&amp;rsquo;s apps?&lt;/a&gt;, Swifts &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Swift.s.upsides&#34;&gt;positives&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Native.Downsides&#34;&gt;negatives&lt;/a&gt; for us, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native&#34;&gt;React Native&lt;/a&gt;, and our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native..one.year.later&#34;&gt;1-year summary&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

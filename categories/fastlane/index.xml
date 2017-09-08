@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fastlane on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/fastlane/</link>
+    <description>Recent content in Fastlane on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/fastlane/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploying your app on a weekly basis via fastlane &#43; Travis CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</guid>
+      <description>&lt;p&gt;We have a few apps now, but one of them isn&amp;rsquo;t really used by anyone other than developers. This is &lt;a href=&#34;https://github.com/artsy/emission/tree/master/Example&#34;&gt;our React Native host app&lt;/a&gt;. We built our React Native components &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/24/On-Emission/&#34;&gt;as a library&lt;/a&gt; to be consumed by our other apps. Our development environment for these components is a unique app that acts as a host for the React Native components. It&amp;rsquo;s effectively a long tableview.&lt;/p&gt;
+
+&lt;p&gt;This app is often updated for developers, but never deployed to beta users inside Artsy. So I automated it. Using Travis CI and fastlane. This post covers how I got that set up.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>What is fastlane match?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/</link>
+      <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/</guid>
+      <description>&lt;p&gt;Like anyone working on a non-trivial app in the iOS world who values their time, we use fastlane. &lt;a href=&#34;https://fastlane.tools&#34;&gt;fastlane&lt;/a&gt; is a suite
+of tools that makes it much simpler to automate the very manual processes provided by Apple for deployment.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve adopted it in a relatively piece-meal manner in different projects, converting custom in-house code to something
+provided by the gem.  Over time we found what pieces of the suite work for us. &lt;a href=&#34;https://github.com/artsy/energy/pull/266&#34;&gt;I&amp;rsquo;ve adopted another today&lt;/a&gt;: &lt;a href=&#34;https://github.com/fastlane/fastlane/tree/master/match&#34;&gt;match&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;match automates setting up your iOS projects for code signing. One of the most arduous orthogonal tasks which every dev team learns and then forgets.&lt;/p&gt;
+
+&lt;p&gt;In using match, we have given away a bit of control with code signing, and so this post is going to dig into; what we used
+to have, and how it works now with match instead.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

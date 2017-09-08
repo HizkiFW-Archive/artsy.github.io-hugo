@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emission on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/emission/</link>
+    <description>Recent content in Emission on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modernizing Force</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt; is Artsy&amp;rsquo;s main website, &lt;a href=&#34;https://www.artsy.net&#34;&gt;artsy.net&lt;/a&gt;. In the three years since it was &lt;a href=&#34;http://artsy.github.io/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;open-sourced&lt;/a&gt;, it has provided a solid foundation to build features on top of without a lot of the costs associated with growth. It is an early example of Isomorphic (&amp;ldquo;universal&amp;rdquo;) JavaScript, built on top of Express, Backbone, CoffeeScript, Stylus and Jade. It is also highly modular, adopting patterns laid down by its parent project,  &lt;a href=&#34;https://github.com/artsy/ezel&#34;&gt;Ezel&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When first developed these technologies made a lot of sense; CoffeeScript fixed many of the problems with JavaScript pre-ES6, and Jade / Stylus made working with HTML / CSS much more elegant. As time progressed and new technologies became a thing these solutions starting feeling more burdensome to continue building features with and many of our developers longed to start using next-generation tools like React.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Art &#43; Feminism and Artsy Wikipedia/Wikidata Editathon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</link>
+      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</guid>
+      <description>&lt;p&gt;Artsy has always had a focus on Art meets Science, and we &lt;a href=&#34;https://www.meetup.com/CocoaPods-NYC/messages/boards/thread/50940969&#34;&gt;hosted a meet-up in July&lt;/a&gt; that really hits on both. We had a collection of Artsy Staff, members of &lt;a href=&#34;http://www.artandfeminism.org&#34;&gt;Art + Feminism&lt;/a&gt; NYC, the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/10/peer-lab/&#34;&gt;CocoaPods Peer Lab&lt;/a&gt;, &lt;a href=&#34;http://www.artspracticum.org&#34;&gt;New York Arts Practicum&lt;/a&gt; and volunteers from &lt;a href=&#34;https://nyc.wikimedia.org/&#34;&gt;Wikimedia NYC&lt;/a&gt; all helping out.&lt;/p&gt;
+
+&lt;p&gt;We came with two aims:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Help anyone interested in contributing to Wikipedia get started.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&#34;https://github.com/artsy/the-art-genome-project&#34;&gt;The Art Genome Project&lt;/a&gt;(TAGP) to improve Wikidata entries for women Artists.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I helped out with the second part, and the rest of this post will be about the lessons learned during this &lt;a href=&#34;https://en.wikipedia.org/wiki/Edit-a-thon&#34;&gt;editathon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Deploying your app on a weekly basis via fastlane &#43; Travis CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</guid>
+      <description>&lt;p&gt;We have a few apps now, but one of them isn&amp;rsquo;t really used by anyone other than developers. This is &lt;a href=&#34;https://github.com/artsy/emission/tree/master/Example&#34;&gt;our React Native host app&lt;/a&gt;. We built our React Native components &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/24/On-Emission/&#34;&gt;as a library&lt;/a&gt; to be consumed by our other apps. Our development environment for these components is a unique app that acts as a host for the React Native components. It&amp;rsquo;s effectively a long tableview.&lt;/p&gt;
+
+&lt;p&gt;This app is often updated for developers, but never deployed to beta users inside Artsy. So I automated it. Using Travis CI and fastlane. This post covers how I got that set up.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Intro to React Native for an iOS Developer</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</guid>
+      <description>&lt;p&gt;React Native is a new native library that vastly changes the way in which you can create applications. The majority of the information and tutorials on the subject come from the angle of &lt;em&gt;&amp;ldquo;you are a web developer, and want to do native&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This makes sense, given that the size of the JavaScript/web audience is much bigger than native developers, and far more open in the idea of writing apps using JavaScript. For web developers it opens a new creative space to work, however for native developers it provides a way to work with different tools on the same problem. Considering that most developers with a few years on the platform will be comfortable with the Xcode toolset, recommending a change this drastic is a tough sell.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been using React Native now for about a year and a half, and have started to slow down on sweeping changes inside the codebase. This is great because it means we&amp;rsquo;re spending less time trying to get things to work, and more time building on top of a solid foundations. Now that we&amp;rsquo;re settled, it&amp;rsquo;s time to start deeply understanding what happens with React Native.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d like cover a lot of the common questions we get asked about from the perspective of native developers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is React Native?&lt;/li&gt;
+&lt;li&gt;How do you use React Native?&lt;/li&gt;
+&lt;li&gt;When is React Native a good technology choice?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This article covers an awful lot, so free up at least 45 minutes, make a tea and then come back to this on your computer. It&amp;rsquo;s worth your time if you&amp;rsquo;re interested in all the hype around React Native.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Exploration: Front-end JavaScript at Artsy in 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/js2017/js.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;announced&lt;/a&gt; that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.&lt;/p&gt;
+
+&lt;p&gt;Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&amp;rsquo;ve been experimenting with finding common, natural patterns between web and native.&lt;/p&gt;
+
+&lt;p&gt;This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; &lt;a href=&#34;#TypeScript&#34;&gt;TypeScript&lt;/a&gt;, &lt;a href=&#34;#GraphQL&#34;&gt;GraphQL&lt;/a&gt;, &lt;a href=&#34;#React...React.Native&#34;&gt;React/React Native&lt;/a&gt;, &lt;a href=&#34;#Relay&#34;&gt;Relay&lt;/a&gt;, &lt;a href=&#34;#Yarn&#34;&gt;Yarn&lt;/a&gt;, &lt;a href=&#34;#Jest&#34;&gt;Jest&lt;/a&gt;, and &lt;a href=&#34;#Visual.Studio.Code&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Retrospective: Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/swift-in-rn/swift-in-react-native.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Swift became public in June 2014, by August we had started using it in Artsy. By October, we had &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Swift in production&lt;/a&gt; channelling hundreds of thousands of dollars in auction bids.&lt;/p&gt;
+
+&lt;p&gt;It is pretty obvious that Swift is the future of native development on Apple platforms. It was a no-brainer to then build an &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Apple TV app&lt;/a&gt; in Swift, integrated Swift-support into our key app Eigen and built non-trivial parts of that &lt;a href=&#34;http://artsy.github.io/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;application in Swift&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We first started experimenting with React Native in February 2016, and by August 2016, we announced that &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;Artsy moved to React Native&lt;/a&gt; effectively meaning new code would be in JavaScript from here onwards.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re regularly asked &lt;em&gt;why&lt;/em&gt; we moved, and it was touched on briefly in our announcement but I&amp;rsquo;d like to dig in to this and try to cover a lot of our decision process. So, if you&amp;rsquo;re into understanding why a small team of iOS developers with decades of native experience switched to JavaScript, read on.&lt;/p&gt;
+
+&lt;p&gt;This post will cover: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#What.are.Artsy.s.apps.&#34;&gt;What are Artsy&amp;rsquo;s apps?&lt;/a&gt;, Swifts &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Swift.s.upsides&#34;&gt;positives&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Native.Downsides&#34;&gt;negatives&lt;/a&gt; for us, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native&#34;&gt;React Native&lt;/a&gt;, and our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native..one.year.later&#34;&gt;1-year summary&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Glossary for 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</link>
+      <pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</guid>
+      <description>&lt;p&gt;Getting to grips with the entire JavaScript ecosystem is a tough job when you&amp;rsquo;re getting started. Coming from the native mobile space, there&amp;rsquo;s a lot to learn. I&amp;rsquo;ve spent a few months immersed in the environment now, and can try summerize a lot of topics. This should make it easier to find more information when you need it. This post is semi-opinionated, with links for further reading so you can get a different perspective too.&lt;/p&gt;
+
+&lt;p&gt;This post focus specifically on the JavaScript tooling around React Native projects, but is applicable to all JavaScript projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Accessing the app&#39;s Source Code from your Simulator</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/</link>
+      <pubDate>Fri, 14 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/</guid>
+      <description>&lt;p&gt;In the last few months twice I&amp;rsquo;ve wanted to access the source code of our application. The first time I did it I came up with a pretty neat hack, but it wouldn&amp;rsquo;t really work in many places. The second time however, I &lt;a href=&#34;https://twitter.com/orta/status/786470282093625344&#34;&gt;asked the internet&lt;/a&gt;, and the &lt;a href=&#34;https://twitter.com/saniul/status/786470857635827712&#34;&gt;internet&lt;/a&gt; &lt;a href=&#34;https://twitter.com/0xced/status/786619335116750848&#34;&gt;replied&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;TLDR: You can use your &lt;a href=&#34;https://github.com/artsy/emission/pull/350/commits/2a39c743bcaaf2e3b848ad60621198f40365fdd2&#34;&gt;project&amp;rsquo;s scheme&lt;/a&gt; to expose derived Xcode environment variables to your source code.&lt;/p&gt;
+
+&lt;p&gt;The rest of the blog post is a little bit about &lt;em&gt;why&lt;/em&gt; I wanted to do that and what I did with it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

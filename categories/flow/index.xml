@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flow on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/flow/</link>
+    <description>Recent content in Flow on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/flow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Work Offline More</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/30/Work-Offline-More/</link>
+      <pubDate>Wed, 30 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/30/Work-Offline-More/</guid>
+      <description>&lt;p&gt;Want to know what I love writing in a pull request? &lt;em&gt;Sorry this is such a big PR, but I was working offline…&lt;/em&gt; It is one of &lt;a href=&#34;https://github.com/artsy/Emergence/pull/23&#34;&gt;the&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/Emergence/pull/39&#34;&gt;key&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/Emergence/pull/45&#34;&gt;reasons&lt;/a&gt; I managed to get our &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Artsy Shows TV&lt;/a&gt; app released ahead of schedule with a looming unknown App Store &lt;a href=&#34;https://github.com/artsy/Emergence/issues?q=milestone%3A%221.0+Ship+to+Apple%22&#34;&gt;deadline&lt;/a&gt;. Offering more time for polish like thumbnail image &lt;a href=&#34;https://github.com/artsy/Emergence/compare/84855a310d47e071419b52b78978d14d751ec4e0...40966752111a309a20b4878e00a1c8e27cb53261&#34;&gt;pre-caching&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;During the last week before shipping I was scheduled to get a H1B VISA stamp for my passport, which means a trip to London. London is basically a &lt;strong&gt;million&lt;/strong&gt; miles away from where I occasionally live in Huddersfield. So I opted for a coach. On the 5 and a half hours of travel, I had gone from behind schedule to feature complete prototype. On the way back, I had started to remove the word prototype from what we were looking at.&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;always&lt;/em&gt; optimise to work offline on every iOS project. Here&amp;rsquo;s some tips on how we do it in all our apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

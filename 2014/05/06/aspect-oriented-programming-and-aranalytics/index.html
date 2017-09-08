@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Aspect-Oriented Programming and ARAnalytics // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Aspect-Oriented Programming and ARAnalytics" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2014/05/06/aspect-oriented-programming-and-aranalytics/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#there-has-to-be-a-better-way">There has to be a better way.</a></li>
+<li><a href="#what-could-we-do">What could we do?</a></li>
+<li><a href="#how-to-use-it">How to Use it</a></li>
+<li><a href="#some-limitations">Some Limitations</a></li>
+<li><a href="#what-we-learnt">What we Learnt</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/05/06/aspect-oriented-programming-and-aranalytics/">Aspect-Oriented Programming and ARAnalytics</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+				
+					<a class="post-category post-category-Analytics" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Analytics">Analytics</a>
+				
+					<a class="post-category post-category-ARAnalytics" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ARAnalytics">ARAnalytics</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Analytics are common in iOS applications. They help inform our decisions
+about products. Since analytics are so common, Artsy developed a library called
+<a href="https://github.com/orta/ARAnalytics">ARAnalytics</a>. This library provides a
+single interface to many different backend analytics providers, freeing
+developers from having to write code for each of the providers that they&rsquo;re
+using.</p>
+
+<p>Let&rsquo;s consider a typical view controller on iOS. View controllers on iOS
+represent the glue code between models and views. When a model changes, the view
+controller updates the appearance of the UI. Similarly, when the UI is
+interacted with by the user, the view controller updates the model. This is the
+core of any standard iOS application.</p>
+
+<p>So let&rsquo;s say that a button is pressed. We&rsquo;ll handle that interaction in a
+method called <code>buttonWasPressed:</code>. We&rsquo;ll want to update our model, but also to
+track the analytics event.</p>
+
+<pre><code class="language-objc">- (void)buttonWasPressed:(id)sender
+{
+	self.model.hearted = YES;
+
+	[ARAnalytics event:@&quot;hearted&quot;];
+}
+</code></pre>
+
+<p>Simple enough, but consider that the analytics tracking code doesn&rsquo;t fall within
+our definition of a view controller – the button handler just happens to be a
+convenient place to put the tracking code. Also consider that <em>every single</em>
+button handler is going to have to have similar code implemented.</p>
+
+<h2 id="there-has-to-be-a-better-way">There has to be a better way.</h2>
+
+<p></p>
+
+<p><a href="http://twitter.com/steipete">Pete Steinberger</a> and <a href="http://twitter.com/orta">Orta Therox</a>
+were talking and the topic of <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">Aspect-Oriented Programming</a>,
+specifically in the context of analytics. AOP takes a look at the different
+<em>conerns</em> of an application – logical, cohesive units of functionality. While
+most programming paradigms, including those used with Objective-C, group and
+encapsulate these concerns, there are some concerns that are &ldquo;cross-cutting&rdquo;
+because they are involved through several other concerns.</p>
+
+<p>Analytics is such a cross-cutting concern. That makes it a prime target for
+being abstracted away using AOP. Using <a href="http://albertodebortoli.github.io/blog/2014/03/25/an-aspect-oriented-approach-programming-to-ios-analytics/">another blog post</a>  as an example, we set about <a href="https://github.com/orta/ARAnalytics/pull/74">integrating an AOP-like DSL within ARAnalytics</a>
+that would allow you to define all of your analytics in one spot.</p>
+
+<p>The interface would be simple. When providing your API keys to the various
+backend services you&rsquo;d like to use with ARAnalytics, you&rsquo;d also provide a
+dictionary specifying the classes you&rsquo;d like us to &ldquo;hook into&rdquo;. Whenever a
+selector from an instance of the given class was invoked, we&rsquo;d execute the
+analytics event specified in the dictionary.</p>
+
+<p>Since Objective-C has a dynamic runtime, we could have swizzled the instance
+methods on the classes you specified in the dictionary. This gets a little
+tricky and represents a lot of work for us. We could directly swizzle the
+instance methods on the classes in question, but wrapping parameters of variable
+types and in various numbers becomes a chore. If we didn&rsquo;t get it done
+perfectly, we&rsquo;d risk introducing bugs into the entire application.</p>
+
+<p>I wrote a proof-of-concept of analytics using AOP with <a href="http://reactivecocoa.io">ReactiveCocoa</a>.
+It worked, but was a little hacky since it involved the swizzling of <code>alloc</code>.
+ReactiveCocoa is also a large framework to be included just for the sake of
+analytics. Additionally, its interface exposed ReactiveCocoa&rsquo;s <code>RACTuple</code> class,
+which smells like a leaky abstraction.</p>
+
+<h2 id="what-could-we-do">What could we do?</h2>
+
+<p>Well, about the same time, Pete Steinberger open sourced a new framework just
+for AOP called <a href="https://github.com/steipete/Aspects">Aspects</a>. Pete did all the
+difficult work of swizzling methods with variable parameter lists, including
+wrapping primitive parameters in values.</p>
+
+<p>Pete and I worked together to get Aspects working with ARAnalytics, removing our
+dependency on ReactiveCocoa.</p>
+
+<h2 id="how-to-use-it">How to Use it</h2>
+
+<p>Using ARAnalytics with the new DSL is super-easy. Just add either <code>ARAnalytics</code>
+or <code>ARAnalytics/DSL</code> to your podfile, specifying a version of at least 2.6. Run
+<code>pod install</code> and you&rsquo;re ready to get started.</p>
+
+<p>Since all of your analytics are going to be specified in one spot, and that spot
+is going to get rather large, I&rsquo;d recommend creating an Objective-C category on
+your app delegate to set up all of your analytics. Then you can call this
+<code>setupAnalytics</code> method when your app launches.</p>
+
+<pre><code class="language-objc">
+#import &quot;ARAppDelegate.h&quot;
+
+@interface ARAppDelegate (Analytics)
+
+- (void)setupAnalytics;
+
+@end
+
+</code></pre>
+
+<pre><code class="language-objc">
+
+#import &lt;ARAnalytics/DSL.h&gt;
+
+@implementation ARAppDelegate (Analytics)
+
+- (void)setupAnalytics
+{
+	[ARAnalytics setupWithAnalytics:@{
+		/* keys */
+    } configuration:
+    @{
+    	ARAnalyticsTrackedEvents: @[
+    		@{
+    			ARAnalyticsClass: MyViewController.class,
+    			ARAnalyticsDetails: @[
+    				@{
+    					ARAnalyticsEventName: @&quot;hearted&quot;,
+    					ARAnalyticsSelectorName: NSStringFromSelector(@selector(buttonWasPressed:)),
+    				}
+    			]
+    		}
+    	]
+	}];
+}
+
+@end
+
+</code></pre>
+
+<p>Now our <code>buttonWasPressed:</code> method is <em>very</em> straightforward:</p>
+
+<pre><code class="language-objc">- (void)buttonWasPressed:(id)sender
+{
+	self.model.hearted = YES;
+}
+</code></pre>
+
+<p>The view controller is now <em>only</em> responsible for what it should be responsible
+for: mediating interactions between the view and the model. Awesome! Even
+cooler, we can provide fine-grain control over which analytics events are
+invoked and with what properties they are sent with. Let&rsquo;s take a look.</p>
+
+<pre><code class="language-objc">[ARAnalytics setupWithAnalytics:@{
+	/* keys */
+} configuration:
+@{
+	ARAnalyticsTrackedEvents: @[
+		@{
+			ARAnalyticsClass: MyViewController.class,
+			ARAnalyticsDetails: @[
+				@{
+					ARAnalyticsEventName: @&quot;hearted&quot;,
+					ARAnalyticsSelectorName: NSStringFromSelector(@selector(buttonWasPressed:)),
+					ARAnalyticsEventProperties: ^NSDictionary *(MyViewController *controller, NSArray *parameters) {
+                        UIButton *button = parameters.firstObject;
+                        NSString *buttonTitle = [button titleForState:UIControlStateNormal];
+                        return @{
+                            @&quot;view_title&quot; : controller.title ?: @&quot;&quot;,
+                            @&quot;button_title&quot; : buttonTitle ?: @&quot;&quot;,
+                        };
+                    },
+					ARAnalyticsShouldFire: ^BOOL(MyViewController *controller, NSArray *parameters) {
+						return /* selective disable firing of analytics */;
+					}
+				}
+			]
+		}
+	]
+}];
+
+@end
+
+</code></pre>
+
+<p>So you see that even though you&rsquo;re defining your analytics once, at application
+startup, you&rsquo;re still able to provide dynamic, per-instance behaviour and event
+properties.</p>
+
+<p>Finally, we&rsquo;ve also written support for page views. In a few lines, you can
+have every view controller track its page view with ARAnalytics.</p>
+
+<pre><code class="language-objc">[ARAnalytics setupWithAnalytics:@{
+	/* keys */
+} configuration:
+@{
+	ARAnalyticsTrackedScreens: @[
+		@{
+			ARAnalyticsClass: UIViewController.class,
+			ARAnalyticsDetails: @[ // default selector on iOS is viewDidAppear:
+				@{
+					ARAnalyticsPageNameKeyPath: @&quot;title&quot;
+				}
+			]
+		}
+	]
+}];
+
+@end
+
+</code></pre>
+
+<p>This code will track a page view with the title the same as the view
+controller&rsquo;s <code>title</code> property, but just like with events you can provide
+fine-grained handling.</p>
+
+<h2 id="some-limitations">Some Limitations</h2>
+
+<p>There is a <a href="https://github.com/steipete/Aspects/issues/11">limitation</a> on
+Aspects that wasn&rsquo;t fully understood until we used the new AOP approach to
+analytics in the Artsy app. Selectors can only be &ldquo;hooked into&rdquo; once per class
+hierarchy. That  means that you cannot create a tracked events for two
+difference view controllers, both on the <code>viewWillAppear:</code> selector. This is a
+temporary limitation while the Aspects library is being worked on. In the mean
+time, you are free to use the <a href="https://github.com/orta/ARAnalytics/tree/ashfurrow-temporary-dsl-fix">original implementation</a>
+with ReactiveCocoa, which doesn&rsquo;t have this limitation and which we are using
+currently.</p>
+
+<h2 id="what-we-learnt">What we Learnt</h2>
+
+<p>AOP is a really cool paradigm that can reduce tight coupling in your code and
+increase your overall level of cohesion. Its applications extend beyond just
+analytics – any time you have a behaviour that&rsquo;s being exhibited in several
+abstractions in your code, you should consider if using AOP to replace that
+behaviour might make for cleaner code and more cohesive abstractions.</p>
+
+<p>Finally, I got to make my first significant contribution to open source at
+Artsy. It was awesome to be able to collaborate with Pete and Orta on this
+project, as well as receive feedback from developers who are already using
+ARAnalytics.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/">Continuous integration for service-oriented architectures</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/">Generating Notifications and Personalized Emails Efficiently</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

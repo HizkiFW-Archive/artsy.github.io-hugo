@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Being a Good OSS Citizen // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Being a Good OSS Citizen" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/">Being a Good OSS Citizen</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+				
+					<a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+				
+					<a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Let&rsquo;s take a look at the day in the life of an open source citizen: me. On our app, I was given <a href="https://github.com/artsy/eigen/issues/971">an issue</a> that would allow users to refine what kinds of sale artworks they were looking at, and it included this <em>awesome</em> slider control so they could set min/max price ranges.</p>
+
+<p></p>
+
+<p>{% expanded_img /images/2016-01-28-being-a-good-open-source-citizen/design.png %}</p>
+
+<p>Nice.</p>
+
+<p>But iOS doesn&rsquo;t have a slider like that built into UIKit, so I headed to <a href="https://cocoapods.org">CocoaPods.org</a> to find something that would work for me. Searching for &ldquo;range slider&rdquo; yielded a bunch of results, and I looked through three or four of them.</p>
+
+<p>I picked <a href="https://cocoapods.org/pods/MARKRangeSlider">this one</a> because it did <em>almost exactly</em> what I needed, provided a reasonable level of customization, and had a history of development leading up to a recent v1.0.</p>
+
+<p>But I said it did &ldquo;almost exactly&rdquo; what I needed, which meant I&rsquo;d have to modify it. At this point, many developers either look for a different library or abandon the idea of using an existing library altogether and invent one themselves. That&rsquo;s a shame, because it&rsquo;s almost always faster and easier to improve an existing library than it is to build your own.</p>
+
+<p>So let&rsquo;s step through what I did to modify this library for my needs. First, I checked to see if there was an issue for my feature already opened on the repository; maybe someone else had tried this, and I could benefit from their experience! That wasn&rsquo;t the case, so I forked the library to my personal account and cloned my fork locally. Now I can modify the library&rsquo;s code and commit it to my fork.</p>
+
+<p>Next I add the library to my <code>Podfile</code>, but I&rsquo;m clever about it.</p>
+
+<pre><code class="language-rb">pod 'MARKRangeSlider', :path =&gt; '../MARKRangeSlider'
+</code></pre>
+
+<p>This tells CocoaPods that I&rsquo;m <em>working</em> on the pod, and, it is stored in a local directory (the one where I cloned my fork). This makes it a &ldquo;development pod&rdquo;, so that the files in Xcode are actually the ones I&rsquo;ve cloned locally.</p>
+
+<p>This is a really important, but subtle point. Normally, CocoaPods downloads copies of the files and stores those copies, but in this case, it refers to the existing files. It doesn&rsquo;t copy them at all: any changes I make to the library while working on my app are to the files I cloned. That means they can be easily committed and pushed up to my fork.</p>
+
+<p>That&rsquo;s exactly what I did. I made my changes from within the app until I was satisfied, and <a href="https://github.com/ashfurrow/MARKRangeSlider/commit/aefbeb181b62c8c257a7d0ada1e75834489b1909">pushed them to my fork</a>, then pointed the <code>Podfile</code> to my fork of the pod.</p>
+
+<pre><code class="language-rb">pod 'MARKRangeSlider', :git =&gt; 'https://github.com/ashfurrow/MARKRangeSlider.git'
+</code></pre>
+
+<p>Nice. At this point, I continued on as a developer, running a <code>pod install</code> to download the forked library with my commits as usual. I finished building the feature and <a href="https://github.com/artsy/eigen/pull/1075">PR&rsquo;d it using my fork</a>.</p>
+
+<p><img src="/images/2016-01-28-being-a-good-open-source-citizen/done.gif" alt="" /></p>
+
+<p>I could&rsquo;ve stopped here, but that&rsquo;d be a shame. Someone else might want the same changes I made, and I should submit them back. I <a href="https://github.com/vadymmarkov/MARKRangeSlider/pull/22">opened a PR</a> on the library to contribute my changes back, and I made sure to explain <em>why</em> my changes were necessary. Because our app is open source, I was even able to link to <em>our</em> PR to show the library author how their work was being used.</p>
+
+<p>The next morning, I woke up to find my PR had been merged, and after the author pushed an updated version of the library (including my changes), I updated our app&rsquo;s <code>Podfile</code> once more.</p>
+
+<pre><code class="language-rb">pod 'MARKRangeSlider'
+</code></pre>
+
+<p>Then ran <code>pod update MARKRangeSlider</code> so it would update <em>just</em> that pod, and point it to the new release. I re-ran the unit tests to make sure I hadn&rsquo;t broken anything, and <a href="https://github.com/artsy/eigen/pull/1077">PR&rsquo;d the change</a>.</p>
+
+<p>This sounds like a lot, and having written it all out, I guess it is. But it&rsquo;s a series of small steps, not big ones, and I&rsquo;ve worked like this long enough that it&rsquo;s second-nature to me now.</p>
+
+<hr />
+
+<p>I believe that using existing open source libraries is almost always better than writing your own, and I believe that improvements made to open source ought to be shared. Those beliefs shape my behaviour as a developer, and as a person.</p>
+
+<p>Making your first contribution to a project may seem scary, but we all <a href="https://github.com/B-Sides/ELCSlider/pull/1">start somewhere</a>. It gets easier, and in time, you will become a paragon of open source citizenry.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/01/30/iOS-Junior-Interviews/">Interviewing, applying and getting your first job in iOS</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/01/26/swift-at-artsy/">Teaching Swift at Artsy</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

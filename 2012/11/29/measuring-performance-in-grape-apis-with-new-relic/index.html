@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Measuring Performance in Grape APIs with NewRelic RPM // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Measuring Performance in Grape APIs with NewRelic RPM" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#newrelic-rpm">NewRelic RPM</a></li>
+<li><a href="#development-environment">Development Environment</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/">Measuring Performance in Grape APIs with NewRelic RPM</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+				
+					<a class="post-category post-category-NewRelic" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/NewRelic">NewRelic</a>
+				
+					<a class="post-category post-category-Grape" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Grape">Grape</a>
+				
+					<a class="post-category post-category-performance" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/performance">performance</a>
+				
+					<a class="post-category post-category-ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby">ruby</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Knowing how well your API performs in real time is essential to any successful project. That&rsquo;s because you can&rsquo;t fix what you can&rsquo;t measure.</p>
+
+<p>We use and heavily contribute to <a href="http://github.com/intridea/grape">Grape</a>, a Ruby API DSL. Grape is a Rack middleware and we have been reporting API performance data to <a href="http://newrelic.com/">NewRelic</a> with code from <a href="http://code.dblock.org/new-relic-performance-instrumentation-with-grape-api">my older blog post</a>.</p>
+
+<p>It&rsquo;s time to improve the reporting implementation and address performance monitoring in both development and production environments. Here&rsquo;s what a single API request breakdown is going to look like.</p>
+
+<p><img src="/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/transaction-detail.png"></p>
+
+<p></p>
+
+<h2 id="newrelic-rpm">NewRelic RPM</h2>
+
+<p>The first step is to add the <code>newrelic_rpm</code> gem to Gemfile, which implements the actual realtime performance reporting to NewRelic. We also use <a href="https://github.com/mongoid/mongoid">Mongoid</a> and the <a href="https://github.com/mongoid/moped">Moped</a> MongoDB Ruby driver, which can be instrumented with <code>newrelic_moped</code>.</p>
+
+<p>``` ruby Gemfile
+gem &ldquo;newrelic_moped&rdquo;, &ldquo;0.0.3&rdquo;
+gem &ldquo;newrelic_rpm&rdquo;, &ldquo;3.3.3&rdquo;</p>
+
+<pre><code>
+You will need `config/newrelic.yml` in your application. Ours can be found in [this gist](https://gist.github.com/4170458) and works well both locally and on Heroku.
+
+Instrumenting Grape
+-------------------
+
+In the past we used [NewRelic::Agent::Instrumentation::API](https://gist.github.com/1233422), which works for any generic Rack middleware. This would report all API calls to NewRelic, but would treat requests to */api/artist/andy-warhol* and */api/artist/wassily-kandinsky* as unrelated. That is because the instrumenter is a Rack middleware that wraps Grape requests *before* they reach Grape. The only information available is the request URL, and not the actual API route that is going to be matched when the request is processed.
+
+We want both requests to */api/artist/andy-warhol* and */api/artist/wassily-kandinsky* to be treated as */api/artist/:id*. Lets insert a middleware inside Grape itself, once the URL has been matched to a route.
+
+``` ruby api.rb
+class API &lt;&lt; Grape::API
+  use ApiNewRelicInstrumenter
+  ...
+end
+</code></pre>
+
+<p>The new instrumenter has access to the current API endpoint via <code>env['api.endpoint']</code> and reports data via NewRelic&rsquo;s <code>ControllerInstrumentation</code>.</p>
+
+<pre><code class="language-ruby">class ApiNewRelicInstrumenter &lt; Grape::Middleware::Base
+  include NewRelic::Agent::Instrumentation::ControllerInstrumentation
+
+  def call(env)
+    trace_options = {
+      category: :rack,
+      path: env['api.endpoint'].routes.first.route_path,
+      request: request,
+      ...
+    }
+
+    perform_action_with_newrelic_trace(trace_options) do
+      yield
+    end
+
+  end
+end
+</code></pre>
+
+<p>The complete code for <code>ApiNewRelicInstrumenter</code> can be found in <a href="https://gist.github.com/4170469">this gist</a>. It supports enabling and disabling performance reporting by setting <code>NEW_RELIC_ID</code> and works around NewRelic&rsquo;s method name limitations (these cannot contain slashes).</p>
+
+<h2 id="development-environment">Development Environment</h2>
+
+<p>You can now see NewRelic performance data in development mode, too. If you mount Grape inside Rails run <code>NEW_RELIC_ID=foo rails s</code>. Navigate to <em><a href="http://localhost:3000/newrelic">http://localhost:3000/newrelic</a></em> to see your local traces.</p>
+
+<p><img src="/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/developer-mode.png"></p>
+
+<p>Drill into an individual request to find several detailed breakdowns of how time was spent, including specific MongoDB queries (under &ldquo;SQL&rdquo;, naturally).</p>
+
+<p><img src="/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/sql-detail.png"></p>
+
+<p>NewRelic is a commercial product, but you can run development mode for free! Note that enabling this will triple your local Rails boot time: we enable development mode by setting <code>development_mode: &lt;%= !!ENV['NEW_RELIC_ID'] %&gt;</code> in <a href="https://gist.github.com/4170458">newrelic.rpm</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/">Beat Heroku&#39;s 60 Seconds Application Boot Timeout with a Proxy</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/">Friendly URLs with Mongoid::Slug</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

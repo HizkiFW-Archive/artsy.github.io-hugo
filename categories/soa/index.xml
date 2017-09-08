@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Soa on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/soa/</link>
+    <description>Recent content in Soa on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/soa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Continuous integration for service-oriented architectures</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</guid>
+      <description>&lt;p&gt;Whatever you have against monolithic architectures, at least they&amp;rsquo;re easy to test. And when those tests succeed, you can be reasonably confident the live app will work the same way.&lt;/p&gt;
+
+&lt;p&gt;Artsy began as one such monolithic app, but we&amp;rsquo;ve been refactoring into an ecosystem of related APIs and sites. Today, when you search for &lt;a href=&#34;https://artsy.net/gene/cultural-commentary&#34;&gt;&amp;ldquo;cultural commentary&amp;rdquo;&lt;/a&gt; or visit &lt;a href=&#34;https://artsy.net/artist/robert-longo&#34;&gt;Robert Longo&lt;/a&gt; on &lt;a href=&#34;https://artsy.net&#34;&gt;artsy.net&lt;/a&gt;, the page is rendered by a web app, sources data from an API, retrieves recommendations from a separate service, tracks trends in another, and records analytics in yet another.&lt;/p&gt;
+
+&lt;p&gt;This was a boost for developer productivity and scaling, but eviscerated the value of our tests. We repeatedly encountered bugs that were failings of &lt;em&gt;the interaction between codebases&lt;/em&gt; rather than failings of individual ones. Test libraries and tools typically concern themselves with one isolated app. When you have services that consume services that consume services, those isolated tests (with their stubs of everything else) don&amp;rsquo;t necessarily reflect production&amp;rsquo;s reality.&lt;/p&gt;
+
+&lt;p&gt;So how should we develop our small, focused apps (or &lt;a href=&#34;http://en.wikipedia.org/wiki/Service-oriented_architecture&#34;&gt;service-oriented architecture&lt;/a&gt;, or &lt;a href=&#34;http://martinfowler.com/articles/microservices.html&#34;&gt;microservices&lt;/a&gt;&amp;hellip;) with confidence? We set out to build a dedicated acceptance test suite that would run tests across multiple services, configuring and integrating them in a way that closely matches the production environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

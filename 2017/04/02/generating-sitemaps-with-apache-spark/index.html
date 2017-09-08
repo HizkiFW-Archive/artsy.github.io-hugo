@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Generating Sitemaps with Apache Spark // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Generating Sitemaps with Apache Spark" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#what-s-in-a-sitemap">What&rsquo;s in a Sitemap?</a></li>
+<li><a href="#the-monolith-s-rake-task">The Monolith&rsquo;s Rake Task</a></li>
+<li><a href="#the-dynamic-front-end">The Dynamic Front-End</a></li>
+<li><a href="#the-big-gish-data-solution">The Big(gish) Data Solution</a>
+<ul>
+<li><a href="#a-spark-job">A Spark Job</a></li>
+<li><a href="#getting-data">Getting Data</a></li>
+<li><a href="#mapping-data">Mapping Data</a></li>
+<li><a href="#generating-sitemaps">Generating Sitemaps</a></li>
+<li><a href="#writing-sitemap-files">Writing Sitemap Files</a></li>
+<li><a href="#writing-sitemap-index">Writing Sitemap Index</a></li>
+<li><a href="#serving-sitemaps">Serving Sitemaps</a></li>
+</ul></li>
+<li><a href="#results">Results</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/">Generating Sitemaps with Apache Spark</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>2</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Big-Data" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Big-Data">Big Data</a>
+				
+					<a class="post-category post-category-Apache-Spark" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Apache-Spark">Apache Spark</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>While Artsy is the largest database of Contemporary Art online, it&rsquo;s not exactly &ldquo;big data&rdquo;. To date, we have published over 500,000 artworks by more than 50,000 artists from over 4,000 galleries, 700 museums and institutions across over 40,000 shows. Our team has written thousands of articles, hosted hundreds of art fairs and a few dozen auctions. We have over 1,000 genes from the Art Genome project, too.</p>
+
+<p>There&rsquo;re just over a million web pages generated from this data on <a href="https://www.artsy.net">artsy.net</a>. Generating sitemaps to submit to Google and other search engines for a million pages never seemed like a big deal. In this post I&rsquo;ll describe 3 generations of code, including our most recent iteration that uses Apache Spark to generates static sitemap files in S3.</p>
+
+<p></p>
+
+<h3 id="what-s-in-a-sitemap">What&rsquo;s in a Sitemap?</h3>
+
+<p>If you&rsquo;re not familiar with sitemaps, they are an easy way for us to inform search engines about pages on artsy.net available for crawling. A Sitemap is an XML file that lists URLs along with some additional metadata. All Artsy sitemaps are listed in our <a href="https://www.artsy.net/robots.txt">robots.txt</a>.</p>
+
+<pre><code>User-agent: *
+Sitemap: https://www.artsy.net/sitemap-artists.xml
+Sitemap: https://www.artsy.net/sitemap-shows.xml
+...
+</code></pre>
+
+<p>These are actually sitemap indexes, such as <a href="https://www.artsy.net/sitemap-shows.xml">the shows sitemap index</a>. Each index contains links to the actual sitemaps.</p>
+
+<pre><code class="language-xml">&lt;sitemapindex xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+ &lt;sitemap&gt;
+  &lt;loc&gt;https://www.artsy.net/sitemap-shows-2016.xml&lt;/loc&gt;
+ &lt;/sitemap&gt;
+ ...
+&lt;/sitemapindex&gt;
+</code></pre>
+
+<p>Each sitemap contains links to web pages on <a href="https://www.artsy.net">www.artsy.net</a>, such as the <a href="https://www.artsy.net/sitemap-shows-2016.xml">sitemap containing links to shows in 2016</a>.</p>
+
+<pre><code class="language-xml">&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+ &lt;url&gt;
+  &lt;loc&gt;https://www.artsy.net/show/guy-hepner-kate-moss-exhibiton&lt;/loc&gt;
+ &lt;/url&gt;
+ ...
+&lt;/urlset&gt;
+</code></pre>
+
+<h3 id="the-monolith-s-rake-task">The Monolith&rsquo;s Rake Task</h3>
+
+<p>When Artsy was a Ruby on Rails monolith we generated and wrote static sitemap files to S3 in a Rake task. We iterated over all our data nightly, created a set of URLs and wrote an XML file. We got fairly clever with a <code>Sitemappable</code> module that was included in anything that yielded a sitemap.</p>
+
+<pre><code class="language-ruby">module Sitemappable
+  extend ActiveSupport::Concern
+
+  module ClassMethods
+    def sitemappable_priority
+      0.5
+    end
+  end
+end
+</code></pre>
+
+<p>We even used HAML, the same templating system we used to render web pages, to render sitemaps.</p>
+
+<pre><code class="language-haml">!!! XML
+%urlset{ xmlns: &quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot; }
+  - documents.each do |document|
+      - type.sitemappable_urls(document, self).each do |url|
+        %url
+          %loc=h url
+</code></pre>
+
+<p>Of course, there were many more implementation details, but adding a sitemap was easy as we made Mongoid models use <code>Sitemappable</code>.</p>
+
+<p>Generating sitemaps took a couple of hours and ran nightly.</p>
+
+<h3 id="the-dynamic-front-end">The Dynamic Front-End</h3>
+
+<p>By 2015 our front-end was fully decoupled from the monolith that now served as the core API service. The sitemap code still lived there and needed to know about an increasing number of URLs, which seemed totally backwards. We wanted an easier way to maintain and update sitemaps and concluded that by generating sitemaps on the fly we would also see better reflect our live data and prevent 404s in stale sitemaps during crawling. Furthermore, sitemaps increasingly needed information from other places, as we tore the monolith apart into micro-services.</p>
+
+<p>Our solution for dynamic sitemaps queried the API for the number of total items in every collection, then generated a sitemap index with an entry for each page of results. A subsequent query from Google for a given page would query the API for the actual data that was needed to produce the requested sitemap. You can see the entire code <a href="https://github.com/artsy/force/tree/2059f8f5e7faa8213221480c1c9cd3c62e9d5ffb/desktop/apps/sitemaps">in our open-source artsy.net project</a>.</p>
+
+<p>This worked for a while, but introduced new challenges. The first was that we needed individual sitemaps to contain thousands of items or have tens of thousands of sitemaps. That meant tens of megabytes of data returned from either multiple API calls or from a very slow single API query. That problem was even more serious for models that required joining data, and was solved by our first attempt at an orchestration layer that would crawl our own API on a schedule. Today we use GraphQL for that purpose, but we never deprecated the system we put in place during this phase of the sitemap rewrite. That system was barely maintained and riddled with its own issues, starting by the fact that the data crawl began timing out as the amount of data increased sharply. This system quickly became unsustainable as our data grew.</p>
+
+<h3 id="the-big-gish-data-solution">The Big(gish) Data Solution</h3>
+
+<p>In 2016 we started using Apache Spark for calculating similarity graphs and artwork recommendations. We previously loaded a vast majority of our data from many sources into HDFS and wrote Spark jobs in Scala. Having all the data from our multiple databases readily available made our Spark cluster a perfect candidate for a simple need like sitemaps.</p>
+
+<h4 id="a-spark-job">A Spark Job</h4>
+
+<p>A spark job is a Scala class with an entry point that receives some configuration. A typical sitemap fetches data, partitions it, and generates XML sitemap files. This is automatically parallelized and distributed across worker nodes that already have their subset of data locally, making the whole thing blazingly fast.</p>
+
+<pre><code class="language-scala">def main(args: Array[String]): Unit = {
+  val conf = new SparkConf().setAppName(this.getClass.getName)
+  val sc = new SparkContext(conf)
+  val hc = new HiveContext(sc)
+  val data = getData(hc)
+  val sitemaps = generateSitemaps(mapData(data))
+  writeSitemaps(sitemaps)
+  writeSitemapsIndex(sitemaps)
+  purgeSitemaps(sitemaps)
+}
+</code></pre>
+
+<h4 id="getting-data">Getting Data</h4>
+
+<p>We use Hive to define schemas for all data stored in HDFS. The following example fetches a show ID and its start date/time.</p>
+
+<pre><code class="language-scala">def getData(hc: HiveContext): RDD[Row] = {
+  hc.sql(&quot;SELECT id, start_at FROM shows&quot;)
+}
+</code></pre>
+
+<h4 id="mapping-data">Mapping Data</h4>
+
+<p>We partition sitemaps by date (mostly by year). This helps keep track of how many URLs Google has indexed and makes problems easier to diagnose.</p>
+
+<p>We start by bucketing data for simple objects into tuples of <code>(date, Iterable[String])</code>. In the following example all shows in 2016 will be grouped together.</p>
+
+<pre><code class="language-scala">def mapData(rows: RDD[Row]): RDD[(String, Iterable[String])] = {
+  rows.map { row =&gt;
+    val id = row.getString(0)
+    val start_at = new DateTime(row.getLong(1))
+    val year = DateTimeFormat.forPattern(&quot;yyyy&quot;).print(start_at)
+    (year, slug)
+  }.groupByKey()
+}
+</code></pre>
+
+<h4 id="generating-sitemaps">Generating Sitemaps</h4>
+
+<p>For each bucket we generate a sitemap. Each sitemap entry is a URL with a <code>loc</code>.</p>
+
+<pre><code class="language-xml">def getSitemapEntry(id: String): Elem = {
+  val loc = s&quot;https://www.artsy.net/show/${id}&quot;
+  &lt;url&gt;&lt;loc&gt;{ loc }&lt;/loc&gt;&lt;/url&gt;
+}
+</code></pre>
+
+<p>Sitemaps cannot contain more than 50,000 items according to the <a href="https://www.sitemaps.org/protocol.html">sitemap spec</a>, so we generate files such as <code>sitemap-shows-2016-1.xml</code> and <code>sitemap-shows-2016-2.xml</code> when necessary.</p>
+
+<pre><code class="language-scala">def getSitemaps(data: RDD[(String, Iterable[String])]): RDD[(String, Elem)] = {
+  data.map {
+    case (date: String, all: Iterable[String]) =&gt;
+      val groups = all.iterator.grouped(50000).zipWithIndex
+      groups.map {
+        case (ids: Seq[String], index: Int) =&gt;
+          val indexLabel = if (index != 0 || groups.hasNext) s&quot;-${index + 1}&quot; else &quot;&quot;
+          val dateLabel = s&quot;-${date}&quot;
+          val sitemapKey = s&quot;sitemap-shows${dateLabel}${indexLabel}&quot;
+          val sitemapXml = &lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;{
+            ids.map(getSitemapEntry)
+          }&lt;/urlset&gt;
+          (sitemapKey, sitemapXml)
+      }.toArray
+  }.flatMap(x =&gt; x)
+}
+</code></pre>
+
+<h4 id="writing-sitemap-files">Writing Sitemap Files</h4>
+
+<p>We write a file for each sitemap. The production output goes to S3.</p>
+
+<pre><code class="language-scala">def writeSitemaps(sitemapsXml: RDD[(String, Elem)]) = {
+  sitemapsXml.foreach {
+    case (key: String, xml: Elem) =&gt;
+      writeFile(xml, s&quot;${key}.xml&quot;)
+  }
+}
+</code></pre>
+
+<h4 id="writing-sitemap-index">Writing Sitemap Index</h4>
+
+<p>An index is a list of all the sitemaps, also written to S3.</p>
+
+<pre><code class="language-scala">def getSitemapsIndex(sitemapsXml: RDD[(String, Elem)]): Elem = {
+  &lt;sitemapindex xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;{
+    sitemapsXml.collect().map {
+      case (key: String, _) =&gt;
+        &lt;sitemap&gt;&lt;loc&gt;{ s&quot;https://www.artsy.net/${key}.xml&quot; }&lt;/loc&gt;&lt;/sitemap&gt;
+    }
+  }&lt;/sitemapindex&gt;
+}
+
+def writeSitemapsIndex(sitemapsXml: RDD[(String, Elem)]) = {
+  val sitemapsIndexXml = getSitemapsIndex(sitemapsXml)
+  writeFile(sitemapsIndexXml, s&quot;sitemap-shows.xml&quot;)
+}
+</code></pre>
+
+<p>You also need to do a bit more work to purge files that are no longer generated as data changes. For the shows example above we fetch a list of sitemap files such prefixed by <code>sitemap-shows-</code> and delete the set difference.</p>
+
+<pre><code class="language-scala">def purgeSitemaps(sitemapsXml: RDD[(String, Elem)]) = {
+  val sitemapKeys = sitemapsXml.keys.map(k =&gt; s&quot;${k}.xml&quot;)
+  val existingFiles = ... // fetch files prefixed by sitemap-shows-
+  val filesToDelete = existingFiles &amp;~ sitemapKeys.collect().toSet
+  keysToDelete.foreach(file =&gt; deleteFile(file))
+}
+</code></pre>
+
+<h4 id="serving-sitemaps">Serving Sitemaps</h4>
+
+<p>We serve sitemaps through a Node.js proxy <a href="https://github.com/artsy/force/blob/9eedf063d024ea94e6c32b01497c3fcb7f596d68/desktop/apps/sitemaps/routes.coffee#L42">in our front-end</a>.</p>
+
+<pre><code class="language-js">SITEMAP_BASE_URL = 'http://artsy-sitemaps.s3-website-us-east-1.amazonaws.com'
+httpProxy = require 'http-proxy'
+{ parse } = require 'url'
+sitemapProxy = httpProxy.createProxyServer(target: SITEMAP_BASE_URL)
+
+@sitemaps = (req, res, next) -&gt;
+  req.headers['host'] = parse(SITEMAP_BASE_URL).host
+  sitemapProxy.web req, res
+</code></pre>
+
+<h3 id="results">Results</h3>
+
+<p>We schedule a workflow for each sitemap in Spark with Oozie. Each sitemap job completes in under 5 minutes, which is pretty remarkable given where we started. It will also easily scale to many multiples of our current size as our data continues to grow.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/">What is fastlane match?</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/">Bringing Artsy to Google Assistant &#34;Home&#34; with Actions</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apache Spark on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/apache-spark/</link>
+    <description>Recent content in Apache Spark on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/apache-spark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Calculating the Importance of an Artwork with Apache Spark</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/21/calculating-the-importance-of-an-artwork-with-apache-spark/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/21/calculating-the-importance-of-an-artwork-with-apache-spark/</guid>
+      <description>&lt;p&gt;How important is a single artwork within the artist&amp;rsquo;s body of work? At Artsy we try to answer this question by extracting and scoring a set of features across roughly one million artworks. We call it an &lt;em&gt;iconicity&lt;/em&gt; score and we calculate that in Apache Spark for the entire dataset in under 5 minutes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Generating Sitemaps with Apache Spark</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/</link>
+      <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/</guid>
+      <description>&lt;p&gt;While Artsy is the largest database of Contemporary Art online, it&amp;rsquo;s not exactly &amp;ldquo;big data&amp;rdquo;. To date, we have published over 500,000 artworks by more than 50,000 artists from over 4,000 galleries, 700 museums and institutions across over 40,000 shows. Our team has written thousands of articles, hosted hundreds of art fairs and a few dozen auctions. We have over 1,000 genes from the Art Genome project, too.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;re just over a million web pages generated from this data on &lt;a href=&#34;https://www.artsy.net&#34;&gt;artsy.net&lt;/a&gt;. Generating sitemaps to submit to Google and other search engines for a million pages never seemed like a big deal. In this post I&amp;rsquo;ll describe 3 generations of code, including our most recent iteration that uses Apache Spark to generates static sitemap files in S3.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

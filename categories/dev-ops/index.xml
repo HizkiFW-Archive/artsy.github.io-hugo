@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev Ops on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/dev-ops/</link>
+    <description>Recent content in Dev Ops on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/dev-ops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Refactoring Infrastructure</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/02/refactoring-infrastructure/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/02/refactoring-infrastructure/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://martinfowler.com/books/refactoring.html&#34;&gt;Refactoring&lt;/a&gt; usually describes chages to &lt;em&gt;code&lt;/em&gt;. Specifically, small changes that bring a codebase closer to the desired state. By making these changes incrementally and without modifying the end-to-end behavior, we avoid risk and the intermediate broken states that usually plague large-scale changes. But refactoring need not be limited to code. It&amp;rsquo;s also an effective way to make infrastructure improvements.&lt;/p&gt;
+
+&lt;p&gt;Take the most common&amp;ndash;and simplest&amp;ndash;example: database schema changes. Environments that demand constant uptime have long had to chunk schema changes into steps that allow for a graceful transition. In the simple case of replacing a column, this might look like:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Add the new column&lt;/li&gt;
+&lt;li&gt;Redirect code references there from the old column&lt;/li&gt;
+&lt;li&gt;Migrate data as necessary, and finally&lt;/li&gt;
+&lt;li&gt;Remove the old column&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The same sequencing applies to making larger infrastructure changes gracefully. Some recent examples from our own experience:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introduction to AWS OpsWorks</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/</link>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/</guid>
+      <description>&lt;p&gt;OpsWorks is a new service from Amazon that promises to provide high-level tools to manage your EC2-based deployment. From &lt;a href=&#34;http://aws.typepad.com/aws/2013/02/aws-opsworks-flexible-application-management-in-the-cloud.html&#34;&gt;the announcement&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;AWS OpsWorks features an integrated management experience for the entire application lifecycle including resource provisioning, configuration management, application deployment, monitoring, and access control. It will work with applications of any level of complexity and is independent of any particular architectural pattern.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After scratching our heads about exactly what that meant, we tried it anyway. If you&amp;rsquo;ve been straining at the limits of your Platform as a Service (PaaS) provider, or just wishing for more automation for your EC2 deployment, you may want to try it out too.&lt;/p&gt;
+
+&lt;p&gt;Artsy has been experimenting with OpsWorks for a few months now and recently adopted it for the production &lt;a href=&#34;http://artsy.net&#34;&gt;artsy.net&lt;/a&gt; site. We&amp;rsquo;re excited to share what we&amp;rsquo;ve learned in the process.&lt;/p&gt;
+
+&lt;p&gt;{% include expanded_img.html url=&amp;ldquo;/images/2013-08-27-introduction-to-aws-opsworks/opsworks.png&amp;rdquo; title=&amp;ldquo;OpsWorks overview&amp;rdquo; %}&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

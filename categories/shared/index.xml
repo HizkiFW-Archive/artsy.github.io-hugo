@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shared on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/shared/</link>
+    <description>Recent content in Shared on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/shared/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>We open sourced our Isomorphic Javascript website</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</link>
+      <pubDate>Fri, 05 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/force.png&#34; alt=&#34;May The Force be With You&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;re happy to announce we&amp;rsquo;ve open sourced the entire Artsy.net web app, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Over the past few months, we&amp;rsquo;ve rewritten our web front-end to move off Rails and on to a &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; stack that shares Javascript code and rendering between the server and client, otherwise known as &lt;a href=&#34;http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/&#34;&gt;Isomorphic Javascript&lt;/a&gt;. After migrating to this new stack, we open-sourced our boilerplate, &lt;a href=&#34;http://ezeljs.com&#34;&gt;Ezel&lt;/a&gt;, and have now gone a step further and open sourced Artsy.net.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rendering on the Server and Client in Node.js</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/</link>
+      <pubDate>Wed, 18 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/isomorphic.png&#34; alt=&#34;Diagram of Shared Server/Client Architecture&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At Artsy we&amp;rsquo;ve been building &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; applications that share code and rendering between the server and browser. We&amp;rsquo;ve seen many benefits from this &amp;ndash; pages load faster, we can optimize SEO, developers are more productive, and JavaScript coding is just an overall better experience.&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;re happy to announce &lt;a href=&#34;http://ezeljs.com/&#34;&gt;Ezel&lt;/a&gt;, our open source boilerplate we use to bootstrap our Node projects and the &lt;a href=&#34;https://github.com/artsy/benv&#34;&gt;various&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/backbone-super-sync&#34;&gt;node&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/sharify&#34;&gt;modules&lt;/a&gt; that built up to it.&lt;/p&gt;
+
+&lt;p&gt;In his article, &lt;a href=&#34;http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/&#34;&gt;&lt;em&gt;Isomorphic JavaScript: The Future of Web Apps&lt;/em&gt;&lt;/a&gt;, Spike Brehm from AirBnB describes this growing trend well and we&amp;rsquo;re excited to be a part of it. In this article I&amp;rsquo;ll tell Artsy&amp;rsquo;s story of moving from a single monolithic application to modular &lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone&lt;/a&gt; apps that run in Node and the browser and consume our external API.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

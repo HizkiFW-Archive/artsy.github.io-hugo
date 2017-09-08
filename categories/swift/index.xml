@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/swift/</link>
+    <description>Recent content in Swift on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Workshop: React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</link>
+      <pubDate>Mon, 06 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</guid>
+      <description>&lt;p&gt;Hey there, so you&amp;rsquo;ve decided to take a look at React Native? Well, last week I ran a workshop inside Artsy on &lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; and &lt;a href=&#34;https://facebook.github.io/relay/&#34;&gt;Relay&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The video takes you from &lt;code&gt;react-native init&lt;/code&gt; to having the initial structure of a View Controller based on Relay with a real working API request. The video is about 45 minutes, with inline questions.&lt;/p&gt;
+
+&lt;p&gt;If you wanted to just run through the notes, you could probably get it working in about 10 minutes.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=PYC47YKnK4k&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes to copy &amp;amp; paste from. There is also a full copy of the end-result at &lt;a href=&#34;https://github.com/orta/Relay-Artist-Example&#34;&gt;orta/Relay-Artist-Example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Retrospective: Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/swift-in-rn/swift-in-react-native.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Swift became public in June 2014, by August we had started using it in Artsy. By October, we had &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Swift in production&lt;/a&gt; channelling hundreds of thousands of dollars in auction bids.&lt;/p&gt;
+
+&lt;p&gt;It is pretty obvious that Swift is the future of native development on Apple platforms. It was a no-brainer to then build an &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Apple TV app&lt;/a&gt; in Swift, integrated Swift-support into our key app Eigen and built non-trivial parts of that &lt;a href=&#34;http://artsy.github.io/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;application in Swift&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We first started experimenting with React Native in February 2016, and by August 2016, we announced that &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;Artsy moved to React Native&lt;/a&gt; effectively meaning new code would be in JavaScript from here onwards.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re regularly asked &lt;em&gt;why&lt;/em&gt; we moved, and it was touched on briefly in our announcement but I&amp;rsquo;d like to dig in to this and try to cover a lot of our decision process. So, if you&amp;rsquo;re into understanding why a small team of iOS developers with decades of native experience switched to JavaScript, read on.&lt;/p&gt;
+
+&lt;p&gt;This post will cover: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#What.are.Artsy.s.apps.&#34;&gt;What are Artsy&amp;rsquo;s apps?&lt;/a&gt;, Swifts &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Swift.s.upsides&#34;&gt;positives&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Native.Downsides&#34;&gt;negatives&lt;/a&gt; for us, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native&#34;&gt;React Native&lt;/a&gt;, and our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native..one.year.later&#34;&gt;1-year summary&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Three</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson three of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson three and I have a &lt;a href=&#34;https://youtu.be/e2ErzD8ibG8&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Two</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson two of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson two and I have a &lt;a href=&#34;https://youtu.be/EBtzqx1YRBg&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson One</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</guid>
+      <description>&lt;p&gt;Last August, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift. There were two parallel groups of learners: a &amp;ldquo;beginners&amp;rdquo; group who had never coded before, and an &amp;ldquo;informed&amp;rdquo; group who already knew how to code. This year, we&amp;rsquo;re leading the course again with a slight twist: we&amp;rsquo;re repeating the course for absolute beginners, and we&amp;rsquo;re introduce a new course for anyone who completed last year&amp;rsquo;s beginner course.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.&lt;/p&gt;
+
+&lt;p&gt;Today was lesson one of the beginner group, and I have a &lt;a href=&#34;https://youtu.be/OLdSg0XpFqA&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One&#34;&gt;lesson one&amp;rsquo;s material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Tech Behind Live Auction Integration</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/the-tech-behind-live-auction-integration/</link>
+      <pubDate>Tue, 09 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/the-tech-behind-live-auction-integration/</guid>
+      <description>&lt;p&gt;In late June, the &lt;a href=&#34;https://www.artsy.net/auctions/&#34;&gt;Artsy auctions&lt;/a&gt; team launched our Live Auction Integration (LAI) product. It allows people to participate online in live sales held at auction houses &lt;a href=&#34;https://www.artsy.net/auction-partnerships&#34;&gt;that partner with Artsy&lt;/a&gt;. It was a big project, begun in December, involving both brand new software and extensive integration work with the rest of our systems. This is the first in what will be a series of blog posts discussing the engineering work we did to get a complex product from inception to launch in such a brief time window, with a go-live deadline set in stone weeks in advance. In this, I’ll dig into what we shipped on a high level, as well as some of the overarching technical decisions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Spelunking: Injection for Xcode Plugin</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</guid>
+      <description>&lt;p&gt;It was only three months ago that I came to the conclusion of just how much time I had wasted &lt;a href=&#34;http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/&#34;&gt;on code compilation cycles&lt;/a&gt;, once I started to play with &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection for Xcode&lt;/a&gt;. I still feel guilt about the time I wasted. However, I&amp;rsquo;m trying to turn that into something constructive. In order to do that, I need to have a solid understanding of the fundamentals on how Injection For Xcode works.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/&#34;&gt;Ash&lt;/a&gt; says one of the best ways to &lt;a href=&#34;https://ashfurrow.com/blog/teaching-learning/&#34;&gt;learn is to teach&lt;/a&gt;. So I&amp;rsquo;m going to try take you through a guided tour of the code-base. You need some pretty reasonable Objective-C chops to get this, but anyone with an app or two under their belt should be able to &lt;a href=&#34;https://en.wikipedia.org/wiki/Grok&#34;&gt;grok&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Depedency Injection in Swift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/</link>
+      <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/</guid>
+      <description>&lt;p&gt;Dependency Injection (DI) is a &lt;a href=&#34;http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html&#34;&gt;$25 word for a 5¢ idea&lt;/a&gt;, but it&amp;rsquo;s an idea that has become wholly foundation to how I write software. I want to take a look at some of the ways our team have been using DI in Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Swift Type Aliases: Use Early and Often</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/</link>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been so fun to watch the Swift developer community experiment with Swift and to experiment with what idiomatic Swift will look like. No one really knows the answer yet, but we&amp;rsquo;re starting to see some design patterns used more than others. We&amp;rsquo;re seeing some language features used in key ways that define idiomatic Swift, and other language features that are being mostly ignored.&lt;/p&gt;
+
+&lt;p&gt;Regrettably, one of my favourite features of Swift has not enjoyed the meteoric rise in popularity I believe it deserves: &lt;code&gt;typealias&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Injection for Xcode</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</guid>
+      <description>&lt;p&gt;I have been writing code for roughly a decade. A large chunk of that time has been sitting waiting for my project to compile. It&amp;rsquo;s a nice excuse to &lt;a href=&#34;https://xkcd.com/303/&#34;&gt;practice sword fighting&lt;/a&gt; in the office, but really, deep down. It&amp;rsquo;s frustrating. It&amp;rsquo;s so easy to become &lt;a href=&#34;https://xkcd.com/356/&#34;&gt;nerd-sniped&lt;/a&gt; when you wait for a long time.&lt;/p&gt;
+
+&lt;p&gt;As we integrate Swift into our projects, I&amp;rsquo;ve been seeing our compile times increase. So, I took some time to look at ways to improve this. The best option, so far, has been dynamic code injection via &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection Plugin for Xcode&lt;/a&gt;. In a gist: This means that we don&amp;rsquo;t recompile and re-launch, instead we inject new bits of code into a running application. This reduced the compile cycle on Eigen from 7 seconds to 1 second.&lt;/p&gt;
+
+&lt;p&gt;I took some time over the weekend to try and put together a video showing how I used code injection on a trivial app to create a view controller in code. It covers the technique I&amp;rsquo;ve &lt;a href=&#34;https://github.com/artsy/eigen/pull/1236&#34;&gt;started using in Eigen&lt;/a&gt; and talks a little bit about how the pieces come together.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=uftvtmyZ8TM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Being a Good OSS Citizen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</link>
+      <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s take a look at the day in the life of an open source citizen: me. On our app, I was given &lt;a href=&#34;https://github.com/artsy/eigen/issues/971&#34;&gt;an issue&lt;/a&gt; that would allow users to refine what kinds of sale artworks they were looking at, and it included this &lt;em&gt;awesome&lt;/em&gt; slider control so they could set min/max price ranges.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</link>
+      <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</guid>
+      <description>&lt;p&gt;While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Eidolon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</link>
+      <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt; is the third app from Artsy&amp;rsquo;s mobile team, and it was the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;first to be developed totally in the open&lt;/a&gt;. It&amp;rsquo;s often used as a reference for what an app written in Swift, or written using FRP, should look like. Given how interested the community seems to be around the app, it&amp;rsquo;s about time we did a walkthrough of the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Upgrading to RxSwift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</guid>
+      <description>&lt;p&gt;When we &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;built Eidolon last year&lt;/a&gt;, Swift was still pre-1.0 and we couldn&amp;rsquo;t rely on the wide variety of available Swift libraries we enjoy today. I wanted to build it using functional reactive programming, because that&amp;rsquo;s how I believe &lt;a href=&#34;https://realm.io/news/altconf-ash-furrow-functional-reactive-swift/&#34;&gt;everyone should write software&lt;/a&gt;, but there were no Swift-based FRP libraries at the time. As a compromise, I used ReactiveCocoa&amp;rsquo;s Objective-C API (the Swift API was months away from an alpha).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Emergence</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</link>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</guid>
+      <description>&lt;p&gt;We released the fourth app from the mobile team, &lt;a href=&#34;https://github.com/artsy/Emergence/&#34;&gt;Emergence&lt;/a&gt;, on day one for the new Apple TV and are currently getting around 2k downloads a day. The codebase was created by a single developer, and we didn&amp;rsquo;t want to keep that knowledge siloed. So, I ran an hour long code review session last night where I talked through the codebase, explained why some decisions were made and about the differences between tvOS and UIKit.&lt;/p&gt;
+
+&lt;p&gt;Given that I had been asked to write a blog post about tvOS in general, I felt that making the code review public for anyone to watch would be a nice alternative to the usual long-form writing on this blog.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=NErVWhEzIBM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MVVM in Swift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</guid>
+      <description>&lt;p&gt;Model View ViewModel has become the default way I write apps on iOS – it makes writing iOS apps a joy. I&amp;rsquo;ve written &lt;a href=&#34;https://www.objc.io/issues/13-architecture/mvvm/&#34;&gt;about it&lt;/a&gt; &lt;a href=&#34;http://www.teehanlax.com/blog/model-view-viewmodel-for-ios/&#34;&gt;again&lt;/a&gt; and &lt;a href=&#34;https://speakerdeck.com/ashfurrow/reactivecocoa-at-mdevcon-2014&#34;&gt;again&lt;/a&gt; and &lt;a href=&#34;https://leanpub.com/iosfrp&#34;&gt;oh my&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But last Autumn, as our team was all-hands-on-deck to wrap up the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;auctions kiosk app&lt;/a&gt;, we chose not to use MVVM. Why not?&lt;/p&gt;
+
+&lt;p&gt;We were building a &lt;em&gt;new app&lt;/em&gt; in a &lt;em&gt;new language&lt;/em&gt; using a &lt;em&gt;non-Swift framework&lt;/em&gt; for functional reactive programming. I was also teaching colleagues what they needed to know about ReactiveCocoa to help write the app. We used the MVC pattern because the relative cost of MVVM was too high.&lt;/p&gt;
+
+&lt;p&gt;&amp;rdquo;&amp;hellip; &lt;em&gt;was&lt;/em&gt; &amp;hellip;&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Swift Trek 2: The Wrath of count()</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/</guid>
+      <description>&lt;p&gt;On Tuesday at our mobile practice standup, I mentioned that I was in-between projects and looking for something to do. Orta suggested migrating Eidolon, the Artsy bidding kiosk app, to Swift 2.&lt;/p&gt;
+
+&lt;p&gt;Our CI is &lt;a href=&#34;https://github.com/artsy/eidolon/pull/466&#34;&gt;broken anyway&lt;/a&gt;, so now is the perfect opportunity to make changes that would break CI. Additionally, Swift 2 seems to have more-or-less stabilized in the latest betas, so we don&amp;rsquo;t expect many gotchas leading up to the GM. Finally, this is an enterprise-distributed app, so we don&amp;rsquo;t have to worry about submitting to the App Store using betas of Xcode.&lt;/p&gt;
+
+&lt;p&gt;So Swift 2 it is!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

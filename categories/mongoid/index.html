@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Mongoid // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Mongoid" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/mongoid/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mongoid/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/">Upgrading to Mongoid 4.x</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I recently went through an exercise of upgrading one of Artsy&rsquo;s largest web projects to the current HEAD of Mongoid 4.x. This is going to be a major release with numerous changes and I wanted to flush out bugs before the final version of the ODM is released. All Mongoid changes currently live on <a href="https://github.com/mongoid/mongoid">master</a>.</p>
+
+<pre><code class="language-ruby">gem 'mongoid', github: 'mongoid/mongoid'
+</code></pre>
+
+<p>In the process I&rsquo;ve worked on making a few gems compatible with Mongoid 4 and learned a couple of things that should help you make this process smooth for your own applications.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/">Adding API Docs with Grape and Swagger</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Grape" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Grape">Grape</a>
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+					        <a class="post-category post-category-Swagger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Swagger">Swagger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The Artsy website, Partner CMS, mobile tools, and all our hackathon experiments are built on top of a core API. We&rsquo;ve put a lot of effort into documenting it internally. But developers don&rsquo;t want to have to grok through code. With <a href="https://github.com/intridea/grape">Grape</a> and <a href="https://developers.helloreverb.com/swagger">Swagger</a>, adding an API explorer and exposing the API documentation has never been easier.</p>
+
+<p><img src="/images/2013-06-21-adding-api-documentation-with-grape-swagger/swagger-ui.png" /></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/">Infinite Scroll with MongoDB</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>An infinite scroll can be a beautiful and functional way to present feed data. You can see ours on the <a href="https://artsy.net/">homepage of artsy.net</a>. It works by fetching a few items from the API, then fetching some more items as the user scrolls down the feed. Each API call returns the items along with a &ldquo;cursor&rdquo;, which marks the position of the last item retrieved. Subsequent API calls include the cursor in the query string and the iteration resumes from there.</p>
+
+<p>Why use a cursor and not standard pagination? Because inserting an item on top of the feed would shift the existing items down, causing the API to return a duplicate item on the page boundary. Removing an item from the top of the feed would pull the remaining items up, causing an item to be missed in the next request on the page boundary.</p>
+
+<p>Today we&rsquo;re open-sourcing a small gem called <a href="https://github.com/dblock/mongoid-scroll">mongoid-scroll</a>, which implements this cursor-like behavior for MongoDB using mongoid or moped. Here&rsquo;s how it works.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/">Data Corruption and Concurrent Updates to Embedded Objects with MongoDB</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We use <a href="http://www.mongodb.org/">MongoDB</a> at Artsy as our primary data store via the <a href="http://mongoid.org/">Mongoid ODM</a>. Eventually, we started noticing data corruption inside embedded objects at an alarming rate of 2-3 records a day. The number of occurrences increased rapidly with load as our user growth accelerated.</p>
+
+<p>The root cause was not a HN-worthy sensational declaration about how MongoDB trashes data, but our lack of understanding of what can and cannot be concurrently written to the database, neatly hidden behind the object data mapping layer.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/">Create MongoDB Command-Lines from Mongoid Configuration</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+					        <a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+      					
+					        <a class="post-category post-category-Shell" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Shell">Shell</a>
+      					
+					        <a class="post-category post-category-Rake" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rake">Rake</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We use MongoDB as our primary store and have built a healthy amount of automation around various database instances and operational environments. For example, we backup databases to S3 using <code>mongodump</code>, mirror data between instances with <code>mongorestore</code> and often need to open a MongoDB shell with <code>mongo</code> to examine data at the lowest level.</p>
+
+<p>Generating MongoDB command-lines is tedious and error-prone. Introducing a new gem called <a href="https://github.com/dblock/mongoid-shell">mongoid-shell</a> to help with this. The library can generate command-lines for various MongoDB shell tools from your Mongoid configuration.</p>
+
+<p>For example, connect to your production MongoDB instance from a <code>db:production:shell</code> Rake task.</p>
+
+<pre><code class="language-ruby">namespace :db
+  namespace :production
+    task :shell
+      Mongoid.load! &quot;mongoid.yml&quot;, :production
+      system Mongoid::Shell::Commands::Mongo.new.to_s
+    end
+  end
+end
+</code></pre>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/">Improving Performance of Mongoid-Cached-Json</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+					        <a class="post-category post-category-Caching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Caching">Caching</a>
+      					
+					        <a class="post-category post-category-API" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/API">API</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Last year, we have open-sourced and made extensive use of two Ruby libraries in our API: <a href="https://github.com/dblock/mongoid-cached-json">mongoid-cached-json</a> and <a href="https://github.com/artsy/garner">garner</a>. Both transform the procedural nightmare of caching and JSON generation into a declarative and easily manageable DSL. It was worth the investment, since our service spends half of its time generating JSON and reading from and writing to Memcached.</p>
+
+<p>Today we&rsquo;ve released mongoid-cached-json 1.4 with two interesting performance improvements.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/">Friendly URLs with Mongoid::Slug</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>22</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+					        <a class="post-category post-category-User-Experience" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/User-Experience">User Experience</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>All Artsy URLs shared publicly are humanly readable. For example, you&rsquo;ll find all Barbara Kruger&rsquo;s works at <a href="https://artsy.net/artist/barbara-kruger">artsy.net/artist/barbara-kruger</a> and a post by Hyperallergic entitled &ldquo;Superfluous Men Can&rsquo;t Get No Satisfaction&rdquo; at artsy.net/hyperallergic/post/superfluous-men-cant-get-no-satisfaction. This is a lot prettier than having <code>id=42</code> in the browser&rsquo;s address and is a big improvement for SEO.</p>
+
+<p><img src="/images/2012-11-22-friendly-urls-with-mongoid-slug/barbara-kruger.png"></p>
+
+<p>We construct these URLs with a gem called <a href="https://github.com/digitalplaywright/mongoid-slug">mongoid_slug</a>. Interesting implementation details under the cut.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/">Simplifying Model-Level JSON Versioning with Mongoid-Cached-Json</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+					        <a class="post-category post-category-Caching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Caching">Caching</a>
+      					
+					        <a class="post-category post-category-API" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/API">API</a>
+      					
+					        <a class="post-category post-category-Versioning" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Versioning">Versioning</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	Did you know that Netflix has hundreds of API versions, one for each device? Daniel Jacobson&rsquo;s Techniques for Scaling the Netflix API at QConSF 2011 explained why they chose this model. And while we don&rsquo;t all build distributed services that supply custom-tailored data to thousands of heterogeneous TVs and set-top boxes, we do have to pay close attention to API versioning from day one.
+Versioning is hard. Your data models evolve, but you must maintain backward-compatibility for your public interfaces.
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/">Caching Model JSON with Mongoid-Cached-Json</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+      					
+					        <a class="post-category post-category-Caching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Caching">Caching</a>
+      					
+					        <a class="post-category post-category-API" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/API">API</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	Consider the following two Mongoid domain models, Widget and Gadget.
+``` ruby widget.rb class Widget include Mongoid::Document
+field :name has_many :gadgets end
+``` ruby gadget.rb class Gadget include Mongoid::Document field :name field :extras belongs_to :widget end  And an API call that returns a collection of widgets.
+get 'widgets' do Widget.all.as_json end  Given many widgets, the API makes a subquery to fetch the corresponding gadgets for each widget.
+Introducing mongoid-cached-json.
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

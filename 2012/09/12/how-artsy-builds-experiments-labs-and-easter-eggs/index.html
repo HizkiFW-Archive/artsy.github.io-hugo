@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How Artsy Builds Labs, Experiments and Easter Eggs // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="How Artsy Builds Labs, Experiments and Easter Eggs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/09/12/how-artsy-builds-experiments-labs-and-easter-eggs/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/09/12/how-artsy-builds-experiments-labs-and-easter-eggs/">How Artsy Builds Labs, Experiments and Easter Eggs</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>12</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Fun" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Fun">Fun</a>
+				
+					<a class="post-category post-category-Experiments" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Experiments">Experiments</a>
+				
+					<a class="post-category post-category-Programming" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Programming">Programming</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>At Artsy Engineering we encourage a culture of experimentation with something called <em>labs</em>.</p>
+
+<p>A new feature released into production is usually only turned on for a handful of users. We get feedback from our own team and a tiny group of early adopters, iterate, fix bugs, toss failed experiments and work on promoting complete, well behaved features to all users. The labs infrastructure gives us a chance to sleep on an idea and polish details. It also allows us to make progress continuously and flip a switch on the very last day.</p>
+
+<p>My favorite labs features push our collective imagination and give birth to productive brainstorms around coffee at a popular startup hangout around the corner from our Manhattan office. But the team&rsquo;s favorite labs are, by far, those that ship as easter eggs. These are fun and sometimes useful features that don&rsquo;t make much business sense. So, before I explain our rudimentary labs system, I want to invite you to our easter egg hunt. Check out <a href="https://artsy.net/humans.txt">https://artsy.net/humans.txt</a> for instructions.</p>
+
+<p></p>
+
+<p>Our labs infrastructure is rather straightforward. A lab feature data model is pretty boring, with the exception of a <code>created_by</code> field. Each such lab feature belongs to an engineer and you have to nurture your feature and fight for it to meet the production bar!</p>
+
+<p>``` ruby app/models/lab_feature.rb
+class LabFeature
+  include Mongoid::Document
+  include Mongoid::Timestamps</p>
+
+<p>field :name
+  field :created_by
+end</p>
+
+<pre><code>
+You can enable and disable a lab feature for a given user.
+
+``` ruby app/models/user.rb
+class User
+  references_and_referenced_in_many :lab_features
+
+  def enable_lab_feature!(feature)
+    lab_features.push(feature) unless lab_features.member?(feature)
+    save!
+  end
+
+  def disable_lab_feature!(feature)
+    lab_features.delete(feature)
+    save!
+  end
+
+  def lab_feature_enabled?(feature)
+    lab_features.member?(feature)
+  end
+end
+</code></pre>
+
+<p>In Ruby, we check whether the user has a lab with <code>lab_feature_enabled?</code>. In JavaScript, we return the lab features in a Backbone.js collection and check for the same.</p>
+
+<p>``` coffeescript app/coffeescripts/models/user.coffee
+class App.Models.CurrentUser extends Backbone.Model</p>
+
+<p>hasLabFeature: (feature_name) -&gt;
+    $.inArray(feature_name, @get(&lsquo;lab_features&rsquo;)) &gt;= 0</p>
+
+<pre><code>
+We also have a bit of UI and an API to let you turn a lab feature on and off when you're part of our labs program. The program itself is also a lab feature!
+
+Lab features can be retired after the code is promoted to all users or deleted.
+
+``` ruby app/models/lab_feature.rb
+class LabFeature
+  def retire!
+    User.all.each do |u|
+      u.disable_lab_feature!(self)
+    end
+    destroy
+  end
+end
+</code></pre>
+
+<p>This &ldquo;system&rdquo; is super simple. I encourage you to think more in terms of experiments or labs - it helped us foster a culture of innovation, tremendously reduced risk of catastrophic failures, and, because anyone can push anything into labs at any time, removed the unnecessary discussions around whether an idea is worthy of an implementation at all.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/09/13/on-grid-thumbnails/">On Grid Thumbnails</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/">Testing with Delayed Jobs</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

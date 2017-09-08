@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugins on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/plugins/</link>
+    <description>Recent content in Plugins on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jun 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/plugins/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Artsy&#39;s first closed source Pod</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</link>
+      <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</guid>
+      <description>&lt;p&gt;When I joined Artsy, &lt;a href=&#34;http://code.dblock.org&#34;&gt;dB&lt;/a&gt; pitched me this idea: &lt;em&gt;Open source as default.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I took this to heart. I genuinely believe the idea behind the philosophy. It&amp;rsquo;s cool that our real product isn&amp;rsquo;t our implementations on the web or native but the data which powers it - &lt;a href=&#34;https://artsy.net/theartgenomeproject&#34;&gt;the Art Genome Project&lt;/a&gt;. Similarly, I spend a bunch of time &lt;a href=&#34;https://github.com/AshFurrow/ARCollectionViewMasonryLayout&#34;&gt;on&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ARASCIISwizzle&#34;&gt;open&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ios-snapshot-test-case-expecta&#34;&gt;sourcing&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ARTiledImageView&#34;&gt;solid&lt;/a&gt; &lt;a href=&#34;https://github.com/dstnbrkr/DRBOperationTree&#34;&gt;abstractions&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ORSimulatorKeyboardAccessor&#34;&gt;from&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ORStackView&#34;&gt;our&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ARAnalytics&#34;&gt;apps&lt;/a&gt;, always taking the opinion if something is used in more than one place, it should be open sourced.&lt;/p&gt;
+
+&lt;p&gt;This week I pushed some libraries that were a bit different, read on to find out why.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building the Xcode Plugin Snapshots</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</link>
+      <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m the kind of guy who thinks better tooling means better outcomes. But when good tooling isn&amp;rsquo;t available, it&amp;rsquo;s time to build it yourself. It&amp;rsquo;s this attitude that lead to my work on &lt;a href=&#34;http://cocoadocs.org&#34;&gt;CocoaDocs.org&lt;/a&gt;, and then to &lt;a href=&#34;http://cocoapods.org&#34;&gt;CocoaPods.org&lt;/a&gt; &amp;amp; its documentation.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been trying to apply this to testing, and in order to pull this off I&amp;rsquo;ve had to extend Xcode to show off the results of failing tests in a more visual way. To that end, I&amp;rsquo;ve extended Xcode to show the results of failing &lt;a href=&#34;https://github.com/facebook/ios-snapshot-test-case&#34;&gt;view tests&lt;/a&gt; in a more visual way by building &lt;a href=&#34;https://github.com/orta/snapshots&#34;&gt;Snapshots for Xcode&lt;/a&gt;.  Let&amp;rsquo;s go through the process of building an Xcode plugin so you can do this too. Screw stability.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

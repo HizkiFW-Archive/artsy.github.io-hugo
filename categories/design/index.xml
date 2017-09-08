@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/design/</link>
+    <description>Recent content in Design on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Apr 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS Trick: Adjusting Text Underlines</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/04/10/css-trick-adjusting-text-underlines/</link>
+      <pubDate>Tue, 10 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/04/10/css-trick-adjusting-text-underlines/</guid>
+      <description>Often times people will use border-bottom: 1px solid in favor of text-decoration: underline to give their links some breathing room. But what if you&amp;rsquo;re giving it too much breathing room and want to adjust the height of that underline. With Adobe Garamond that happened to be the case, so we&amp;rsquo;ve come up with this little css trick:
+a { display: inline-block; position: relative; } a::after { content: &#39;&#39;; position: absolute; left: 0; display: inline-block; height: 1em; width: 100%; border-bottom: 1px solid; margin-top: 5px; }  This overlays a CSS pseudo element with a border-bottom that can be adjusted by changing margin-top.</description>
+    </item>
+    
+    <item>
+      <title>Responsive Layouts with CSS3</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</link>
+      <pubDate>Tue, 17 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</guid>
+      <description>All of the SCSS stylesheets used to design this blog compile down to one file (view the source of this page and check out screen.css), and there isn&amp;rsquo;t any JavaScript affecting the layout. But there are really three versions of this page. If you&amp;rsquo;re reading this on a smartphone, what you see is almost entirely different from what you would see if you were reading this in a full screen browser.</description>
+    </item>
+    
+  </channel>
+</rss>

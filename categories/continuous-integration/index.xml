@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continuous Integration on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/continuous-integration/</link>
+    <description>Recent content in Continuous Integration on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/continuous-integration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Splitting up a large test suite</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</guid>
+      <description>&lt;p&gt;A while back, we wrote about &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/&#34;&gt;How to Run RSpec Test Suites in Parallel with Jenkins CI Build Flow&lt;/a&gt;. A version of that still handles our largest test suite, but over time the initial division of specs became unbalanced. We ended up with some tasks that took twice as long as others. Even worse, in an attempt to rebalance task times, we ended up with awkward file patterns like &lt;code&gt;&#39;spec/api/**/[a-m]*_spec.rb&#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To keep our parallel spec tasks approximately equal in size and to support arbitrary concurrency, we&amp;rsquo;ve added a new &lt;code&gt;spec:sliced&lt;/code&gt; task:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Releasecop Tracks Stale Releases</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</guid>
+      <description>&lt;p&gt;Artsy practices a sort of &lt;a href=&#34;http://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;continuous delivery&lt;/a&gt;. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices &lt;a href=&#34;http://artsy.github.io/blog/categories/testing/&#34;&gt;multiple&lt;/a&gt; &lt;a href=&#34;http://artsy.github.io/blog/categories/continuous-integration&#34;&gt;times&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From developers&amp;rsquo; working branches&lt;/li&gt;
+&lt;li&gt;To the master branch&lt;/li&gt;
+&lt;li&gt;Through a hopefully-successful build&lt;/li&gt;
+&lt;li&gt;To a staging environment&lt;/li&gt;
+&lt;li&gt;To production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The number of apps and services we deploy has grown to &lt;em&gt;dozens&lt;/em&gt; per team, so sometimes things fall through the cracks. We&amp;rsquo;ve been using &lt;a href=&#34;https://github.com/joeyAghion/releasecop&#34;&gt;Releasecop&lt;/a&gt; for the last few months to get gentle email reminders when an environment could use a deploy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using CocoaPods Caching with Travis CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</link>
+      <pubDate>Fri, 08 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</guid>
+      <description>&lt;p&gt;As &lt;a href=&#34;http://artsy.github.io/blog/2014/08/07/taking-a-snapshot-with-second-curtain/&#34;&gt;Ash said earlier&lt;/a&gt; we like using Continuous Integration. Today I spent a large amount of time migrating us to use the new CocoaPods caching system in Travis CI. To make up for my lost time I&amp;rsquo;m passing on what I&amp;rsquo;ve learned and also showing how we do CI at Artsy with Objective-C apps. If you&amp;rsquo;re interested in how we do it in Swift, you can just check &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Taking a Snapshot with Second Curtain</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</link>
+      <pubDate>Mon, 04 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</guid>
+      <description>&lt;p&gt;At Artsy, we try hard to &lt;a href=&#34;https://speakerdeck.com/orta/getting-eigen-out?slide=35&#34;&gt;test&lt;/a&gt;
+our iOS applications to ensure that we avoid regressions and have a clearly
+defined spec of how our apps should look and behave. One of the core pieces of
+our testing setup is &lt;a href=&#34;https://github.com/facebook/ios-snapshot-test-case&#34;&gt;FBSnapshotTestCase&lt;/a&gt;,
+a library written by Facebook to compare views at runtime with images of those
+views that are known to be correct. If the images differ, the test fails. We
+also use &lt;a href=&#34;https://travis-ci.org&#34;&gt;Travis&lt;/a&gt; for continuous integration.&lt;/p&gt;
+
+&lt;p&gt;Lately, we&amp;rsquo;ve been noticing a friction between the developers on the iOS team
+and the tools we&amp;rsquo;re using to test our apps: while Travis allows us to easily
+access the logs of test runs, it can only indicate that a snapshot test failed,
+not why it failed. That&amp;rsquo;s because the images that are compared are locked on
+Travis&amp;rsquo; machine – we cannot access those images, so we can&amp;rsquo;t see the
+differences. This is &lt;em&gt;really&lt;/em&gt; promblematic when the tests pass locally but fail
+only on Travis.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Continuous integration for service-oriented architectures</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</guid>
+      <description>&lt;p&gt;Whatever you have against monolithic architectures, at least they&amp;rsquo;re easy to test. And when those tests succeed, you can be reasonably confident the live app will work the same way.&lt;/p&gt;
+
+&lt;p&gt;Artsy began as one such monolithic app, but we&amp;rsquo;ve been refactoring into an ecosystem of related APIs and sites. Today, when you search for &lt;a href=&#34;https://artsy.net/gene/cultural-commentary&#34;&gt;&amp;ldquo;cultural commentary&amp;rdquo;&lt;/a&gt; or visit &lt;a href=&#34;https://artsy.net/artist/robert-longo&#34;&gt;Robert Longo&lt;/a&gt; on &lt;a href=&#34;https://artsy.net&#34;&gt;artsy.net&lt;/a&gt;, the page is rendered by a web app, sources data from an API, retrieves recommendations from a separate service, tracks trends in another, and records analytics in yet another.&lt;/p&gt;
+
+&lt;p&gt;This was a boost for developer productivity and scaling, but eviscerated the value of our tests. We repeatedly encountered bugs that were failings of &lt;em&gt;the interaction between codebases&lt;/em&gt; rather than failings of individual ones. Test libraries and tools typically concern themselves with one isolated app. When you have services that consume services that consume services, those isolated tests (with their stubs of everything else) don&amp;rsquo;t necessarily reflect production&amp;rsquo;s reality.&lt;/p&gt;
+
+&lt;p&gt;So how should we develop our small, focused apps (or &lt;a href=&#34;http://en.wikipedia.org/wiki/Service-oriented_architecture&#34;&gt;service-oriented architecture&lt;/a&gt;, or &lt;a href=&#34;http://martinfowler.com/articles/microservices.html&#34;&gt;microservices&lt;/a&gt;&amp;hellip;) with confidence? We set out to build a dedicated acceptance test suite that would run tests across multiple services, configuring and integrating them in a way that closely matches the production environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Run RSpec Test Suites in Parallel with JenkinsCI Build Flow</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/</link>
+      <pubDate>Tue, 09 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/</guid>
+      <description>&lt;p&gt;We now have over 4700 RSpec examples in one of our projects. They are stable, using the techniques described in an &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/&#34;&gt;earlier post&lt;/a&gt; and organized in &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/&#34;&gt;suites&lt;/a&gt;. But they now take almost 3 hours to run, which is clearly unacceptable.&lt;/p&gt;
+
+&lt;p&gt;To solve this, we have parallelized parts of the process with existing tools, and can turn a build around in just under an hour. This post will dive into our &lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt; build flow setup.&lt;/p&gt;
+
+&lt;p&gt;To keep things simple, we&amp;rsquo;re going to only build the &lt;code&gt;master&lt;/code&gt; branch. When a change is committed on &lt;code&gt;master&lt;/code&gt; we&amp;rsquo;re going to push &lt;code&gt;master&lt;/code&gt; to a &lt;code&gt;master-ci&lt;/code&gt; branch and trigger a distributed build on &lt;code&gt;master-ci&lt;/code&gt;. Once all the parts have finished, we&amp;rsquo;ll complete the build by pushing &lt;code&gt;master-ci&lt;/code&gt; to &lt;code&gt;master-succeeded&lt;/code&gt; and notify the dev team of success or failure.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a diagram of what&amp;rsquo;s going on.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-10-09-how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/master-ci.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On-Demand Jenkins Slaves with Amazon EC2</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/</link>
+      <pubDate>Tue, 10 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://artsy.net&#34;&gt;Artsy&lt;/a&gt; team faithfully uses &lt;a href=&#34;http://jenkins-ci.org&#34;&gt;Jenkins&lt;/a&gt; for continuous integration. &lt;a href=&#34;http://artsy.github.com/blog/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/&#34;&gt;As we&amp;rsquo;ve described before&lt;/a&gt;, our Jenkins master and 8 slaves run on Linode. This arrangement has at least a few drawbacks:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Our Linode servers are manually configured. They require frequent maintenance, and inconsistencies lead to surprising build failures.&lt;/li&gt;
+&lt;li&gt;The fixed set of slaves don&amp;rsquo;t match the pattern of our build jobs: jobs get backed up during the day, but servers are mostly unused overnight and on weekends.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin&#34;&gt;Amazon EC2 Plugin&lt;/a&gt; allowed us to replace those slaves with a totally scripted environment. Now, slaves are spun up in the cloud whenever build jobs need them.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

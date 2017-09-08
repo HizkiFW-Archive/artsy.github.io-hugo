@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Babel on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/babel/</link>
+    <description>Recent content in Babel on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/babel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modernizing Force</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt; is Artsy&amp;rsquo;s main website, &lt;a href=&#34;https://www.artsy.net&#34;&gt;artsy.net&lt;/a&gt;. In the three years since it was &lt;a href=&#34;http://artsy.github.io/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;open-sourced&lt;/a&gt;, it has provided a solid foundation to build features on top of without a lot of the costs associated with growth. It is an early example of Isomorphic (&amp;ldquo;universal&amp;rdquo;) JavaScript, built on top of Express, Backbone, CoffeeScript, Stylus and Jade. It is also highly modular, adopting patterns laid down by its parent project,  &lt;a href=&#34;https://github.com/artsy/ezel&#34;&gt;Ezel&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When first developed these technologies made a lot of sense; CoffeeScript fixed many of the problems with JavaScript pre-ES6, and Jade / Stylus made working with HTML / CSS much more elegant. As time progressed and new technologies became a thing these solutions starting feeling more burdensome to continue building features with and many of our developers longed to start using next-generation tools like React.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Releasecop Tracks Stale Releases // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="joey">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Releasecop Tracks Stale Releases" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/">Releasecop Tracks Stale Releases</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">joey</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+				
+					<a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+				
+					<a class="post-category post-category-OSS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/OSS">OSS</a>
+				
+					<a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+				
+					<a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+				
+					<a class="post-category post-category-Continuous-Deployment" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Deployment">Continuous Deployment</a>
+				
+					<a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+				
+					<a class="post-category post-category-tools" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tools">tools</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Artsy practices a sort of <a href="http://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a>. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices <a href="http://artsy.github.io/blog/categories/testing/">multiple</a> <a href="http://artsy.github.io/blog/categories/continuous-integration">times</a>.)</p>
+
+<p>Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:</p>
+
+<ul>
+<li>From developers&rsquo; working branches</li>
+<li>To the master branch</li>
+<li>Through a hopefully-successful build</li>
+<li>To a staging environment</li>
+<li>To production</li>
+</ul>
+
+<p>The number of apps and services we deploy has grown to <em>dozens</em> per team, so sometimes things fall through the cracks. We&rsquo;ve been using <a href="https://github.com/joeyAghion/releasecop">Releasecop</a> for the last few months to get gentle email reminders when an environment could use a deploy.</p>
+
+<p></p>
+
+<pre><code>gem install releasecop
+releasecop edit
+</code></pre>
+
+<p>This opens a <em>manifest</em> file where you can describe the sequence of git remotes and branches that make up your own release pipeline. For example:</p>
+
+<pre><code>{
+  &quot;projects&quot;: {
+    &quot;charge&quot;: [
+      { &quot;name&quot;: &quot;master&quot;, &quot;git&quot;: &quot;git@github.com:artsy/charge.git&quot; },
+      { &quot;name&quot;: &quot;staging&quot;, &quot;git&quot;: &quot;git@heroku.com:charge-staging.git&quot; },
+      { &quot;name&quot;: &quot;production&quot;, &quot;git&quot;: &quot;git@heroku.com:charge-production.git&quot; }
+    ],
+    &quot;gravity&quot;: [
+      { &quot;name&quot;: &quot;master&quot;, &quot;git&quot;: &quot;git@github.com:artsy/gravity.git&quot; },
+      { &quot;name&quot;: &quot;master-succeeded&quot;, &quot;git&quot;: &quot;git@github.com:artsy/gravity.git&quot;, &quot;branch&quot;: &quot;master-succeeded&quot; },
+      { &quot;name&quot;: &quot;staging&quot;, &quot;git&quot;: &quot;git@github.com:artsy/gravity.git&quot;, &quot;branch&quot;: &quot;staging&quot; },
+      { &quot;name&quot;: &quot;production&quot;, &quot;git&quot;: &quot;git@github.com:artsy/gravity.git&quot;, &quot;branch&quot;: &quot;production&quot; }
+    ]
+  }
+}
+</code></pre>
+
+<p>The <code>charge</code> app is a typical deployment to Heroku. Work progresses from the <code>master</code> branch to a <code>charge-staging</code> app to a <code>charge-production</code> app. The <code>gravity</code> app is a more complicated, non-Heroku deployment. It updates git branches to reflect what has been merged (<code>master</code>), tested (<code>master-succeeded</code>), deployed to staging, and deployed to production.</p>
+
+<p>Run the <code>releasecop check [app]</code> command to report the status of your apps&rsquo; releases:</p>
+
+<pre><code>$ releasecop check --all
+charge...
+  staging is up-to-date with master
+  production is up-to-date with staging
+gravity...
+  master-succeeded is up-to-date with master
+  staging is up-to-date with master-succeeded
+  production is behind staging by:
+    06ca969 2015-09-04 [config] Replace Apple Push Notification certificates that expire today. (Eloy Durán)
+    171121f 2015-09-03 Admin-only API for cancelling a bid (Matthew Zikherman)
+    4c5feea 2015-09-02 install mongodb client in Docker so that import rake tasks can run (Barry Hoggard)
+    95347d1 2015-08-31 Update to delayed_job cookbook that works with Chef 11.10 (Joey Aghion)
+2 project(s) checked. 1 environment(s) out-of-date.
+</code></pre>
+
+<p>A nightly <a href="https://jenkins-ci.org/">Jenkins</a> job emails us the results, but a cron job could work equally well.</p>
+
+<p><a href="https://github.com/joeyAghion/releasecop">Releasecop</a> reminds us to deploy ready commits and close the loop on in-progress work. We hope you find it useful. (Pull requests are welcome!)</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/">Cocoa Architecture: Dependencies</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2015/09/01/Cocoa-Architecture-Dropped-Design-Patterns/">Cocoa Architecture: Dropped Design Patterns</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

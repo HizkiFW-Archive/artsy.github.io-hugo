@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xcode on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode/</link>
+    <description>Recent content in Xcode on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code Spelunking: Injection for Xcode Plugin</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</guid>
+      <description>&lt;p&gt;It was only three months ago that I came to the conclusion of just how much time I had wasted &lt;a href=&#34;http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/&#34;&gt;on code compilation cycles&lt;/a&gt;, once I started to play with &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection for Xcode&lt;/a&gt;. I still feel guilt about the time I wasted. However, I&amp;rsquo;m trying to turn that into something constructive. In order to do that, I need to have a solid understanding of the fundamentals on how Injection For Xcode works.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/&#34;&gt;Ash&lt;/a&gt; says one of the best ways to &lt;a href=&#34;https://ashfurrow.com/blog/teaching-learning/&#34;&gt;learn is to teach&lt;/a&gt;. So I&amp;rsquo;m going to try take you through a guided tour of the code-base. You need some pretty reasonable Objective-C chops to get this, but anyone with an app or two under their belt should be able to &lt;a href=&#34;https://en.wikipedia.org/wiki/Grok&#34;&gt;grok&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Xcode&#39;s Schemes to run a subset of your tests</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/06/Testing-Schemes/</link>
+      <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/06/Testing-Schemes/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eigen&#34;&gt;Eigen&lt;/a&gt; has hit the point where testing is a chore. This is a positive sign, the app has grown in terms of size, complexity, and number of developers considerably over the last 3 years. The test suite makes us feel comfortable making changes.&lt;/p&gt;
+
+&lt;p&gt;On my fastest computer, we&amp;rsquo;re just under a minute - &lt;code&gt;Executed 1105 tests, with 1 failure (0 unexpected) in 43.221 (48.201) seconds&lt;/code&gt;  for the whole suite. I think I could probably live with 20 seconds max. So I studied how &lt;a href=&#34;https://www.jetbrains.com/objc/&#34;&gt;AppCode&lt;/a&gt; handles running tests, and this will be an illustrated guide as to how you can easily run the subset of tests in Xcode based on their techniques.&lt;/p&gt;
+
+&lt;p&gt;I &lt;a href=&#34;https://github.com/orta/life/issues/71&#34;&gt;have ideas&lt;/a&gt; on how to improve time for testing in general, based on &lt;a href=&#34;http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/&#34;&gt;Code Injection&lt;/a&gt;, but they aren&amp;rsquo;t fully fleshed out and I expect it to be time-intensive to pull off. Time I haven&amp;rsquo;t made yet.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Injection for Xcode</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</guid>
+      <description>&lt;p&gt;I have been writing code for roughly a decade. A large chunk of that time has been sitting waiting for my project to compile. It&amp;rsquo;s a nice excuse to &lt;a href=&#34;https://xkcd.com/303/&#34;&gt;practice sword fighting&lt;/a&gt; in the office, but really, deep down. It&amp;rsquo;s frustrating. It&amp;rsquo;s so easy to become &lt;a href=&#34;https://xkcd.com/356/&#34;&gt;nerd-sniped&lt;/a&gt; when you wait for a long time.&lt;/p&gt;
+
+&lt;p&gt;As we integrate Swift into our projects, I&amp;rsquo;ve been seeing our compile times increase. So, I took some time to look at ways to improve this. The best option, so far, has been dynamic code injection via &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection Plugin for Xcode&lt;/a&gt;. In a gist: This means that we don&amp;rsquo;t recompile and re-launch, instead we inject new bits of code into a running application. This reduced the compile cycle on Eigen from 7 seconds to 1 second.&lt;/p&gt;
+
+&lt;p&gt;I took some time over the weekend to try and put together a video showing how I used code injection on a trivial app to create a view controller in code. It covers the technique I&amp;rsquo;ve &lt;a href=&#34;https://github.com/artsy/eigen/pull/1236&#34;&gt;started using in Eigen&lt;/a&gt; and talks a little bit about how the pieces come together.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=uftvtmyZ8TM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s first closed source Pod</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</link>
+      <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</guid>
+      <description>&lt;p&gt;When I joined Artsy, &lt;a href=&#34;http://code.dblock.org&#34;&gt;dB&lt;/a&gt; pitched me this idea: &lt;em&gt;Open source as default.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I took this to heart. I genuinely believe the idea behind the philosophy. It&amp;rsquo;s cool that our real product isn&amp;rsquo;t our implementations on the web or native but the data which powers it - &lt;a href=&#34;https://artsy.net/theartgenomeproject&#34;&gt;the Art Genome Project&lt;/a&gt;. Similarly, I spend a bunch of time &lt;a href=&#34;https://github.com/AshFurrow/ARCollectionViewMasonryLayout&#34;&gt;on&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ARASCIISwizzle&#34;&gt;open&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ios-snapshot-test-case-expecta&#34;&gt;sourcing&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ARTiledImageView&#34;&gt;solid&lt;/a&gt; &lt;a href=&#34;https://github.com/dstnbrkr/DRBOperationTree&#34;&gt;abstractions&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ORSimulatorKeyboardAccessor&#34;&gt;from&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ORStackView&#34;&gt;our&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ARAnalytics&#34;&gt;apps&lt;/a&gt;, always taking the opinion if something is used in more than one place, it should be open sourced.&lt;/p&gt;
+
+&lt;p&gt;This week I pushed some libraries that were a bit different, read on to find out why.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building the Xcode Plugin Snapshots</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</link>
+      <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m the kind of guy who thinks better tooling means better outcomes. But when good tooling isn&amp;rsquo;t available, it&amp;rsquo;s time to build it yourself. It&amp;rsquo;s this attitude that lead to my work on &lt;a href=&#34;http://cocoadocs.org&#34;&gt;CocoaDocs.org&lt;/a&gt;, and then to &lt;a href=&#34;http://cocoapods.org&#34;&gt;CocoaPods.org&lt;/a&gt; &amp;amp; its documentation.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been trying to apply this to testing, and in order to pull this off I&amp;rsquo;ve had to extend Xcode to show off the results of failing tests in a more visual way. To that end, I&amp;rsquo;ve extended Xcode to show the results of failing &lt;a href=&#34;https://github.com/facebook/ios-snapshot-test-case&#34;&gt;view tests&lt;/a&gt; in a more visual way by building &lt;a href=&#34;https://github.com/orta/snapshots&#34;&gt;Snapshots for Xcode&lt;/a&gt;.  Let&amp;rsquo;s go through the process of building an Xcode plugin so you can do this too. Screw stability.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

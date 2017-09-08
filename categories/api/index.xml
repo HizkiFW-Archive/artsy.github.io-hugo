@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Api on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/api/</link>
+    <description>Recent content in Api on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Artsy API Ready for Production Non-Commercial Use</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/23/api-open-non-commercial/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/23/api-open-non-commercial/</guid>
+      <description>About 3 years ago, dB. announced that Artsy had a public API.
+ The Artsy API currently provides access to images of historic artwork and related information on artsy.net for educational and other non-commercial purposes. You can try it for playing, testing, and learning, but not yet for production. The scope of the API will expand in the future as it gains some traction.
+ We&amp;rsquo;ve wrapped up some legal work around the developer API terms and services, the PR is here and I&amp;rsquo;m happy to announce that the API is ready for non-commercial production use.</description>
+    </item>
+    
+    <item>
+      <title>JSON Web Tokens: Artsy&#39;s Journey</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/</link>
+      <pubDate>Wed, 26 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/</guid>
+      <description>&lt;p&gt;At Artsy we currently have thousands of client applications hitting our API and requesting authentication. When a user successfully authenticates through one of these clients, we want to embed basic user and application data in the resulting token rather than have to look up a session ID in the database on each request. For that we want to use JWT.&lt;/p&gt;
+
+&lt;p&gt;JWT (JSON Web Token) is a self-contained, secure and standard way of transmitting data between applications and clients as JSON objects. Using JWTs lets us use a standardized technology to cut our authentication workflow down by one round-trip.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve recently switched our authentication flow to use &lt;a href=&#34;https://jwt.io&#34;&gt;JWT&lt;/a&gt;, and I&amp;rsquo;m going to cover what they are, how we&amp;rsquo;ve used them and how we&amp;rsquo;re handling the transition.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Designing the Public Artsy API</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/12/designing-the-public-artsy-api/</link>
+      <pubDate>Fri, 12 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/12/designing-the-public-artsy-api/</guid>
+      <description>&lt;p&gt;Today we are happy to announce that we&amp;rsquo;re making a new public API generally available, along with over 26,000 artworks from many of our institutional partners.&lt;/p&gt;
+
+&lt;p&gt;The Artsy API currently provides access to images of historic artwork and related information on &lt;a href=&#34;https://artsy.net&#34;&gt;artsy.net&lt;/a&gt; for educational and other non-commercial purposes. You can try it for playing, testing, and learning, but not yet for production. The scope of the API will expand in the future as it gains some traction.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developers.artsy.net&#34;&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-09-12-designing-the-public-artsy-api/the-art-world-in-your-app.png&#34; border=&#34;0&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you just want to use the API, you can stop reading here and head to the &lt;a href=&#34;https://developers.artsy.net/&#34;&gt;developers.artsy.net&lt;/a&gt; website. (The developers website itself is a classic Rails + Bootstrap example and is also &lt;a href=&#34;https://github.com/artsy/doppler&#34;&gt;open-source&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;In this post we will step back and describe some of the technical decisions made during the development of the new API.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improving Performance of Mongoid-Cached-Json</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/</guid>
+      <description>&lt;p&gt;Last year, we have open-sourced and made extensive use of two Ruby libraries in our API: &lt;a href=&#34;https://github.com/dblock/mongoid-cached-json&#34;&gt;mongoid-cached-json&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/garner&#34;&gt;garner&lt;/a&gt;. Both transform the procedural nightmare of caching and JSON generation into a declarative and easily manageable DSL. It was worth the investment, since our service spends half of its time generating JSON and reading from and writing to Memcached.&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;ve released mongoid-cached-json 1.4 with two interesting performance improvements.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RESTful API Caching with Garner</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</link>
+      <pubDate>Sat, 23 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</guid>
+      <description>&lt;p&gt;Implementing server-side RESTful API caching is hard. In a straightforward API all the expiry decisions can be made automatically based on the URL, but most real world APIs that add requirements around object relationships or user authorization make caching particularly challenging.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;http://goruco.com/&#34;&gt;GoRuCo&lt;/a&gt; we open-sourced &lt;a href=&#34;http://github.com/artsy/garner&#34;&gt;Garner&lt;/a&gt;, a cache implementation of the concepts described in this post. To &amp;ldquo;garner&amp;rdquo; means to gather data from various sources and to make it readily available in one place, kind-of like a cache! Garner works today with the &lt;a href=&#34;http://github.com/intridea/grape&#34;&gt;Grape API framework&lt;/a&gt; and the &lt;a href=&#34;http://github.com/mongoid/mongoid&#34;&gt;Mongoid ODM&lt;/a&gt;. We encourage you to fork the project, extend our library to other systems and contribute your code back, if you find it useful.&lt;/p&gt;
+
+&lt;p&gt;Garner implements the Artsy API caching cookbook that has been tried by fire in production.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Simplifying Model-Level JSON Versioning with Mongoid-Cached-Json</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/</link>
+      <pubDate>Fri, 23 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/</guid>
+      <description>Did you know that Netflix has hundreds of API versions, one for each device? Daniel Jacobson&amp;rsquo;s Techniques for Scaling the Netflix API at QConSF 2011 explained why they chose this model. And while we don&amp;rsquo;t all build distributed services that supply custom-tailored data to thousands of heterogeneous TVs and set-top boxes, we do have to pay close attention to API versioning from day one.
+Versioning is hard. Your data models evolve, but you must maintain backward-compatibility for your public interfaces.</description>
+    </item>
+    
+    <item>
+      <title>10x Rack and Rails Output Compression with Rack::Deflater</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/24/10x-rack-and-rails-output-compression-with-rack-deflater/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/24/10x-rack-and-rails-output-compression-with-rack-deflater/</guid>
+      <description>&lt;p&gt;You can quickly reduce the amount of data transferred from your Rack or Rails application with &lt;a href=&#34;https://github.com/rack/rack/blob/master/lib/rack/deflater.rb&#34;&gt;Rack::Deflater&lt;/a&gt;. Anecdotal evidence shows a reduction from a 50Kb JSON response into about 6Kb. It may be a huge deal for your mobile clients.&lt;/p&gt;
+
+&lt;p&gt;For a Rails application, modify config/application.rb or config/environment.rb.&lt;/p&gt;
+
+&lt;p&gt;``` ruby config/application.rb
+Acme::Application.configure do
+  config.middleware.use Rack::Deflater
+end&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+For a Rack application, add the middleware in config.ru.
+
+``` ruby config.ru
+use Rack::Deflater
+run Acme::Instance
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Caching Model JSON with Mongoid-Cached-Json</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/</link>
+      <pubDate>Mon, 20 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/</guid>
+      <description>Consider the following two Mongoid domain models, Widget and Gadget.
+``` ruby widget.rb class Widget include Mongoid::Document
+field :name has_many :gadgets end
+``` ruby gadget.rb class Gadget include Mongoid::Document field :name field :extras belongs_to :widget end  And an API call that returns a collection of widgets.
+get &#39;widgets&#39; do Widget.all.as_json end  Given many widgets, the API makes a subquery to fetch the corresponding gadgets for each widget.
+Introducing mongoid-cached-json.</description>
+    </item>
+    
+  </channel>
+</rss>

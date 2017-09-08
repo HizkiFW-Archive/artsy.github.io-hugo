@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/technology/</link>
+    <description>Recent content in Technology on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/technology/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Art &#43; Feminism and Artsy Wikipedia/Wikidata Editathon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</link>
+      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</guid>
+      <description>&lt;p&gt;Artsy has always had a focus on Art meets Science, and we &lt;a href=&#34;https://www.meetup.com/CocoaPods-NYC/messages/boards/thread/50940969&#34;&gt;hosted a meet-up in July&lt;/a&gt; that really hits on both. We had a collection of Artsy Staff, members of &lt;a href=&#34;http://www.artandfeminism.org&#34;&gt;Art + Feminism&lt;/a&gt; NYC, the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/10/peer-lab/&#34;&gt;CocoaPods Peer Lab&lt;/a&gt;, &lt;a href=&#34;http://www.artspracticum.org&#34;&gt;New York Arts Practicum&lt;/a&gt; and volunteers from &lt;a href=&#34;https://nyc.wikimedia.org/&#34;&gt;Wikimedia NYC&lt;/a&gt; all helping out.&lt;/p&gt;
+
+&lt;p&gt;We came with two aims:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Help anyone interested in contributing to Wikipedia get started.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&#34;https://github.com/artsy/the-art-genome-project&#34;&gt;The Art Genome Project&lt;/a&gt;(TAGP) to improve Wikidata entries for women Artists.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I helped out with the second part, and the rest of this post will be about the lessons learned during this &lt;a href=&#34;https://en.wikipedia.org/wiki/Edit-a-thon&#34;&gt;editathon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Intro to React Native for an iOS Developer</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</guid>
+      <description>&lt;p&gt;React Native is a new native library that vastly changes the way in which you can create applications. The majority of the information and tutorials on the subject come from the angle of &lt;em&gt;&amp;ldquo;you are a web developer, and want to do native&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This makes sense, given that the size of the JavaScript/web audience is much bigger than native developers, and far more open in the idea of writing apps using JavaScript. For web developers it opens a new creative space to work, however for native developers it provides a way to work with different tools on the same problem. Considering that most developers with a few years on the platform will be comfortable with the Xcode toolset, recommending a change this drastic is a tough sell.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been using React Native now for about a year and a half, and have started to slow down on sweeping changes inside the codebase. This is great because it means we&amp;rsquo;re spending less time trying to get things to work, and more time building on top of a solid foundations. Now that we&amp;rsquo;re settled, it&amp;rsquo;s time to start deeply understanding what happens with React Native.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d like cover a lot of the common questions we get asked about from the perspective of native developers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is React Native?&lt;/li&gt;
+&lt;li&gt;How do you use React Native?&lt;/li&gt;
+&lt;li&gt;When is React Native a good technology choice?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This article covers an awful lot, so free up at least 45 minutes, make a tea and then come back to this on your computer. It&amp;rsquo;s worth your time if you&amp;rsquo;re interested in all the hype around React Native.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s Technology Stack, 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</link>
+      <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</guid>
+      <description>&lt;h1 id=&#34;history&#34;&gt;History&lt;/h1&gt;
+
+&lt;p&gt;Artsy was &lt;a href=&#34;http://www.nytimes.com/2012/10/09/arts/design/artsy-is-mapping-the-world-of-art-on-the-web.html&#34;&gt;launched in 2012 as the &amp;ldquo;Art Genome Project&amp;rdquo;&lt;/a&gt; and grew exponentially ever since.&lt;/p&gt;
+
+&lt;p&gt;By 2014 we had 230,000 works of art from 600 museums and institutions and launched our first business, a subscription service for commercial galleries, bringing over 80,000 works for sale and partnerships with 37 art fairs and a handful of benefit auctions. That year collectors from 82 countries inquired on over $5.5B of art.&lt;/p&gt;
+
+&lt;p&gt;By 2015 we doubled our &amp;ldquo;for sale&amp;rdquo; inventory and aggregated 4,000 of the world&amp;rsquo;s leading galleries and 60 art fairs. We also launched two new businesses: commercial auctions and online media.&lt;/p&gt;
+
+&lt;p&gt;Finally, in 2016 we, again, doubled our paid gallery network size to become the largest gallery network in the world and grew to become the most-read online art publication as our highly engaging editorial traffic ballooned 320%. We also launched a platform to bid in live auctions and a consignments service with all major auction houses.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-artsy-business-in-2017&#34;&gt;The Artsy Business in 2017&lt;/h1&gt;
+
+&lt;p&gt;Artsy in 2017 is a very wide platform and it can be challenging to characterize simply. But when you boil it down to its essence, Artsy offers information and a marketplace. Our written content and fair coverage keep people informed about the art world, and the Art Genome powers our tools for exploration. Through our partnerships with the major player in the art market, galleries and auction houses, we offer our users a unified platform for buying and selling art.&lt;/p&gt;
+
+&lt;p&gt;Internally we consider Artsy to have three businesses: &lt;em&gt;Auctions&lt;/em&gt;, &lt;em&gt;Content&lt;/em&gt; and &lt;em&gt;Listings&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Auctions&lt;/em&gt;: Auction houses and charities use Artsy as a sales channel for a commission because collectors want to discover and buy art in a single, central platform that excels at surfacing the art they want from a global market.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Content&lt;/em&gt;: Brands pay Artsy to reach the first art audience at scale by enabling evergreen content online and for offline engagement during art world events.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Listings&lt;/em&gt;: Galleries, Fairs and Institutions subscribe to Artsy for a fee because we bring a very large audience of art collectors and enthusiasts to their virtual doors.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Artsy team is now 166 employees across three offices in New York, Berlin and London. The Engineering organization is now 28 engineers, including 4 leads, 3 directors and a CTO. In this post, we&amp;rsquo;d like to comprehensively cover what, and how we make the technical and human sides of Artsy businesses work.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s Technology Stack, 2015</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/</guid>
+      <description>&lt;p&gt;Artsy has now grown past 100 team members and our Engineering organization is now 20 strong. For a brief overview of what the company has accomplished in the last two years, check out our &lt;a href=&#34;http://2013.artsy.net&#34;&gt;2013&lt;/a&gt; and &lt;a href=&#34;http://2014.artsy.net&#34;&gt;2014&lt;/a&gt; reviews.&lt;/p&gt;
+
+&lt;p&gt;This is a good opportunity to describe our updated technology stack. Last time &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/10/10/artsy-technology-stack&#34;&gt;we did this&lt;/a&gt; was when Artsy launched publicly in 2012.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#39;https://hizkifw.github.io/artsy.github.io-hugo/images/2015-03-23-artsy-technology-stack-2015/stats.png&#39;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Three years ago Artsy was a classic &lt;a href=&#34;http://rubyonrails.org&#34;&gt;Ruby-on-Rails&lt;/a&gt; monolith with a handful of adjacent processes and tools. We&amp;rsquo;ve since broken it up into many independent services, and continue to heavily be a Ruby and JavaScript shop, using Rails where appropriate, with native code on mobile devices and some JVM-based experiments in micro-services.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#39;https://hizkifw.github.io/artsy.github.io-hugo/images/2015-03-23-artsy-technology-stack-2015/languages.png&#39;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s Technology Stack</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/10/artsy-technology-stack/</link>
+      <pubDate>Wed, 10 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/10/artsy-technology-stack/</guid>
+      <description>&lt;p&gt;The public launch of Artsy via the &lt;a href=&#34;http://www.nytimes.com/2012/10/09/arts/design/artsy-is-mapping-the-world-of-art-on-the-web.html&#34;&gt;New York Times&lt;/a&gt; is a good opportunity to describe our current technology stack.&lt;/p&gt;
+
+&lt;p&gt;What you see when you go to &lt;a href=&#34;http://artsy.net&#34;&gt;Artsy&lt;/a&gt; is a website built with &lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone.js&lt;/a&gt; and written in &lt;a href=&#34;http://coffeescript.org/&#34;&gt;CoffeeScript&lt;/a&gt;. It renders JSON data from &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Ruby on Rails&lt;/a&gt;, &lt;a href=&#34;https://github.com/intridea/grape&#34;&gt;Ruby Grape&lt;/a&gt; and &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; services. Text search is powered by &lt;a href=&#34;http://lucene.apache.org/solr/&#34;&gt;Apache Solr&lt;/a&gt;. We also have an &lt;a href=&#34;https://developer.apple.com/devcenter/ios/index.action&#34;&gt;iOS&lt;/a&gt; application that talks to the same back-end Ruby API. We run all our web processes on &lt;a href=&#34;http://www.heroku.com/&#34;&gt;Heroku&lt;/a&gt; and all job queues on &lt;a href=&#34;http://aws.amazon.com/&#34;&gt;Amazon EC2&lt;/a&gt;. Our data store is &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;MongoDB&lt;/a&gt;, operated by &lt;a href=&#34;https://mongohq.com/&#34;&gt;MongoHQ&lt;/a&gt; and we have some &lt;a href=&#34;http://redis.io/&#34;&gt;Redis&lt;/a&gt; instances. Our assets, including images, are served from &lt;a href=&#34;http://aws.amazon.com/s3/&#34;&gt;Amazon S3&lt;/a&gt; via the &lt;a href=&#34;http://aws.amazon.com/cloudfront/&#34;&gt;CloudFront CDN&lt;/a&gt;. We heavily rely on &lt;a href=&#34;http://memcached.org/&#34;&gt;Memcached&lt;/a&gt; Heroku addon and we use &lt;a href=&#34;http://sendgrid.com/&#34;&gt;SendGrid&lt;/a&gt; and &lt;a href=&#34;http://mailchimp.com/&#34;&gt;MailChimp&lt;/a&gt; to send e-mail. Systems are monitored by a combination of &lt;a href=&#34;http://newrelic.com/&#34;&gt;New Relic&lt;/a&gt; and &lt;a href=&#34;https://www.pingdom.com/&#34;&gt;Pingdom&lt;/a&gt;. All of this is built, tested and deployed with &lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-10-10-artsy-technology-stack/artsy-infrastructure.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;ll go in depth in our current system architecture and tell you the story about how these parts all came together.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

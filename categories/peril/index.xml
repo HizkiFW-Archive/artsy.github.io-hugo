@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peril on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/peril/</link>
+    <description>Recent content in Peril on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/peril/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introducing Peril to the Artsy Org</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</link>
+      <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</guid>
+      <description>&lt;p&gt;Once Danger Ruby was stable enough for everyday use in 2015, it became obvious that running Danger on CI was both a
+positive and a negative. On the positive side, Danger has access to all artifacts created during testing - and on the negative
+side it takes a long time to get feedback. It was obvious that Danger could &lt;a href=&#34;https://github.com/danger/danger/issues/42&#34;&gt;run on a server&lt;/a&gt;, but it was a big unknown what that could look like.&lt;/p&gt;
+
+&lt;p&gt;Eventually, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/06/30/danger-one-oh-again/&#34;&gt;I came to the conclusion&lt;/a&gt; that we would need a JavaScript replacement of Danger - and so I applied
+constraints to Danger JS that made a server-side version of Danger a possibility. It was a stroke of luck that around the
+time Danger JS became usable for day to day usage, that GitHub introduced &lt;a href=&#34;https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/&#34;&gt;GitHub Apps&lt;/a&gt; - so I started work on Peril. Peril is server-side Danger. The rest of this post talks about how we use it Artsy today, how you can use it yourself and where it&amp;rsquo;s heading.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

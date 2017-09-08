@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/video/</link>
+    <description>Recent content in Video on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Sep 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dev Interviews: Maxim Cramer</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/16/Dev-Interview-Maxim-Cramer/</link>
+      <pubDate>Fri, 16 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/16/Dev-Interview-Maxim-Cramer/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m happy to introduce the next in the &lt;a href=&#34;http://artsy.github.io/series/dev-interviews/&#34;&gt;Dev Interviews&lt;/a&gt; series - &lt;a href=&#34;http://www.mennenia.com/&#34;&gt;Maxim Cramer&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Maxim has been at Artsy for 6 month, working on our mobile app Eigen. Our interview covers how being a remote developer, advice for people at a HQ working with remotes, her work with React Native and what the future holds for the Artsy mobile team.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=ftsBR_KqHcE&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a inline video.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>macOS Keyboard Shortcuts workshop video</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/31/Keyboard-Shortcuts-workshop/</link>
+      <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/31/Keyboard-Shortcuts-workshop/</guid>
+      <description>&lt;p&gt;Hey all, I was asked to talk internally about ways in which anyone can improve their day-to-day computer usage. For me, using keyboard shortcuts shows a greater level of control of your machine - and more importantly can be considerably faster.&lt;/p&gt;
+
+&lt;p&gt;I have all of my notes, annotated with images inside a personal GitHub repo: &lt;a href=&#34;https://github.com/orta/keyboard_shortcuts&#34;&gt;orta/keyboard_shortcuts&lt;/a&gt;. We covered:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pressing menu items via keyboard&lt;/li&gt;
+&lt;li&gt;Window Management&lt;/li&gt;
+&lt;li&gt;Text Management, e.g. jumping between words etc.&lt;/li&gt;
+&lt;li&gt;Searching for text&lt;/li&gt;
+&lt;li&gt;Taking Screenshots&lt;/li&gt;
+&lt;li&gt;Slack and Chrome&lt;/li&gt;
+&lt;li&gt;Using a Window Manager and Clipboard History Manager&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=1mIRCL_lGbg&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Three</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson three of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson three and I have a &lt;a href=&#34;https://youtu.be/e2ErzD8ibG8&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Two</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson two of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson two and I have a &lt;a href=&#34;https://youtu.be/EBtzqx1YRBg&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson One</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</guid>
+      <description>&lt;p&gt;Last August, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift. There were two parallel groups of learners: a &amp;ldquo;beginners&amp;rdquo; group who had never coded before, and an &amp;ldquo;informed&amp;rdquo; group who already knew how to code. This year, we&amp;rsquo;re leading the course again with a slight twist: we&amp;rsquo;re repeating the course for absolute beginners, and we&amp;rsquo;re introduce a new course for anyone who completed last year&amp;rsquo;s beginner course.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.&lt;/p&gt;
+
+&lt;p&gt;Today was lesson one of the beginner group, and I have a &lt;a href=&#34;https://youtu.be/OLdSg0XpFqA&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One&#34;&gt;lesson one&amp;rsquo;s material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dev Interviews: Craig Spaeth</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/Dev-Interview-Craig-Spaeth/</link>
+      <pubDate>Tue, 09 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/Dev-Interview-Craig-Spaeth/</guid>
+      <description>&lt;p&gt;Hello everyone! Orta here, over the summer I&amp;rsquo;ve started a series of interviews with the entire development team at Artsy. They&amp;rsquo;re all on different topics, notably around technical and cultural issues. I&amp;rsquo;ve recorded a few of them already, and will be sporadically releasing them. I&amp;rsquo;m still getting the hang of editing and recording side of this, so give me some slack.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I&amp;rsquo;m pumped to introduce the first in the series - &lt;a href=&#34;http://craigspaeth.com/&#34;&gt;Craig Spaeth&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Craig has been at Artsy for 6 years, moving from the first on-site developer to Director of Web. Our interview covered how Artsy&amp;rsquo;s development team has adapted over time to the changing demands of a growing company. When he joined, Artsy was 6 people, we&amp;rsquo;re now at ~145 people, ~20 developers and 3 businesses.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=-0WK1Ebis3M&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a inline video.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Injection for Xcode</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</guid>
+      <description>&lt;p&gt;I have been writing code for roughly a decade. A large chunk of that time has been sitting waiting for my project to compile. It&amp;rsquo;s a nice excuse to &lt;a href=&#34;https://xkcd.com/303/&#34;&gt;practice sword fighting&lt;/a&gt; in the office, but really, deep down. It&amp;rsquo;s frustrating. It&amp;rsquo;s so easy to become &lt;a href=&#34;https://xkcd.com/356/&#34;&gt;nerd-sniped&lt;/a&gt; when you wait for a long time.&lt;/p&gt;
+
+&lt;p&gt;As we integrate Swift into our projects, I&amp;rsquo;ve been seeing our compile times increase. So, I took some time to look at ways to improve this. The best option, so far, has been dynamic code injection via &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection Plugin for Xcode&lt;/a&gt;. In a gist: This means that we don&amp;rsquo;t recompile and re-launch, instead we inject new bits of code into a running application. This reduced the compile cycle on Eigen from 7 seconds to 1 second.&lt;/p&gt;
+
+&lt;p&gt;I took some time over the weekend to try and put together a video showing how I used code injection on a trivial app to create a view controller in code. It covers the technique I&amp;rsquo;ve &lt;a href=&#34;https://github.com/artsy/eigen/pull/1236&#34;&gt;started using in Eigen&lt;/a&gt; and talks a little bit about how the pieces come together.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=uftvtmyZ8TM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Energy Sync</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</link>
+      <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</guid>
+      <description>&lt;p&gt;We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&amp;rsquo;ve covered &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/01/14/eidolon-code-review/&#34;&gt;Eidolon&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt; and now &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/02/11/Code-Review-Energy/&#34;&gt;Energy&lt;/a&gt;. This is the second part of the Energy code review. The &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/02/11/Code-Review-Energy/&#34;&gt;first part&lt;/a&gt; covers the the critical codepaths that go from the App&amp;rsquo;s launch to sending an email, which is the main use-case for the app. This video covers how Folio does sync between the Artsy API and the app.&lt;/p&gt;
+
+&lt;p&gt;Sync is a complex problem. This video covers our old techniques, how we changed them, the underlying abstractions we use now and how we can test each component individually. It&amp;rsquo;s an hour long, and it&amp;rsquo;s a little computer-sciencey. So I think people who have shipped some small apps would get a lot out of it.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=05HaKChPe_g&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Energy overview</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</guid>
+      <description>&lt;p&gt;We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&amp;rsquo;ve covered &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/01/14/eidolon-code-review/&#34;&gt;Eidolon&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;. Folio is an app that&amp;rsquo;s shipped to the App Store in early 2012, it&amp;rsquo;s used by our Partners to showcase their works offline, at fairs and on the go. If you want the full spiel, check out &lt;a href=&#34;http://folio.artsy.net&#34;&gt;this microsite&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This video talks through a lot of the critical codepaths that go from the App&amp;rsquo;s launch to sending an email, which is the main use-case for the app. We have another video coming up which exclusively covers how Folio does sync between the Artsy API and the app.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=Xhd25hFzN4o&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</link>
+      <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</guid>
+      <description>&lt;p&gt;While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Eidolon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</link>
+      <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt; is the third app from Artsy&amp;rsquo;s mobile team, and it was the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;first to be developed totally in the open&lt;/a&gt;. It&amp;rsquo;s often used as a reference for what an app written in Swift, or written using FRP, should look like. Given how interested the community seems to be around the app, it&amp;rsquo;s about time we did a walkthrough of the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Licenses for OSS Code</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</guid>
+      <description>&lt;p&gt;As a part of our internal Lunch and Learn series, I  gave a talk to our developers with an overview of the different types of source code licenses available.&lt;/p&gt;
+
+&lt;p&gt;We always recommend MIT within Artsy, but understanding what the other ones are and &lt;a href=&#34;http://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/&#34;&gt;why we made&lt;/a&gt; the choices we have done is valuable.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=0r7JcN3Q_LY&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Emergence</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</link>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</guid>
+      <description>&lt;p&gt;We released the fourth app from the mobile team, &lt;a href=&#34;https://github.com/artsy/Emergence/&#34;&gt;Emergence&lt;/a&gt;, on day one for the new Apple TV and are currently getting around 2k downloads a day. The codebase was created by a single developer, and we didn&amp;rsquo;t want to keep that knowledge siloed. So, I ran an hour long code review session last night where I talked through the codebase, explained why some decisions were made and about the differences between tvOS and UIKit.&lt;/p&gt;
+
+&lt;p&gt;Given that I had been asked to write a blog post about tvOS in general, I felt that making the code review public for anyone to watch would be a nice alternative to the usual long-form writing on this blog.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=NErVWhEzIBM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

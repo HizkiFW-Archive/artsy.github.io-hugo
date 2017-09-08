@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Em Proxy on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/em-proxy/</link>
+    <description>Recent content in Em Proxy on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Dec 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/em-proxy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Beat Heroku&#39;s 60 Seconds Application Boot Timeout with a Proxy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/</link>
+      <pubDate>Thu, 13 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-12-13-beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/heroku-logo-light-234x60.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Heroku will log an &lt;a href=&#34;https://devcenter.heroku.com/articles/error-codes#r10-boot-timeout&#34;&gt;R10 - Boot Timeout&lt;/a&gt; error when a web process takes longer than 60 seconds to bind to its assigned port. This error is often caused by a process being unable to reach an external resource, such as a database or because you have a lot of gems in your &lt;code&gt;Gemfile&lt;/code&gt; which take a long time to load.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Dec 12 12:12:12 prod heroku/web.1:
+  Error R10 (Boot timeout)
+  Web process failed to bind to $PORT within 60 seconds of launch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There&amp;rsquo;s currently no way to increase this boot timeout, but we can beat it with a proxy implemented by our new &lt;a href=&#34;https://github.com/dblock/heroku-forward&#34;&gt;heroku-forward&lt;/a&gt; gem.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

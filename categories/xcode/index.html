@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Xcode // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Xcode" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/">Code Spelunking: Injection for Xcode Plugin</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>17 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode">xcode</a>
+      					
+					        <a class="post-category post-category-tooling" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling">tooling</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>It was only three months ago that I came to the conclusion of just how much time I had wasted <a href="http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/">on code compilation cycles</a>, once I started to play with <a href="https://github.com/johnno1962/injectionforxcode">Injection for Xcode</a>. I still feel guilt about the time I wasted. However, I&rsquo;m trying to turn that into something constructive. In order to do that, I need to have a solid understanding of the fundamentals on how Injection For Xcode works.</p>
+
+<p><a href="https://ashfurrow.com/">Ash</a> says one of the best ways to <a href="https://ashfurrow.com/blog/teaching-learning/">learn is to teach</a>. So I&rsquo;m going to try take you through a guided tour of the code-base. You need some pretty reasonable Objective-C chops to get this, but anyone with an app or two under their belt should be able to <a href="https://en.wikipedia.org/wiki/Grok">grok</a> it.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/04/06/Testing-Schemes/">Using Xcode&#39;s Schemes to run a subset of your tests</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode">xcode</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><a href="https://github.com/artsy/eigen">Eigen</a> has hit the point where testing is a chore. This is a positive sign, the app has grown in terms of size, complexity, and number of developers considerably over the last 3 years. The test suite makes us feel comfortable making changes.</p>
+
+<p>On my fastest computer, we&rsquo;re just under a minute - <code>Executed 1105 tests, with 1 failure (0 unexpected) in 43.221 (48.201) seconds</code>  for the whole suite. I think I could probably live with 20 seconds max. So I studied how <a href="https://www.jetbrains.com/objc/">AppCode</a> handles running tests, and this will be an illustrated guide as to how you can easily run the subset of tests in Xcode based on their techniques.</p>
+
+<p>I <a href="https://github.com/orta/life/issues/71">have ideas</a> on how to improve time for testing in general, based on <a href="http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/">Code Injection</a>, but they aren&rsquo;t fully fleshed out and I expect it to be time-intensive to pull off. Time I haven&rsquo;t made yet.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/04/06/Testing-Schemes/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/">Code Injection for Xcode</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode">xcode</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I have been writing code for roughly a decade. A large chunk of that time has been sitting waiting for my project to compile. It&rsquo;s a nice excuse to <a href="https://xkcd.com/303/">practice sword fighting</a> in the office, but really, deep down. It&rsquo;s frustrating. It&rsquo;s so easy to become <a href="https://xkcd.com/356/">nerd-sniped</a> when you wait for a long time.</p>
+
+<p>As we integrate Swift into our projects, I&rsquo;ve been seeing our compile times increase. So, I took some time to look at ways to improve this. The best option, so far, has been dynamic code injection via <a href="https://github.com/johnno1962/injectionforxcode">Injection Plugin for Xcode</a>. In a gist: This means that we don&rsquo;t recompile and re-launch, instead we inject new bits of code into a running application. This reduced the compile cycle on Eigen from 7 seconds to 1 second.</p>
+
+<p>I took some time over the weekend to try and put together a video showing how I used code injection on a trivial app to create a view controller in code. It covers the technique I&rsquo;ve <a href="https://github.com/artsy/eigen/pull/1236">started using in Eigen</a> and talks a little bit about how the pieces come together.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=uftvtmyZ8TM">to YouTube</a> for the video, or click more for a smaller inline preview.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/">Artsy&#39;s first closed source Pod</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Objc" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Objc">Objc</a>
+      					
+					        <a class="post-category post-category-Cocoa" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Cocoa">Cocoa</a>
+      					
+					        <a class="post-category post-category-Xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Xcode">Xcode</a>
+      					
+					        <a class="post-category post-category-Plugins" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Plugins">Plugins</a>
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>When I joined Artsy, <a href="http://code.dblock.org">dB</a> pitched me this idea: <em>Open source as default.</em></p>
+
+<p>I took this to heart. I genuinely believe the idea behind the philosophy. It&rsquo;s cool that our real product isn&rsquo;t our implementations on the web or native but the data which powers it - <a href="https://artsy.net/theartgenomeproject">the Art Genome Project</a>. Similarly, I spend a bunch of time <a href="https://github.com/AshFurrow/ARCollectionViewMasonryLayout">on</a> <a href="https://github.com/dblock/ARASCIISwizzle">open</a> <a href="https://github.com/dblock/ios-snapshot-test-case-expecta">sourcing</a> <a href="https://github.com/dblock/ARTiledImageView">solid</a> <a href="https://github.com/dstnbrkr/DRBOperationTree">abstractions</a> <a href="https://github.com/orta/ORSimulatorKeyboardAccessor">from</a> <a href="https://github.com/orta/ORStackView">our</a> <a href="https://github.com/orta/ARAnalytics">apps</a>, always taking the opinion if something is used in more than one place, it should be open sourced.</p>
+
+<p>This week I pushed some libraries that were a bit different, read on to find out why.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/">Building the Xcode Plugin Snapshots</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Objc" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Objc">Objc</a>
+      					
+					        <a class="post-category post-category-Cocoa" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Cocoa">Cocoa</a>
+      					
+					        <a class="post-category post-category-Xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Xcode">Xcode</a>
+      					
+					        <a class="post-category post-category-Plugins" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Plugins">Plugins</a>
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I&rsquo;m the kind of guy who thinks better tooling means better outcomes. But when good tooling isn&rsquo;t available, it&rsquo;s time to build it yourself. It&rsquo;s this attitude that lead to my work on <a href="http://cocoadocs.org">CocoaDocs.org</a>, and then to <a href="http://cocoapods.org">CocoaPods.org</a> &amp; its documentation.</p>
+
+<p>We&rsquo;ve been trying to apply this to testing, and in order to pull this off I&rsquo;ve had to extend Xcode to show off the results of failing tests in a more visual way. To that end, I&rsquo;ve extended Xcode to show the results of failing <a href="https://github.com/facebook/ios-snapshot-test-case">view tests</a> in a more visual way by building <a href="https://github.com/orta/snapshots">Snapshots for Xcode</a>.  Let&rsquo;s go through the process of building an Xcode plugin so you can do this too. Screw stability.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jwt on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/jwt/</link>
+    <description>Recent content in Jwt on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/jwt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JSON Web Tokens: Artsy&#39;s Journey</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/</link>
+      <pubDate>Wed, 26 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/</guid>
+      <description>&lt;p&gt;At Artsy we currently have thousands of client applications hitting our API and requesting authentication. When a user successfully authenticates through one of these clients, we want to embed basic user and application data in the resulting token rather than have to look up a session ID in the database on each request. For that we want to use JWT.&lt;/p&gt;
+
+&lt;p&gt;JWT (JSON Web Token) is a self-contained, secure and standard way of transmitting data between applications and clients as JSON objects. Using JWTs lets us use a standardized technology to cut our authentication workflow down by one round-trip.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve recently switched our authentication flow to use &lt;a href=&#34;https://jwt.io&#34;&gt;JWT&lt;/a&gt;, and I&amp;rsquo;m going to cover what they are, how we&amp;rsquo;ve used them and how we&amp;rsquo;re handling the transition.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

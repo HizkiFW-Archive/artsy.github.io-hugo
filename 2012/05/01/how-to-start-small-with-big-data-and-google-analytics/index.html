@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How to Start Small with Big Data and Google Analytics // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="How to Start Small with Big Data and Google Analytics" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/">How to Start Small with Big Data and Google Analytics</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Analytics" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Analytics">Analytics</a>
+				
+					<a class="post-category post-category-Data" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Data">Data</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Why do so many companies write a homegrown pageviews tracking system? Between Google Analytics, Kissmetrics and many others, isn&rsquo;t that a completely solved problem?</p>
+
+<p>These popular solutions lack domain knowledge. They are easily capable of segmenting users by region or browser, but they fail to recognize rules core to your business. Tracking pageviews with a homegrown system becomes your next sprint&rsquo;s goal.</p>
+
+<p>Implementing a hit counter service is quite tricky. This is a write-heavy, asynchronous problem that must minimize impact on page rendering time, while dealing with rapidly growing amounts of data. Is there a middle ground between using Google Analytics and rolling out our own homegrown implementation? How can we use Google Analytics for data collection and inject domain knowledge into gathered data, incrementally, without writing our own service?</p>
+
+<p></p>
+
+<p>Let&rsquo;s write a Rake task that pulls data from Google Analytics. We can run it daily. Start with a Ruby gem called <a href="https://github.com/vigetlabs/garb">Garb</a>.</p>
+
+<pre><code class="language-ruby">gem &quot;garb&quot;, &quot;0.9.1&quot;
+</code></pre>
+
+<p>Garb requires Google Analytics credentials. Those can go into a YAML configuration file, which will use environment settings in production (it&rsquo;s an ERB template, too). We can hardcode the test account values.</p>
+
+<p>``` yaml config/google_analytics.yml
+defaults: &amp;defaults</p>
+
+<p>development, test:
+  &lt;&lt;: *defaults
+  email: &ldquo;ga@example.com&rdquo;
+  password: &ldquo;password&rdquo;
+  ua: &ldquo;UA-12345678-1&rdquo;</p>
+
+<p>production:
+  &lt;&lt;: *defaults
+  email: &lt;%= ENV[&lsquo;GOOGLE_ANALYTICS_EMAIL&rsquo;] %&gt;
+  password: &lt;%= ENV[&lsquo;GOOGLE_ANALYTICS_PASSWORD&rsquo;] %&gt;
+  ua: &lt;%= ENV[&lsquo;GOOGLE_ANALYICS_UA&rsquo;] %&gt;</p>
+
+<pre><code>
+Establish a Google Analytics session and fetch the profile corresponding to the Google user account with Garb.
+
+``` ruby
+config = YAML.load(ERB.new(File.new(Rails.root.join(&quot;config/google_analytics.yml&quot;)).read).result)[Rails.env].symbolize_keys
+Garb::Session.login(config[:email], config[:password])
+profile = Garb::Management::Profile.all.detect { |p| p.web_property_id == config[:ua] }
+raise &quot;missing profile #{config[:ua]} in #{Garb::Management::Profile.all.map(&amp;:web_property_id)}&quot; unless profile
+</code></pre>
+
+<p>Garbs needs a data model to collect pageviews. It extends <code>Garb::Model</code> and defines a set of &ldquo;metrics&rdquo; and &ldquo;dimensions&rdquo;.</p>
+
+<p>``` ruby app/models/google_analytics_pageviews.rb
+class GoogleAnalyticsPageviews
+  extend Garb::Model
+  metrics :pageviews
+  dimensions :page_path
+end</p>
+
+<pre><code>
+You can play with the [Google Analytics Query Explorer](http://ga-dev-tools.appspot.com/explorer/) to see the many possible metrics (such as pageviews) and dimensions (such as requested page path).
+
+By default, Google Analytics lets clients retrieve 1000 records in a single request. To get all records we can add an iterator, called `all`, that will keep making requests until the server runs out of data. The code for *config/initializers/garb_model.rb* is [in this gist](https://gist.github.com/2265877) and I made a [pull request](https://github.com/vigetlabs/garb/pull/116) into Garb if you'd rather merge that onto your fork.
+
+The majority of our pages are in the form of &quot;/model/id&quot;, for example &quot;/artwork/leonardo-mona-lisa&quot;. We're interested in all pageviews for a given artwork and in pageviews for a given artist, at a given date. We'll store selected Google Analytics data in a `GoogleAnalyticsPageviewsRecord` model described further.
+
+``` ruby
+t = Date.today - 1
+GoogleAnalyticsPageviews.all(profile, { :start_date =&gt; t, :end_date =&gt; t }) do |row|
+  model = /^\/#\!\/(?&lt;type&gt;[a-z-]+)\/(?&lt;id&gt;[a-z-]+)$/.match(row.page_path)
+  next unless (model[:type] == &quot;artwork&quot; || model[:type] == &quot;artist&quot;)
+  GoogleAnalyticsPageviewsRecord.create!({
+    :model_type =&gt; model[:type],
+    :model_id =&gt; model[:id],
+    :pageviews =&gt; row.pageviews,
+    :dt =&gt; t.strftime(&quot;%Y-%m-%d&quot;)
+  })
+end
+</code></pre>
+
+<p>Each <code>GoogleAnalyticsPageviewsRecord</code> contains the total pageviews for a given model ID at a given date. We now have a record for each artwork and artist. We can rollup existing data into a set of collections, incrementally. For example, <code>google_analytics_artworks_monthly</code> will contain the monthly hits for each artwork.</p>
+
+<pre><code class="language-ruby">class GoogleAnalyticsPageviewsRecord
+  include Mongoid::Document
+
+  field :model_type, type: String
+  field :model_id, type: String
+  field :pageviews, type: Integer
+  field :dt, type: Date
+
+  index [
+    [:model_type, Mongo::ASCENDING],
+    [:model_id, Mongo::ASCENDING],
+    [:dt, Mongo::DESCENDING]
+  ], :unique =&gt; true
+
+  after_create :rollup
+
+  def rollup
+    Mongoid.master.collection(&quot;google_analytics_#{self.model_type}s_total&quot;).update(
+      { :model_id =&gt; self.model_id },
+      { &quot;$inc&quot; =&gt; { &quot;count&quot; =&gt; self.pageviews }}, { :upsert =&gt; true })
+    {
+      :daily =&gt; self.dt.strftime(&quot;%Y-%m-%d&quot;),
+      :weekly =&gt; self.dt.beginning_of_week.strftime(&quot;%Y-%W&quot;),
+      :monthly =&gt; self.dt.beginning_of_month.strftime(&quot;%Y-%m&quot;),
+      :yearly =&gt; self.dt.beginning_of_year.strftime(&quot;%Y&quot;)
+    }.each_pair do |t, dt|
+      Mongoid.master.collection(&quot;google_analytics_#{self.model_type}s_#{t}&quot;).update(
+        { :model_id =&gt; self.model_id, :dt =&gt; dt },
+        { &quot;$inc&quot; =&gt; { &quot;count&quot; =&gt; self.pageviews }}, { :upsert =&gt; true })
+    end
+  end
+
+end
+</code></pre>
+
+<p>The rollup lets us query these tables directly. For example, the following query returns a record with the pageviews for the Leonardo&rsquo;s &ldquo;Mona Lisa&rdquo; in January 2012.</p>
+
+<pre><code class="language-ruby">Mongoid.master.collection(&quot;google_analytics_artworks_monthly&quot;).find_one({
+  :model_type =&gt; &quot;artwork&quot;, :model_id =&gt; &quot;leonardo-mona-lisa&quot;, :dt =&gt; &quot;2012/01&quot;
+})
+</code></pre>
+
+<p>One of the obvious advantages of pulling Google Analytics data is the low volume of requests and offline processing. We&rsquo;re letting Google Analytics do the hard work of collecting data for us in real time and are consuming its API without the performance or time pressures.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/">On Making It Personal in iOS with Searchbars</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/04/10/css-trick-adjusting-text-underlines/">CSS Trick: Adjusting Text Underlines</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Travis // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Travis" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/travis/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/travis/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/">Using CocoaPods Caching with Travis CI</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As <a href="http://artsy.github.io/blog/2014/08/07/taking-a-snapshot-with-second-curtain/">Ash said earlier</a> we like using Continuous Integration. Today I spent a large amount of time migrating us to use the new CocoaPods caching system in Travis CI. To make up for my lost time I&rsquo;m passing on what I&rsquo;ve learned and also showing how we do CI at Artsy with Objective-C apps. If you&rsquo;re interested in how we do it in Swift, you can just check <a href="https://github.com/artsy/eidolon">Eidolon</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/">Taking a Snapshot with Second Curtain</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>At Artsy, we try hard to <a href="https://speakerdeck.com/orta/getting-eigen-out?slide=35">test</a>
+our iOS applications to ensure that we avoid regressions and have a clearly
+defined spec of how our apps should look and behave. One of the core pieces of
+our testing setup is <a href="https://github.com/facebook/ios-snapshot-test-case">FBSnapshotTestCase</a>,
+a library written by Facebook to compare views at runtime with images of those
+views that are known to be correct. If the images differ, the test fails. We
+also use <a href="https://travis-ci.org">Travis</a> for continuous integration.</p>
+
+<p>Lately, we&rsquo;ve been noticing a friction between the developers on the iOS team
+and the tools we&rsquo;re using to test our apps: while Travis allows us to easily
+access the logs of test runs, it can only indicate that a snapshot test failed,
+not why it failed. That&rsquo;s because the images that are compared are locked on
+Travis&rsquo; machine – we cannot access those images, so we can&rsquo;t see the
+differences. This is <em>really</em> promblematic when the tests pass locally but fail
+only on Travis.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/">Isolating Spurious and Nondeterministic Tests</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[joey frank]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Testing is a critical part of our workflow at <a href="https://artsy.net">Artsy</a>. It gives us confidence to make regular, aggressive enhancements. But anyone who has worked with a large, complex test suite has struggled with occasional failures that are difficult to reproduce or fix.</p>
+
+<p>These failures might be due to slight timing differences or lack of proper isolation between tests. Integration tests are particularly thorny, since problems can originate not only in application code, but in the browser, testing tools (e.g., <a href="http://docs.seleniumhq.org/">Selenium</a>), database, network, or external APIs and dependencies.</p>
+
+<h2 id="the-quarantine">The Quarantine</h2>
+
+<p>We&rsquo;ve been <a href="http://artsy.github.io/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">automatically retrying failed tests</a>, with some success. However, these problems tend to get worse. (If you have 10 tests that each have a 1% chance of failing, roughly 1 in 10 builds will fail. If you have 50, 4 in 10 builds will fail.)</p>
+
+<p>Martin Fowler offers the most compelling thoughts on this topic in <a href="http://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests</a>. (Read it, really.) He suggests quarantining problematic tests in a separate suite, so they don&rsquo;t block the build pipeline.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

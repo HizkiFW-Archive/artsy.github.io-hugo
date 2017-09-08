@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Infinite // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Infinite" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/infinite/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/infinite/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/">Retain scroll position in infinite scroll</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >craig</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Infinite" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Infinite">Infinite</a>
+      					
+					        <a class="post-category post-category-Infinite-Scroll" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Infinite-Scroll">Infinite Scroll</a>
+      					
+					        <a class="post-category post-category-Iframe" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Iframe">Iframe</a>
+      					
+					        <a class="post-category post-category-Modal" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Modal">Modal</a>
+      					
+					        <a class="post-category post-category-Scroll-Position" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Scroll-Position">Scroll Position</a>
+      					
+					        <a class="post-category post-category-Retain-Scroll-Position" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Retain-Scroll-Position">Retain Scroll Position</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><img src="https://camo.githubusercontent.com/4b7e6aefa00b96ba2804b235aaaa811bbb893c4e/687474703a2f2f7777772e6578706c61696e786b63642e636f6d2f77696b692f696d616765732f352f35362f696e66696e6974655f7363726f6c6c696e672e706e67" alt="Maybe we should give up on the whole idea of a 'back' button. 'Show me that thing I was looking at a moment ago' might just be too complicated an idea for the modern web." /></p>
+
+<p>Although <a href="https://news.ycombinator.com/item?id=7314965">some find infinite scroll to be a contentious topic</a> at Artsy we&rsquo;ve found it to be a useful element in many portions of our site such as <a href="https://artsy.net/browse/artworks?medium=prints&amp;price_range=-1%3A1000">filtering</a>. However, we&rsquo;ve run into a common and painful usability issue with infinite scroll. That is clicking on an item redirects to the next page, losing your scroll position, and losing your place when going back. To solve this we have come up with a clever little solution using an iframe.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

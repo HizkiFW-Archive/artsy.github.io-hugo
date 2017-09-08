@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Heroku // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Heroku" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/heroku/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/heroku/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/">Introduction to AWS OpsWorks</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-AWS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/AWS">AWS</a>
+      					
+					        <a class="post-category post-category-OpsWorks" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/OpsWorks">OpsWorks</a>
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-dev-ops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/dev-ops">dev-ops</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>OpsWorks is a new service from Amazon that promises to provide high-level tools to manage your EC2-based deployment. From <a href="http://aws.typepad.com/aws/2013/02/aws-opsworks-flexible-application-management-in-the-cloud.html">the announcement</a>:</p>
+
+<blockquote>
+<p>AWS OpsWorks features an integrated management experience for the entire application lifecycle including resource provisioning, configuration management, application deployment, monitoring, and access control. It will work with applications of any level of complexity and is independent of any particular architectural pattern.</p>
+</blockquote>
+
+<p>After scratching our heads about exactly what that meant, we tried it anyway. If you&rsquo;ve been straining at the limits of your Platform as a Service (PaaS) provider, or just wishing for more automation for your EC2 deployment, you may want to try it out too.</p>
+
+<p>Artsy has been experimenting with OpsWorks for a few months now and recently adopted it for the production <a href="http://artsy.net">artsy.net</a> site. We&rsquo;re excited to share what we&rsquo;ve learned in the process.</p>
+
+<p>{% include expanded_img.html url=&ldquo;/images/2013-08-27-introduction-to-aws-opsworks/opsworks.png&rdquo; title=&ldquo;OpsWorks overview&rdquo; %}</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/02/17/impact-of-heroku-routing-mesh-and-random-routing/">The Impact of Heroku&#39;s Routing Mesh and Random Routing</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The <a href="http://rapgenius.com/James-somers-herokus-ugly-secret-lyrics">Heroku&rsquo;s Ugly Secret</a> blog post went viral last week. I <a href="http://code.dblock.org/in-defense-of-heroku">wrote</a> in defense of Heroku, which has now responded with an official <a href="https://blog.heroku.com/archives/2013/2/16/routing_performance_update/">Routing Performance Update</a>.</p>
+
+<p>Random request queuing has been discussed in the past in <a href="http://tiwatson.com/blog/2011-2-17-heroku-no-longer-using-a-global-request-queue">Tim Watson&rsquo;s post</a> based on a <a href="https://groups.google.com/forum/?fromgroups=#!msg/heroku/8eOosLC5nrw/Xy2j7GapebIJ">response</a> by Heroku&rsquo;s Adam Wiggins. While the documentation may not have been accurate or even somewhat misleading, we, at Artsy, understood the strategy and the limitations of the routing mesh for quite sometime. Therefore, we have been making continuous efforts to improve our application&rsquo;s performance and reduce the negative impact of random routing inside the routing mesh over the past few months.</p>
+
+<p>One thing we didn&rsquo;t do, was to measure the actual wait time inside a dyno. In restrospect, it seems obvious that we should have. In this post we&rsquo;ll describe a middleware to do so. This is entirely based on the work of <a href="https://gist.github.com/daveyeu/4960893">David Yeu</a>, <a href="https://gist.github.com/jasonrclark/d82a1ea7695daac0b9ee">Jason R Clark</a> and RG&rsquo;s own <a href="https://gist.github.com/a-warner/f5db30857ed3423cea79">Andrew Warner</a>.</p>
+
+<p>With this code in place, here&rsquo;s a 12 hour graph of our website&rsquo;s API performance. The dyno wait time for our application, in green, averaged 61.1ms for a total of 301ms average per request, which is 1/5th of the total request time. It&rsquo;s certainly a lot, but we do spend a lot more time in our own code.</p>
+
+<p><img src="/images/2013-02-17-impact-of-heroku-routing-mesh-and-random-routing/newrelic-12-hours.png"></p>
+
+<p>Note that the single peak on the right of the graph corresponds to a dyno auto-scale job. We double the number of dynos with early morning traffic, which causes new dynos to boot up and accumulate requests before they are &ldquo;warm&rdquo; enough to process requests at their normal rate.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/02/17/impact-of-heroku-routing-mesh-and-random-routing/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/02/01/master-heroku-command-line-with-heroku-commander/">Master the Heroku CLI with Heroku Commander</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-Shell" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Shell">Shell</a>
+      					
+					        <a class="post-category post-category-Rake" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rake">Rake</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><img src="/images/2013-02-01-master-heroku-command-line-with-heroku-commander/heroku-commander.png"></p>
+
+<p>Heroku users frequently run the <strong>heroku</strong> command-line tool that ships with the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>. It has two very convenient features: it will remember API credentials and default to the &ldquo;heroku&rdquo; GIT remote to figure out the application to connect to. Neither of these features are available in the Heroku client API, so it&rsquo;s not unusual to find developers invoke the Heroku CLI from Rake tasks and other automation scripts.</p>
+
+<p>There&rsquo;re several problems with using the Heroku CLI for automation:</p>
+
+<ol>
+<li>The exit code from <code>heroku run</code> is not the exit code from the process being run on Heroku. See <a href="https://github.com/heroku/heroku/issues/186">#186</a>.</li>
+<li>Gathering console output from <code>heroku run:detached</code> requires an external <code>heroku logs --tail</code> process that will never finish.</li>
+</ol>
+
+<p>The <a href="https://github.com/dblock/heroku-commander">heroku-commander</a> gem wraps execution of the Heroku CLI to overcome these common limitations.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/02/01/master-heroku-command-line-with-heroku-commander/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/01/15/debugging-bundler-issues-with-heroku/">Debugging Bundler Issues on Heroku</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-bundler" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/bundler">bundler</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>A few days ago we have started seeing the Heroku deployments of one of our applications randomly hang during <code>bundle install</code>. The problem worsened with time and we were not able to do a deployment for days.</p>
+
+<pre><code>$ git push -f git@heroku.com:application.git FETCH_HEAD:master
+-----&gt; Deleting 12 files matching .slugignore patterns.
+-----&gt; Ruby/Rails app detected
+-----&gt; Using Ruby version: ruby-1.9.3
+-----&gt; Installing dependencies using Bundler version 1.3.0.pre.5
+       Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin
+       Fetching gem metadata from http://rubygems.org/.......
+       Fetching gem metadata from http://rubygems.org/..
+/app/slug-compiler/lib/utils.rb:66:in `block (2 levels) in spawn': command='/app/slug-compiler/lib/../../tmp/buildpacks/ruby/bin/compile /tmp/build_1p6071sni4hh1 /app/tmp/repo.git/.cache' exit_status=0 out='' at=timeout elapsed=900.1056394577026 (Utils::TimeoutError)
+  from /app/slug-compiler/lib/utils.rb:52:in `loop'
+  from /app/slug-compiler/lib/utils.rb:52:in `block in spawn'
+  from /app/slug-compiler/lib/utils.rb:47:in `popen'
+  from /app/slug-compiler/lib/utils.rb:47:in `spawn'
+  from /app/slug-compiler/lib/buildpack.rb:37:in `block in compile'
+  from /app/slug-compiler/lib/buildpack.rb:35:in `fork'
+  from /app/slug-compiler/lib/buildpack.rb:35:in `compile'
+  from /app/slug-compiler/lib/slug.rb:497:in `block in run_buildpack'
+ !     Heroku push rejected, failed to compile Ruby/rails app
+</code></pre>
+
+<p>Seeing bundler hang on &ldquo;Fetching gem metadata from <a href="http://rubygems.org/&quot;">http://rubygems.org/&quot;</a>, my immediate reaction was to blame the RubyGems Dependency API for its poor performance and attempt the <a href="http://hone.herokuapp.com/bundler%20heroku/2012/10/22/rubygems-and-the-dependency-api.html">recommended workaround</a> of switching to <em><a href="http://bundler-api.herokuapp.com">http://bundler-api.herokuapp.com</a></em>. That didn&rsquo;t work.</p>
+
+<p>I also tried to reproduce the issue on a local environment, including a (what I thought was) a completely clean machine at no avail. My <code>bundle install</code> would always succeed.</p>
+
+<p>Finally, everything pointed at an infrastructure problem with Heroku itself, so I opened a ticket (#72648), <a href="https://twitter.com/dblockdotorg/status/290221530892365824">tweeted</a> endlessly to Heroku devs, pinged a  contact at Heroku on Skype and generally annoyed people for 5 straight days. It was a frustrating problem and I was getting no useful help.</p>
+
+<p>Fast forward, this turned out to be <a href="https://github.com/carlhuda/bundler/issues/2248">an issue in Bundler</a>. Narrowing it down would have been relatively easy if I had known where to look.</p>
+
+<p>I hope this post helps you with similar issues.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/01/15/debugging-bundler-issues-with-heroku/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/">Beat Heroku&#39;s 60 Seconds Application Boot Timeout with a Proxy</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby">ruby</a>
+      					
+					        <a class="post-category post-category-em-proxy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/em-proxy">em-proxy</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><img src="/images/2012-12-13-beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/heroku-logo-light-234x60.png"></p>
+
+<p>Heroku will log an <a href="https://devcenter.heroku.com/articles/error-codes#r10-boot-timeout">R10 - Boot Timeout</a> error when a web process takes longer than 60 seconds to bind to its assigned port. This error is often caused by a process being unable to reach an external resource, such as a database or because you have a lot of gems in your <code>Gemfile</code> which take a long time to load.</p>
+
+<pre><code>Dec 12 12:12:12 prod heroku/web.1:
+  Error R10 (Boot timeout)
+  Web process failed to bind to $PORT within 60 seconds of launch
+</code></pre>
+
+<p>There&rsquo;s currently no way to increase this boot timeout, but we can beat it with a proxy implemented by our new <a href="https://github.com/dblock/heroku-forward">heroku-forward</a> gem.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/">Measuring Performance in Grape APIs with NewRelic RPM</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-NewRelic" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/NewRelic">NewRelic</a>
+      					
+					        <a class="post-category post-category-Grape" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Grape">Grape</a>
+      					
+					        <a class="post-category post-category-performance" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/performance">performance</a>
+      					
+					        <a class="post-category post-category-ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby">ruby</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Knowing how well your API performs in real time is essential to any successful project. That&rsquo;s because you can&rsquo;t fix what you can&rsquo;t measure.</p>
+
+<p>We use and heavily contribute to <a href="http://github.com/intridea/grape">Grape</a>, a Ruby API DSL. Grape is a Rack middleware and we have been reporting API performance data to <a href="http://newrelic.com/">NewRelic</a> with code from <a href="http://code.dblock.org/new-relic-performance-instrumentation-with-grape-api">my older blog post</a>.</p>
+
+<p>It&rsquo;s time to improve the reporting implementation and address performance monitoring in both development and production environments. Here&rsquo;s what a single API request breakdown is going to look like.</p>
+
+<p><img src="/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/transaction-detail.png"></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/">How to Monitor 503s and Timeout Requests on Heroku</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-Rack" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rack">Rack</a>
+      					
+					        <a class="post-category post-category-Grape" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Grape">Grape</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We have recently started hitting an unusually high number of &ldquo;503: Service Unavailable&rdquo; errors with one of our applications on Heroku. What are these? How can we monitor their quantity and frequency? What&rsquo;s the fix?</p>
+
+<p><img src="/images/2012-11-15-how-to-monitor-503s-and-timeout-on-heroku/503-error.png"></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/07/05/spend-time-with-your-site/">Spend Time With Your Site</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-EC2" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/EC2">EC2</a>
+      					
+					        <a class="post-category post-category-Product-Management" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Product-Management">Product Management</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Empathy with end users is critical when developing consumer-facing software. Many go <a href="http://innonate.com/2011/03/09/hackers-the-canon-of-consumer-facing-products/">even</a> <a href="http://www.uie.com/articles/self_design/">further</a> and argue that you should <em>be</em> your own user to effectively deliver the best experience.</p>
+
+<blockquote>
+<p><em>I&rsquo;d encourage anyone starting a startup to become one of its users, however unnatural it seems.</em></p>
+
+<p>&mdash; Paul Graham <a href="http://paulgraham.com/organic.html">Organic Startup Ideas</a></p>
+</blockquote>
+
+<p>In practice, though, this can be difficult:</p>
+
+<ul>
+<li>As a developer, you&rsquo;re just not representative of the intended audience.</li>
+<li>You&rsquo;re [appropriately] focused on the product&rsquo;s next iteration, while your audience is occupied with the current state.</li>
+<li>You spend countless hours focused on product details&mdash;of course it&rsquo;s a challenge to empathize with a casual visitor&rsquo;s first impression.</li>
+</ul>
+
+<h2 id="keeping-it-real">Keeping it Real</h2>
+
+<p>We&rsquo;ve tried some best practices to overcome these tendencies. User feedback is emailed to everyone in the company. Engineers share customer support responsibilities. But one simple tool has been surprisingly useful: we stole a page from the agile development handbook and built an <a href="http://alistair.cockburn.us/Information+radiator">information radiator</a>. Like a <a href="http://en.wikipedia.org/wiki/Kanban_board">kanban board</a>, news ticker, or <a href="https://demo.geckoboard.com/dashboard/B6782E562794C2F2/">analytics wall board</a>, our information radiator gives us an ambient awareness of end users&rsquo; experiences. How?</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/07/05/spend-time-with-your-site/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/">Beyond Heroku: &#34;Satellite&#34; Delayed Job Workers on EC2</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+      					
+					        <a class="post-category post-category-EC2" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/EC2">EC2</a>
+      					
+					        <a class="post-category post-category-Fog" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Fog">Fog</a>
+      					
+					        <a class="post-category post-category-Chef" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Chef">Chef</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>[TL;DR: To supplement Heroku-managed app servers, we launched custom EC2 instances to host Delayed Job worker processes. See the <a href="https://github.com/joeyAghion/satellite_setup">satellite_setup github repo</a> for rake tasks and Chef recipes that make it easy.]</p>
+
+<p><a href="http://artsy.net">Artsy</a> engineers are big users and abusers of <a href="http://heroku.com">Heroku</a>. It&rsquo;s a neat abstraction of server resources, so we were conflicted when parts of our application started to bump into Heroku&rsquo;s limitations. While we weren&rsquo;t eager to start managing additional infrastructure, we found that&ndash;with a few good tools&ndash;we could migrate some components away from Heroku without fragmenting the codebase or over-complicating our development environments.</p>
+
+<p>There are a number of reasons your app might need to go beyond Heroku. It might rely on a locally installed tool (not possible on Heroku&rsquo;s locked-down servers), or require heavy file-system usage (limited to <code>tmp/</code> and <code>log/</code>, and not permanent or shared). In our case, the culprit was Heroku&rsquo;s 512 MB RAM limit&ndash;reasonable for most web processes, but quickly exceeded by the image-processing tasks of our <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> workers. We considered building a specialized image-processing service, but decided instead to supplement our web apps with a custom <a href="http://aws.amazon.com/ec2/">EC2</a> instance dedicated to processing background tasks. We call these servers &ldquo;satellites.&rdquo;</p>
+
+<p>We&rsquo;ll walk through the pertinent sections here, but you can find Rake tasks that correspond with these scripts, plus all of the necessary cookbooks, in the <a href="https://github.com/joeyAghion/satellite_setup">satellite_setup github repo</a>. Now, on to the code!</p>
+
+<p>First, generate a key-pair from <a href="https://console.aws.amazon.com/ec2/home?#s=KeyPairs">Amazon&rsquo;s AWS Management Console</a>. Then we&rsquo;ll use <a href="http://fog.io">Fog</a> to spawn the EC2 instance.</p>
+
+<pre><code class="language-ruby">require 'fog'
+
+# Update these values according to your environment...
+S3_ACCESS_KEY_ID = 'XXXXXXXXXXXXXXXXXXXX'
+S3_SECRET_ACCESS_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+KEY_NAME = 'satellite_keypair'
+KEY_PATH = &quot;#{ENV['HOME']}/.ssh/#{KEY_NAME}.pem&quot;
+IMAGE_ID = 'ami-c162a9a8'  # 64-bit Ubuntu 11.10
+FLAVOR_ID = 'm1.large'
+
+connection = Fog::Compute.new(provider: 'AWS',
+  aws_access_key_id: S3_ACCESS_KEY_ID,
+  aws_secret_access_key: S3_SECRET_ACCESS_KEY)
+
+server = connection.servers.bootstrap(
+  key_name: KEY_NAME,
+  private_key_path: KEY_PATH,
+  image_id: IMAGE_ID,
+  flavor_id: FLAVOR_ID)
+</code></pre>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

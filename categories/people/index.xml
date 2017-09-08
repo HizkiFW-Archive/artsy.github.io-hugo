@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>People on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/people/</link>
+    <description>Recent content in People on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/people/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Artsy&#39;s Engineering Organization Stack, 2016</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/28/artsy-engineering-organization-stack/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/28/artsy-engineering-organization-stack/</guid>
+      <description>&lt;div style=&#34;max-width: 50%; text-align: center; float: right; padding: 0 0 10px 10px; line-height: 1;&#34;&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2016-03-28-artsy-engineering-organization-stack/stack.jpg&#34;&gt;&lt;br&gt;&lt;font size=&#34;2px&#34;&gt;&lt;em&gt;The Artsy Engineering Organization &#34;Stack&#34; in 2012&lt;br&gt;from &lt;a target=&#34;_blank&#34; href=&#34;http://code.dblock.org/2011/07/12/sitting-is-killing-you-move-to-new-york.html&#34;&gt;&#34;Sitting is Killing You? Move to New York&#34;&lt;/a&gt;&lt;/em&gt;&lt;/font&gt;&lt;/div&gt;
+
+&lt;p&gt;Artsy has now grown past 140 team members and our Engineering organization is a nimble 25. We&amp;rsquo;ve recently performed a large organizational change (I highly recommend reading &lt;a href=&#34;https://www.artsy.net/article/robert-lenne-the-secret-s-to-company-re-orgs&#34;&gt;&amp;ldquo;The Secret(s) to Company Re-Orgs&amp;rdquo;&lt;/a&gt;), so this is a good time to describe our updated Engineering organization, starting from the top - Artsy as a company and business.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React Native on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/react-native/</link>
+    <description>Recent content in React Native on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/react-native/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Art &#43; Feminism and Artsy Wikipedia/Wikidata Editathon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</link>
+      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</guid>
+      <description>&lt;p&gt;Artsy has always had a focus on Art meets Science, and we &lt;a href=&#34;https://www.meetup.com/CocoaPods-NYC/messages/boards/thread/50940969&#34;&gt;hosted a meet-up in July&lt;/a&gt; that really hits on both. We had a collection of Artsy Staff, members of &lt;a href=&#34;http://www.artandfeminism.org&#34;&gt;Art + Feminism&lt;/a&gt; NYC, the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/10/peer-lab/&#34;&gt;CocoaPods Peer Lab&lt;/a&gt;, &lt;a href=&#34;http://www.artspracticum.org&#34;&gt;New York Arts Practicum&lt;/a&gt; and volunteers from &lt;a href=&#34;https://nyc.wikimedia.org/&#34;&gt;Wikimedia NYC&lt;/a&gt; all helping out.&lt;/p&gt;
+
+&lt;p&gt;We came with two aims:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Help anyone interested in contributing to Wikipedia get started.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&#34;https://github.com/artsy/the-art-genome-project&#34;&gt;The Art Genome Project&lt;/a&gt;(TAGP) to improve Wikidata entries for women Artists.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I helped out with the second part, and the rest of this post will be about the lessons learned during this &lt;a href=&#34;https://en.wikipedia.org/wiki/Edit-a-thon&#34;&gt;editathon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Intro to React Native for an iOS Developer</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</guid>
+      <description>&lt;p&gt;React Native is a new native library that vastly changes the way in which you can create applications. The majority of the information and tutorials on the subject come from the angle of &lt;em&gt;&amp;ldquo;you are a web developer, and want to do native&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This makes sense, given that the size of the JavaScript/web audience is much bigger than native developers, and far more open in the idea of writing apps using JavaScript. For web developers it opens a new creative space to work, however for native developers it provides a way to work with different tools on the same problem. Considering that most developers with a few years on the platform will be comfortable with the Xcode toolset, recommending a change this drastic is a tough sell.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been using React Native now for about a year and a half, and have started to slow down on sweeping changes inside the codebase. This is great because it means we&amp;rsquo;re spending less time trying to get things to work, and more time building on top of a solid foundations. Now that we&amp;rsquo;re settled, it&amp;rsquo;s time to start deeply understanding what happens with React Native.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d like cover a lot of the common questions we get asked about from the perspective of native developers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is React Native?&lt;/li&gt;
+&lt;li&gt;How do you use React Native?&lt;/li&gt;
+&lt;li&gt;When is React Native a good technology choice?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This article covers an awful lot, so free up at least 45 minutes, make a tea and then come back to this on your computer. It&amp;rsquo;s worth your time if you&amp;rsquo;re interested in all the hype around React Native.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

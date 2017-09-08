@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Detecting trends using Forgetsy // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="anil">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Detecting trends using Forgetsy" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#anatomy-of-a-trend">Anatomy of a Trend</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#in-the-wild">In the Wild</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/">Detecting trends using Forgetsy</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">anil</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+				
+					<a class="post-category post-category-Data" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Data">Data</a>
+				
+					<a class="post-category post-category-Redis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Redis">Redis</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><img src="/images/2014-03-17-detecting-trends-with-forgetsy/monolith.jpg" alt="Armory Trending Screen" /></p>
+
+<p>As part of our partnership with <a href="https://www.thearmoryshow.com/">The New York Armory Show</a> this year, we installed a number of terminals throughout the fair. These screens used our own real-time data to display an ever shifting set of trending artworks, artists, and booths, to the attendees.</p>
+
+<p>Out of this work, we&rsquo;ve open-sourced <a href="https://github.com/cavvia/forgetsy">Forgetsy</a>, a lightweight Ruby trending library. Put simply, Forgetsy implements data structures that forget. Loosely based on Bit.ly&rsquo;s <a href="http://word.bitly.com/post/41284219720/forget-table">Forget Table</a> concept, Forgetsy uses decaying counters to track temporal trends in categorical distributions.</p>
+
+<p></p>
+
+<h2 id="anatomy-of-a-trend">Anatomy of a Trend</h2>
+
+<p>To clarify the term &lsquo;trend&rsquo;, let&rsquo;s take this graph of cumulative artist searches over time as an example.</p>
+
+<p><img src="/images/2014-03-17-detecting-trends-with-forgetsy/searches.png" alt="Artist Search Graphs" /></p>
+
+<p>On the left-hand side, we see a steepening gradient (denoted by the dashed lines) for Banksy during his residency in New York (Oct 2013), but in contrast a linear rise in searches for Warhol over the same period. We define a &lsquo;trend&rsquo; as this rise in the <em>rate</em> of observations of a particular event over a time period, which we&rsquo;ll call τ.</p>
+
+<p>In Forgetsy, trends are encapsulated by a construct named <em>delta</em>. A <em>delta</em> consists of two sets of counters, each of which implements <a href="https://en.wikipedia.org/wiki/Exponential_decay">exponential decay</a> of the following form.</p>
+
+<p><img src="http://latex.codecogs.com/gif.latex?X_t_1%3DX_t_0%5Ctimes%7Be%5E%7B-%5Clambda%5Ctimes%7Bt%7D%7D%7D" alt="Exponential Decay" /></p>
+
+<p>Where the inverse of the decay rate (λ) is the lifetime of an observation in the set, τ. By normalising one set by a set with half the decay rate (or double the lifetime), we obtain a trending score for each category in a distribution. This score expresses the change in the rate of observations of a category over the lifetime of the set, as a proportion in the range [0,1].</p>
+
+<p>Forgetsy removes the need for manually sliding time windows or explicitly maintaining rolling counts, as observations naturally decay away over time. It&rsquo;s designed for heavy writes and sparse reads, as it implements decay at read time. Each set is implemented as a <a href="http://redis.io/">redis</a> sorted set, and keys are scrubbed when a count is decayed to near zero, providing storage efficiency.</p>
+
+<p>As a result, Forgetsy handles distributions with up to around 10<sup>6</sup> active categories, receiving hundreds of writes per second, without much fuss.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Take a social network in which users can follow each other. You want to track trending users. You construct a delta with a one week lifetime, to capture trends in your follows data over one week periods:</p>
+
+<pre><code class="language-ruby">follows_delta = Forgetsy::Delta.create('user_follows', t: 1.week)
+</code></pre>
+
+<p>The delta consists of two sets of counters indexed by category identifiers. In this example, the identifiers will be user ids. One set decays over the mean lifetime specified by τ, and another set decays over double the lifetime.</p>
+
+<p>You can now add observations to the delta, in the form of follow events. Each time a user follows another, you increment the followed user id. You can also do this retrospectively:</p>
+
+<pre><code class="language-ruby">follows_delta.incr('UserFoo', date: 2.weeks.ago)
+follows_delta.incr('UserBar', date: 10.days.ago)
+follows_delta.incr('UserBar', date: 1.week.ago)
+...
+</code></pre>
+
+<p>Providing an explicit date is useful if you are processing data asynchronously. You can also use the <code>incr_by</code> option to increment a counter in batches. You can now consult your follows delta to find your top trending users:</p>
+
+<pre><code class="language-ruby">puts follows_delta.fetch
+</code></pre>
+
+<p>Will print:</p>
+
+<pre><code class="language-ruby">{ 'UserFoo' =&gt; 0.789, 'UserBar' =&gt; 0.367 }
+</code></pre>
+
+<p>Each user is given a dimensionless score in the range [0,1] corresponding to the normalised follows delta over the time period. This expresses the proportion of follows gained by the user over the last week compared to double that lifetime.</p>
+
+<p>Optionally fetch the top <em>n</em> users, or an individual user&rsquo;s trending score:</p>
+
+<pre><code class="language-ruby">follows_delta.fetch(n: 20)
+follows_delta.fetch(bin: 'UserFoo')
+</code></pre>
+
+<p>For more information on usage, check out the <a href="https://github.com/cavvia/forgetsy">github project</a> page.</p>
+
+<h2 id="in-the-wild">In the Wild</h2>
+
+<p>In practice, we use linear, weighted combinations of deltas to produce trending scores for any given domain, such as artists. Forgetsy doesn&rsquo;t provide a server, but we send events to an rpc service that updates the deltas in a streamed manner. These events might include artist follows, artwork favorites, auction lot sales or individual page views.</p>
+
+<p>One requirement we have is lifetime flexibility. Forgetsy lets us stipulate the trending period τ on a delta by delta basis. This allows us to lower the lifetime significantly in a fair context, in which we track trends over just a few hours, contrasted with a general art market context, in which we&rsquo;re interested in trends over weeks and months.</p>
+
+<p>In summary, the delta structures provided by Forgetsy provide you with a simple, scalable, transparent base for a trending algorithm that can be tuned to suit the specific dynamics of the domain in question.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/">Presenters and Memoization: Moving Logic out of Templates</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/">Ruby Helper to Group Artworks into a Pinterest-style Layout for Email</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

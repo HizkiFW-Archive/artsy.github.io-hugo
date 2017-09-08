@@ -1,0 +1,2002 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</loc>
+    <lastmod>2017-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</loc>
+    <lastmod>2017-08-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</loc>
+    <lastmod>2017-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/23/api-open-non-commercial/</loc>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</loc>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</loc>
+    <lastmod>2017-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/</loc>
+    <lastmod>2017-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/05/30/database-encryption/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/05/17/ios-retrospectives/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/26/Relay-Mutations/</loc>
+    <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/21/calculating-the-importance-of-an-artwork-with-apache-spark/</loc>
+    <lastmod>2017-04-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</loc>
+    <lastmod>2017-04-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/</loc>
+    <lastmod>2017-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/</loc>
+    <lastmod>2017-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/</loc>
+    <lastmod>2017-03-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</loc>
+    <lastmod>2017-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/01/year-in-art/</loc>
+    <lastmod>2017-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/25/mashing-maps/</loc>
+    <lastmod>2017-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/</loc>
+    <lastmod>2017-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/04/OSS-FAQ/</loc>
+    <lastmod>2017-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/24/bringing-artsy-to-amazon-echo-alexa/</loc>
+    <lastmod>2016-11-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</loc>
+    <lastmod>2016-11-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/</loc>
+    <lastmod>2016-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/</loc>
+    <lastmod>2016-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/</loc>
+    <lastmod>2016-10-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/10/Help-Im-becoming-Post-Junior/</loc>
+    <lastmod>2016-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/</loc>
+    <lastmod>2016-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/22/professional-development-at-artsy-engineering/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/16/Dev-Interview-Maxim-Cramer/</loc>
+    <lastmod>2016-09-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/31/Keyboard-Shortcuts-workshop/</loc>
+    <lastmod>2016-08-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</loc>
+    <lastmod>2016-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</loc>
+    <lastmod>2016-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</loc>
+    <lastmod>2016-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/React-Native-at-Artsy/</loc>
+    <lastmod>2016-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</loc>
+    <lastmod>2016-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/Dev-Interview-Craig-Spaeth/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/the-tech-behind-live-auction-integration/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</loc>
+    <lastmod>2016-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</loc>
+    <lastmod>2016-06-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/</loc>
+    <lastmod>2016-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/</loc>
+    <lastmod>2016-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/</loc>
+    <lastmod>2016-06-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</loc>
+    <lastmod>2016-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</loc>
+    <lastmod>2016-04-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/06/Testing-Schemes/</loc>
+    <lastmod>2016-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/28/artsy-engineering-organization-stack/</loc>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</loc>
+    <lastmod>2016-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</loc>
+    <lastmod>2016-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</loc>
+    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/02/Lazily-Automation/</loc>
+    <lastmod>2016-03-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</loc>
+    <lastmod>2016-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</loc>
+    <lastmod>2016-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/30/iOS-Junior-Interviews/</loc>
+    <lastmod>2016-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</loc>
+    <lastmod>2016-01-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</loc>
+    <lastmod>2016-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</loc>
+    <lastmod>2016-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</loc>
+    <lastmod>2016-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/22/future-fridays/</loc>
+    <lastmod>2015-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/</loc>
+    <lastmod>2015-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</loc>
+    <lastmod>2015-12-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/09/docker-for-development/</loc>
+    <lastmod>2015-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</loc>
+    <lastmod>2015-11-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</loc>
+    <lastmod>2015-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/30/Work-Offline-More/</loc>
+    <lastmod>2015-09-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</loc>
+    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</loc>
+    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/</loc>
+    <lastmod>2015-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/01/Cocoa-Architecture-Dropped-Design-Patterns/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/</loc>
+    <lastmod>2015-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/</loc>
+    <lastmod>2015-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/</loc>
+    <lastmod>2015-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/10/peer-lab/</loc>
+    <lastmod>2015-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/</loc>
+    <lastmod>2015-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/30/Notorious-BUG-Part-1/</loc>
+    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</loc>
+    <lastmod>2015-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/</loc>
+    <lastmod>2015-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</loc>
+    <lastmod>2015-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/09/so-you-want-an-ssl-certificate/</loc>
+    <lastmod>2015-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/08/creating-a-dynamic-single-page-app-for-our-genome-team-using-react/</loc>
+    <lastmod>2015-04-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/03/artsy-engineering-compensation-framework/</loc>
+    <lastmod>2015-04-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/31/the-culture-of-openness-artsy-mobile/</loc>
+    <lastmod>2015-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/</loc>
+    <lastmod>2015-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/01/21/cocoapods-keys-and-CI/</loc>
+    <lastmod>2015-01-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/</loc>
+    <lastmod>2015-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/19/how-to-write-great-outage-post-mortems/</loc>
+    <lastmod>2014-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/18/debugging-our-hardware-problem/</loc>
+    <lastmod>2014-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/13/eidolon-retrospective/</loc>
+    <lastmod>2014-11-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/10/23/how-we-customized-google-site-search-at-artsy/</loc>
+    <lastmod>2014-10-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/24/launching-a-security-bug-bounty-program-at-artsy/</loc>
+    <lastmod>2014-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/24/using-pattern-recognition-to-automatically-crop-framed-art/</loc>
+    <lastmod>2014-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/</loc>
+    <lastmod>2014-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/12/designing-the-public-artsy-api/</loc>
+    <lastmod>2014-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</loc>
+    <lastmod>2014-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</loc>
+    <lastmod>2014-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</loc>
+    <lastmod>2014-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</loc>
+    <lastmod>2014-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</loc>
+    <lastmod>2014-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/11/testing-core-data-migrations/</loc>
+    <lastmod>2014-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</loc>
+    <lastmod>2014-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/06/aspect-oriented-programming-and-aranalytics/</loc>
+    <lastmod>2014-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</loc>
+    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/17/building-an-english-auction-with-mongodb/</loc>
+    <lastmod>2014-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/02/refactoring-infrastructure/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/</loc>
+    <lastmod>2014-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/</loc>
+    <lastmod>2014-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/</loc>
+    <lastmod>2014-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/some-tips-for-email-layout-and-responsiveness/</loc>
+    <lastmod>2014-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/</loc>
+    <lastmod>2014-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/</loc>
+    <lastmod>2013-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/</loc>
+    <lastmod>2013-11-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/</loc>
+    <lastmod>2013-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/23/normalizing-gmail-email-addresses-with-canonical-emails/</loc>
+    <lastmod>2013-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</loc>
+    <lastmod>2013-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/</loc>
+    <lastmod>2013-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/04/13/bootstrapping-json-data-with-rails-and-backbone-js/</loc>
+    <lastmod>2013-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/04/10/aranalytics/</loc>
+    <lastmod>2013-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/04/01/an-easter-egg-for-curl/</loc>
+    <lastmod>2013-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/03/29/musical-chairs/</loc>
+    <lastmod>2013-03-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/17/impact-of-heroku-routing-mesh-and-random-routing/</loc>
+    <lastmod>2013-02-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/</loc>
+    <lastmod>2013-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/</loc>
+    <lastmod>2013-02-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/01/master-heroku-command-line-with-heroku-commander/</loc>
+    <lastmod>2013-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/</loc>
+    <lastmod>2013-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/</loc>
+    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/15/debugging-bundler-issues-with-heroku/</loc>
+    <lastmod>2013-01-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/</loc>
+    <lastmod>2012-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</loc>
+    <lastmod>2012-11-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/</loc>
+    <lastmod>2012-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/so-you-want-to-do-a-css3-3d-transform/</loc>
+    <lastmod>2012-10-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/the-perils-of-ios-user-agent-sniffing/</loc>
+    <lastmod>2012-10-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/10/artsy-technology-stack/</loc>
+    <lastmod>2012-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/</loc>
+    <lastmod>2012-10-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/09/13/on-grid-thumbnails/</loc>
+    <lastmod>2012-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/09/12/how-artsy-builds-experiments-labs-and-easter-eggs/</loc>
+    <lastmod>2012-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/</loc>
+    <lastmod>2012-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/14/on-objective-c-code-standards/</loc>
+    <lastmod>2012-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/</loc>
+    <lastmod>2012-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/05/spend-time-with-your-site/</loc>
+    <lastmod>2012-07-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/25/replacing-hashbang-routes-with-pushstate/</loc>
+    <lastmod>2012-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</loc>
+    <lastmod>2012-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/</loc>
+    <lastmod>2012-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/16/generating-automatic-plain-text-mime-parts-with-rails-actionmailer/</loc>
+    <lastmod>2012-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/</loc>
+    <lastmod>2012-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/</loc>
+    <lastmod>2012-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/</loc>
+    <lastmod>2012-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/04/10/css-trick-adjusting-text-underlines/</loc>
+    <lastmod>2012-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/</loc>
+    <lastmod>2012-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/06/how-to-redirect-bang-hash-urls/</loc>
+    <lastmod>2012-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/24/10x-rack-and-rails-output-compression-with-rack-deflater/</loc>
+    <lastmod>2012-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/</loc>
+    <lastmod>2012-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/</loc>
+    <lastmod>2012-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/</loc>
+    <lastmod>2012-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/</loc>
+    <lastmod>2012-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/</loc>
+    <lastmod>2012-01-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/</loc>
+    <lastmod>2012-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</loc>
+    <lastmod>2012-01-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/05/hello-world/</loc>
+    <lastmod>2012-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/accessibility/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/actionmailer/</loc>
+    <lastmod>2012-05-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/akka/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/alexa/</loc>
+    <lastmod>2016-11-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/amazon-echo/</loc>
+    <lastmod>2016-11-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/analytics/</loc>
+    <lastmod>2017-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/apache-spark/</loc>
+    <lastmod>2017-04-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/api/</loc>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/aranalytics/</loc>
+    <lastmod>2014-05-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/auctions/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/authentication/</loc>
+    <lastmod>2016-10-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/automation/</loc>
+    <lastmod>2016-03-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/aws/</loc>
+    <lastmod>2013-08-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/babel/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/backbone.js/</loc>
+    <lastmod>2013-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/beginners/</loc>
+    <lastmod>2015-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/best-practices/</loc>
+    <lastmod>2014-11-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/bidding/</loc>
+    <lastmod>2014-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/big-data/</loc>
+    <lastmod>2017-04-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/blog/</loc>
+    <lastmod>2012-01-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/blogging/</loc>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/browserify/</loc>
+    <lastmod>2013-12-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/bundler/</loc>
+    <lastmod>2013-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/caching/</loc>
+    <lastmod>2013-01-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/capybara/</loc>
+    <lastmod>2012-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/carrierwave/</loc>
+    <lastmod>2012-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/chef/</loc>
+    <lastmod>2012-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ci/</loc>
+    <lastmod>2017-01-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/cocoa/</loc>
+    <lastmod>2014-06-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/cocoapods/</loc>
+    <lastmod>2016-05-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/code/</loc>
+    <lastmod>2016-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/coffeescript/</loc>
+    <lastmod>2017-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/community/</loc>
+    <lastmod>2016-03-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/continuous-deployment/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/continuous-integration/</loc>
+    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/css/</loc>
+    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/css3/</loc>
+    <lastmod>2012-10-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/culture/</loc>
+    <lastmod>2017-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/customisation/</loc>
+    <lastmod>2013-03-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/danger/</loc>
+    <lastmod>2017-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/data/</loc>
+    <lastmod>2014-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/database/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/debugging/</loc>
+    <lastmod>2015-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/delayedjob/</loc>
+    <lastmod>2012-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/dependencies/</loc>
+    <lastmod>2016-05-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/design/</loc>
+    <lastmod>2012-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/dev-ops/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/development/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/devops/</loc>
+    <lastmod>2017-01-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/docker/</loc>
+    <lastmod>2015-12-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/easter-eggs/</loc>
+    <lastmod>2013-04-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ec2/</loc>
+    <lastmod>2012-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/education/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/em-proxy/</loc>
+    <lastmod>2012-12-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/email/</loc>
+    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/emission/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/encryption/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/energy/</loc>
+    <lastmod>2017-04-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/engineering/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/experiments/</loc>
+    <lastmod>2012-09-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ezel/</loc>
+    <lastmod>2014-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/fastlane/</loc>
+    <lastmod>2017-07-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/flow/</loc>
+    <lastmod>2015-09-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/fog/</loc>
+    <lastmod>2012-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/folio/</loc>
+    <lastmod>2016-02-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/force/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/fun/</loc>
+    <lastmod>2013-04-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/github/</loc>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/google-actions/</loc>
+    <lastmod>2017-03-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/google-assistant/</loc>
+    <lastmod>2017-03-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/google-home/</loc>
+    <lastmod>2017-03-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/grape/</loc>
+    <lastmod>2013-06-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/graphql/</loc>
+    <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/gravity/</loc>
+    <lastmod>2017-04-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/guest/</loc>
+    <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/hal/</loc>
+    <lastmod>2015-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/hashbang/</loc>
+    <lastmod>2012-06-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/heroku/</loc>
+    <lastmod>2013-08-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/html/</loc>
+    <lastmod>2014-04-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/html5/</loc>
+    <lastmod>2012-01-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/hybrid/</loc>
+    <lastmod>2015-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/iframe/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/image-processing/</loc>
+    <lastmod>2014-09-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/infinite/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/infinite-scroll/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/interview/</loc>
+    <lastmod>2016-09-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/interviewing/</loc>
+    <lastmod>2016-01-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ios/</loc>
+    <lastmod>2017-07-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/isomorphic/</loc>
+    <lastmod>2014-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/jenkins/</loc>
+    <lastmod>2012-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/joi/</loc>
+    <lastmod>2016-11-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/js/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/juniors/</loc>
+    <lastmod>2016-10-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/jwt/</loc>
+    <lastmod>2016-10-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/keys/</loc>
+    <lastmod>2015-04-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/launch/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/learning/</loc>
+    <lastmod>2016-03-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/licensing/</loc>
+    <lastmod>2015-12-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/lifecycle/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/meta/</loc>
+    <lastmod>2016-01-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/microgravity/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile/</loc>
+    <lastmod>2017-07-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/modal/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/money/</loc>
+    <lastmod>2015-04-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/mongo/</loc>
+    <lastmod>2017-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/mongodb/</loc>
+    <lastmod>2014-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/mongoid/</loc>
+    <lastmod>2013-11-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/mvvm/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/networking/</loc>
+    <lastmod>2014-09-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/newrelic/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/node/</loc>
+    <lastmod>2017-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/node.js/</loc>
+    <lastmod>2014-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/objc/</loc>
+    <lastmod>2014-06-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/objective-c/</loc>
+    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/objectivec/</loc>
+    <lastmod>2017-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ocmock/</loc>
+    <lastmod>2015-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source/</loc>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/opencv/</loc>
+    <lastmod>2014-09-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/opsworks/</loc>
+    <lastmod>2013-08-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/organization/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/oss/</loc>
+    <lastmod>2017-01-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/pattern-recognition/</loc>
+    <lastmod>2014-09-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/people/</loc>
+    <lastmod>2016-03-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/performance/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/peril/</loc>
+    <lastmod>2017-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/plugins/</loc>
+    <lastmod>2014-06-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/positron/</loc>
+    <lastmod>2016-11-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/postgres/</loc>
+    <lastmod>2017-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/post/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/process/</loc>
+    <lastmod>2015-09-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/product-management/</loc>
+    <lastmod>2012-07-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/professional/</loc>
+    <lastmod>2016-09-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/programming/</loc>
+    <lastmod>2012-09-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/publishing/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/pushstate/</loc>
+    <lastmod>2012-06-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/rack/</loc>
+    <lastmod>2012-11-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/rails/</loc>
+    <lastmod>2014-03-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/rake/</loc>
+    <lastmod>2013-02-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/react/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/react-native/</loc>
+    <lastmod>2017-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/reaction/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative/</loc>
+    <lastmod>2017-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/redis/</loc>
+    <lastmod>2014-03-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/redux/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/relay/</loc>
+    <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/rest/</loc>
+    <lastmod>2012-06-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/retain-scroll-position/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/retina/</loc>
+    <lastmod>2012-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/review/</loc>
+    <lastmod>2016-02-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/rspec/</loc>
+    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby/</loc>
+    <lastmod>2015-11-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby-on-rails/</loc>
+    <lastmod>2012-05-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/scala/</loc>
+    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/scroll-position/</loc>
+    <lastmod>2014-07-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/search/</loc>
+    <lastmod>2014-10-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/security/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/selenium/</loc>
+    <lastmod>2012-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/shared/</loc>
+    <lastmod>2014-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/shell/</loc>
+    <lastmod>2013-02-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/soa/</loc>
+    <lastmod>2014-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/speaking/</loc>
+    <lastmod>2016-03-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/speed/</loc>
+    <lastmod>2012-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ssl/</loc>
+    <lastmod>2015-04-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/standards/</loc>
+    <lastmod>2012-08-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/styled-components/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/swagger/</loc>
+    <lastmod>2013-06-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/swift/</loc>
+    <lastmod>2017-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching/</loc>
+    <lastmod>2016-08-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/team/</loc>
+    <lastmod>2015-12-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/teams/</loc>
+    <lastmod>2016-03-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/technology/</loc>
+    <lastmod>2017-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/testing/</loc>
+    <lastmod>2015-09-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/thickclient/</loc>
+    <lastmod>2012-06-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/tools/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/travis/</loc>
+    <lastmod>2014-08-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript/</loc>
+    <lastmod>2017-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/ui/</loc>
+    <lastmod>2012-02-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/uikit/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/user-agent/</loc>
+    <lastmod>2012-10-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/user-experience/</loc>
+    <lastmod>2012-11-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/versioning/</loc>
+    <lastmod>2012-03-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/video/</loc>
+    <lastmod>2016-09-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/web/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/workshop/</loc>
+    <lastmod>2016-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode/</loc>
+    <lastmod>2016-06-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

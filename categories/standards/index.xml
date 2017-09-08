@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Standards on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/standards/</link>
+    <description>Recent content in Standards on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Aug 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/standards/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On Our Objective-C Code Standards</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/14/on-objective-c-code-standards/</link>
+      <pubDate>Tue, 14 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/14/on-objective-c-code-standards/</guid>
+      <description>&lt;p&gt;With the release of Xcode 4.4 I&amp;rsquo;ve taken a look back at our existing code standards and tried to come up with something that is cleaner and more elegant. Here are a few of the ideas I&amp;rsquo;ve been using to modernize the codebase.&lt;/p&gt;
+
+&lt;h3 id=&#34;remove-private-method-declarations-and-use-class-extensions-to-add-ivars&#34;&gt;Remove private method declarations and use class extensions to add ivars.&lt;/h3&gt;
+
+&lt;p&gt;First to get chopped by the deletion button are private method declarations. After Xcode 4.2 came out we took to using the class extension feature to add private method declarations at the top of implementation files. This was a nice way of keeping private methods out of the header files. Now that the compiler will check for pre-existing method signatures within the same object there&amp;rsquo;s no need to define their interfaces.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

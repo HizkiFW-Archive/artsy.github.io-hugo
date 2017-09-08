@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Cocoa Architecture: Hybrid Apps // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Cocoa Architecture: Hybrid Apps" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#hugomore42">HUGOMORE42</a></li>
+</ul></li>
+<li><a href="#what-is-a-hybrid-app">What is a Hybrid App</a></li>
+<li><a href="#eigen">Eigen</a></li>
+<li><a href="#techniques-for-doing-it-well">Techniques for Doing It Well</a></li>
+<li><a href="#downsides">Downsides</a></li>
+<li><a href="#evolution">Evolution</a></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/">Cocoa Architecture: Hybrid Apps</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture">architecture</a>
+				
+					<a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+				
+					<a class="post-category post-category-hybrid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/hybrid">hybrid</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>As a part of going through the design patterns we&rsquo;ve found in the creation of the Artsy iOS apps, I&rsquo;d like to talk a bit about <em>Hybrid Applications</em>. A hybrid application refers to an app that uses native code and web content intertwined. Our flagship iOS app, <a href="https://github.com/artsy/eigen">eigen</a> is a hybrid app, and it seems to get more and more hybrid-y each release. Let&rsquo;s talk a little bit about the pros and cons of this approach.</p>
+
+<h2 id="hugomore42"></h2>
+
+<h1 id="what-is-a-hybrid-app">What is a Hybrid App</h1>
+
+<p>Above is the widest possible definition above, so let&rsquo;s dig in as this can be a contentious. There is a whole spectrum of which an app can be classed as a hybrid app. This ranges from more or less web-tech everywhere to 100% native code like Objective-C / Swift.</p>
+
+<p>A great example of the furthest to the web-side is <a href="https://atom.io">ATOM</a>, the text editor. It&rsquo;s on the extreme side because all of the user interface is built using HTML + CSS, and almost all of the app is in javascript. The trade-off for them is that their developers can easy write cross-platform code, that will work reliably with technology that the vast majority of programmers use. This vastly reduces the barrier to entry for contributors and gives ATOM a really large community of programmers to draw from with respect to extending the app.</p>
+
+<p>An example of a purely native application would be <a href="https://github.com/artsy/energy/">Energy</a>. It&rsquo;s over a hundred thousand plus lines of Objective-C. Yet under the hood, there&rsquo;s definitely some web-tech there. Prior to iOS7 <code>UILabel</code>s, <code>UITextField</code>s and <code>UITextField</code>s <a href="http://www.objc.io/issues/5-ios7/getting-to-know-textkit/">used WebKit for rendering</a>. Not to mention that when a Partner sends an email via Energy, the editor is a <code>UIWebView</code>. However, from the app developer&rsquo;s perspective they are creating native interactions that are consistent with the rest of the operating system&rsquo;s behavior.</p>
+
+<h1 id="eigen">Eigen</h1>
+
+<p>When we started building Eigen, it was very obvious that we had a Sisyphean task ahead of us. We wanted to take the core ideas of the Artsy website,  <em>The Art World Online</em>, and convert it into mobile, <em>The Art World in Your Pocket</em>.</p>
+
+<p>That&rsquo;s not impossible, but the mobile team was a fraction of the Artsy development team. Any new features added to the website would need a mobile equivalent, and given the speed in which web developer&rsquo;s can ship, we&rsquo;d need to outnumber them to stand a chance at keeping up.</p>
+
+<p>So, we opted for building a highly integrated mobile website at the same time, it would use the same design language as the iOS app and can act as a way for Android devices to access Artsy.</p>
+
+<h1 id="techniques-for-doing-it-well">Techniques for Doing It Well</h1>
+
+<p>So we&rsquo;ll be talking about our <a href="https://github.com/artsy/eigen/blob/6bb44a01c1b23fb8e92c645c3091fd33725743c3/Artsy/View_Controllers/Web_Browsing/ARInternalMobileWebViewController.m">ARInteralMobileViewController</a> - which currently relies on <code>UIWebView</code> but is in <a href="https://github.com/artsy/eigen/pull/606">the process of</a> migrating to <code>WKWebkit</code>.</p>
+
+<ul>
+<li><p>Scroll like an <a href="https://github.com/artsy/eigen/blob/6bb44a01c1b23fb8e92c645c3091fd33725743c3/Artsy/View_Controllers/Web_Browsing/ARExternalWebBrowserViewController.m#L39">iOS app</a> by setting the web view&rsquo;s <code>scrollView.decelerationRate = UIScrollViewDecelerationRateNormal</code>.</p></li>
+
+<li><p>Use a simple design language to avoid the <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/UncannyValley">uncanny valley</a>. Care about using the same <a href="https://github.com/artsy/Artsy-UILabels">typographical rules</a> on everything including tabs, buttons and switches.</p></li>
+
+<li><p>Take over navigation. This means pushing a <a href="https://github.com/artsy/eigen/blob/6bb44a01c1b23fb8e92c645c3091fd33725743c3/Artsy/View_Controllers/Web_Browsing/ARInternalMobileWebViewController.m#L180">new view controller</a> on the navigation stack every time a user intends to change context.</p></li>
+
+<li><p>Take over common OS features. We take over <a href="https://github.com/artsy/eigen/blob/master/Artsy/View_Controllers/Web_Browsing/ARInternalMobileWebViewController.m#L184-L190">social sharing</a>  instead of letting the web site send you to an external page, offering a native share sheet instead.</p></li>
+</ul>
+
+<h1 id="downsides">Downsides</h1>
+
+<p>When you choose developer ease over user experience it&rsquo;s important to take into consideration some of the downsides.</p>
+
+<ul>
+<li><p>Localisation is difficult. Cocoa offers a great localisation APIs. We can&rsquo;t use them, otherwise half of our app is correctly localised and the rest isn&rsquo;t.</p></li>
+
+<li><p>Conforming to the operating system&rsquo;s Human Interface Guidelines is difficult, as you&rsquo;re relying less on foundations built with this in mind.</p></li>
+
+<li><p>Web tech is slower, and threading APIs are generally poor. A difficulty here is that you are also complicating the technical stack upon which your app sits above. When relying on web-tech in a Mac app, it&rsquo;s common for that trade-off to show itself in excessive memory usage over time.</p></li>
+</ul>
+
+<h1 id="evolution">Evolution</h1>
+
+<p>One of the most interesting developments this year in the Cocoa world is Facebook&rsquo;s <a href="https://cocoapods.org/pods/React">react-native</a>, a bridge between web technology and native code that doesn&rsquo;t rely on using the <a href="http://www.quirksmode.org/dom/intro.html">traditional DOM</a> - freeing it from a lot of the common problems found in highly web-based apps.</p>
+
+<p>We&rsquo;re pretty optimistic about it on the mobile team. We&rsquo;re not quite willing to jump head-first into a <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">pre-1.0 technology</a> again, but it shows a lot of promise.</p>
+
+<p>The fact that we were able to ship an app at all was because we could build the parts that meant the most to us native, then rely on web technologies to cover the rest of the ground. By being pragmatic in our approach to using web tech, we have the chance to stand on the shoulders of giants.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/">Swift Trek 2: The Wrath of count()</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/">Cocoa Architecture: ARSwitchboard</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

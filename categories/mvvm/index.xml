@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mvvm on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/mvvm/</link>
+    <description>Recent content in Mvvm on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mvvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Upgrading to RxSwift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</guid>
+      <description>&lt;p&gt;When we &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;built Eidolon last year&lt;/a&gt;, Swift was still pre-1.0 and we couldn&amp;rsquo;t rely on the wide variety of available Swift libraries we enjoy today. I wanted to build it using functional reactive programming, because that&amp;rsquo;s how I believe &lt;a href=&#34;https://realm.io/news/altconf-ash-furrow-functional-reactive-swift/&#34;&gt;everyone should write software&lt;/a&gt;, but there were no Swift-based FRP libraries at the time. As a compromise, I used ReactiveCocoa&amp;rsquo;s Objective-C API (the Swift API was months away from an alpha).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MVVM in Swift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</guid>
+      <description>&lt;p&gt;Model View ViewModel has become the default way I write apps on iOS – it makes writing iOS apps a joy. I&amp;rsquo;ve written &lt;a href=&#34;https://www.objc.io/issues/13-architecture/mvvm/&#34;&gt;about it&lt;/a&gt; &lt;a href=&#34;http://www.teehanlax.com/blog/model-view-viewmodel-for-ios/&#34;&gt;again&lt;/a&gt; and &lt;a href=&#34;https://speakerdeck.com/ashfurrow/reactivecocoa-at-mdevcon-2014&#34;&gt;again&lt;/a&gt; and &lt;a href=&#34;https://leanpub.com/iosfrp&#34;&gt;oh my&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But last Autumn, as our team was all-hands-on-deck to wrap up the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;auctions kiosk app&lt;/a&gt;, we chose not to use MVVM. Why not?&lt;/p&gt;
+
+&lt;p&gt;We were building a &lt;em&gt;new app&lt;/em&gt; in a &lt;em&gt;new language&lt;/em&gt; using a &lt;em&gt;non-Swift framework&lt;/em&gt; for functional reactive programming. I was also teaching colleagues what they needed to know about ReactiveCocoa to help write the app. We used the MVC pattern because the relative cost of MVVM was too high.&lt;/p&gt;
+
+&lt;p&gt;&amp;rdquo;&amp;hellip; &lt;em&gt;was&lt;/em&gt; &amp;hellip;&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

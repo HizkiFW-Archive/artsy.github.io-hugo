@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Why does my team&#39;s Podfile.lock Podspec checksums change? // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Why does my team&#39;s Podfile.lock Podspec checksums change?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#what-are-the-lockfiles">What are the Lockfiles?</a></li>
+<li><a href="#so-why-am-i-seeing-churn">So why am I seeing churn?</a></li>
+<li><a href="#simple-fix">Simple Fix</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/05/03/podspec-checksums/">Why does my team&#39;s Podfile.lock Podspec checksums change?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-cocoapods" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/cocoapods">cocoapods</a>
+				
+					<a class="post-category post-category-dependencies" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/dependencies">dependencies</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>We use CocoaPods, and <a href="https://github.com/artsy/eigen/issues/418">we don&rsquo;t check in our Pods</a> directory for one of our fastest moving apps, <a href="https://github.com/artsy/eigen/">Eigen</a>. This sometimes can cause an <a href="https://github.com/artsy/eigen/pull/1464">interesting data churn</a> inside the <code>Podfile.lock</code> when developers have different sha checksums for their Pods. This is weird, what gives?</p>
+
+<p></p>
+
+<h3 id="what-are-the-lockfiles">What are the Lockfiles?</h3>
+
+<p>First off, to ensure we&rsquo;re talking about the same thing, this is our <a href="https://github.com/artsy/eigen/blob/master/Podfile.lock">Podfile.lock</a>. The lockfile is used on <code>pod install</code> to ensure all the members of your team have the <em>exact same</em> version of the libraries as each other. Otherwise, with a Podfile like:</p>
+
+<pre><code class="language-ruby">platform :ios, '9.3'
+pod 'AFNetworking/Serialization', '~&gt; 3.0'
+target 'MyApp'
+</code></pre>
+
+<p>A developer running <code>pod install</code> would get the latest <code>3.x</code> version, which could be <code>3.1</code> originally, but then 6 months later they could get <code>3.4</code> - without a lockfile there is no way to keep track of the specific build. This is why it should always be in your code repo. In the case above my lockfile looks like this:</p>
+
+<pre><code class="language-yaml">PODS:
+  - AFNetworking/Serialization (3.1.0)
+
+DEPENDENCIES:
+  - AFNetworking/Serialization (~&gt; 3.0)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+
+PODFILE CHECKSUM: 876ceaa409f4ade2b3d58d310dbe026393824bcc
+
+COCOAPODS: 1.0.0.beta.8
+````
+
+### What do the Spec Checksums do?
+
+With the CocoaPods Master Specs repo, we do our best [to try](https://github.com/CocoaPods/Specs/pull/12199) and ensure a write-once repository of Podspecs for the public. However, there are many times when you cannot guarantee that every you have the same version of a Podspec as everyone else in your team.
+
+So, CocoaPods makes a checksum of the JSON representation of your Podspec and keeps that in the lockfile. You can easily [replicate](https://github.com/CocoaPods/CocoaPods/issues/3371) the work to generate a checksum with:
+
+``` sh
+~/D/MyApp ⏛  pod ipc spec ~/.cocoapods/repos/master/Specs/AFNetworking/3.1.0/AFNetworking.podspec.json  | openssl sha1
+5e0e199f73d8626b11e79750991f5d173d1f8b67
+</code></pre>
+
+<h3 id="so-why-am-i-seeing-churn">So why am I seeing churn?</h3>
+
+<p>A normal git development flow when working with libraries is to:</p>
+
+<ul>
+<li>Fork a library, change your Podfile to reflect that change</li>
+<li>Make some changes</li>
+<li>Commit them back to the main repo</li>
+<li>Update the Podspec, then make changes bringing your Podfile back to a real (tagged) release</li>
+</ul>
+
+<p>CocoaPods is smart about updating your libraries behind the scenes, but it&rsquo;s not perfect. In order to avoid re-creating your entire Pods folder every time it will check whether your libraries are at the expected version and skip re-creating the whole process.</p>
+
+<p>In the example above, we used the CocoaPods&rsquo; Specs repo version of the Podspec. In forked repos, e,g,</p>
+
+<pre><code class="language-ruby">pod 'AFNetworking/Serialization', :git =&gt; &quot;https://github.com/orta/AFNetworking.git&quot;, :commit =&gt; &quot;6f31b5c7bcbd59d4dac7e92e215d3c2c22f3400e&quot;
+</code></pre>
+
+<p>The Podspec is saved into the <code>Pods</code> directory in JSON format at <code>Pods/Local\ Podspecs/AFNetworking.podspec.json</code>, this is to ensure there&rsquo;s always access within the CocoaPods sandbox for the Podspecs, and speed probably. This is the podspec used for generating the checksum.</p>
+
+<p><strong>So how can this get out of sync?</strong></p>
+
+<ul>
+<li>During the development cycle, when working with a library you would have used <code>pod update [library]</code> to update just that library you were working on.  This could happen multiple times as you build your changes.</li>
+<li>You continued working against your fork till it was ready for review. At this point you have a working version, you submit a PR for code review on the library.</li>
+<li>There are changes that affect the podspec that come up in review, you don&rsquo;t do a <code>pod update [library]</code> but send the code back to review ( maybe you changed some metadata for example, which doesn&rsquo;t warrant another update to pass CI. )</li>
+<li>Once all code is reviewed, everything is merged back into master.</li>
+<li>You <code>pod install</code> - which continues to use the older version of the Podspec inside the Pods dir, e.g. <code>Pods/Local\ Podspecs/AFNetworking.podspec.json</code>.</li>
+<li>You now have the older <code>AFNetworking.podspec.json</code> inside your local Pods folder, when the next person runs <code>pod install</code> with your changes merged, they get a different SHA, as they&rsquo;ve got the version with the metadata changes.</li>
+</ul>
+
+<h3 id="simple-fix">Simple Fix</h3>
+
+<p>The best option is to run <code>pod update [library]</code> on the computer which is causing churn, this will tell CocoaPods specifically to request a new version of the library. If that fails to give the same checksum as the rest of your team, there&rsquo;s the good old fasioned <code>rm -rf Pods &amp;&amp;  pod install</code>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/">GraphQL for iOS Developers</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/04/14/net-working-with-paw/">Using Paw with Per-Developer Settings</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

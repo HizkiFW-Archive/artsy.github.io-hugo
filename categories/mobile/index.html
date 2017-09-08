@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Mobile // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Mobile" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/">Deploying your app on a weekly basis via fastlane &#43; Travis CI</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+      					
+					        <a class="post-category post-category-fastlane" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/fastlane">fastlane</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We have a few apps now, but one of them isn&rsquo;t really used by anyone other than developers. This is <a href="https://github.com/artsy/emission/tree/master/Example">our React Native host app</a>. We built our React Native components <a href="/blog/2016/08/24/On-Emission/">as a library</a> to be consumed by our other apps. Our development environment for these components is a unique app that acts as a host for the React Native components. It&rsquo;s effectively a long tableview.</p>
+
+<p>This app is often updated for developers, but never deployed to beta users inside Artsy. So I automated it. Using Travis CI and fastlane. This post covers how I got that set up.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/">What is fastlane match?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+					        <a class="post-category post-category-fastlane" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/fastlane">fastlane</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Like anyone working on a non-trivial app in the iOS world who values their time, we use fastlane. <a href="https://fastlane.tools">fastlane</a> is a suite
+of tools that makes it much simpler to automate the very manual processes provided by Apple for deployment.</p>
+
+<p>We&rsquo;ve adopted it in a relatively piece-meal manner in different projects, converting custom in-house code to something
+provided by the gem.  Over time we found what pieces of the suite work for us. <a href="https://github.com/artsy/energy/pull/266">I&rsquo;ve adopted another today</a>: <a href="https://github.com/fastlane/fastlane/tree/master/match">match</a>.</p>
+
+<p>match automates setting up your iOS projects for code signing. One of the most arduous orthogonal tasks which every dev team learns and then forgets.</p>
+
+<p>In using match, we have given away a bit of control with code signing, and so this post is going to dig into; what we used
+to have, and how it works now with match instead.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/">Xcode 8 Manual Codesigning with Fastlane</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+      					
+					        <a class="post-category post-category-ci" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ci">ci</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>New year, new deploy process! Late last year our mobile team completed the update to Swift 3 (and thus, the update to Xcode 8). The latest version of Apple&rsquo;s IDE includes a lovely feature: automating provisioning profile management! (Note: not sarcasm, the feature is really nice. Check out the <a href="https://developer.apple.com/videos/play/wwdc2016/401/">WWDC video</a> for an in-depth exploration.)</p>
+
+<p><img src="/images/2017-01-13-xcode-8-fastlane-codesigning/xcode-screenshot.png" alt="Automatic code signing settings" /></p>
+
+<p>However, when I went to make our first <a href="http://artsy.github.io/blog/2015/12/15/Automating-Testflight-Deploys/">automated deploy</a> today, things didn&rsquo;t work; I got a somewhat cryptic error about code signing.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/">Accessing the app&#39;s Source Code from your Simulator</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>In the last few months twice I&rsquo;ve wanted to access the source code of our application. The first time I did it I came up with a pretty neat hack, but it wouldn&rsquo;t really work in many places. The second time however, I <a href="https://twitter.com/orta/status/786470282093625344">asked the internet</a>, and the <a href="https://twitter.com/saniul/status/786470857635827712">internet</a> <a href="https://twitter.com/0xced/status/786619335116750848">replied</a>.</p>
+
+<p>TLDR: You can use your <a href="https://github.com/artsy/emission/pull/350/commits/2a39c743bcaaf2e3b848ad60621198f40365fdd2">project&rsquo;s scheme</a> to expose derived Xcode environment variables to your source code.</p>
+
+<p>The rest of the blog post is a little bit about <em>why</em> I wanted to do that and what I did with it.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/">The Eidolon Deploy Process</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-eidolon" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon">eidolon</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Since we <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">originally built</a> Eidolon – an auction bidding kiosk app – the project has largely remained in maintenance mode. Eidolon was one of the first projects that we used automated deploys for, and the deploy process has remained largely unchanged. I believe this stability of the deploy process is a testament to how well the automated deploys have gone.</p>
+
+<p>This post is going to detail the mechanics of automated deploys for an enterprise-distributed iOS application, discuss lessons we learned and applied to other projects&rsquo; deploy processes, and describe some of the changes we&rsquo;d like to make. Our project is entirely open source, so you can check out any part of the code on your own or <a href="https://github.com/artsy/eidolon/issues/new">open an issue</a> with questions.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/">Learn Swift at Artsy, Beginners Lesson Three</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[ash]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-teaching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching">teaching</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>And we&rsquo;re back! With lesson three of the beginners&rsquo; Swift-at-Artsy course. To recap, Orta and I <a href="http://artsy.github.io/blog/2016/01/26/swift-at-artsy/">led a course at Artsy</a> to teach our colleagues Swift <em>last</em> August, and we&rsquo;re doing it again. I&rsquo;m leading the stream for people who&rsquo;ve never programmed before.</p>
+
+<p>Yesterday was lesson three and I have a <a href="https://youtu.be/e2ErzD8ibG8">screen recording</a> of my walkthrough of <a href="https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three">the material</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/24/On-Emission/">On our implementation of React Native</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-tooling" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling">tooling</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-node" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node">node</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><center>
+ <img src="/images/emission/emission-logo-artsy.svg" style="height:300px;">
+</center></p>
+
+<p>I arrived fashionably late to the <a href="/blog/2016/08/15/React-Native-at-Artsy/">React Native party</a> in Artsy. I had been a part of our <a href="/blog/2016/08/09/the-tech-behind-live-auction-integration/">Auctions Team</a>, where we worked in Swift with <a href="https://cocoapods.org/pods/Interstellar">some light-FRP</a>. We were not affected by the 4 months of simultaneous work on moving to React Native, at all.</p>
+
+<p>It was a quiet revolution. I did not have to install <code>npm</code>, I made zero changes to the code for auctions and the whole app&rsquo;s infrastructure barely changed. Yet we moved to making all new code inside our 3 year old iOS app use React Native. What gives?</p>
+
+<p>Well, first up we weren&rsquo;t planning a re-write, we don&rsquo;t have that kind of luxury and the scope of our app is too big compared to the team working on it. Second, we reused existing dependency infrastructure to support JavaScript based apps. Read on to find out what that looks like.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/24/On-Emission/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/">Learn Swift at Artsy, Beginners Lesson Two</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[ash]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-teaching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching">teaching</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>And we&rsquo;re back! With lesson two of the beginners&rsquo; Swift-at-Artsy course. To recap, Orta and I <a href="http://artsy.github.io/blog/2016/01/26/swift-at-artsy/">led a course at Artsy</a> to teach our colleagues Swift <em>last</em> August, and we&rsquo;re doing it again. I&rsquo;m leading the stream for people who&rsquo;ve never programmed before.</p>
+
+<p>Yesterday was lesson two and I have a <a href="https://youtu.be/EBtzqx1YRBg">screen recording</a> of my walkthrough of <a href="https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two">the material</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/">Learn Swift at Artsy, Beginners Lesson One</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[ash]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-teaching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching">teaching</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Last August, Orta and I <a href="http://artsy.github.io/blog/2016/01/26/swift-at-artsy/">led a course at Artsy</a> to teach our colleagues Swift. There were two parallel groups of learners: a &ldquo;beginners&rdquo; group who had never coded before, and an &ldquo;informed&rdquo; group who already knew how to code. This year, we&rsquo;re leading the course again with a slight twist: we&rsquo;re repeating the course for absolute beginners, and we&rsquo;re introduce a new course for anyone who completed last year&rsquo;s beginner course.</p>
+
+<p>We&rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.</p>
+
+<p>Today was lesson one of the beginner group, and I have a <a href="https://youtu.be/OLdSg0XpFqA">screen recording</a> of my walkthrough of <a href="https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One">lesson one&rsquo;s material</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/08/15/React-Native-at-Artsy/">React Native at Artsy</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >eloy</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-React" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/React">React</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-Mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mobile">Mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><center>
+<img src="/images/react-native/artsy_react_logo.svg" style="width:300px;">
+</center></p>
+
+<p>As <a href="https://github.com/artsy/eigen">the Artsy iOS app</a> grew larger, we started hitting pain
+points:</p>
+
+<ul>
+<li>We want to support other future platforms such as Android without creating more teams.</li>
+<li>We want different business teams to work on the app without disrupting each other.</li>
+<li>We want our architecture to evolve in order to increase programmer efficiency.</li>
+</ul>
+
+<p>It took us <a href="https://github.com/artsy/mobile/issues/22">about a year</a> to start resolving these issues.
+Ideally, we wanted to find a solution to our architectural issues that would also improve the user
+experience. Notably we wanted more efficient networking, due to mobile device constraints.</p>
+
+<p>It would have been an easy leap to start using Swift and, as a matter of fact, we do use Swift in parts of
+our flagship application and entirely in <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">2 other apps</a>.</p>
+
+<p>However, while Swift is a great language, it’s also just that: <em>another</em> language. It does not do much in terms of new
+paradigms that solved our architectural needs, it does not help in terms of cross-platform - as most of our code is
+building views and thus very framework specific, and it did not really offer anything in terms of more efficient network
+data fetching.</p>
+
+<p>We&rsquo;ve seen that the web teams integrate React in their projects with really great results. We&rsquo;ve been
+<a href="https://github.com/artsy/mobile/issues/22">paying attention</a> to React Native since it came out; the solutions provided
+by the React ecosystem ticked all of our boxes.</p>
+
+<p>Six months ago we took the plunge, and last month we formalized that this is the direction we want to go.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/08/15/React-Native-at-Artsy/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/07/03/handling-big-projects/">Handling Large OSS Projects Defensively</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-culture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/culture">culture</a>
+      					
+					        <a class="post-category post-category-danger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger">danger</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I help maintain big OSS projects: from a third-party <a href="https://cocoapods.org">dependency manager</a> used in most iOS apps (<a href="https://github.com/CocoaPods/cocoapods.org">CocoaPods</a>), to the most popular Objective-C <a href="http://cocoapods.org/pods/Specta">testing framework</a> and the most popular Swift <a href="http://cocoapods.org/pods/Moya">networking API client</a>. I&rsquo;ve been doing this for years.</p>
+
+<p>Projects with this much impact are big time-sinks. This time comes from ensuring infrastructure continues to work, support tickets need replies, new code needs reviewing and releases need coordinating.</p>
+
+<p><img src="/images/2016-07-03-big-oss/danger_logo_black@2x.png" alt="" /></p>
+
+<p>Last September, almost a year ago, I started work on a new project, <a href="https://github.com/danger/danger/">Danger</a>. Danger fixes a problem we were seeing in the Artsy mobile team around adding &ldquo;<a href="https://github.com/artsy/mobile/issues/31">process</a>&rdquo; to our team.</p>
+
+<p>As a part of discussing Danger internally, I&rsquo;ve referenced that building CocoaPods has greatly influenced Danger. This blog post is about the way I&rsquo;ve built Danger, knowing fully well that I cannot afford the level of time to maintain it at the scale it may get to.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/07/03/handling-big-projects/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/">Code Spelunking: Injection for Xcode Plugin</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>17 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode">xcode</a>
+      					
+					        <a class="post-category post-category-tooling" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tooling">tooling</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>It was only three months ago that I came to the conclusion of just how much time I had wasted <a href="http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/">on code compilation cycles</a>, once I started to play with <a href="https://github.com/johnno1962/injectionforxcode">Injection for Xcode</a>. I still feel guilt about the time I wasted. However, I&rsquo;m trying to turn that into something constructive. In order to do that, I need to have a solid understanding of the fundamentals on how Injection For Xcode works.</p>
+
+<p><a href="https://ashfurrow.com/">Ash</a> says one of the best ways to <a href="https://ashfurrow.com/blog/teaching-learning/">learn is to teach</a>. So I&rsquo;m going to try take you through a guided tour of the code-base. You need some pretty reasonable Objective-C chops to get this, but anyone with an app or two under their belt should be able to <a href="https://en.wikipedia.org/wiki/Grok">grok</a> it.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/">Depedency Injection in Swift</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-eidolon" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon">eidolon</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Dependency Injection (DI) is a <a href="http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html">$25 word for a 5¢ idea</a>, but it&rsquo;s an idea that has become wholly foundation to how I write software. I want to take a look at some of the ways our team have been using DI in Swift.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/">Swift Type Aliases: Use Early and Often</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>It&rsquo;s been so fun to watch the Swift developer community experiment with Swift and to experiment with what idiomatic Swift will look like. No one really knows the answer yet, but we&rsquo;re starting to see some design patterns used more than others. We&rsquo;re seeing some language features used in key ways that define idiomatic Swift, and other language features that are being mostly ignored.</p>
+
+<p>Regrettably, one of my favourite features of Swift has not enjoyed the meteoric rise in popularity I believe it deserves: <code>typealias</code>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/">GraphQL for iOS Developers</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-graphql" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/graphql">graphql</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>GraphQL is something you may have heard in passing, usually from the web team. It&rsquo;s a Facebook API technology, that describes itself as a <em>A Data Query Language and Runtime</em>. GraphQL is a <a href="http://facebook.github.io/graphql/">spec</a>, and there are <a href="https://github.com/chentsulin/awesome-graphql#libraries">multiple implementations</a> of it. As mobile engineers, we can consider it an API, where the front-end team have as much control as the backend.</p>
+
+<p>This blog post covers our usage of GraphQL, and what I&rsquo;ve learned in the last 3 months of using it in <a href="https://github.com/artsy/eigen/">Eigen</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/05/03/podspec-checksums/">Why does my team&#39;s Podfile.lock Podspec checksums change?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-cocoapods" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/cocoapods">cocoapods</a>
+      					
+					        <a class="post-category post-category-dependencies" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/dependencies">dependencies</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We use CocoaPods, and <a href="https://github.com/artsy/eigen/issues/418">we don&rsquo;t check in our Pods</a> directory for one of our fastest moving apps, <a href="https://github.com/artsy/eigen/">Eigen</a>. This sometimes can cause an <a href="https://github.com/artsy/eigen/pull/1464">interesting data churn</a> inside the <code>Podfile.lock</code> when developers have different sha checksums for their Pods. This is weird, what gives?</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/05/03/podspec-checksums/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/04/14/net-working-with-paw/">Using Paw with Per-Developer Settings</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-development" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/development">development</a>
+      					
+					        <a class="post-category post-category-web" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/web">web</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I am a big fan of developer tooling, as spending time upfront on improving your process can pay a lot of dividends over time. I want to talk about one in particular: <a href="https://luckymarmot.com/paw">Paw</a>. Paw is a native HTTP client with a bunch of features. I want to cover one that means that we can now <a href="https://github.com/artsy/energy/pull/192">introduce</a> <code>[AppName].paw</code> files in our mobile projects, making it easy for us to discuss networking requests.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/04/14/net-working-with-paw/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/04/06/Testing-Schemes/">Using Xcode&#39;s Schemes to run a subset of your tests</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode">xcode</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><a href="https://github.com/artsy/eigen">Eigen</a> has hit the point where testing is a chore. This is a positive sign, the app has grown in terms of size, complexity, and number of developers considerably over the last 3 years. The test suite makes us feel comfortable making changes.</p>
+
+<p>On my fastest computer, we&rsquo;re just under a minute - <code>Executed 1105 tests, with 1 failure (0 unexpected) in 43.221 (48.201) seconds</code>  for the whole suite. I think I could probably live with 20 seconds max. So I studied how <a href="https://www.jetbrains.com/objc/">AppCode</a> handles running tests, and this will be an illustrated guide as to how you can easily run the subset of tests in Xcode based on their techniques.</p>
+
+<p>I <a href="https://github.com/orta/life/issues/71">have ideas</a> on how to improve time for testing in general, based on <a href="http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/">Code Injection</a>, but they aren&rsquo;t fully fleshed out and I expect it to be time-intensive to pull off. Time I haven&rsquo;t made yet.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/04/06/Testing-Schemes/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/">Code Injection for Xcode</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/xcode">xcode</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I have been writing code for roughly a decade. A large chunk of that time has been sitting waiting for my project to compile. It&rsquo;s a nice excuse to <a href="https://xkcd.com/303/">practice sword fighting</a> in the office, but really, deep down. It&rsquo;s frustrating. It&rsquo;s so easy to become <a href="https://xkcd.com/356/">nerd-sniped</a> when you wait for a long time.</p>
+
+<p>As we integrate Swift into our projects, I&rsquo;ve been seeing our compile times increase. So, I took some time to look at ways to improve this. The best option, so far, has been dynamic code injection via <a href="https://github.com/johnno1962/injectionforxcode">Injection Plugin for Xcode</a>. In a gist: This means that we don&rsquo;t recompile and re-launch, instead we inject new bits of code into a running application. This reduced the compile cycle on Eigen from 7 seconds to 1 second.</p>
+
+<p>I took some time over the weekend to try and put together a video showing how I used code injection on a trivial app to create a view controller in code. It covers the technique I&rsquo;ve <a href="https://github.com/artsy/eigen/pull/1236">started using in Eigen</a> and talks a little bit about how the pieces come together.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=uftvtmyZ8TM">to YouTube</a> for the video, or click more for a smaller inline preview.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/">Code Review: Energy Sync</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>12</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-review" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/review">review</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+					        <a class="post-category post-category-folio" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/folio">folio</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&rsquo;ve covered <a href="/blog/2016/01/14/eidolon-code-review/">Eidolon</a> and <a href="/blog/2015/11/05/Emergence-Code-Review/">Emergence</a> and now <a href="/blog/2016/02/11/Code-Review-Energy/">Energy</a>. This is the second part of the Energy code review. The <a href="/blog/2016/02/11/Code-Review-Energy/">first part</a> covers the the critical codepaths that go from the App&rsquo;s launch to sending an email, which is the main use-case for the app. This video covers how Folio does sync between the Artsy API and the app.</p>
+
+<p>Sync is a complex problem. This video covers our old techniques, how we changed them, the underlying abstractions we use now and how we can test each component individually. It&rsquo;s an hour long, and it&rsquo;s a little computer-sciencey. So I think people who have shipped some small apps would get a lot out of it.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=05HaKChPe_g">to YouTube</a> for the video, or click more for a smaller inline preview.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/">Code Review: Energy overview</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-review" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/review">review</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+					        <a class="post-category post-category-folio" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/folio">folio</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&rsquo;ve covered <a href="/blog/2016/01/14/eidolon-code-review/">Eidolon</a> and <a href="/blog/2015/11/05/Emergence-Code-Review/">Emergence</a>. Folio is an app that&rsquo;s shipped to the App Store in early 2012, it&rsquo;s used by our Partners to showcase their works offline, at fairs and on the go. If you want the full spiel, check out <a href="http://folio.artsy.net">this microsite</a>.</p>
+
+<p>This video talks through a lot of the critical codepaths that go from the App&rsquo;s launch to sending an email, which is the main use-case for the app. We have another video coming up which exclusively covers how Folio does sync between the Artsy API and the app.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=Xhd25hFzN4o">to YouTube</a> for the video, or click more for a smaller inline preview.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/30/iOS-Junior-Interviews/">Interviewing, applying and getting your first job in iOS</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>24 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-juniors" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/juniors">juniors</a>
+      					
+					        <a class="post-category post-category-interviewing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/interviewing">interviewing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>When I was at the beginning of my career, my first developer job application was to a design agency who were doing Mac development too. It was pretty nerve-wracking to apply for my first programming job, and I came into the interview with no idea what to expect. I had just graduated from university and was at the first few steps of my career, I&rsquo;d call this being a junior. It was a time period where I would need mentoring, and supervision in order to grow. A good explanation is in <a href="http://programmers.stackexchange.com/questions/14914/whats-the-difference-between-entry-level-jr-sr-developers">this StackOverflow</a>.</p>
+
+<p>Now that I&rsquo;m both further on in my career, and involved with so many juniors in NYC, I&rsquo;m meeting with a lot of people who are in the same position I was then and I get a lot of questions asking what they can do to prepare. This post <em>attempts</em> at being a comprehensive collection of recommendations. It is subjective, of course, and strongly biased towards my experiences.</p>
+
+<p>Before I jump through to the article, there&rsquo;s one thing that should be above the fold. <em>Chill out</em>. You might not get it right on the first try, I&rsquo;ve applied for jobs and received a &ldquo;no thanks.&rdquo; Yet eventually I became the head of mobile at Artsy. Everyone finds their place in time.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/01/30/iOS-Junior-Interviews/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/">Being a Good OSS Citizen</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Let&rsquo;s take a look at the day in the life of an open source citizen: me. On our app, I was given <a href="https://github.com/artsy/eigen/issues/971">an issue</a> that would allow users to refine what kinds of sale artworks they were looking at, and it included this <em>awesome</em> slider control so they could set min/max price ranges.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/26/swift-at-artsy/">Teaching Swift at Artsy</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-review" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/review">review</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-teaching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching">teaching</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/01/26/swift-at-artsy/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/14/eidolon-code-review/">Code Review: Eidolon</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-review" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/review">review</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><a href="https://github.com/artsy/eidolon">Eidolon</a> is the third app from Artsy&rsquo;s mobile team, and it was the <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">first to be developed totally in the open</a>. It&rsquo;s often used as a reference for what an app written in Swift, or written using FRP, should look like. Given how interested the community seems to be around the app, it&rsquo;s about time we did a walkthrough of the code.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/01/14/eidolon-code-review/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/01/13/OSS-Expectations/">Open Expectations</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-meta" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/meta">meta</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The Artsy engineering team has been moving towards Open Source by Default. In 2015 the Mobile team managed to get there. Since then, we&rsquo;ve been writing up our process on this blog and offering advice to anyone would would ask for it.</p>
+
+<p>I&rsquo;ve been in talks with lots of companies you&rsquo;ve heard of, on the how and the why of this. Recently <a href="https://ello.co">Ello</a> got in touch, and we tried to <a href="https://en.wikipedia.org/wiki/Dyson_sphere">capture the process</a>.  They came out with a great post that I&rsquo;d strongly <a href="https://ello.co/jayzes/post/tqLL-Z8U8GfbDySRk6wbKg">recommend reading</a>. I&rsquo;d like to try and come from the other side, and address what are the questions people ask. Consider this a FAQ for how the mobile team does/got to OSS by default.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/01/13/OSS-Expectations/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/">Automating TestFlight Deploys using Fastlane</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+      					
+					        <a class="post-category post-category-ci" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ci">ci</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I&rsquo;ve been a really <a href="http://artsy.github.io/blog/2015/09/18/Cocoa-Architecture-Dependencies/">strong supporter</a> of the <a href="https://fastlane.tools">fastlane</a> toolset. I think it fixes a lot of common developer problems, in a space that Apple doesn&rsquo;t really touch. The command line.</p>
+
+<p>We&rsquo;ve added hints of fastlane to our apps at different rates, <a href="https://github.com/artsy/eidolon/">Eidolon</a> uses fastlane for everything but <a href="https://github.com/artsy/eigen/">Eigen</a>/<a href="https://github.com/artsy/energy">Energy</a>/<a href="https://github.com/artsy/emergence">Emergence</a> have been pretty slow on the uptake, though they have more complicated setups, being App Store apps.</p>
+
+<p>When <a href="https://krausefx.com/">Felix</a> announced <a href="https://krausefx.com/blog/introducing-match-a-new-approach-to-code-signing">match</a> this week, I felt like he tackled a problem we face in our <a href="http://artsy.net/job/mobile-engineer">small dev team</a>. I integrated this, only to find that it could also fix my problems with deployment. The rest of this post goes into the &ldquo;how I did this.&rdquo; You can also cheat and look at the <a href="https://github.com/artsy/eigen/compare/d06270882aadec8f03927455a5229b53dd0a73c8...9eaf9082ebdcdf75f12ad2804260587e01526f2d">commits</a> directly.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/12/11/License-and-You/">Licenses for OSS Code</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-licensing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/licensing">licensing</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As a part of our internal Lunch and Learn series, I  gave a talk to our developers with an overview of the different types of source code licenses available.</p>
+
+<p>We always recommend MIT within Artsy, but understanding what the other ones are and <a href="http://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/">why we made</a> the choices we have done is valuable.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=0r7JcN3Q_LY">to YouTube</a> for the video, or click more for a smaller inline preview, as well as all of the speakers notes.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/12/11/License-and-You/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/">Upgrading to RxSwift</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mvvm" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mvvm">mvvm</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>When we <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">built Eidolon last year</a>, Swift was still pre-1.0 and we couldn&rsquo;t rely on the wide variety of available Swift libraries we enjoy today. I wanted to build it using functional reactive programming, because that&rsquo;s how I believe <a href="https://realm.io/news/altconf-ash-furrow-functional-reactive-swift/">everyone should write software</a>, but there were no Swift-based FRP libraries at the time. As a compromise, I used ReactiveCocoa&rsquo;s Objective-C API (the Swift API was months away from an alpha).</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/">Code Review: Emergence</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-review" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/review">review</a>
+      					
+					        <a class="post-category post-category-video" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/video">video</a>
+      					
+					        <a class="post-category post-category-code" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code">code</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We released the fourth app from the mobile team, <a href="https://github.com/artsy/Emergence/">Emergence</a>, on day one for the new Apple TV and are currently getting around 2k downloads a day. The codebase was created by a single developer, and we didn&rsquo;t want to keep that knowledge siloed. So, I ran an hour long code review session last night where I talked through the codebase, explained why some decisions were made and about the differences between tvOS and UIKit.</p>
+
+<p>Given that I had been asked to write a blog post about tvOS in general, I felt that making the code review public for anyone to watch would be a nice alternative to the usual long-form writing on this blog.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=NErVWhEzIBM">to YouTube</a> for the video, or click more for a smaller inline preview.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/30/Work-Offline-More/">Work Offline More</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-process" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/process">process</a>
+      					
+					        <a class="post-category post-category-flow" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/flow">flow</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Want to know what I love writing in a pull request? <em>Sorry this is such a big PR, but I was working offline…</em> It is one of <a href="https://github.com/artsy/Emergence/pull/23">the</a> <a href="https://github.com/artsy/Emergence/pull/39">key</a> <a href="https://github.com/artsy/Emergence/pull/45">reasons</a> I managed to get our <a href="https://github.com/artsy/emergence">Artsy Shows TV</a> app released ahead of schedule with a looming unknown App Store <a href="https://github.com/artsy/Emergence/issues?q=milestone%3A%221.0+Ship+to+Apple%22">deadline</a>. Offering more time for polish like thumbnail image <a href="https://github.com/artsy/Emergence/compare/84855a310d47e071419b52b78978d14d751ec4e0...40966752111a309a20b4878e00a1c8e27cb53261">pre-caching</a>.</p>
+
+<p>During the last week before shipping I was scheduled to get a H1B VISA stamp for my passport, which means a trip to London. London is basically a <strong>million</strong> miles away from where I occasionally live in Huddersfield. So I opted for a coach. On the 5 and a half hours of travel, I had gone from behind schedule to feature complete prototype. On the way back, I had started to remove the word prototype from what we were looking at.</p>
+
+<p>I <em>always</em> optimise to work offline on every iOS project. Here&rsquo;s some tips on how we do it in all our apps.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/30/Work-Offline-More/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/">MVVM in Swift</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mvvm" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mvvm">mvvm</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Model View ViewModel has become the default way I write apps on iOS – it makes writing iOS apps a joy. I&rsquo;ve written <a href="https://www.objc.io/issues/13-architecture/mvvm/">about it</a> <a href="http://www.teehanlax.com/blog/model-view-viewmodel-for-ios/">again</a> and <a href="https://speakerdeck.com/ashfurrow/reactivecocoa-at-mdevcon-2014">again</a> and <a href="https://leanpub.com/iosfrp">oh my</a>.</p>
+
+<p>But last Autumn, as our team was all-hands-on-deck to wrap up the <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">auctions kiosk app</a>, we chose not to use MVVM. Why not?</p>
+
+<p>We were building a <em>new app</em> in a <em>new language</em> using a <em>non-Swift framework</em> for functional reactive programming. I was also teaching colleagues what they needed to know about ReactiveCocoa to help write the app. We used the MVC pattern because the relative cost of MVVM was too high.</p>
+
+<p>&rdquo;&hellip; <em>was</em> &hellip;&rdquo;</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/">Cocoa Architecture: Dependencies</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture">architecture</a>
+      					
+					        <a class="post-category post-category-dependencies" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/dependencies">dependencies</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As a part of going through the design patterns we&rsquo;ve found in the creation of the Artsy iOS apps, I&rsquo;d like to talk a bit about some of
+the way in which we decide our apps dependencies.</p>
+
+<p>It&rsquo;s easy to think of your dependencies as being things in your Podfile, but it&rsquo;s a bit more nuanced than that. The tools you use for development, deployment, testing and external integrations are all things in which you depend on others to make your app work. I&rsquo;d like to look into the hows and the whys of the decisions we&rsquo;ve made.</p>
+
+<h2 id="hugomore42"></h2>
+
+<p>The mobile team of is a collection of smart people; we aim to work with people who have different opinions, and different backgrounds. This means we often don&rsquo;t agree on project direction but moving forwards is about finding compromise. Every technical project within Artsy has a de-facto leader, and they get to make the call at the end of the day.</p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/01/Cocoa-Architecture-Dropped-Design-Patterns/">Cocoa Architecture: Dropped Design Patterns</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>1</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>10 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture">architecture</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As a part of going through the design patterns we&rsquo;ve found in the creation of the Artsy iOS apps, I&rsquo;d like to talk a bit about some of the patterns that we&rsquo;ve had and migrated away from. This is not 100% comprehensive, as there has been a lot of time, and a lot of people involved. Instead I&rsquo;m going to try and give a birds eye view, and zoom in on some things that feel more important overall.</p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/01/Cocoa-Architecture-Dropped-Design-Patterns/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/">Swift Trek 2: The Wrath of count()</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>On Tuesday at our mobile practice standup, I mentioned that I was in-between projects and looking for something to do. Orta suggested migrating Eidolon, the Artsy bidding kiosk app, to Swift 2.</p>
+
+<p>Our CI is <a href="https://github.com/artsy/eidolon/pull/466">broken anyway</a>, so now is the perfect opportunity to make changes that would break CI. Additionally, Swift 2 seems to have more-or-less stabilized in the latest betas, so we don&rsquo;t expect many gotchas leading up to the GM. Finally, this is an enterprise-distributed app, so we don&rsquo;t have to worry about submitting to the App Store using betas of Xcode.</p>
+
+<p>So Swift 2 it is!</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/">Cocoa Architecture: Hybrid Apps</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture">architecture</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-hybrid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/hybrid">hybrid</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As a part of going through the design patterns we&rsquo;ve found in the creation of the Artsy iOS apps, I&rsquo;d like to talk a bit about <em>Hybrid Applications</em>. A hybrid application refers to an app that uses native code and web content intertwined. Our flagship iOS app, <a href="https://github.com/artsy/eigen">eigen</a> is a hybrid app, and it seems to get more and more hybrid-y each release. Let&rsquo;s talk a little bit about the pros and cons of this approach.</p>
+
+<h2 id="hugomore42"></h2>
+
+<h1 id="what-is-a-hybrid-app">What is a Hybrid App</h1>
+
+<p>Above is the widest possible definition above, so let&rsquo;s dig in as this can be a contentious. There is a whole spectrum of which an app can be classed as a hybrid app. This ranges from more or less web-tech everywhere to 100% native code like Objective-C / Swift.</p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/">Cocoa Architecture: ARSwitchboard</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture">architecture</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-eidolon" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon">eidolon</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/">Cocoa Architecture: ARRouter</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/architecture">architecture</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-eidolon" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon">eidolon</a>
+      					
+					        <a class="post-category post-category-hal" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/hal">hal</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I want to talk about a pattern that we&rsquo;ve been using for the last few years on the Artsy Mobile team. This pattern pre-dates me joining Artsy by a few weeks, and was introduced into our codebase by <a href="http://90wpm.com">Ben Jackson</a>, this was the <code>ARRouter</code>&rsquo;s first method:</p>
+
+<pre><code class="language-objc">  + (NSURL *)newOAuthURLWithUsername:(NSString *)username password:(NSString *)password {
+      NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              username, @&quot;email&quot;,
+                              password, @&quot;password&quot;,
+                              ARAuthClientID, @&quot;client_id&quot;,
+                              ARAuthSecret, @&quot;client_secret&quot;,
+                              @&quot;credentials&quot;, @&quot;grant_type&quot;,
+                              nil];
+      NSString *url_string = [[NSString alloc] initWithFormat:@&quot;%@%@&quot;, AROAuthURL, [params queryString]];
+      NSURL *url = [ARRouter newURLWithPath:url_string];
+      [url_string release];
+      [params release];
+      return url;
+  }
+</code></pre>
+
+<p>Yep, that&rsquo;s pre-ARC, pre-Dictionary Literals, memory-managed code. We took this pattern and rolled with it for the next 4 years, this article is about where we&rsquo;ve taken it.</p>
+
+<p>Within Eigen, <code>ARRouter</code> is one of our <a href="https://github.com/artsy/eigen/blob/904e8abfc11ce6ea4b6e81f0e02684b755a280c3/Artsy/Networking/ARRouter.m">biggest classes</a>, coming in at almost 1,000 lines of code. Whereas in Energy, it sits at a <a href="https://github.com/artsy/energy/blob/e51529250ede359c781042f222d5836eb9e8a979/Classes/Util/App/ARRouter.m">more reasonable</a> 300 lines. Eidolon does not have an ARRouter, what gives?</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/10/peer-lab/">Peer Lab</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>10</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-community" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/community">community</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>When I was living in Amsterdam, I participated in plenty of <a href="https://appsterdam.rs">Appsterdam</a> events. Things like the weekly Meeten en Drinken. I even helped lead a class in Swift. One of the events I liked the most was called Peer Lab, organized every Saturday morning by <a href="https://twitter.com/samuelgoodwin">Samuel Goodwin</a>.</p>
+
+<p>The idea of Peer Lab is pretty simple, but also somewhat profound: developers gather in a physical space to work on things. If someone has a question, they ask the group. If you can help, you offer assistance. The goal is to foster a collaborative learning environment where everyone feels fulfilled.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/08/10/peer-lab/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/">Open Sourcing Energy</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The Artsy Mobile team is pretty aggressive in our stance on <a href="http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html">Open Source by Default</a>. We&rsquo;ve talked about it at <a href="https://www.youtube.com/watch?v=2DvDeEZ0NDw&amp;spfreload=10">conferences</a> <a href="https://www.youtube.com/watch?v=SjjvnrqDjpM">around</a> <a href="https://www.youtube.com/watch?v=zPbLYWmLPow">the</a> <a href="https://speakerdeck.com/orta/ios-at-artsy">world</a>, in <a href="http://www.objc.io/issues/22-scale/artsy">renowned magazines</a> and on <a href="http://artsy.github.io/blog/2015/04/28/how-we-open-sourced-eigen/">our blog</a>.</p>
+
+<p>It&rsquo;s worth mentioning that we don&rsquo;t just talk externally about Open Source. Internally, the Mobile team runs talks about Open Source for the rest of the Artsy staff. As well, we discuss the tooling and business implications of having our work in public repos. Artsy strives for an open culture, in this case the development team, on the whole, is just further along in the process.</p>
+
+<p>The Open Source app idea started with an experiment in the Summer of 2014, asking, &ldquo;What does a truly Open Source App look like?&rdquo; The outcome of that was our Swift Kiosk app, <a href="https://github.com/artsy/eidolon/">Eidolon</a>. Open from day one. We took the knowledge from that and applied it to our public facing app, <a href="https://github.com/artsy/eigen/">Eigen</a>. Open from day 806. That made 2/3rds of our apps Open Source.</p>
+
+<p>I&rsquo;m going to talk about our final app, <a href="https://github.com/artsy/energy">Energy</a>. Open from day 1433 and ~3500 commits.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/">How To Write Unit Tests Like a Brood Parasite</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >sarahscott</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-ocmock" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ocmock">ocmock</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-beginners" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>To a beginner, <a href="http://ocmock.org/">OCMock</a> looks scary. The syntax is strange, the idea of stubbing seems complicated, and skirting around the need to use it at all times kind of works out for a while.</p>
+
+<pre><code class="language-objc">[[[mock stub] // three brackets!!
+
+[OCMockObject niceMockForClass:UINavigationItem.class]; // it has to be told to be nice?
+</code></pre>
+
+<p>All of this can be overwhelming for someone who just wants to write simple unit tests for a particular view controller.</p>
+
+<p>Once you look into the specifics of OCMock, however, things get less terrifying really quickly. It is helpful to compare OCMock’s approach to stubbing to the <a href="https://vimeo.com/60553870">behaviors of certain bird species</a>. As always, the soothing voice of David Attenborough brings clarity and joy to even the most mundane puzzles of life’s journey.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/">An Eigenstate of Mind</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >sarahscott</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-beginners" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/beginners">beginners</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Prior to starting at Artsy, I followed a few online tutorials on iOS development. But a simple application demonstrating how to <a href="http://www.raywenderlich.com/85578/first-core-data-app-using-swift">build a todo list</a> didn&rsquo;t illustrate the nuances of a production codebase. Tutorials are an important learning tool for beginners, but can&rsquo;t possibly prepare you for everything you would encounter within an application like Artsy&rsquo;s.</p>
+
+<p>I was lucky to have a mentor at Artsy to help me get started, and I wrote this post to pass along the lessons I learned. This is meant to be a guide for iOS beginners to get to know an open source production codebase. I&rsquo;ll cover the Xcode project organization and where to find things.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/">How we Open Source&#39;d Eigen</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-keys" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/keys">keys</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>It was 95 days ago, and I was sitting before of my computer in NYC. I loaded my terminal, opened <a href="https://taptalk.me">TapTalk</a> on my phone, tapped on my collegue <a href="http://ashfurrow.com">Ash&rsquo;s</a> avatar and held my finger there. I paused, this moment was a long time, it was worth waiting. I switched the camera from my face to the screen with the terminal open.</p>
+
+<p>This moment was probably the most nervous I had been in years. It showed <code>git push origin master</code>. I said &ldquo;it&rsquo;s happening.&rdquo; I hit return. A new era in the Artsy mobile team had started. A few minutes later, I wrote this tweet:</p>
+
+<p><center>
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>We have open source’d the <a href="https://twitter.com/artsy">@Artsy</a> iOS app.&#10;&#10;<a href="https://t.co/c1SWtHmUgy">https://t.co/c1SWtHmUgy</a>&#10;&#10;🎉</p>&mdash; Ørta (@orta) <a href="https://twitter.com/orta/status/558395611754819586">January 22, 2015</a></blockquote>
+</center></p>
+
+<p>Let&rsquo;s go over the process we went through to get to that point.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/03/31/the-culture-of-openness-artsy-mobile/">The Culture of Openness in the Artsy Mobile Team</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[sarahscott laura]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-Open-Source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Open-Source">Open-Source</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	Recently, the Artsy Mobile team had the pleasure of working together on an article for objc.io, an online publication dedicated to in-depth articles about iOS and OS X development. Each monthly issue consists of several articles centered around a theme—past issues include Testing, Animations and Swift. objc.io’s latest issue, iOS at Scale, features articles by a handful of developers about how they approach iOS development at their respective companies. Our contribution to the issue is a collaboratively-written article by and about Artsy’s Mobile team from the angle of Artsy&rsquo;s focus on the core value of openness that is foundational to how we (and the greater Artsy team) work.
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/03/31/the-culture-of-openness-artsy-mobile/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/01/21/cocoapods-keys-and-CI/">CocoaPods-Keys and CI</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We built CocoaPods-Keys as a way to remove API keys and secrets from our source code. We use it to open up our code to the public, without leaking private details. One of the cool things about doing it this way was that we could all use different API keys stashed away in each developers Keychain.</p>
+
+<p>To ensure we could run CI on our apps we came up with two different ways to use keys on CI. This post explains them both.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/01/21/cocoapods-keys-and-CI/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/">CocoaPods and Frameworks</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As I mentioned in my <a href="https://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">retrospective on Eidolon</a>, Artsy iOS codebases are often used as testbeds for new CocoaPods features. With Eidolon, we had the opportunity to try out CocoaPods&rsquo; support for frameworks and Swift. This post is a look back at the month of using dependencies as dynamic frameworks instead of static libraries.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/11/18/debugging-our-hardware-problem/">Close to the Metal: Debugging Our Hardware Problem</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>For the past few months, Artsy’s mobile team has been working on <a href="https://github.com/artsy/eidolon">Eidolon</a>, a bidding kiosk for Artsy’s auctions platform. While we’ve written a <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">retrospective</a> on the process of making Eidolon from the software side of things, we didn’t really touch on how our software is being used.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/11/18/debugging-our-hardware-problem/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/11/13/eidolon-retrospective/">Developing a Bidding Kiosk for iOS in Swift</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>15 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-Open-Source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Open-Source">Open-Source</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>In the Summer of 2014, we began developing a bidding kiosk for the Artsy auctions platform (code-named <a href="https://github.com/artsy/eidolon">Eidolon</a>). Typically, the iOS team here at Artsy worked on two main apps: a <a href="http://iphone.artsy.net">consumer-facing iPhone app</a> and an iPad app used by art galleries. For Eidolon, we followed <a href="https://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/">Artsy’s standard practices</a> for building our software and use GitHub issues as our canonical source for bug reports and feature requests. Many of the components used in our apps are <a href="https://github.com/artsy">open source</a>, but the codebases themselves remain in private repositories.</p>
+
+<p>Initial planning for Eidolon began over the Summer. Our designer <a href="http://twitter.com/katarinabatina">Katarina</a> had the main features sketched out. I was scheduled to work on it at first, with <a href="http://twitter.com/orta">Orta</a> and <a href="http://twitter.com/1aurabrown">Laura</a> joining me near the end of the project. We had a rough scope: the app would be able to list artworks at an auction and allow prospective bidders to learn more about these artworks. The user would be able to register to bid and place bids using the Kiosk, including credit card processing for identity-checking.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/11/13/eidolon-retrospective/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/">Transparent Prerequisite Network Requests with Swift and ReactiveCocoa</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-networking" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/networking">networking</a>
+      					
+					        <a class="post-category post-category-Open-Source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Open-Source">Open-Source</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Artsy&rsquo;s <a href="http://developers.artsy.net">API</a> requires something called an <a href="https://developers.artsy.net/docs/authentication">XApp
+token</a> in order to perform
+requests. The token comes back with an expiry date, after which the token will
+no longer work. A new token will have to be fetched.</p>
+
+<pre><code class="language-json">{
+	&quot;xapp_token&quot;: &quot;SOME_TOKEN&quot;,
+	&quot;expires_in&quot;:&quot;2014-09-19T12:22:21.570Z&quot;
+}
+</code></pre>
+
+<p>In our previous iOS apps, tragically written in Objective-C, we have a lot of
+code that looks like the following. <code>getXappTokenWithCompletion:</code> checks to
+make sure that there is a valid token. If there is, it invokes the completion
+block immediately. Otherwise, it fetches a token, sets it in a static variable,
+and then invokes the completion block.</p>
+
+<pre><code class="language-objc">[ArtsyAPI getXappTokenWithCompletion:^(NSString *xappToken, NSDate *expirationDate) {
+    [ArtsyAPI getSomething:^(NSDictionary *results) {
+       // do something
+    } failure:^(NSError *error) {
+        // handle herror
+    }];
+}];
+</code></pre>
+
+<p>That&rsquo;s kind of ugly. A better approach might be to embed the token-requesting
+logic within the <code>getSomething:</code> method. But that kind of sucks, since we&rsquo;d have
+to reproduce that logic for <em>every</em> network-accessing method. If we have ten
+methods, that&rsquo;s ten times we need to duplicate that logic.</p>
+
+<p>With our <a href="https://github.com/artsy/eidolon">new app</a> (written in Swift), we&rsquo;re
+using a network abstraction layer we&rsquo;ve created called <a href="https://github.com/AshFurrow/Moya">Moya</a>.
+Moya sits on top of <a href="https://github.com/Alamofire/Alamofire">Alamofire</a> and
+provides an abstraction for API endpoints. Instead of having ten different
+network-accessing methods, there is only <em>one</em> method to which you pass one of
+the ten different possible <code>enum</code> values. This means you have compile-time
+safety in your networking code, but that&rsquo;s not really what we&rsquo;re here to talk
+about.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/03/29/musical-chairs/">Musical Chairs</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-UIKIT" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UIKIT">UIKIT</a>
+      					
+					        <a class="post-category post-category-Customisation" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Customisation">Customisation</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>At Artsy we make Artsy Folio. Folio is an awesome portfolio app that shows our gallery and museum partners their artworks in one place, allows them to easily get information about their inventory and to send works by email to their contacts.</p>
+
+<p>Folio has to deal with large multi-gigabyte syncs in order to operate offline. That makes for a great user experience, but for the developer working on the sync, it&rsquo;s not as pleasant. Combined with our use of Core Data, the app’s maturity, and dealing with data store migrations, things can get hairy. We needed a tool that could freeze and restore app data at will, obviating the need for constant syncing and resyncing.</p>
+
+<p>That&rsquo;s why I built <a href="https://github.com/orta/chairs">chairs</a>&hellip;</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/03/29/musical-chairs/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/">On Making It Personal in iOS with Searchbars</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-UIKIT" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UIKIT">UIKIT</a>
+      					
+					        <a class="post-category post-category-Customisation" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Customisation">Customisation</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We make Folio, a pretty kick-ass iPad app that we give away to our partners to showcase their inventory at art fairs. Whilst making it we tried to ensure that all of the application fits in with the <a href="http://artsy.net">Artsy</a> website aesthetic, and recently the last natively styled control fell to our mighty code hammers. That was the <code>UISearchBar</code>.</p>
+
+<p><img src="http://ortastuff.s3.amazonaws.com/images/custom_searchbar_example.jpg" alt="Screenshot of Artsy Folio" /></p>
+
+<p>When displaying only search results in a table it makes a lot of sense to use Apple&rsquo;s <code>UISearchDisplayController</code> as it handles a lot of edge cases for you. However the downside is that you lose some control over how the views interact.</p>
+
+<p>The search bar was the only native control that actually made it into the version 1 release. This was mainly due to it requiring a bit of black magic in order to get it to work the way we wanted. So lets go through the code and rip it to pieces.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workshop on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/workshop/</link>
+    <description>Recent content in Workshop on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/workshop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>macOS Keyboard Shortcuts workshop video</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/31/Keyboard-Shortcuts-workshop/</link>
+      <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/31/Keyboard-Shortcuts-workshop/</guid>
+      <description>&lt;p&gt;Hey all, I was asked to talk internally about ways in which anyone can improve their day-to-day computer usage. For me, using keyboard shortcuts shows a greater level of control of your machine - and more importantly can be considerably faster.&lt;/p&gt;
+
+&lt;p&gt;I have all of my notes, annotated with images inside a personal GitHub repo: &lt;a href=&#34;https://github.com/orta/keyboard_shortcuts&#34;&gt;orta/keyboard_shortcuts&lt;/a&gt;. We covered:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pressing menu items via keyboard&lt;/li&gt;
+&lt;li&gt;Window Management&lt;/li&gt;
+&lt;li&gt;Text Management, e.g. jumping between words etc.&lt;/li&gt;
+&lt;li&gt;Searching for text&lt;/li&gt;
+&lt;li&gt;Taking Screenshots&lt;/li&gt;
+&lt;li&gt;Slack and Chrome&lt;/li&gt;
+&lt;li&gt;Using a Window Manager and Clipboard History Manager&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=1mIRCL_lGbg&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

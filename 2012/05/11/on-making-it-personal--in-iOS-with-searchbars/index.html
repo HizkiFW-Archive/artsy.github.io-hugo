@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    On Making It Personal in iOS with Searchbars // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="On Making It Personal in iOS with Searchbars" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/">On Making It Personal in iOS with Searchbars</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+				
+					<a class="post-category post-category-UIKIT" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UIKIT">UIKIT</a>
+				
+					<a class="post-category post-category-Customisation" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Customisation">Customisation</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>We make Folio, a pretty kick-ass iPad app that we give away to our partners to showcase their inventory at art fairs. Whilst making it we tried to ensure that all of the application fits in with the <a href="http://artsy.net">Artsy</a> website aesthetic, and recently the last natively styled control fell to our mighty code hammers. That was the <code>UISearchBar</code>.</p>
+
+<p><img src="http://ortastuff.s3.amazonaws.com/images/custom_searchbar_example.jpg" alt="Screenshot of Artsy Folio" /></p>
+
+<p>When displaying only search results in a table it makes a lot of sense to use Apple&rsquo;s <code>UISearchDisplayController</code> as it handles a lot of edge cases for you. However the downside is that you lose some control over how the views interact.</p>
+
+<p>The search bar was the only native control that actually made it into the version 1 release. This was mainly due to it requiring a bit of black magic in order to get it to work the way we wanted. So lets go through the code and rip it to pieces.</p>
+
+<p></p>
+
+<p>First up, you&rsquo;re going to want to make yourself a subclass of the <code>UISearchBar</code>, I&rsquo;m going to be calling ours <code>ARSearchBar</code>. Here&rsquo;s our public header.</p>
+
+<pre><code class="language-objc">@interface ARSearchBar : UISearchBar
+
+// Called from The SearchDisplayController Delegate
+- (void)showCancelButton:(BOOL)show;
+- (void)cancelSearchField;
+@end
+</code></pre>
+
+<p>Inside the implementation file we declare private instance variables for keeping track of the textfield and the Cancel button. This is so we can avoid finding them in the view hierarchy when we want to change the frame it during resizing.</p>
+
+<pre><code class="language-objc">@interface ARSearchBar (){
+    UITextField *foundSearchTextField;
+    UIButton *overlayCancelButton;
+}
+</code></pre>
+
+<p>So, to look at setting the size we&rsquo;ve found it easiest to deal with that in an overrode <code>setFrame</code> and setting the height of the new frame before it goes to the super class. As the search bar doesn&rsquo;t change its height between state changes like text insertion it shouldn&rsquo;t pose a problem to have it hardcoded.</p>
+
+<pre><code class="language-objc">- (void)setFrame:(CGRect)frame {
+    frame.size.height = ARSearchBarHeight;
+    [super setFrame:frame];
+}
+</code></pre>
+
+<p>What does pose a problem though is making sure that the subviews inside the search bar are positioned correctly with respect to the new height, this is amended in <code>layoutSubviews</code>. In our case the textfield should take up almost all of the search bar.</p>
+
+<pre><code class="language-objc">- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    // resize textfield
+    CGRect frame = foundSearchTextField.frame;
+    frame.size.height = ViewHeight;
+    frame.origin.y = ViewMargin;
+    frame.origin.x = ViewMargin;
+    frame.size.width -= ViewMargin / 2;
+    foundSearchTextField.frame = frame;
+}
+</code></pre>
+
+<p>Next up is that we can&rsquo;t access our <code>foundSearchField</code> because it&rsquo;s not been found yet! Personally,  I&rsquo;m a big fan of using nibs for everything ( and pretty pumped about Storyboards too ) so we do our searching in <code>awakeFromNib</code> .</p>
+
+<pre><code class="language-objc">- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    // find textfield in subviews
+    for (int i = [self.subviews count] - 1; i &gt;= 0; i--) {
+        UIView *subview = [self.subviews objectAtIndex:i];                
+        if ([subview.class isSubclassOfClass:[UITextField class]]) {
+            foundSearchTextField = (UITextField *)subview;
+        }
+    }
+}
+</code></pre>
+
+<p>This gives us a textfield, next up we want to stylize it. The perfect place for this is just after finding the textfield that you use to search in.</p>
+
+<pre><code class="language-objc">- (void)stylizeSearchTextField {
+    // Sets the background to a static black by removing the gradient view
+    for (int i = [self.subviews count] - 1; i &gt;= 0; i--) {
+        UIView *subview = [self.subviews objectAtIndex:i];                
+
+        // This is the gradient behind the textfield
+        if ([subview.description hasPrefix:@&quot;&lt;UISearchBarBackground&quot;]) {
+            [subview removeFromSuperview];
+        }
+    }
+
+    // now change the search textfield itself
+    foundSearchTextField.borderStyle = UITextBorderStyleNone;
+    foundSearchTextField.backgroundColor = [UIColor whiteColor];
+    foundSearchTextField.background = nil;
+    foundSearchTextField.text = @&quot;&quot;;
+    foundSearchTextField.clearButtonMode = UITextFieldViewModeNever;
+    foundSearchTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, TextfieldLeftMargin, 0)];
+    foundSearchTextField.placeholder = @&quot;&quot;;
+    foundSearchTextField.font = [UIFont serifFontWithSize:ARFontSansLarge];
+}
+</code></pre>
+
+<p>You might be wondering why we removed the placeholder text? We needed more control over the style and positioning of the placeholder text and the search icon. These are easily controlled by the UISearchDisplayController subclass rather than inside the custom search bar. This is also the place that we can deal with having our custom Cancel button.</p>
+
+<pre><code class="language-objc">- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    [searchBar showCancelButton:YES];
+    [UIView animateWithDuration:0.2 animations:^{
+        searchPlaceholderLabel.alpha = 0;
+    }];
+}
+
+- (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+    [searchBar showCancelButton:NO];
+    [UIView animateWithDuration:0.2 animations:^{
+        searchPlaceholderLabel.alpha = 1;
+    }];
+}
+</code></pre>
+
+<p>The corresponding code for showing and hiding the Cancel button is here. We just animate it in and out by a distance of 80.</p>
+
+<pre><code class="language-objc">- (void)showCancelButton:(BOOL)show {
+    CGFloat distance = show? -CancelAnimationDistance : CancelAnimationDistance;
+    [UIView animateWithDuration:0.25 animations:^{
+        overlayCancelButton.frame = CGRectOffset(overlayCancelButton.frame, distance, 0);
+    }];
+}
+</code></pre>
+
+<p>The original Cancel button is something that we choose to keep around, rather than removing it form the view hierarchy, that&rsquo;s so we can have our overlay Cancel button call its method instead of trying to replicate the cancel functionality ourselves.</p>
+
+<p>To keep track of the Cancel button we need to know when its meant to appear, and when its meant to disappear. Because the Cancel button is created at runtime every time a search is started we need to
+know when thats happening so we can hide it, we can do that by registering for <code>UITextFieldTextDidBeginEditingNotification</code> on the textfield once it&rsquo;s been found. We do this in <code>awakeFromNib</code>.</p>
+
+<pre><code class="language-objc">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeOriginalCancel) name:UITextFieldTextDidBeginEditingNotification object:foundSearchTextField];
+
+
+- (void)removeOriginalCancel {
+    // remove the original button
+    for (int i = [self.subviews count] - 1; i &gt;= 0; i--) {
+        UIView *subview = [self.subviews objectAtIndex:i];                
+        if ([subview.class isSubclassOfClass:[UIButton class]]) {
+        	// This is called every time a search is began,
+        	// so make sure to get the right button!
+            if (subview.frame.size.height != ViewHeight) {
+                subview.hidden = YES;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>Finally we have the styling of the button. I&rsquo;ve summed it up here as a lot of it is very application specific.</p>
+
+<pre><code class="language-objc">- (void)createButton {
+    ARFlatButton *cancelButton = [ARFlatButton buttonWithType:UIButtonTypeCustom];
+    [[cancelButton titleLabel] setFont:[UIFont sansSerifFontWithSize:ARFontSansSmall]];
+
+    NSString *title = [@&quot;Cancel&quot; uppercaseString];
+    [cancelButton setTitle:title forState:UIControlStateNormal];
+    [cancelButton setTitle:title forState:UIControlStateHighlighted];
+
+    CGRect buttonFrame = cancelButton.frame;
+    buttonFrame.origin.y = ViewMargin;
+    buttonFrame.size.height = ViewHeight;
+    buttonFrame.size.width = 66;
+    buttonFrame.origin.x = self.frame.size.width - buttonFrame.size.width - ViewMargin + CancelAnimationDistance;
+    cancelButton.frame = buttonFrame;
+    [cancelButton addTarget:self action:@selector(cancelSearchField) forControlEvents:UIControlEventTouchUpInside];
+
+    overlayCancelButton = cancelButton;
+    [self addSubview:overlayCancelButton];
+    [self bringSubviewToFront:overlayCancelButton];
+}
+
+- (void)cancelSearchField {
+    // tap the original button!
+    for (int i = [self.subviews count] - 1; i &gt;= 0; i--) {
+        UIView *subview = [self.subviews objectAtIndex:i];                
+        if ([subview.class isSubclassOfClass:[UIButton class]]) {
+            if (subview.frame.size.height != ViewHeight) {
+                UIButton *realCancel = (UIButton *)subview;
+                [realCancel sendActionsForControlEvents: UIControlEventTouchUpInside];
+            }
+        }
+    }    
+}
+</code></pre>
+
+<p>The complete code is available <a href="https://gist.github.com/2667766">as a gist</a> under the MIT license.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">How to Organize Over 3000 RSpec Specs and Retry Test Failures</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/">How to Start Small with Big Data and Google Analytics</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

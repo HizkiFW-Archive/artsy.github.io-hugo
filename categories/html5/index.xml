@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html5 on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/html5/</link>
+    <description>Recent content in Html5 on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/html5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Responsive Layouts with CSS3</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</link>
+      <pubDate>Tue, 17 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</guid>
+      <description>All of the SCSS stylesheets used to design this blog compile down to one file (view the source of this page and check out screen.css), and there isn&amp;rsquo;t any JavaScript affecting the layout. But there are really three versions of this page. If you&amp;rsquo;re reading this on a smartphone, what you see is almost entirely different from what you would see if you were reading this in a full screen browser.</description>
+    </item>
+    
+  </channel>
+</rss>

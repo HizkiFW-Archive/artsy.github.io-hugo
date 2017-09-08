@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/node/</link>
+    <description>Recent content in Node on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mashing Data, Making Maps</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/25/mashing-maps/</link>
+      <pubDate>Wed, 25 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/25/mashing-maps/</guid>
+      <description>&lt;p&gt;We have a lot of really awesome data. Things worth exploring, and visualizing. We have an entire team devoted to it, &lt;a href=&#34;https://www.artsy.net/article/artsy-jobs-data-analyst&#34;&gt;looks like they&amp;rsquo;re hiring too&lt;/a&gt;. Not all of the output of the data comes from that team though, 2 years ago our Director of Product Engineering, &lt;a href=&#34;https://github.com/craigspaeth&#34;&gt;Craig Spaeth&lt;/a&gt; created a &lt;a href=&#34;https://github.com/artsy/partner-map&#34;&gt;static-site generator&lt;/a&gt; that mapped our partners around the globe. Last week I&amp;rsquo;ve been improving it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/mappings/preview.gif&#34; alt=&#34;An animated map of galleries&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Projects like these happen in most companies, quick hacks for one offs that are opened 2 years later by someone completely different to build on top of it. In trying to follow &lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule&#34;&gt;the Boy Scout rule&lt;/a&gt;, I&amp;rsquo;ve cleaned it up and consolidated some other similar projects. This post is a rough road-map of what making &lt;a href=&#34;https://github.com/artsy/partner-map/pull/3&#34;&gt;this PR&lt;/a&gt; looked like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helping the Web Towards OSS by Default</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</guid>
+      <description>&lt;p&gt;The main Artsy.net website for the desktop, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, was our first Artsy application to open its source code, &lt;a href=&#34;http://artsy.github.io/author/craig&#34;&gt;Craig&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/author/brennan&#34;&gt;Brennan&lt;/a&gt; did it &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;back in 2014&lt;/a&gt;. Force&amp;rsquo;s public offering laid the groundwork for the iOS OSS projects to come afterwards: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Eidolon&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;Eigen&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/06/open-sourcing-energy/&#34;&gt;Energy&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Though Force wasn&amp;rsquo;t quite Open Source by Default, it represented a &lt;em&gt;really&lt;/em&gt; important step for  Artsy&amp;rsquo;s OSS perspective but was not the end goal. We were opening our source, but not opening our process.&lt;/p&gt;
+
+&lt;p&gt;This month both &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, the desktop version of &lt;a href=&#34;https://www.artsy.net/&#34;&gt;Artsy.net&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/microgravity&#34;&gt;Microgravity&lt;/a&gt;, the mobile version - moved to being built entirely in the open. Read on to find out how.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On our implementation of React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</link>
+      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/emission/emission-logo-artsy.svg&#34; style=&#34;height:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I arrived fashionably late to the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;React Native party&lt;/a&gt; in Artsy. I had been a part of our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;Auctions Team&lt;/a&gt;, where we worked in Swift with &lt;a href=&#34;https://cocoapods.org/pods/Interstellar&#34;&gt;some light-FRP&lt;/a&gt;. We were not affected by the 4 months of simultaneous work on moving to React Native, at all.&lt;/p&gt;
+
+&lt;p&gt;It was a quiet revolution. I did not have to install &lt;code&gt;npm&lt;/code&gt;, I made zero changes to the code for auctions and the whole app&amp;rsquo;s infrastructure barely changed. Yet we moved to making all new code inside our 3 year old iOS app use React Native. What gives?&lt;/p&gt;
+
+&lt;p&gt;Well, first up we weren&amp;rsquo;t planning a re-write, we don&amp;rsquo;t have that kind of luxury and the scope of our app is too big compared to the team working on it. Second, we reused existing dependency infrastructure to support JavaScript based apps. Read on to find out what that looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using VS Code for JavaScript</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/vscode/vscode_logo_artsy.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m an old school TextMate user, who has also been using Xcode for the last decade. These two sit at a very opposite ends of an &amp;ldquo;editor&amp;rdquo; spectrum.&lt;/p&gt;
+
+&lt;p&gt;TextMate is extremely bare bones at the core, but introduced the idea of bundles as plugins. Making it really easy for others to build their own plugins for their own contexts. Xcode on the other-hand includes a 3D scene editor, the best interface builder I&amp;rsquo;ve seen, super rich debugging tools and close to zero support for improving it yourself.&lt;/p&gt;
+
+&lt;p&gt;As we agreed on moving to React Native, we needed to decide what the team should use for &lt;a href=&#34;https://github.com/artsy/emission/blob/master/docs/vscode.md&#34;&gt;working in that environment&lt;/a&gt;. After experimentation with many editors, we decided on Microsoft&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wanted to keep a lot of the best features from Xcode, while working in a completely JavaScript environment. For example: debuggers, inline errors, auto-complete, symbol mapping and to ideally have them all inside a single editor.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s dig into the principals of how Visual Studio Code works, what makes it a better option for us, and what parts of it really shine.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

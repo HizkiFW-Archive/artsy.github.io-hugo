@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Workshop: React Native // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Workshop: React Native" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#verifying-your-install">Verifying your install</a></li>
+<li><a href="#starting-out">Starting out</a>
+<ul>
+<li>
+<ul>
+<li><a href="#tada-it-s-your-1st-rn-app">Tada - it&rsquo;s your 1st RN app</a></li>
+<li><a href="#relay">Relay</a></li>
+<li><a href="#first-edit">First edit</a></li>
+<li><a href="#making-components">Making components</a></li>
+<li><a href="#relay-setup">Relay Setup</a></li>
+<li><a href="#looking-stylish">Looking Stylish!</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/">Workshop: React Native</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+				
+					<a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+				
+					<a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+				
+					<a class="post-category post-category-objectivec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/objectivec">objectivec</a>
+				
+					<a class="post-category post-category-relay" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay">relay</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Hey there, so you&rsquo;ve decided to take a look at React Native? Well, last week I ran a workshop inside Artsy on <a href="https://facebook.github.io/react-native/">React Native</a> and <a href="https://facebook.github.io/relay/">Relay</a>.</p>
+
+<p>The video takes you from <code>react-native init</code> to having the initial structure of a View Controller based on Relay with a real working API request. The video is about 45 minutes, with inline questions.</p>
+
+<p>If you wanted to just run through the notes, you could probably get it working in about 10 minutes.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=PYC47YKnK4k">to YouTube</a> for the video, or click more for a smaller inline preview, as well as all of the speakers notes to copy &amp; paste from. There is also a full copy of the end-result at <a href="https://github.com/orta/Relay-Artist-Example">orta/Relay-Artist-Example</a>.</p>
+
+<p></p>
+
+<p>{% youtube PYC47YKnK4k %}</p>
+
+<p>Beautiful right?</p>
+
+<p><img src="https://github.com/orta/Relay-Artist-Example/blob/master/screenshots/workshop.png?raw=true"></p>
+
+<p>Below are the notes so you can follow along</p>
+
+<hr />
+
+<h1 id="setup">Setup</h1>
+
+<ul>
+<li>Install <a href="https://yarnpkg.com">Yarn</a></li>
+<li>Install React Native - <a href="https://facebook.github.io/react-native/docs/getting-started.html">https://facebook.github.io/react-native/docs/getting-started.html</a></li>
+<li>Create a new project via <code>react-native init ArtistExample</code></li>
+</ul>
+
+<h1 id="verifying-your-install">Verifying your install</h1>
+
+<ul>
+<li><code>cd ArtistExample</code></li>
+<li>Run <code>yarn run jest</code> to verify specs</li>
+</ul>
+
+<h1 id="starting-out">Starting out</h1>
+
+<ul>
+<li>Run <code>yarn start</code> - this loads the packager.</li>
+</ul>
+
+<p>The packager is the part of React Native which compiles your JavaScript. This JavaScript creates a virtual DOM, which React Native uses to create an equivilent view heirarchy.</p>
+
+<ul>
+<li>Run <code>react-native run-ios</code> to launch the project in a sim.</li>
+</ul>
+
+<h3 id="tada-it-s-your-1st-rn-app">Tada - it&rsquo;s your 1st RN app</h3>
+
+<p>That&rsquo;s it. Let&rsquo;s look at some real code. Browse the source code.</p>
+
+<h3 id="relay">Relay</h3>
+
+<p>We&rsquo;re using Relay, this will take a bit of setup. <a href="https://github.com/artsy/emission/commit/c6660fe505f38491f4a1d23dc7f41a2baec5657d">Here is @alloy setting up Relay in Emission</a></p>
+
+<p>Add <code>relay</code> and <code>babel-relay-plugin</code> - we <a href="https://github.com/facebook/relay/issues/1061">use a fork</a></p>
+
+<pre><code class="language-sh">yarn add react-relay@https://github.com/alloy/relay/releases/download/v0.9.3/react-relay-0.9.3.tgz
+yarn add babel-relay-plugin@https://github.com/alloy/relay/releases/download/v0.9.3/babel-relay-plugin-0.9.3.tgz
+</code></pre>
+
+<p>Then the schema into a data folder:</p>
+
+<pre><code class="language-sh">mkdir data
+curl https://raw.githubusercontent.com/artsy/emission/master/data/schema.graphql &gt; data/schema.graphql
+curl https://raw.githubusercontent.com/artsy/emission/master/data/schema.js &gt; data/schema.js
+curl https://raw.githubusercontent.com/artsy/emission/master/data/schema.json &gt; data/schema.json
+</code></pre>
+
+<p>Then hook up the plugin:
+- Add <code>&quot;plugins&quot;: [&quot;./data/schema&quot;],</code> to <code>.babelrc</code>.</p>
+
+<h3 id="first-edit">First edit</h3>
+
+<ul>
+<li>Turn on Live Reloading and HMR with <code>cmd + d</code></li>
+<li>Turn BG white. Awesome.</li>
+</ul>
+
+<p>Magic, it does it in real-time.</p>
+
+<h3 id="making-components">Making components</h3>
+
+<ul>
+<li>Make <code>lib</code>, <code>lib/artists</code> and <code>lib/artists/artist.js</code></li>
+<li>Move <code>ArtistExample</code> Component from <code>index.ios.js</code> to <code>lib/artists/artist.js</code></li>
+<li>Change the class to <code>Artist</code>, and edit the title to reflect a different component</li>
+<li>Go back and nuke most of the <code>index.ios.js</code> make it just refer to <code>Artist</code>`</li>
+</ul>
+
+<pre><code class="language-js">import Artist from &quot;./lib/artist/artist&quot;
+
+export default class ArtistExample extends Component {
+  render() {
+    return (
+      &lt;Artist /&gt;
+    );
+  }
+}
+</code></pre>
+
+<h3 id="relay-setup">Relay Setup</h3>
+
+<p>Explain there are three useful bits <a href="https://sgwilym.github.io/relay-visual-learners/">parts of Relay</a>:</p>
+
+<ul>
+<li>Routes</li>
+<li>RootContainer</li>
+<li>Relay.Container</li>
+</ul>
+
+<p>We will talk about them as we go on, but first we need to tell Relay where Metaphysics is. So we need to set up a network layer:</p>
+
+<pre><code class="language-js">import Relay from 'react-relay'
+
+const metaphysicsURL = 'https://metaphysics-staging.artsy.net'
+
+Relay.injectNetworkLayer(
+  new Relay.DefaultNetworkLayer(metaphysicsURL, {
+    headers: {
+      'X-XAPP-Token': &quot;[go to staging.artsy.net and do `sd.ARTSY_XAPP_TOKEN` in console]&quot;,
+    }
+  })
+)
+</code></pre>
+
+<p>Next we need to create a Relay Route, this <em>doesnt</em> directly represent a URL representation, but it often can/does.
+E.g. in our case this will represent <code>/artist/:artistID</code>.</p>
+
+<ul>
+<li>create <code>lib/artist/route.js</code> add</li>
+</ul>
+
+<pre><code class="language-js">import Relay from 'react-relay'
+
+export default  class ArtistRoute extends Relay.Route {
+  static queries = {
+    artist: (component, params) =&gt; Relay.QL`
+      query {
+        artist(id: $artistID) {
+          ${component.getFragment('artist', params)}
+        }
+      }
+    `,
+  };
+
+  static paramDefinitions = {
+    artistID: { required: true },
+  };
+
+  static routeName = 'ArtistRoute';
+}
+</code></pre>
+
+<ul>
+<li>Hook this up inside <code>index.ios.js</code>, add an import, and create instance of Route:</li>
+</ul>
+
+<pre><code class="language-js">import ArtistRoute from &quot;./lib/artist/route&quot;
+
+const glennRoute = new ArtistRoute({
+  artistID: &quot;glenn-brown&quot;
+})
+</code></pre>
+
+<p>Then change the components render function:</p>
+
+<pre><code class="language-js">export default class ArtistExample extends Component {
+    render = () =&gt; &lt;Relay.RootContainer Component={Artist} route={glennRoute} /&gt;
+}
+</code></pre>
+
+<p>See error, that means it&rsquo;s trying to access a Relay Component, and we have a React component. Let&rsquo;s make it a Relay Component:</p>
+
+<ul>
+<li><p>Remove the <code>export default</code> from the <code>Artist</code> class in <code>lib/artist/artist.js</code></p></li>
+
+<li><p>Add Relay fragment at the bottom</p></li>
+</ul>
+
+<pre><code class="language-js">export default Relay.createContainer(Artist, {
+  fragments: {
+    artist: () =&gt; Relay.QL`
+      fragment on Artist {
+        _id
+        id
+        name
+      }
+    `,
+  }
+})
+</code></pre>
+
+<pre><code class="language-js">class Artist extends Component {
+  render() {
+    const title = `Hello, I am ${this.props.artist.name}`
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;{title}&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+<hr />
+
+<p>Prove the Relay concept by adding <code>years</code> to GraphQL and add this to the render function:</p>
+
+<pre><code class="language-js">class Artist extends Component {
+  render() {
+    const title = `Hey ${this.props.artist.name}`
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;{title}&lt;/Text&gt;
+        &lt;Text style={styles.welcome}&gt;{this.props.artist.years}&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+
+<p>Tada! You&rsquo;ve made a working relay component. Just start making more of these now, and you have an app!</p>
+
+<h3 id="looking-stylish">Looking Stylish!</h3>
+
+<p>OK, we now have the minimum we need - we got API data coming in as props. Now we want to make it look pretty.</p>
+
+<ul>
+<li>Add <code>mkdir assets</code>, and <code>mkdir assets/fonts</code></li>
+</ul>
+
+<pre><code class="language-sh">curl -L https://github.com/artsy/Artsy-OSSUIFonts/raw/master/Pod/Assets/EBGaramond12-Italic.ttf &gt; assets/EBGaramond12-Italic.ttf
+curl -L https://github.com/artsy/Artsy-OSSUIFonts/raw/master/Pod/Assets/EBGaramond12-Regular.ttf &gt; assets/EBGaramond12-Regular.ttf
+curl -L https://github.com/artsy/Artsy-OSSUIFonts/raw/master/Pod/Assets/texgyreadventor-bold.ttf &gt; assets/texgyreadventor-bold.ttf
+</code></pre>
+
+<ul>
+<li>edit <code>package.json</code></li>
+</ul>
+
+<pre><code> &quot;rnpm&quot;: {
+    &quot;assets&quot;: [&quot;./assets&quot;]
+  }
+</code></pre>
+
+<ul>
+<li>run <code>react-native link</code>, restart iOS app, by killing it.</li>
+
+<li><p>run <code>react-native run-ios</code></p></li>
+
+<li><p>Add custom styles to the two bits of info on screen:</p></li>
+</ul>
+
+<pre><code class="language-js">&lt;Text style={styles.title}&gt;{this.props.artist.name.toUpperCase()}&lt;/Text&gt;
+&lt;Text style={styles.subtitle}&gt;{this.props.artist.years}&lt;/Text&gt;
+</code></pre>
+
+<pre><code class="language-js">const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 20,
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    fontFamily: &quot;TeXGyreAdventor-Regular&quot;
+  },
+  subtitle: {
+    textAlign: 'center',
+    color: '#333333',
+    fontFamily: 'EBGaramond12-Regular',
+    marginBottom: 5,
+  },
+});
+</code></pre>
+
+<p>And that is our styles. Covering all of the major use cases of React Native for us.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/">Bringing Artsy to Google Assistant &#34;Home&#34; with Actions</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/">Exploration: Front-end JavaScript at Artsy in 2017</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

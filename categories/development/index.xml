@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/development/</link>
+    <description>Recent content in Development on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Sep 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Professional Development at Artsy Engineering</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/22/professional-development-at-artsy-engineering/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/22/professional-development-at-artsy-engineering/</guid>
+      <description>&lt;p&gt;In considering an offer to join us at Artsy, one of our newest incoming engineers asked me a great question: &lt;em&gt;How does the tech team do professional development?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As I thought about it, I began to realize that the answer is “a lot”! Most of our efforts evolved organically. Someone had an idea, and people rallied around it. I thought it would be useful to share, in case others are inspired by what&amp;rsquo;s caught on here. Here are some of the things we do.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Paw with Per-Developer Settings</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</link>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</guid>
+      <description>&lt;p&gt;I am a big fan of developer tooling, as spending time upfront on improving your process can pay a lot of dividends over time. I want to talk about one in particular: &lt;a href=&#34;https://luckymarmot.com/paw&#34;&gt;Paw&lt;/a&gt;. Paw is a native HTTP client with a bunch of features. I want to cover one that means that we can now &lt;a href=&#34;https://github.com/artsy/energy/pull/192&#34;&gt;introduce&lt;/a&gt; &lt;code&gt;[AppName].paw&lt;/code&gt; files in our mobile projects, making it easy for us to discuss networking requests.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Docker and Dusty for Development</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/09/docker-for-development/</link>
+      <pubDate>Wed, 09 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/09/docker-for-development/</guid>
+      <description>&lt;p&gt;When I first proposed using Docker for development, and began doing my work that way, there were some doubts.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Doesn&amp;rsquo;t it seem like a lot of trouble to set up Docker to get my work done?&lt;/li&gt;
+&lt;li&gt;Isn&amp;rsquo;t it easier to use &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; to install the services and database servers I need?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

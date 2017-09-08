@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hal on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/hal/</link>
+    <description>Recent content in Hal on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/hal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cocoa Architecture: ARRouter</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/</link>
+      <pubDate>Sat, 15 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/</guid>
+      <description>&lt;p&gt;I want to talk about a pattern that we&amp;rsquo;ve been using for the last few years on the Artsy Mobile team. This pattern pre-dates me joining Artsy by a few weeks, and was introduced into our codebase by &lt;a href=&#34;http://90wpm.com&#34;&gt;Ben Jackson&lt;/a&gt;, this was the &lt;code&gt;ARRouter&lt;/code&gt;&amp;rsquo;s first method:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;  + (NSURL *)newOAuthURLWithUsername:(NSString *)username password:(NSString *)password {
+      NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              username, @&amp;quot;email&amp;quot;,
+                              password, @&amp;quot;password&amp;quot;,
+                              ARAuthClientID, @&amp;quot;client_id&amp;quot;,
+                              ARAuthSecret, @&amp;quot;client_secret&amp;quot;,
+                              @&amp;quot;credentials&amp;quot;, @&amp;quot;grant_type&amp;quot;,
+                              nil];
+      NSString *url_string = [[NSString alloc] initWithFormat:@&amp;quot;%@%@&amp;quot;, AROAuthURL, [params queryString]];
+      NSURL *url = [ARRouter newURLWithPath:url_string];
+      [url_string release];
+      [params release];
+      return url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yep, that&amp;rsquo;s pre-ARC, pre-Dictionary Literals, memory-managed code. We took this pattern and rolled with it for the next 4 years, this article is about where we&amp;rsquo;ve taken it.&lt;/p&gt;
+
+&lt;p&gt;Within Eigen, &lt;code&gt;ARRouter&lt;/code&gt; is one of our &lt;a href=&#34;https://github.com/artsy/eigen/blob/904e8abfc11ce6ea4b6e81f0e02684b755a280c3/Artsy/Networking/ARRouter.m&#34;&gt;biggest classes&lt;/a&gt;, coming in at almost 1,000 lines of code. Whereas in Energy, it sits at a &lt;a href=&#34;https://github.com/artsy/energy/blob/e51529250ede359c781042f222d5836eb9e8a979/Classes/Util/App/ARRouter.m&#34;&gt;more reasonable&lt;/a&gt; 300 lines. Eidolon does not have an ARRouter, what gives?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

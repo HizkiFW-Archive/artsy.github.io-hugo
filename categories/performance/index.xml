@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Performance on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/performance/</link>
+    <description>Recent content in Performance on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Nov 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/performance/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Measuring Performance in Grape APIs with NewRelic RPM</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</link>
+      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</guid>
+      <description>&lt;p&gt;Knowing how well your API performs in real time is essential to any successful project. That&amp;rsquo;s because you can&amp;rsquo;t fix what you can&amp;rsquo;t measure.&lt;/p&gt;
+
+&lt;p&gt;We use and heavily contribute to &lt;a href=&#34;http://github.com/intridea/grape&#34;&gt;Grape&lt;/a&gt;, a Ruby API DSL. Grape is a Rack middleware and we have been reporting API performance data to &lt;a href=&#34;http://newrelic.com/&#34;&gt;NewRelic&lt;/a&gt; with code from &lt;a href=&#34;http://code.dblock.org/new-relic-performance-instrumentation-with-grape-api&#34;&gt;my older blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s time to improve the reporting implementation and address performance monitoring in both development and production environments. Here&amp;rsquo;s what a single API request breakdown is going to look like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/transaction-detail.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RESTful API Caching with Garner</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</link>
+      <pubDate>Sat, 23 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/23/restful-api-caching-with-garner/</guid>
+      <description>&lt;p&gt;Implementing server-side RESTful API caching is hard. In a straightforward API all the expiry decisions can be made automatically based on the URL, but most real world APIs that add requirements around object relationships or user authorization make caching particularly challenging.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;http://goruco.com/&#34;&gt;GoRuCo&lt;/a&gt; we open-sourced &lt;a href=&#34;http://github.com/artsy/garner&#34;&gt;Garner&lt;/a&gt;, a cache implementation of the concepts described in this post. To &amp;ldquo;garner&amp;rdquo; means to gather data from various sources and to make it readily available in one place, kind-of like a cache! Garner works today with the &lt;a href=&#34;http://github.com/intridea/grape&#34;&gt;Grape API framework&lt;/a&gt; and the &lt;a href=&#34;http://github.com/mongoid/mongoid&#34;&gt;Mongoid ODM&lt;/a&gt;. We encourage you to fork the project, extend our library to other systems and contribute your code back, if you find it useful.&lt;/p&gt;
+
+&lt;p&gt;Garner implements the Artsy API caching cookbook that has been tried by fire in production.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>10x Rack and Rails Output Compression with Rack::Deflater</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/24/10x-rack-and-rails-output-compression-with-rack-deflater/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/24/10x-rack-and-rails-output-compression-with-rack-deflater/</guid>
+      <description>&lt;p&gt;You can quickly reduce the amount of data transferred from your Rack or Rails application with &lt;a href=&#34;https://github.com/rack/rack/blob/master/lib/rack/deflater.rb&#34;&gt;Rack::Deflater&lt;/a&gt;. Anecdotal evidence shows a reduction from a 50Kb JSON response into about 6Kb. It may be a huge deal for your mobile clients.&lt;/p&gt;
+
+&lt;p&gt;For a Rails application, modify config/application.rb or config/environment.rb.&lt;/p&gt;
+
+&lt;p&gt;``` ruby config/application.rb
+Acme::Application.configure do
+  config.middleware.use Rack::Deflater
+end&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+For a Rack application, add the middleware in config.ru.
+
+``` ruby config.ru
+use Rack::Deflater
+run Acme::Instance
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

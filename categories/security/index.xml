@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/security/</link>
+    <description>Recent content in Security on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Encrypting ActiveRecord Fields Without Downtime.</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/05/30/database-encryption/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/05/30/database-encryption/</guid>
+      <description>&lt;p&gt;After examining the data stored in one of our high-throughput systems, we realized it might include sensitive user data. To reduce the number of people that are technically able to access the data and reduce the risks associated with a potential data theft, we decided to encrypt certain database fields.&lt;/p&gt;
+
+&lt;h1 id=&#34;our-goal&#34;&gt;Our Goal&lt;/h1&gt;
+
+&lt;p&gt;Encrypt sensitive fields without any downtime.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Launching a Security Bug Bounty Program at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/24/launching-a-security-bug-bounty-program-at-artsy/</link>
+      <pubDate>Wed, 24 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/24/launching-a-security-bug-bounty-program-at-artsy/</guid>
+      <description>&lt;p&gt;Many established companies have bug bounty programs, including a recently publicized &lt;a href=&#34;http://www.forbes.com/sites/kashmirhill/2014/09/10/bug-bounty-programs&#34;&gt;Twitter Bug Bounty&lt;/a&gt;. Some use services, such as &lt;a href=&#34;https://hackerone.com&#34;&gt;HackerOne&lt;/a&gt; or &lt;a href=&#34;https://bugcrowd.com&#34;&gt;BugCrowd&lt;/a&gt;. In early September 2014 we quietly launched &lt;a href=&#34;https://artsy.net/security&#34;&gt;our own Security Bug Bounty&lt;/a&gt;. Since then we have fixed 14 issues reported by 15 security researchers and paid $750 in bounty. In the process we have learned a ton and wanted to share some things that would have probably done a little bit differently, knowing what we know now.&lt;/p&gt;
+
+&lt;p&gt;In this post I will focus on both technical and non-technical takeaways, and will provide an extensive list of vulnerabilities that should have been dealt with before launching our bug bounty.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

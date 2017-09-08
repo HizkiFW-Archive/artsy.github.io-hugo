@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Improving Performance of Mongoid-Cached-Json // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Improving Performance of Mongoid-Cached-Json" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#bulk-reference-resolving-with-a-local-cache">Bulk Reference Resolving with a Local Cache</a></li>
+<li><a href="#fetching-cache-data-in-bulk">Fetching Cache Data in Bulk</a></li>
+<li><a href="#benchmarks">Benchmarks</a></li>
+<li><a href="#links">Links</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/">Improving Performance of Mongoid-Cached-Json</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+				
+					<a class="post-category post-category-Caching" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Caching">Caching</a>
+				
+					<a class="post-category post-category-API" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/API">API</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Last year, we have open-sourced and made extensive use of two Ruby libraries in our API: <a href="https://github.com/dblock/mongoid-cached-json">mongoid-cached-json</a> and <a href="https://github.com/artsy/garner">garner</a>. Both transform the procedural nightmare of caching and JSON generation into a declarative and easily manageable DSL. It was worth the investment, since our service spends half of its time generating JSON and reading from and writing to Memcached.</p>
+
+<p>Today we&rsquo;ve released mongoid-cached-json 1.4 with two interesting performance improvements.</p>
+
+<p></p>
+
+<h2 id="bulk-reference-resolving-with-a-local-cache">Bulk Reference Resolving with a Local Cache</h2>
+
+<p>Consider an array of database model instances, each with numerous references to other objects. It&rsquo;s typical to see such instances reference the same object: for example we have an <code>Artwork</code> that references an <code>Artist</code>. It&rsquo;s common to see multiple artworks reference the same artist in a collection. Retrieving the artist from cache every time it is referenced is clearly inefficient.</p>
+
+<p><code>Mongoid::CachedJson</code> will now collect all JSON references, then resolve them after suppressing duplicates, in-place within the JSON tree. This significantly reduces the number of cache queries.</p>
+
+<p>Note, that while this optimization reduces load on the Memcached servers, there&rsquo;s a cost of doing additional work after collecting the entire JSON in Ruby.</p>
+
+<h2 id="fetching-cache-data-in-bulk">Fetching Cache Data in Bulk</h2>
+
+<p>Various cache stores, including Memcached, support bulk read operations. The <a href="https://github.com/mperham/dalli">Dalli</a> gem, which we use in production, exposes this via the <code>read_multi</code> method. With the bulk reference optimization above we now have the entire list of keys to query from cache, at once. <code>Mongoid::CachedJson</code> will always invoke <code>read_multi</code> where available, which significantly reduces the number of network roundtrips to the cache servers.</p>
+
+<p>This is a good example of where declarative models and DSLs have tremendous advantages in enabling massive improvements across the board. Imagine making the <code>read_multi</code> optimization in hundreds of API endpoints!</p>
+
+<h2 id="benchmarks">Benchmarks</h2>
+
+<p>With the above optimizations the library does more work in order to make less roundtrips to Memcached over the network. Since the network is often the slowest part in any large scale system, the overall production performance should be better as long as we can obtain similar throughput in ideal network conditions on localhost. We&rsquo;ve added some common case benchmarks in <a href="https://github.com/dblock/mongoid-cached-json/blob/master/spec/benchmark_spec.rb">spec/benchmark_spec.rb</a> and ran them against 1.2.3 and 1.4.0 to obtain <a href="https://gist.github.com/4583039">these results</a>. The overall performance gain averaged 14.6%, which is quite significant. With real world data in a production environment we&rsquo;re seeing 15-50% less time spent in Memcached, depending on the API.</p>
+
+<h2 id="links">Links</h2>
+
+<p>The concepts behind these improvements should be attributed to <a href="https://github.com/aaw">@aaw</a> and <a href="https://github.com/macreery">@macreery</a>. If you want to learn more about the above-mentioned libraries, check out the following links:</p>
+
+<ul>
+<li><a href="http://confreaks.com/videos/986-goruco2012-from-zero-to-api-cache-w-grape-mongodb-in-10-minutes">From Zero to API-Cache w/ Grape and MongoDB</a>, video recorded at GoRuCo</li>
+<li><a href="/blog/2012/02/20/caching-model-json-with-mongoid-cached-json/">Caching Model JSON with Mongoid-Cached-Json</a></li>
+<li><a href="/blog/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/">Simplifying Model Level Versioning with Mongoid-Cched-Json</a></li>
+<li><a href="/blog/2012/05/30/restful-api-caching-with-garner/">RESTful API Caching with Garner</a></li>
+</ul>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/">Create MongoDB Command-Lines from Mongoid Configuration</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/01/15/debugging-bundler-issues-with-heroku/">Debugging Bundler Issues on Heroku</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

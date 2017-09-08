@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Making Artsy Editorial Accessible // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="eve">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Making Artsy Editorial Accessible" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#putting-it-into-practice">Putting it into practice</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/">Making Artsy Editorial Accessible</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">eve</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-web" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/web">web</a>
+				
+					<a class="post-category post-category-accessibility" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/accessibility">accessibility</a>
+				
+					<a class="post-category post-category-publishing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/publishing">publishing</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>During Artsy&rsquo;s recent 2017 Hackathon we tackled making all of our editorial content <a href="https://en.wikipedia.org/wiki/Accessibility">accessible</a>. The idea was hatched at  Berlin JSConf this spring, where <a href="https://youtu.be/H4FzW9oFObs">Laura Carvajal gave a talk</a> following the <em>Financial Times</em>&rsquo; experience implementing better accessibility requirements, and how they built these considerations into their testing process.</p>
+
+<p>What does accessibility mean in a browser? Generally the term refers to supporting the wide range of assistive technologies for users with vision or motor impairments. These include screen readers, as well as mouseless navigation using a keyboard, eye tracking and other devices. Interestingly these technologies are implemented at the OS level rather than the browser itself. Mac&rsquo;s OS includes a built in screen-reader, and <a href="http://www.freedomscientific.com/Products/Blindness/JAWS">JAWS</a> is the most popular application in this vein. It is also notable that browsers do not track users who employ assistive tools.</p>
+
+<p>Two users on <a href="http://webaim.org/discussion/mail_thread?thread=6326">WebAIM&rsquo;s forum</a> excellently present the case for accessibility as a developer&rsquo;s responsibility:</p>
+
+<blockquote>
+<p>&ldquo;Users may be highly resistant to having their disabilities identified as they go throughout the web. Most persons with disabilities would really just rather that <em>the Web just work</em> for them.&rdquo;</p>
+
+<p>&ldquo;Looking at accessibility as a way to serve a specific population is missing the point that accessibility is about inclusion of all people.&rdquo;</p>
+</blockquote>
+
+<p>A central tenant of Artsy&rsquo;s mission is to &lsquo;make art as accessible as music&rsquo;. By expanding accessibility for the visually and motor impaired to writing on art and culture, this projects allows us to follow through on this statement in a very literal way. Furthermore, there&rsquo;s no reason to ignore this audience; accommodating use of assistive technologies is an ethically responsible thing to do.</p>
+
+<p></p>
+
+<h2 id="putting-it-into-practice">Putting it into practice</h2>
+
+<p>Smartly structured HTML is essential for screen readers. They take note of semantic elements like headings or <code>&lt;nav&gt;</code>, and interpret our page&rsquo;s elements in the order they are written. Absolute and fixed spacing are ignored in this context, so it is important to realize non-visual reading of your site may prioritize different information, or present it in a different order than expected. This means that in JavaScript-oriented environments, and anywhere elements are inserted on the client, it is important to keep all elements necessary to navigating available in a semantic form at all times, including drop downs.</p>
+
+<p>We used three tools to evaluate pain points on our site: the npm module <a href="https://github.com/pa11y/pa11y">pa11y</a>, Chrome&rsquo;s <a href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?utm_source=chrome-ntp-icon">Accessibility Developer Tools</a>, and <a href="http://wave.webaim.org/">WAVE</a>&mdash; a web accessibility evaluation tool by <a href="http://webaim.org/">WebAIM</a>, a non-profit dedicated to &ldquo;empowering organizations to make their own content accessible&rdquo;.  All three work similarly. Input a web address, and an error report is generated. Pa11y works in the terminal, and can export to a CSV, and even create a dashboard tracking separate URLs. Chrome handily provides a color-coded scorecard in addition to an accessibility audit report. Because Chrome&rsquo;s reporting lives in the browser&rsquo;s console, it is especially easy to inspect your code directly from an error. However, each tool brought up unique issues, so it is prudent to try a few.</p>
+
+<p>We found a range of warnings and errors on our first run, where Chrome gave us a failing grade of 62, and pa11y raked up 48 errors, not counting a sizeable number of warnings. Luckily, most of the changes were fast and easy:</p>
+
+<ul>
+<li>Use meta language property (<code>&lt;html lang=&quot;en&quot;&gt;</code>)</li>
+<li>Increase the meta property for maximum scale to 5</li>
+<li>Add hidden text to icon-only links and UI elements</li>
+<li>Add alt text to all images</li>
+<li>Include aria form attributes on input fields</li>
+<li>Use semantic roles for the article body (<code>&lt;div role='article'&gt;</code>)</li>
+<li>Remove of duplicate IDs from pages</li>
+<li>Remove vendor-generated ids from SVGs, which in our case were often duplicates.</li>
+</ul>
+
+<p>A summary of changes implemented can be seen in pull requests <a href="https://github.com/artsy/force/pull/1730">here</a> and <a href="https://github.com/artsy/force/pull/1732">here</a>.</p>
+
+<p>There were several places on our site where we wanted to include text that was intended only for screen readers. However, <code>display: none</code> is not necessarily acceptable in this context. Instead we opted for absolute positing of screen-reader targeted elements far out of the screen.</p>
+
+<pre><code class="language-css">// hides text that is only for screen-readers
+
+.screen-reader-text {
+  position: absolute;
+  left: 10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+</code></pre>
+
+<p>A few challenges were encountered as we worked through the error reports. My research brought up mixed messages on <code>display: none</code>. For example, Artsy renders the main menu in both desktop and mobile versions, but hides one view based on the user agent. We saw errors with all testing frameworks for having duplicate IDs, despite the fact that these elements were hidden via <code>display: none</code>.  This is a problem that would be well solved with React, where we could render content based to screen width rather than hiding a duplicate.</p>
+
+<p><img src="/images/2017-08-29-Making-Artsy-Editorial-Accessible/Chrome-Accessibility-Dashboard.png" alt="Chrome Accessibility Audit Score" /></p>
+
+<p>Another road block encountered was for headers that contain links&mdash; which the error reports recognized as empty headers, rather than reading the link. We use linked headings frequently for section titles in our articles, so this is an issue we are still mitigating. Lastly, using a screen reader is a skill set all its own! While our Chrome audit score is now far higher than where we started, my own experience using a screen reader proved far more difficult than expected. To be completely sure our implementation is working, I hope to find an experienced screen-reader user to give it a spin.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/08/31/Editathon/">Art &#43; Feminism and Artsy Wikipedia/Wikidata Editathon</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/">Deploying your app on a weekly basis via fastlane &#43; Travis CI</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

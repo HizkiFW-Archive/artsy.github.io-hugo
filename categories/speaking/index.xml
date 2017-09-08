@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Speaking on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/speaking/</link>
+    <description>Recent content in Speaking on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/speaking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Public Speaking - Part 2: Where To Start?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</link>
+      <pubDate>Mon, 14 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</guid>
+      <description>&lt;p&gt;So you’ve decided &lt;a href=&#34;http://artsy.github.io/blog/2016/03/09/public-speaking-part1-is-it-for-me/&#34;&gt;you’d like to give speaking a go&lt;/a&gt;, or perhaps you were always interested. By now you’re probably wondering where to start.&lt;/p&gt;
+
+&lt;p&gt;There are various options depending on what you’re looking for. Would you prefer a smaller, intimate audience or would you like to reach far and wide? Is the topic of your choice suited for a quick talk or would you rather discuss it at length? Let’s have a look.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Public Speaking - Part 1: Is It For Me?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</link>
+      <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</guid>
+      <description>&lt;p&gt;At Artsy, sharing knowledge is heavily encouraged and so we write our code in the open, document using blog posts, and speak about our experiences. Many have &lt;a href=&#34;https://twitter.com/qnoid/status/702955785064677376&#34;&gt;bumped into us&lt;/a&gt; at various places around the world. And so I often get the question: “How did you get started? I’m interested in speaking too”.&lt;/p&gt;
+
+&lt;p&gt;In the name of sharing experiences with others, I can’t encourage this enough. Unfortunately though, public speaking is still considered &lt;a href=&#34;https://www.washingtonpost.com/news/wonk/wp/2014/10/30/clowns-are-twice-as-scary-to-democrats-as-they-are-to-republicans/&#34;&gt;man’s biggest fear&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’d like to share with you the benefits of public speaking, tips on how to get started, and how to give great presentations.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

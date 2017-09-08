@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Encryption on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/encryption/</link>
+    <description>Recent content in Encryption on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/encryption/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Encrypting ActiveRecord Fields Without Downtime.</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/05/30/database-encryption/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/05/30/database-encryption/</guid>
+      <description>&lt;p&gt;After examining the data stored in one of our high-throughput systems, we realized it might include sensitive user data. To reduce the number of people that are technically able to access the data and reduce the risks associated with a potential data theft, we decided to encrypt certain database fields.&lt;/p&gt;
+
+&lt;h1 id=&#34;our-goal&#34;&gt;Our Goal&lt;/h1&gt;
+
+&lt;p&gt;Encrypt sensitive fields without any downtime.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

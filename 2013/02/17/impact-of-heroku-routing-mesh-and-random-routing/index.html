@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    The Impact of Heroku&#39;s Routing Mesh and Random Routing // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="The Impact of Heroku&#39;s Routing Mesh and Random Routing" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/02/17/impact-of-heroku-routing-mesh-and-random-routing/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#queue-logger-middleware">Queue Logger Middleware</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#https-gist-github-com-a-warner-f5db30857ed3423cea79"><a href="https://gist.github.com/a-warner/f5db30857ed3423cea79">https://gist.github.com/a-warner/f5db30857ed3423cea79</a></a></li>
+<li><a href="#combination-of-https-gist-github-com-daveyeu-4960893">combination of <a href="https://gist.github.com/daveyeu/4960893">https://gist.github.com/daveyeu/4960893</a></a></li>
+<li><a href="#and-https-gist-github-com-jasonrclark-d82a1ea7695daac0b9ee">and <a href="https://gist.github.com/jasonrclark/d82a1ea7695daac0b9ee">https://gist.github.com/jasonrclark/d82a1ea7695daac0b9ee</a></a>
+<ul>
+<li>
+<ul>
+<li><a href="#time-skew">Time Skew</a></li>
+<li><a href="#what-about-dumb-routing">What About Dumb Routing?</a></li>
+<li><a href="#improving-throughput-on-heroku">Improving Throughput on Heroku</a></li>
+<li><a href="#links">Links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/02/17/impact-of-heroku-routing-mesh-and-random-routing/">The Impact of Heroku&#39;s Routing Mesh and Random Routing</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>The <a href="http://rapgenius.com/James-somers-herokus-ugly-secret-lyrics">Heroku&rsquo;s Ugly Secret</a> blog post went viral last week. I <a href="http://code.dblock.org/in-defense-of-heroku">wrote</a> in defense of Heroku, which has now responded with an official <a href="https://blog.heroku.com/archives/2013/2/16/routing_performance_update/">Routing Performance Update</a>.</p>
+
+<p>Random request queuing has been discussed in the past in <a href="http://tiwatson.com/blog/2011-2-17-heroku-no-longer-using-a-global-request-queue">Tim Watson&rsquo;s post</a> based on a <a href="https://groups.google.com/forum/?fromgroups=#!msg/heroku/8eOosLC5nrw/Xy2j7GapebIJ">response</a> by Heroku&rsquo;s Adam Wiggins. While the documentation may not have been accurate or even somewhat misleading, we, at Artsy, understood the strategy and the limitations of the routing mesh for quite sometime. Therefore, we have been making continuous efforts to improve our application&rsquo;s performance and reduce the negative impact of random routing inside the routing mesh over the past few months.</p>
+
+<p>One thing we didn&rsquo;t do, was to measure the actual wait time inside a dyno. In restrospect, it seems obvious that we should have. In this post we&rsquo;ll describe a middleware to do so. This is entirely based on the work of <a href="https://gist.github.com/daveyeu/4960893">David Yeu</a>, <a href="https://gist.github.com/jasonrclark/d82a1ea7695daac0b9ee">Jason R Clark</a> and RG&rsquo;s own <a href="https://gist.github.com/a-warner/f5db30857ed3423cea79">Andrew Warner</a>.</p>
+
+<p>With this code in place, here&rsquo;s a 12 hour graph of our website&rsquo;s API performance. The dyno wait time for our application, in green, averaged 61.1ms for a total of 301ms average per request, which is 1/5th of the total request time. It&rsquo;s certainly a lot, but we do spend a lot more time in our own code.</p>
+
+<p><img src="/images/2013-02-17-impact-of-heroku-routing-mesh-and-random-routing/newrelic-12-hours.png"></p>
+
+<p>Note that the single peak on the right of the graph corresponds to a dyno auto-scale job. We double the number of dynos with early morning traffic, which causes new dynos to boot up and accumulate requests before they are &ldquo;warm&rdquo; enough to process requests at their normal rate.</p>
+
+<p></p>
+
+<h3 id="queue-logger-middleware">Queue Logger Middleware</h3>
+
+<p>Heroku adds an <code>X-Request-Start</code> header as documented <a href="https://devcenter.heroku.com/articles/http-routing">here</a> into every request it routes. We can then subtract the value of this header from <code>Time.now</code> once we&rsquo;re inside our code. We&rsquo;re also removing the the <code>X-Heroku-Queue-Wait-Time</code> header, as it&rsquo;s mostly zero with the current Heroku routing strategy and gets <a href="https://github.com/newrelic/rpm/blame/master/lib/new_relic/agent/instrumentation/queue_time.rb#L90">used</a> as queue time by the NewRelic RPM. Finally, we&rsquo;re setting <code>env['HTTP_X_QUEUE_TIME']</code>, which will be picked up by NewRelic as documented <a href="https://newrelic.com/docs/features/tracking-front-end-time">here</a> and adding a <code>X-Queue-Time</code> header to be able to see the queue time in every response with client tools.</p>
+
+<p>```ruby config/queue_time_logger.rb</p>
+
+<h1 id="https-gist-github-com-a-warner-f5db30857ed3423cea79"><a href="https://gist.github.com/a-warner/f5db30857ed3423cea79">https://gist.github.com/a-warner/f5db30857ed3423cea79</a></h1>
+
+<h1 id="combination-of-https-gist-github-com-daveyeu-4960893">combination of <a href="https://gist.github.com/daveyeu/4960893">https://gist.github.com/daveyeu/4960893</a></h1>
+
+<h1 id="and-https-gist-github-com-jasonrclark-d82a1ea7695daac0b9ee">and <a href="https://gist.github.com/jasonrclark/d82a1ea7695daac0b9ee">https://gist.github.com/jasonrclark/d82a1ea7695daac0b9ee</a></h1>
+
+<p>class QueueTimeLogger
+  attr_reader :app</p>
+
+<p>def initialize(app, options = {})
+    @app = app
+  end</p>
+
+<p>def call(env)
+    now = Time.now.to_f</p>
+
+<pre><code>env.delete(&quot;HTTP_X_HEROKU_QUEUE_WAIT_TIME&quot;)
+
+microseconds = (now * 1_000_000).to_i
+env[&quot;HTTP_X_MIDDLEWARE_START&quot;] = &quot;t=#{microseconds}&quot;
+
+perf_headers = {}
+if (request_start = env[&quot;HTTP_X_REQUEST_START&quot;])
+  request_start_microseconds = request_start.gsub(&quot;t=&quot;, &quot;&quot;).to_i * 1_000
+  queue_time_microseconds = [ microseconds - request_start_microseconds, 0 ].max
+  env[&quot;HTTP_X_QUEUE_TIME&quot;] = &quot;t=#{queue_time_microseconds}&quot;
+
+  queue_time_milliseconds = (queue_time_microseconds / 1_000).to_i
+  perf_headers[&quot;X-Queue-Time&quot;] = queue_time_milliseconds.to_s
+end
+
+status, headers, body = app.call(env)
+[ status, headers.merge(perf_headers), body ]
+</code></pre>
+
+<p>end
+end</p>
+
+<pre><code>
+We insert this middleware into Rails. Remember that the middleware is executed in reverse order, so you should put this in the end of your `config/environment.rb`.
+
+```ruby config/environment.rb
+require File.expand_path('../queue_time_logger', __FILE__)
+config.middleware.use QueueTimeLogger
+</code></pre>
+
+<h3 id="time-skew">Time Skew</h3>
+
+<p>It&rsquo;s important to note that since the <code>X-Request-Start</code> header is inserted by the router, we&rsquo;re not capturing queue wait time, we&rsquo;re capturing (queue wait time) + (clock skew between the router and the machine servicing the request). The time skew has a non-negligible contribution to the sum, especially that the sign of the clock skew contribution is unknown and we are replacing any negative time difference with 0. We can only hope that Heroku does a reasonable effort at synchronizing clocks between the router and the dyno servers.</p>
+
+<h3 id="what-about-dumb-routing">What About Dumb Routing?</h3>
+
+<p>One of the basic issues with one-request-at-a-time web servers and random routing is how single-threaded web servers accept connections. It sounds technically feasible that the web server could report back to the router that it&rsquo;s currently processing a request and have the router pick another dyno, but there&rsquo;re two non-trivial difficulties with implementing this.</p>
+
+<p>The first is that it would require cooperation from the Heroku router, as currently, closing a TCP socket would cause it to return a 503 to the client.</p>
+
+<p>The second is in the way EventMachine accepts requests in a single-threaded scenario: a request will block the EventMachine reactor, and only once it has unblocked the reactor, will it accept more requests. Those requests will sit in the TCP queue for the duration of the long request, defeating the whole concept.</p>
+
+<h3 id="improving-throughput-on-heroku">Improving Throughput on Heroku</h3>
+
+<p>It&rsquo;s important to understand that with every system you will get increasingly unfair scheduling at the load balancer when you have more than your serviceable load. To improve this on Heroku you have to either reduce the time to service each request or provision more dynos. All things considered, I think that being able to service long-running requests without any significant impact on the entire distributed system would be a luxury.</p>
+
+<h3 id="links">Links</h3>
+
+<ul>
+<li><a href="https://gist.github.com/a-warner/f5db30857ed3423cea79">Queue Logger Middleware</a></li>
+<li><a href="http://rapgenius.com/James-somers-herokus-ugly-secret-lyrics">Heroku&rsquo;s Ugly Secret</a></li>
+<li><a href="http://code.dblock.org/in-defense-of-heroku">In Defense of Heroku</a></li>
+<li><a href="https://blog.heroku.com/archives/2013/2/16/routing_performance_update">Heroku Routing Performance Update</a></li>
+<li><a href="http://tiwatson.com/blog/2011-2-17-heroku-no-longer-using-a-global-request-queue">Heroku No Longer Using a Global Request Queue</a></li>
+<li><a href="https://groups.google.com/d/msg/thin-ruby/7p5BHt5j7M4/GnRyUP0VTzgJ">How EventMachine Accepts Connections</a></li>
+<li><a href="https://devcenter.heroku.com/articles/http-routing">Heroku HTTP Routing Documentation</a></li>
+<li><a href="https://github.com/newrelic/rpm/blame/master/lib/new_relic/agent/instrumentation/queue_time.rb#L90">NewRelic Agent Instrumentation Queue Time Implementation</a></li>
+<li><a href="https://newrelic.com/docs/features/tracking-front-end-time">Tracking Front-End Time with NewRelic</a></li>
+</ul>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/03/29/musical-chairs/">Musical Chairs</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/">Infinite Scroll with MongoDB</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

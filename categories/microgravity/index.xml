@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microgravity on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/microgravity/</link>
+    <description>Recent content in Microgravity on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Sep 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/microgravity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Helping the Web Towards OSS by Default</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</guid>
+      <description>&lt;p&gt;The main Artsy.net website for the desktop, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, was our first Artsy application to open its source code, &lt;a href=&#34;http://artsy.github.io/author/craig&#34;&gt;Craig&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/author/brennan&#34;&gt;Brennan&lt;/a&gt; did it &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;back in 2014&lt;/a&gt;. Force&amp;rsquo;s public offering laid the groundwork for the iOS OSS projects to come afterwards: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Eidolon&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;Eigen&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/06/open-sourcing-energy/&#34;&gt;Energy&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Though Force wasn&amp;rsquo;t quite Open Source by Default, it represented a &lt;em&gt;really&lt;/em&gt; important step for  Artsy&amp;rsquo;s OSS perspective but was not the end goal. We were opening our source, but not opening our process.&lt;/p&gt;
+
+&lt;p&gt;This month both &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, the desktop version of &lt;a href=&#34;https://www.artsy.net/&#34;&gt;Artsy.net&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/microgravity&#34;&gt;Microgravity&lt;/a&gt;, the mobile version - moved to being built entirely in the open. Read on to find out how.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

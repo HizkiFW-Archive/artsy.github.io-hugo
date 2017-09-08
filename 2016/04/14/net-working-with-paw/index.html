@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Using Paw with Per-Developer Settings // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Using Paw with Per-Developer Settings" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ok-what-is-paw">OK, what is Paw?</a></li>
+<li><a href="#a-second-shot">A Second Shot</a></li>
+<li><a href="#route-resolving">Route Resolving</a></li>
+<li><a href="#wrap-up">Wrap up</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/04/14/net-working-with-paw/">Using Paw with Per-Developer Settings</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-development" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/development">development</a>
+				
+					<a class="post-category post-category-web" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/web">web</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>I am a big fan of developer tooling, as spending time upfront on improving your process can pay a lot of dividends over time. I want to talk about one in particular: <a href="https://luckymarmot.com/paw">Paw</a>. Paw is a native HTTP client with a bunch of features. I want to cover one that means that we can now <a href="https://github.com/artsy/energy/pull/192">introduce</a> <code>[AppName].paw</code> files in our mobile projects, making it easy for us to discuss networking requests.</p>
+
+<p></p>
+
+<h3 id="ok-what-is-paw">OK, what is Paw?</h3>
+
+<p>Paw is a tool that stores collections of API endpoints, along with all the metadata required to call them. We first started using Paw during the creation <a href="https://github.com/artsy/eidolon/blob/master/Kiosk/Stubbed%20Responses/Me.json">of Eidolon</a> as a way to keep track of the auction-related API calls we would need to stub for <a href="http://cocoapods.org/pods/moya">Moya</a>, an iOS networking library that required stubbed data. It made it easy for us to keep track of how all the different API routes work together, and to verify that we were doing things right.</p>
+
+<p>{% expanded_img /images/2016-04-14-Paw/eidolon.png paw tokens %}</p>
+
+<p>We used environment variables to keep track of things we wanted to change, but in using them this way we couldn&rsquo;t publicise our Paw files, the real versions contained secrets that should stay secret.</p>
+
+<p><img src="/images/2016-04-14-Paw/eidolon-env.png" alt="Environments for Eidolon" /></p>
+
+<p>The environment tooling made it easy to change the routes, users and settings easily, but were also the thing keeping us from being able to share the files in source. Because of this, we stopped using Paw to keep track of our routes as we had to ad-hoc share the file over chat.</p>
+
+<h3 id="a-second-shot">A Second Shot</h3>
+
+<p>This week, roughly a year and a half later, I started work on a <a href="https://github.com/artsy/energy/pull/189">large project</a> that I knew would involve using new networking APIs. So I took the time to look for ways to interpret what I was going to be working with. After exploring some alternatives, I came back to Paw, and discovered they had a <a href="https://blog.luckymarmot.com/posts/paw-23-keep-it-secret-keep-it-safe/">new feature</a>: Keychain integration. This stopped my search.</p>
+
+<p>In our iOS projects, as they are all open source, we use <a href="https://github.com/orta/cocoapods-keys">CocoaPods-Keys</a> to ensure that our development configuration secrets are kept safe and outside of the project&rsquo;s source code. It stores the per-project keys inside a developer&rsquo;s Keychain. This means they can be accessed from inside the iOS app, but also from the <a href="/images/2016-04-14-Paw/keychain.png">developer&rsquo;s computer</a> via a determinate location in the Keychain app.</p>
+
+<pre><code>~/d/i/a/energy (master) ⏛  bundle exec pod keys
+Keys for Folio
+ ├  ArtsyAPIClientSecret - [***********]
+ ├  ArtsyAPIClientKey - [***********]
+ ├  HockeyAppBetaID - [***********]
+ ├  HockeyAppLiveID - [***********]
+ ├  IntercomAppID - [***********]
+ ├  IntercomAPIKey - [***********]
+ ├  SegmentProduction - [***********]
+ ├  SegmentBeta - [***********]
+ └  SegmentDev - [***********]
+</code></pre>
+
+<p>This means that we can use CocoaPods-Keys with Paw in order to use the same <code>ArtsyAPIClientSecret</code> and <code>ArtsyAPIClientKey</code> environment config variables. Great. This is almost enough to make the first API call to to get an access token.</p>
+
+<p>I re-used this idea to allow developers to have unique username and passwords. I created two more entries in Keychain, username and <a href="/images/2016-04-14-Paw/keychain-password.png">password</a>. This is something that every developer using our Paw file has to do, otherwise Paw won&rsquo;t know who to log you in as.</p>
+
+<p><img src="/images/2016-04-14-Paw/keychain-username.png" alt="Keychain Email" /></p>
+
+<p>With these all hooked up, I could set up Paw to use all of our Keychain entities:</p>
+
+<p><img src="/images/2016-04-14-Paw/paw-adding-keychain.png" alt="Paw Adding Keychain" />
+<img src="/images/2016-04-14-Paw/paw-setting-password.png" alt="Paw Setting Password" /></p>
+
+<p>Tada! Now I can run my route, and I&rsquo;ve got an access token to use with our API.</p>
+
+<h3 id="route-resolving">Route Resolving</h3>
+
+<p>Automating the route to get an access token is the first step because Paw allows you to use the output of one route inside any new route. I&rsquo;ll show you, then talk it through.</p>
+
+<p>{% expanded_img /images/2016-04-14-Paw/paw-tokens.png paw tokens %}</p>
+
+<p>I made it so that my new request ( for the route <code>api/v1/me</code>)  passes in an header of <code>X-Access-Token</code>, with the value being the <code>access_token</code> from the route we just made called <code>Auth</code>. This means that when the token expires, it will automatically re-generate a new one and we&rsquo;re never storing the token explicitly inside the Paw file. Our secrets stay secret, and per-developer - I don&rsquo;t want to know other people&rsquo;s passwords.</p>
+
+<p>Once those two routes were set up, it was a matter of looking up what routes I would need and added them to the paw file for the project. I used the group system to make it easy to show / hide sections, and experimented with using environments to differentiate between staging and production servers. Not quite figured that yet.</p>
+
+<h3 id="wrap-up">Wrap up</h3>
+
+<p>It&rsquo;s easier to talk about your API when any other developer can open this one file and shoot off requests at the same time as you. One of my favourite nice-touches is to be able to easily convert any request into a cURL command.</p>
+
+<p>I am using this event as a reminder to myself that tools evolve, and maybe your first impression on a developer tool may require re-interpreting in light of software evolution.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/05/03/podspec-checksums/">Why does my team&#39;s Podfile.lock Podspec checksums change?</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/04/06/Testing-Schemes/">Using Xcode&#39;s Schemes to run a subset of your tests</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

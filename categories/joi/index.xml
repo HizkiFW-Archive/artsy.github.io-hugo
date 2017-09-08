@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joi on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/joi/</link>
+    <description>Recent content in Joi on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/joi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Improving Page Speed with GraphQL</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/</link>
+      <pubDate>Wed, 02 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/</guid>
+      <description>&lt;p&gt;This past year, our team started using a GraphQL orchestration layer that connects various APIs with multiple front-end apps including &lt;a href=&#34;http://artsy.github.io/blog/2016/06/19/graphql-for-mobile&#34;&gt;iOS&lt;/a&gt;. It also handles caching and extracts some business logic out of our client apps. This helped us not only to be more consistent with the way we fetch data across apps, but also improved developer happiness and even bridged teams by having our web and iOS developers work with the same API layer. This got me thinking what other problems GraphQL could solve at Artsy.&lt;/p&gt;
+
+&lt;p&gt;I work on the Publishing Team at Artsy, and we&amp;rsquo;ve recently been focused on page speed as a KPI. With so many ways of measuring speed, it&amp;rsquo;s a daunting task but for this post, I&amp;rsquo;ll focus on the way we handled things on the server-side and how integrating GraphQL on our API improved page speed.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

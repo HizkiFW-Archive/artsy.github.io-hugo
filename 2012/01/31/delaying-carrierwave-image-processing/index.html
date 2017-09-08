@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Delaying CarrierWave Image Processing // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Delaying CarrierWave Image Processing" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/">Delaying CarrierWave Image Processing</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-CarrierWave" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/CarrierWave">CarrierWave</a>
+				
+					<a class="post-category post-category-Image-Processing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Image-Processing">Image Processing</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>We do a lot of image processing at Artsy. We have tens of thousands of beautiful original high resolution images from our partners and treat them with care. The files mostly come from professional art photographers, include embedded color profiles and other complicated features that make image processing a big deal.</p>
+
+<p>Once uploaded, these images are converted to JPG, resized into many versions and often resampled. We are using <a href="https://github.com/jnicklas/carrierwave">CarrierWave</a> for this process - our typical image uploader starts like a usual CarrierWave implementation with a few additional features.</p>
+
+<p></p>
+
+<ul>
+<li>Fallback to a well-known image when an image is missing</li>
+<li>Support for a local development environment, S3 and CloudFront</li>
+<li>Image versioning: replaced images get a new path to bust CloudFront caching</li>
+</ul>
+
+<p>Here&rsquo;s the complete source.</p>
+
+<p>``` ruby app/models/image_uploader.rb
+    class ImageUploader &lt; CarrierWave::Uploader::Base</p>
+
+<pre><code>  include CarrierWave::RMagick
+
+  # default url for a missing image
+  def default_url
+    &quot;/assets/images/shared/missing_image.png&quot;
+  end
+
+  # a local path for development environments w/o S3 or CloudFront
+  def local_path
+    (ENV['CLOUDFRONT_URL'] || ENV['S3_BUCKET']) ? &quot;&quot; : &quot;local/&quot;
+  end
+
+  # complete url to an image version
+  def image_url_format_string
+    &quot;#{self.class.image_url_prefix}/#{self.class.store_path_base(self.model)}:version.jpg&quot;
+  end
+
+  # a whitelist for uploading
+  def extension_white_list
+    %w(jpg jpeg png gif tif tiff bmp)
+  end
+
+  # alternate temporary location for Heroku
+  def cache_dir
+    &quot;#{Rails.root.to_s}/tmp/uploads&quot;
+  end
+
+  # relative path for saving a file
+  def store_path(for_file = filename)
+    &quot;#{local_path}#{self.class.store_path_base(self.model)}#{(version_name || :original).to_s}.jpg&quot;
+  end
+
+  # normalized file name for an image converted to JPG
+  def filename
+    super != nil ? super.split('.').first + '.jpg' : super
+  end
+
+  # a location that includes a version number
+  def self.store_path_base(model)
+    class_name = model.class.name.underscore.pluralize
+    image_version = (model.image_version || 0) &gt; 0 ? &quot;#{model.image_version}/&quot; : &quot;&quot;
+    &quot;#{class_name}/#{model.id.to_s}/#{image_version}&quot;
+  end
+
+  # a url prefix depending on environment settings
+  def self.image_url_prefix
+    if ENV['IMAGES_URL']
+      ENV['IMAGES_URL']
+    elsif ENV['CLOUDFRONT_URL']
+      ENV['CLOUDFRONT_URL']
+    elsif ENV['S3_BUCKET']
+      &quot;http://#{ENV['S3_BUCKET']}.s3.amazonaws.com&quot;
+    else
+      &quot;/local&quot;
+    end
+  end
+
+end
+</code></pre>
+
+<pre><code>
+We derive actual uploaders from the `ImageUploader` class.
+
+``` ruby app/models/widget_uploader.rb
+    class WidgetUploader &lt; ImageUploader
+
+      process :increment_version
+
+      def increment_version
+        return if self.is_processing_delayed?
+        self.model.image_version = (self.model.image_version.to_i + 1)
+        self.model.image_versions = []
+      end
+
+      version :small, if: :is_processing_delayed? do
+        process :convert =&gt; 'jpg'
+        process :resize_to_limit =&gt; [200, 200]
+        process :quality =&gt; 70
+      end
+
+      version :square, if: :is_processing_delayed? do
+        process :convert =&gt; 'jpg'
+        process :resize_to_fill =&gt; [230, 230]
+        process :quality =&gt; 90
+      end
+    end
+</code></pre>
+
+<p>And the uploader is mounted via <code>mount_uploader</code>.</p>
+
+<pre><code class="language-ruby">    mount_uploader :image,  WidgetUploader, delayed: true
+</code></pre>
+
+<p>You&rsquo;ll notice a few unusual things here. The versions have an <code>:if</code> condition and there&rsquo;re mentions of <code>is_processing_delayed?</code>. This comes from a small module <a href="https://github.com/joeyAghion/">@joeyAghion</a> wrote called <code>DelayedImageProcessing</code>. It&rsquo;s a much more evolved version designed on top of <a href="http://code.dblock.org/carrierwave-delayjob-processing-of-selected-versions">my earlier idea</a> of delaying some image processing for background jobs.</p>
+
+<p>The reason we want to delay image processing is because it takes a long time. The Heroku HTTP request limit is only 30 seconds, so image upload would regularly timeout. And some of the large images can take up to ten minutes to process - we don&rsquo;t want the user to wait that long.</p>
+
+<p>To use, you will add some code in <code>config/initializers/carrierwave.rb</code> and add <code>DelayedImageProcessing</code> into <code>lib</code>.</p>
+
+<ul>
+<li><a href="https://gist.github.com/1710609#file_delayed_image_processing.rb">lib/delayed_image_processing.rb</a></li>
+<li><a href="https://gist.github.com/1710609#file_carrierwave.rb">config/initializers/carrierwave.rb</a></li>
+</ul>
+
+<p>The code above works with Mongoid. You will have to do some work to make this work with other storage.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/">Beyond Heroku: &#34;Satellite&#34; Delayed Job Workers on EC2</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/">How Artsy Uses GitHub to Build Artsy</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

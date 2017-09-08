@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Licensing on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/licensing/</link>
+    <description>Recent content in Licensing on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/licensing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Licenses for OSS Code</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</guid>
+      <description>&lt;p&gt;As a part of our internal Lunch and Learn series, I  gave a talk to our developers with an overview of the different types of source code licenses available.&lt;/p&gt;
+
+&lt;p&gt;We always recommend MIT within Artsy, but understanding what the other ones are and &lt;a href=&#34;http://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/&#34;&gt;why we made&lt;/a&gt; the choices we have done is valuable.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=0r7JcN3Q_LY&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

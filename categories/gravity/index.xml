@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gravity on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/gravity/</link>
+    <description>Recent content in Gravity on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/gravity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Artsy&#39;s Technology Stack, 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</link>
+      <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</guid>
+      <description>&lt;h1 id=&#34;history&#34;&gt;History&lt;/h1&gt;
+
+&lt;p&gt;Artsy was &lt;a href=&#34;http://www.nytimes.com/2012/10/09/arts/design/artsy-is-mapping-the-world-of-art-on-the-web.html&#34;&gt;launched in 2012 as the &amp;ldquo;Art Genome Project&amp;rdquo;&lt;/a&gt; and grew exponentially ever since.&lt;/p&gt;
+
+&lt;p&gt;By 2014 we had 230,000 works of art from 600 museums and institutions and launched our first business, a subscription service for commercial galleries, bringing over 80,000 works for sale and partnerships with 37 art fairs and a handful of benefit auctions. That year collectors from 82 countries inquired on over $5.5B of art.&lt;/p&gt;
+
+&lt;p&gt;By 2015 we doubled our &amp;ldquo;for sale&amp;rdquo; inventory and aggregated 4,000 of the world&amp;rsquo;s leading galleries and 60 art fairs. We also launched two new businesses: commercial auctions and online media.&lt;/p&gt;
+
+&lt;p&gt;Finally, in 2016 we, again, doubled our paid gallery network size to become the largest gallery network in the world and grew to become the most-read online art publication as our highly engaging editorial traffic ballooned 320%. We also launched a platform to bid in live auctions and a consignments service with all major auction houses.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-artsy-business-in-2017&#34;&gt;The Artsy Business in 2017&lt;/h1&gt;
+
+&lt;p&gt;Artsy in 2017 is a very wide platform and it can be challenging to characterize simply. But when you boil it down to its essence, Artsy offers information and a marketplace. Our written content and fair coverage keep people informed about the art world, and the Art Genome powers our tools for exploration. Through our partnerships with the major player in the art market, galleries and auction houses, we offer our users a unified platform for buying and selling art.&lt;/p&gt;
+
+&lt;p&gt;Internally we consider Artsy to have three businesses: &lt;em&gt;Auctions&lt;/em&gt;, &lt;em&gt;Content&lt;/em&gt; and &lt;em&gt;Listings&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Auctions&lt;/em&gt;: Auction houses and charities use Artsy as a sales channel for a commission because collectors want to discover and buy art in a single, central platform that excels at surfacing the art they want from a global market.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Content&lt;/em&gt;: Brands pay Artsy to reach the first art audience at scale by enabling evergreen content online and for offline engagement during art world events.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Listings&lt;/em&gt;: Galleries, Fairs and Institutions subscribe to Artsy for a fee because we bring a very large audience of art collectors and enthusiasts to their virtual doors.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Artsy team is now 166 employees across three offices in New York, Berlin and London. The Engineering organization is now 28 engineers, including 4 leads, 3 directors and a CTO. In this post, we&amp;rsquo;d like to comprehensively cover what, and how we make the technical and human sides of Artsy businesses work.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

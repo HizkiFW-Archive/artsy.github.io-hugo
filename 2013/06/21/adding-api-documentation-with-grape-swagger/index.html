@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Adding API Docs with Grape and Swagger // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Adding API Docs with Grape and Swagger" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#cross-origin-requests">Cross Origin Requests</a></li>
+<li><a href="#swagger-ui">Swagger UI</a></li>
+<li><a href="#working-sample">Working Sample</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/">Adding API Docs with Grape and Swagger</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Grape" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Grape">Grape</a>
+				
+					<a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+				
+					<a class="post-category post-category-Swagger" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Swagger">Swagger</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>The Artsy website, Partner CMS, mobile tools, and all our hackathon experiments are built on top of a core API. We&rsquo;ve put a lot of effort into documenting it internally. But developers don&rsquo;t want to have to grok through code. With <a href="https://github.com/intridea/grape">Grape</a> and <a href="https://developers.helloreverb.com/swagger">Swagger</a>, adding an API explorer and exposing the API documentation has never been easier.</p>
+
+<p><img src="/images/2013-06-21-adding-api-documentation-with-grape-swagger/swagger-ui.png" /></p>
+
+<p></p>
+
+<h3 id="cross-origin-requests">Cross Origin Requests</h3>
+
+<p>You don&rsquo;t need to include the API explorer into your application. Instead, enable Cross-Origin Resource Sharing (CORS) with <a href="https://github.com/cyu/rack-cors">rack-cors</a>.</p>
+
+<p>``` ruby Gemfile
+gem &ldquo;rack-cors&rdquo;</p>
+
+<pre><code>
+``` ruby app.rb
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', headers: :any, methods: :get
+  end
+end
+</code></pre>
+
+<p>Your application will now respond to <code>OPTIONS</code> and <code>GET</code> requests with CORS headers. It&rsquo;s also important to verify that errors still contain CORS headers, as shown in these RSpec tests.</p>
+
+<p>``` ruby spec/cors_spec.rb
+context &ldquo;CORS&rdquo; do
+  it &ldquo;supports options&rdquo; do
+    options &ldquo;/&rdquo;, {}, {
+      &ldquo;HTTP_ORIGIN&rdquo; =&gt; &ldquo;<a href="http://cors.example.com&quot;">http://cors.example.com&quot;</a>,
+      &ldquo;HTTP_ACCESS_CONTROL_REQUEST_HEADERS&rdquo; =&gt; &ldquo;Origin, Accept, Content-Type&rdquo;,
+      &ldquo;HTTP_ACCESS_CONTROL_REQUEST_METHOD&rdquo; =&gt; &ldquo;GET&rdquo;
+    }
+    last_response.status.should == 200
+    last_response.headers[&lsquo;Access-Control-Allow-Origin&rsquo;].should == &ldquo;<a href="http://cors.example.com&quot;">http://cors.example.com&quot;</a>
+    last_response.headers[&lsquo;Access-Control-Expose-Headers&rsquo;].should == &ldquo;&rdquo;
+  end
+  it &ldquo;includes Access-Control-Allow-Origin in the response&rdquo; do
+    get &ldquo;/&rdquo;, {}, &ldquo;HTTP_ORIGIN&rdquo; =&gt; &ldquo;<a href="http://cors.example.com&quot;">http://cors.example.com&quot;</a>
+    last_response.status.should == 200
+    last_response.headers[&lsquo;Access-Control-Allow-Origin&rsquo;].should == &ldquo;<a href="http://cors.example.com&quot;">http://cors.example.com&quot;</a>
+  end
+  it &ldquo;includes Access-Control-Allow-Origin in errors&rdquo; do
+    get &ldquo;/invalid&rdquo;, {}, &ldquo;HTTP_ORIGIN&rdquo; =&gt; &ldquo;<a href="http://cors.example.com&quot;">http://cors.example.com&quot;</a>
+    last_response.status.should == 404
+    last_response.headers[&lsquo;Access-Control-Allow-Origin&rsquo;].should == &ldquo;<a href="http://cors.example.com&quot;">http://cors.example.com&quot;</a>
+  end
+end</p>
+
+<pre><code>
+### Grape-Swagger
+
+There's a gem called [grape-swagger](https://github.com/tim-vandecasteele/grape-swagger) that exposes Swagger-compatible documentation from any Grape API with a one-liner, `add_swagger_documentation`.
+
+``` ruby api.rb
+module Acme
+  class API &lt; Grape::API
+    format :json
+
+    desc &quot;This is the root of our API.&quot;
+    get &quot;/&quot; do
+
+    end
+
+    add_swagger_documentation api_version: 'v1'
+  end
+end
+</code></pre>
+
+<p><code>ruby spec/documentation_spec.rb
+it &quot;swagger documentation&quot; do
+  get &quot;/api/swagger_doc&quot;
+  last_response.status.should == 200
+  json_response = JSON.parse(last_response.body)
+  json_response[&quot;apiVersion&quot;].should == &quot;v1&quot;
+  json_response[&quot;apis&quot;].size.should &gt; 0
+end
+</code></p>
+
+<h3 id="swagger-ui">Swagger UI</h3>
+
+<p>Use the <a href="http://petstore.swagger.wordnik.com">Swagger Petstore</a>, start your application, enter <em><a href="http://localhost:9292/api/swagger_doc">http://localhost:9292/api/swagger_doc</a></em> and explore your API!</p>
+
+<p><img src="/images/2013-06-21-adding-api-documentation-with-grape-swagger/swagger-ping.png" /></p>
+
+<h3 id="working-sample">Working Sample</h3>
+
+<p>You can find a working sample in <a href="https://github.com/dblock/grape-on-rack">this demo application</a>, added in <a href="https://github.com/dblock/grape-on-rack/commit/004670804472812322b089fcf6a40b33d68c699c">this commit</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/06/23/normalizing-gmail-email-addresses-with-canonical-emails/">Normalizing GMail E-Mail Addresses with CanonicalEmails</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/">Writing Headless Backbone Tests With Node.js</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

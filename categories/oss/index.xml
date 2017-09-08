@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oss on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/oss/</link>
+    <description>Recent content in Oss on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Source FAQ for Engineers</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/04/OSS-FAQ/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/04/OSS-FAQ/</guid>
+      <description>&lt;p&gt;We have a lot of Open Source code. For engineers without considerable experience in the open source realm, understanding some of the copyright issues around code ownership can be tricky. I&amp;rsquo;ve been working with our CTO &lt;a href=&#34;http://artsy.github.io/author/db/&#34;&gt;dB.&lt;/a&gt;, and our senior counsel &lt;a href=&#34;http://www.theartgorgeous.com/yayoi-shionoiri/&#34;&gt;Yayoi Shionoiri&lt;/a&gt; on creating an open-source FAQ for engineers.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-open-source&#34;&gt;What is Open Source?&lt;/h3&gt;
+
+&lt;p&gt;Open Source code is code that can be freely examined, used, adapted, and shared by all through a license that sets forth these principles.  The only potential limitation that an Open Source license is likely to impose is that future copies of the code (whether in adapted or un-adapted form) be themselves licensed in a manner consistent with the original license.  At Artsy, we are committed to making our engineering work &lt;a href=&#34;http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html&#34;&gt;Open Source by default&lt;/a&gt;.  A list of our Open Source projects can be &lt;a href=&#34;http://artsy.github.io/open-source/&#34;&gt;found here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Three</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson three of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson three and I have a &lt;a href=&#34;https://youtu.be/e2ErzD8ibG8&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Two</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson two of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson two and I have a &lt;a href=&#34;https://youtu.be/EBtzqx1YRBg&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson One</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</guid>
+      <description>&lt;p&gt;Last August, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift. There were two parallel groups of learners: a &amp;ldquo;beginners&amp;rdquo; group who had never coded before, and an &amp;ldquo;informed&amp;rdquo; group who already knew how to code. This year, we&amp;rsquo;re leading the course again with a slight twist: we&amp;rsquo;re repeating the course for absolute beginners, and we&amp;rsquo;re introduce a new course for anyone who completed last year&amp;rsquo;s beginner course.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.&lt;/p&gt;
+
+&lt;p&gt;Today was lesson one of the beginner group, and I have a &lt;a href=&#34;https://youtu.be/OLdSg0XpFqA&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One&#34;&gt;lesson one&amp;rsquo;s material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Handling Large OSS Projects Defensively</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</link>
+      <pubDate>Sun, 03 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</guid>
+      <description>&lt;p&gt;I help maintain big OSS projects: from a third-party &lt;a href=&#34;https://cocoapods.org&#34;&gt;dependency manager&lt;/a&gt; used in most iOS apps (&lt;a href=&#34;https://github.com/CocoaPods/cocoapods.org&#34;&gt;CocoaPods&lt;/a&gt;), to the most popular Objective-C &lt;a href=&#34;http://cocoapods.org/pods/Specta&#34;&gt;testing framework&lt;/a&gt; and the most popular Swift &lt;a href=&#34;http://cocoapods.org/pods/Moya&#34;&gt;networking API client&lt;/a&gt;. I&amp;rsquo;ve been doing this for years.&lt;/p&gt;
+
+&lt;p&gt;Projects with this much impact are big time-sinks. This time comes from ensuring infrastructure continues to work, support tickets need replies, new code needs reviewing and releases need coordinating.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2016-07-03-big-oss/danger_logo_black@2x.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Last September, almost a year ago, I started work on a new project, &lt;a href=&#34;https://github.com/danger/danger/&#34;&gt;Danger&lt;/a&gt;. Danger fixes a problem we were seeing in the Artsy mobile team around adding &amp;ldquo;&lt;a href=&#34;https://github.com/artsy/mobile/issues/31&#34;&gt;process&lt;/a&gt;&amp;rdquo; to our team.&lt;/p&gt;
+
+&lt;p&gt;As a part of discussing Danger internally, I&amp;rsquo;ve referenced that building CocoaPods has greatly influenced Danger. This blog post is about the way I&amp;rsquo;ve built Danger, knowing fully well that I cannot afford the level of time to maintain it at the scale it may get to.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Public Speaking - Part 2: Where To Start?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</link>
+      <pubDate>Mon, 14 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</guid>
+      <description>&lt;p&gt;So you’ve decided &lt;a href=&#34;http://artsy.github.io/blog/2016/03/09/public-speaking-part1-is-it-for-me/&#34;&gt;you’d like to give speaking a go&lt;/a&gt;, or perhaps you were always interested. By now you’re probably wondering where to start.&lt;/p&gt;
+
+&lt;p&gt;There are various options depending on what you’re looking for. Would you prefer a smaller, intimate audience or would you like to reach far and wide? Is the topic of your choice suited for a quick talk or would you rather discuss it at length? Let’s have a look.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Public Speaking - Part 1: Is It For Me?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</link>
+      <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</guid>
+      <description>&lt;p&gt;At Artsy, sharing knowledge is heavily encouraged and so we write our code in the open, document using blog posts, and speak about our experiences. Many have &lt;a href=&#34;https://twitter.com/qnoid/status/702955785064677376&#34;&gt;bumped into us&lt;/a&gt; at various places around the world. And so I often get the question: “How did you get started? I’m interested in speaking too”.&lt;/p&gt;
+
+&lt;p&gt;In the name of sharing experiences with others, I can’t encourage this enough. Unfortunately though, public speaking is still considered &lt;a href=&#34;https://www.washingtonpost.com/news/wonk/wp/2014/10/30/clowns-are-twice-as-scary-to-democrats-as-they-are-to-republicans/&#34;&gt;man’s biggest fear&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’d like to share with you the benefits of public speaking, tips on how to get started, and how to give great presentations.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Energy Sync</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</link>
+      <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</guid>
+      <description>&lt;p&gt;We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&amp;rsquo;ve covered &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/01/14/eidolon-code-review/&#34;&gt;Eidolon&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt; and now &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/02/11/Code-Review-Energy/&#34;&gt;Energy&lt;/a&gt;. This is the second part of the Energy code review. The &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/02/11/Code-Review-Energy/&#34;&gt;first part&lt;/a&gt; covers the the critical codepaths that go from the App&amp;rsquo;s launch to sending an email, which is the main use-case for the app. This video covers how Folio does sync between the Artsy API and the app.&lt;/p&gt;
+
+&lt;p&gt;Sync is a complex problem. This video covers our old techniques, how we changed them, the underlying abstractions we use now and how we can test each component individually. It&amp;rsquo;s an hour long, and it&amp;rsquo;s a little computer-sciencey. So I think people who have shipped some small apps would get a lot out of it.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=05HaKChPe_g&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Energy overview</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</guid>
+      <description>&lt;p&gt;We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&amp;rsquo;ve covered &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/01/14/eidolon-code-review/&#34;&gt;Eidolon&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;. Folio is an app that&amp;rsquo;s shipped to the App Store in early 2012, it&amp;rsquo;s used by our Partners to showcase their works offline, at fairs and on the go. If you want the full spiel, check out &lt;a href=&#34;http://folio.artsy.net&#34;&gt;this microsite&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This video talks through a lot of the critical codepaths that go from the App&amp;rsquo;s launch to sending an email, which is the main use-case for the app. We have another video coming up which exclusively covers how Folio does sync between the Artsy API and the app.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=Xhd25hFzN4o&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Being a Good OSS Citizen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</link>
+      <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s take a look at the day in the life of an open source citizen: me. On our app, I was given &lt;a href=&#34;https://github.com/artsy/eigen/issues/971&#34;&gt;an issue&lt;/a&gt; that would allow users to refine what kinds of sale artworks they were looking at, and it included this &lt;em&gt;awesome&lt;/em&gt; slider control so they could set min/max price ranges.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</link>
+      <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</guid>
+      <description>&lt;p&gt;While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Eidolon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</link>
+      <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt; is the third app from Artsy&amp;rsquo;s mobile team, and it was the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;first to be developed totally in the open&lt;/a&gt;. It&amp;rsquo;s often used as a reference for what an app written in Swift, or written using FRP, should look like. Given how interested the community seems to be around the app, it&amp;rsquo;s about time we did a walkthrough of the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Open Expectations</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</link>
+      <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</guid>
+      <description>&lt;p&gt;The Artsy engineering team has been moving towards Open Source by Default. In 2015 the Mobile team managed to get there. Since then, we&amp;rsquo;ve been writing up our process on this blog and offering advice to anyone would would ask for it.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been in talks with lots of companies you&amp;rsquo;ve heard of, on the how and the why of this. Recently &lt;a href=&#34;https://ello.co&#34;&gt;Ello&lt;/a&gt; got in touch, and we tried to &lt;a href=&#34;https://en.wikipedia.org/wiki/Dyson_sphere&#34;&gt;capture the process&lt;/a&gt;.  They came out with a great post that I&amp;rsquo;d strongly &lt;a href=&#34;https://ello.co/jayzes/post/tqLL-Z8U8GfbDySRk6wbKg&#34;&gt;recommend reading&lt;/a&gt;. I&amp;rsquo;d like to try and come from the other side, and address what are the questions people ask. Consider this a FAQ for how the mobile team does/got to OSS by default.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Licenses for OSS Code</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</guid>
+      <description>&lt;p&gt;As a part of our internal Lunch and Learn series, I  gave a talk to our developers with an overview of the different types of source code licenses available.&lt;/p&gt;
+
+&lt;p&gt;We always recommend MIT within Artsy, but understanding what the other ones are and &lt;a href=&#34;http://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/&#34;&gt;why we made&lt;/a&gt; the choices we have done is valuable.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=0r7JcN3Q_LY&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using OCR To Fix a Hilarious Bug</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</link>
+      <pubDate>Thu, 12 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</guid>
+      <description>&lt;p&gt;For a little while, we would get very strange bug reports. People would complain that artist thumbnails (viewed in several different contexts across the web and our iOS apps) would not be an image of the artist&amp;rsquo;s work, but rather text, which had inexplicably become an actual JPG. This wasn&amp;rsquo;t just text appearing in a &lt;code&gt;div&lt;/code&gt; that should contain an &lt;code&gt;img&lt;/code&gt; or something like that, these were actual JPG&amp;rsquo;s that were pictures of text.&lt;/p&gt;
+
+&lt;p&gt;We would fix these as they came up, chalking the strangeness up to some relic of an old image processing pipeline, data being migrated, etc.&lt;/p&gt;
+
+&lt;p&gt;However, the reports kept coming in. This blog post is about how we diagnosed this actual bug, and how we used a simple Ruby script and OCR to help us detect and fix the existing images.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Emergence</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</link>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</guid>
+      <description>&lt;p&gt;We released the fourth app from the mobile team, &lt;a href=&#34;https://github.com/artsy/Emergence/&#34;&gt;Emergence&lt;/a&gt;, on day one for the new Apple TV and are currently getting around 2k downloads a day. The codebase was created by a single developer, and we didn&amp;rsquo;t want to keep that knowledge siloed. So, I ran an hour long code review session last night where I talked through the codebase, explained why some decisions were made and about the differences between tvOS and UIKit.&lt;/p&gt;
+
+&lt;p&gt;Given that I had been asked to write a blog post about tvOS in general, I felt that making the code review public for anyone to watch would be a nice alternative to the usual long-form writing on this blog.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=NErVWhEzIBM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Releasecop Tracks Stale Releases</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</guid>
+      <description>&lt;p&gt;Artsy practices a sort of &lt;a href=&#34;http://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;continuous delivery&lt;/a&gt;. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices &lt;a href=&#34;http://artsy.github.io/blog/categories/testing/&#34;&gt;multiple&lt;/a&gt; &lt;a href=&#34;http://artsy.github.io/blog/categories/continuous-integration&#34;&gt;times&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From developers&amp;rsquo; working branches&lt;/li&gt;
+&lt;li&gt;To the master branch&lt;/li&gt;
+&lt;li&gt;Through a hopefully-successful build&lt;/li&gt;
+&lt;li&gt;To a staging environment&lt;/li&gt;
+&lt;li&gt;To production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The number of apps and services we deploy has grown to &lt;em&gt;dozens&lt;/em&gt; per team, so sometimes things fall through the cracks. We&amp;rsquo;ve been using &lt;a href=&#34;https://github.com/joeyAghion/releasecop&#34;&gt;Releasecop&lt;/a&gt; for the last few months to get gentle email reminders when an environment could use a deploy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Peer Lab</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/10/peer-lab/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/10/peer-lab/</guid>
+      <description>&lt;p&gt;When I was living in Amsterdam, I participated in plenty of &lt;a href=&#34;https://appsterdam.rs&#34;&gt;Appsterdam&lt;/a&gt; events. Things like the weekly Meeten en Drinken. I even helped lead a class in Swift. One of the events I liked the most was called Peer Lab, organized every Saturday morning by &lt;a href=&#34;https://twitter.com/samuelgoodwin&#34;&gt;Samuel Goodwin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea of Peer Lab is pretty simple, but also somewhat profound: developers gather in a physical space to work on things. If someone has a question, they ask the group. If you can help, you offer assistance. The goal is to foster a collaborative learning environment where everyone feels fulfilled.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Open Sourcing Energy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/</link>
+      <pubDate>Thu, 06 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/</guid>
+      <description>&lt;p&gt;The Artsy Mobile team is pretty aggressive in our stance on &lt;a href=&#34;http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html&#34;&gt;Open Source by Default&lt;/a&gt;. We&amp;rsquo;ve talked about it at &lt;a href=&#34;https://www.youtube.com/watch?v=2DvDeEZ0NDw&amp;amp;spfreload=10&#34;&gt;conferences&lt;/a&gt; &lt;a href=&#34;https://www.youtube.com/watch?v=SjjvnrqDjpM&#34;&gt;around&lt;/a&gt; &lt;a href=&#34;https://www.youtube.com/watch?v=zPbLYWmLPow&#34;&gt;the&lt;/a&gt; &lt;a href=&#34;https://speakerdeck.com/orta/ios-at-artsy&#34;&gt;world&lt;/a&gt;, in &lt;a href=&#34;http://www.objc.io/issues/22-scale/artsy&#34;&gt;renowned magazines&lt;/a&gt; and on &lt;a href=&#34;http://artsy.github.io/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;our blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s worth mentioning that we don&amp;rsquo;t just talk externally about Open Source. Internally, the Mobile team runs talks about Open Source for the rest of the Artsy staff. As well, we discuss the tooling and business implications of having our work in public repos. Artsy strives for an open culture, in this case the development team, on the whole, is just further along in the process.&lt;/p&gt;
+
+&lt;p&gt;The Open Source app idea started with an experiment in the Summer of 2014, asking, &amp;ldquo;What does a truly Open Source App look like?&amp;rdquo; The outcome of that was our Swift Kiosk app, &lt;a href=&#34;https://github.com/artsy/eidolon/&#34;&gt;Eidolon&lt;/a&gt;. Open from day one. We took the knowledge from that and applied it to our public facing app, &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;. Open from day 806. That made 2/3rds of our apps Open Source.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to talk about our final app, &lt;a href=&#34;https://github.com/artsy/energy&#34;&gt;Energy&lt;/a&gt;. Open from day 1433 and ~3500 commits.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How To Write Unit Tests Like a Brood Parasite</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</link>
+      <pubDate>Mon, 06 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</guid>
+      <description>&lt;p&gt;To a beginner, &lt;a href=&#34;http://ocmock.org/&#34;&gt;OCMock&lt;/a&gt; looks scary. The syntax is strange, the idea of stubbing seems complicated, and skirting around the need to use it at all times kind of works out for a while.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[[mock stub] // three brackets!!
+
+[OCMockObject niceMockForClass:UINavigationItem.class]; // it has to be told to be nice?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All of this can be overwhelming for someone who just wants to write simple unit tests for a particular view controller.&lt;/p&gt;
+
+&lt;p&gt;Once you look into the specifics of OCMock, however, things get less terrifying really quickly. It is helpful to compare OCMock’s approach to stubbing to the &lt;a href=&#34;https://vimeo.com/60553870&#34;&gt;behaviors of certain bird species&lt;/a&gt;. As always, the soothing voice of David Attenborough brings clarity and joy to even the most mundane puzzles of life’s journey.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Eigenstate of Mind</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/</link>
+      <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/</guid>
+      <description>&lt;p&gt;Prior to starting at Artsy, I followed a few online tutorials on iOS development. But a simple application demonstrating how to &lt;a href=&#34;http://www.raywenderlich.com/85578/first-core-data-app-using-swift&#34;&gt;build a todo list&lt;/a&gt; didn&amp;rsquo;t illustrate the nuances of a production codebase. Tutorials are an important learning tool for beginners, but can&amp;rsquo;t possibly prepare you for everything you would encounter within an application like Artsy&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;I was lucky to have a mentor at Artsy to help me get started, and I wrote this post to pass along the lessons I learned. This is meant to be a guide for iOS beginners to get to know an open source production codebase. I&amp;rsquo;ll cover the Xcode project organization and where to find things.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How we Open Source&#39;d Eigen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</guid>
+      <description>&lt;p&gt;It was 95 days ago, and I was sitting before of my computer in NYC. I loaded my terminal, opened &lt;a href=&#34;https://taptalk.me&#34;&gt;TapTalk&lt;/a&gt; on my phone, tapped on my collegue &lt;a href=&#34;http://ashfurrow.com&#34;&gt;Ash&amp;rsquo;s&lt;/a&gt; avatar and held my finger there. I paused, this moment was a long time, it was worth waiting. I switched the camera from my face to the screen with the terminal open.&lt;/p&gt;
+
+&lt;p&gt;This moment was probably the most nervous I had been in years. It showed &lt;code&gt;git push origin master&lt;/code&gt;. I said &amp;ldquo;it&amp;rsquo;s happening.&amp;rdquo; I hit return. A new era in the Artsy mobile team had started. A few minutes later, I wrote this tweet:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; lang=&#34;en&#34;&gt;&lt;p&gt;We have open source’d the &lt;a href=&#34;https://twitter.com/artsy&#34;&gt;@Artsy&lt;/a&gt; iOS app.&amp;#10;&amp;#10;&lt;a href=&#34;https://t.co/c1SWtHmUgy&#34;&gt;https://t.co/c1SWtHmUgy&lt;/a&gt;&amp;#10;&amp;#10;🎉&lt;/p&gt;&amp;mdash; Ørta (@orta) &lt;a href=&#34;https://twitter.com/orta/status/558395611754819586&#34;&gt;January 22, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go over the process we went through to get to that point.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

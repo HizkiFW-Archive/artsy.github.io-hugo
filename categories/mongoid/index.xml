@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongoid on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/mongoid/</link>
+    <description>Recent content in Mongoid on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Nov 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mongoid/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Upgrading to Mongoid 4.x</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/</link>
+      <pubDate>Thu, 07 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/</guid>
+      <description>&lt;p&gt;I recently went through an exercise of upgrading one of Artsy&amp;rsquo;s largest web projects to the current HEAD of Mongoid 4.x. This is going to be a major release with numerous changes and I wanted to flush out bugs before the final version of the ODM is released. All Mongoid changes currently live on &lt;a href=&#34;https://github.com/mongoid/mongoid&#34;&gt;master&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;gem &#39;mongoid&#39;, github: &#39;mongoid/mongoid&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the process I&amp;rsquo;ve worked on making a few gems compatible with Mongoid 4 and learned a couple of things that should help you make this process smooth for your own applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Adding API Docs with Grape and Swagger</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</link>
+      <pubDate>Fri, 21 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</guid>
+      <description>&lt;p&gt;The Artsy website, Partner CMS, mobile tools, and all our hackathon experiments are built on top of a core API. We&amp;rsquo;ve put a lot of effort into documenting it internally. But developers don&amp;rsquo;t want to have to grok through code. With &lt;a href=&#34;https://github.com/intridea/grape&#34;&gt;Grape&lt;/a&gt; and &lt;a href=&#34;https://developers.helloreverb.com/swagger&#34;&gt;Swagger&lt;/a&gt;, adding an API explorer and exposing the API documentation has never been easier.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-06-21-adding-api-documentation-with-grape-swagger/swagger-ui.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Infinite Scroll with MongoDB</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/</link>
+      <pubDate>Fri, 15 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/15/infinite-scroll-with-mongodb/</guid>
+      <description>&lt;p&gt;An infinite scroll can be a beautiful and functional way to present feed data. You can see ours on the &lt;a href=&#34;https://artsy.net/&#34;&gt;homepage of artsy.net&lt;/a&gt;. It works by fetching a few items from the API, then fetching some more items as the user scrolls down the feed. Each API call returns the items along with a &amp;ldquo;cursor&amp;rdquo;, which marks the position of the last item retrieved. Subsequent API calls include the cursor in the query string and the iteration resumes from there.&lt;/p&gt;
+
+&lt;p&gt;Why use a cursor and not standard pagination? Because inserting an item on top of the feed would shift the existing items down, causing the API to return a duplicate item on the page boundary. Removing an item from the top of the feed would pull the remaining items up, causing an item to be missed in the next request on the page boundary.&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;re open-sourcing a small gem called &lt;a href=&#34;https://github.com/dblock/mongoid-scroll&#34;&gt;mongoid-scroll&lt;/a&gt;, which implements this cursor-like behavior for MongoDB using mongoid or moped. Here&amp;rsquo;s how it works.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Data Corruption and Concurrent Updates to Embedded Objects with MongoDB</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/09/data-corruption-and-concurrent-updates-to-embedded-objects-with-mongoid/</guid>
+      <description>&lt;p&gt;We use &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;MongoDB&lt;/a&gt; at Artsy as our primary data store via the &lt;a href=&#34;http://mongoid.org/&#34;&gt;Mongoid ODM&lt;/a&gt;. Eventually, we started noticing data corruption inside embedded objects at an alarming rate of 2-3 records a day. The number of occurrences increased rapidly with load as our user growth accelerated.&lt;/p&gt;
+
+&lt;p&gt;The root cause was not a HN-worthy sensational declaration about how MongoDB trashes data, but our lack of understanding of what can and cannot be concurrently written to the database, neatly hidden behind the object data mapping layer.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Create MongoDB Command-Lines from Mongoid Configuration</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/</link>
+      <pubDate>Thu, 31 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/</guid>
+      <description>&lt;p&gt;We use MongoDB as our primary store and have built a healthy amount of automation around various database instances and operational environments. For example, we backup databases to S3 using &lt;code&gt;mongodump&lt;/code&gt;, mirror data between instances with &lt;code&gt;mongorestore&lt;/code&gt; and often need to open a MongoDB shell with &lt;code&gt;mongo&lt;/code&gt; to examine data at the lowest level.&lt;/p&gt;
+
+&lt;p&gt;Generating MongoDB command-lines is tedious and error-prone. Introducing a new gem called &lt;a href=&#34;https://github.com/dblock/mongoid-shell&#34;&gt;mongoid-shell&lt;/a&gt; to help with this. The library can generate command-lines for various MongoDB shell tools from your Mongoid configuration.&lt;/p&gt;
+
+&lt;p&gt;For example, connect to your production MongoDB instance from a &lt;code&gt;db:production:shell&lt;/code&gt; Rake task.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;namespace :db
+  namespace :production
+    task :shell
+      Mongoid.load! &amp;quot;mongoid.yml&amp;quot;, :production
+      system Mongoid::Shell::Commands::Mongo.new.to_s
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improving Performance of Mongoid-Cached-Json</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/20/improving-performance-of-mongoid-cached-json/</guid>
+      <description>&lt;p&gt;Last year, we have open-sourced and made extensive use of two Ruby libraries in our API: &lt;a href=&#34;https://github.com/dblock/mongoid-cached-json&#34;&gt;mongoid-cached-json&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/garner&#34;&gt;garner&lt;/a&gt;. Both transform the procedural nightmare of caching and JSON generation into a declarative and easily manageable DSL. It was worth the investment, since our service spends half of its time generating JSON and reading from and writing to Memcached.&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;ve released mongoid-cached-json 1.4 with two interesting performance improvements.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Friendly URLs with Mongoid::Slug</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</link>
+      <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</guid>
+      <description>&lt;p&gt;All Artsy URLs shared publicly are humanly readable. For example, you&amp;rsquo;ll find all Barbara Kruger&amp;rsquo;s works at &lt;a href=&#34;https://artsy.net/artist/barbara-kruger&#34;&gt;artsy.net/artist/barbara-kruger&lt;/a&gt; and a post by Hyperallergic entitled &amp;ldquo;Superfluous Men Can&amp;rsquo;t Get No Satisfaction&amp;rdquo; at artsy.net/hyperallergic/post/superfluous-men-cant-get-no-satisfaction. This is a lot prettier than having &lt;code&gt;id=42&lt;/code&gt; in the browser&amp;rsquo;s address and is a big improvement for SEO.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-22-friendly-urls-with-mongoid-slug/barbara-kruger.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;We construct these URLs with a gem called &lt;a href=&#34;https://github.com/digitalplaywright/mongoid-slug&#34;&gt;mongoid_slug&lt;/a&gt;. Interesting implementation details under the cut.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Simplifying Model-Level JSON Versioning with Mongoid-Cached-Json</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/</link>
+      <pubDate>Fri, 23 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/23/simplifying-model-level-json-versioning-with-mongoid-cached-json/</guid>
+      <description>Did you know that Netflix has hundreds of API versions, one for each device? Daniel Jacobson&amp;rsquo;s Techniques for Scaling the Netflix API at QConSF 2011 explained why they chose this model. And while we don&amp;rsquo;t all build distributed services that supply custom-tailored data to thousands of heterogeneous TVs and set-top boxes, we do have to pay close attention to API versioning from day one.
+Versioning is hard. Your data models evolve, but you must maintain backward-compatibility for your public interfaces.</description>
+    </item>
+    
+    <item>
+      <title>Caching Model JSON with Mongoid-Cached-Json</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/</link>
+      <pubDate>Mon, 20 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/</guid>
+      <description>Consider the following two Mongoid domain models, Widget and Gadget.
+``` ruby widget.rb class Widget include Mongoid::Document
+field :name has_many :gadgets end
+``` ruby gadget.rb class Gadget include Mongoid::Document field :name field :extras belongs_to :widget end  And an API call that returns a collection of widgets.
+get &#39;widgets&#39; do Widget.all.as_json end  Given many widgets, the API makes a subquery to fetch the corresponding gadgets for each widget.
+Introducing mongoid-cached-json.</description>
+    </item>
+    
+  </channel>
+</rss>

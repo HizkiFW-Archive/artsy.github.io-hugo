@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    We open sourced our Isomorphic Javascript website // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="[craig brennan]">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="We open sourced our Isomorphic Javascript website" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#isomorphic-vs-monolithic">Isomorphic vs Monolithic</a></li>
+<li><a href="#modularity">Modularity</a></li>
+<li><a href="#open-source-by-default">Open Source by Default</a></li>
+<li><a href="#spreading-the-love">Spreading The Love</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/">We open sourced our Isomorphic Javascript website</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">[craig brennan]</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Isomorphic" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Isomorphic">Isomorphic</a>
+				
+					<a class="post-category post-category-JavaScript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/JavaScript">JavaScript</a>
+				
+					<a class="post-category post-category-Node.js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Node.js">Node.js</a>
+				
+					<a class="post-category post-category-Shared" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Shared">Shared</a>
+				
+					<a class="post-category post-category-Ezel" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ezel">Ezel</a>
+				
+					<a class="post-category post-category-Open-Source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Open-Source">Open Source</a>
+				
+					<a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><img src="/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/force.png" alt="May The Force be With You" /></p>
+
+<p>Today we&rsquo;re happy to announce we&rsquo;ve open sourced the entire Artsy.net web app, <a href="https://github.com/artsy/force">Force</a>.</p>
+
+<p>Over the past few months, we&rsquo;ve rewritten our web front-end to move off Rails and on to a <a href="http://nodejs.org/">Node.js</a> stack that shares Javascript code and rendering between the server and client, otherwise known as <a href="http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/">Isomorphic Javascript</a>. After migrating to this new stack, we open-sourced our boilerplate, <a href="http://ezeljs.com">Ezel</a>, and have now gone a step further and open sourced Artsy.net.</p>
+
+<p></p>
+
+<h2 id="isomorphic-vs-monolithic">Isomorphic vs Monolithic</h2>
+
+<p>Our transition to an isomorphic Javascript stack has been very successful albeit with some speed bumps. If you&rsquo;re interested in the details we&rsquo;ve written <a href="http://artsy.github.io/blog/2013/11/30/rendering-on-the-server-and-client-in-node-dot-js/">a blog post</a>, given a talk at <a href="https://www.joyent.com/developers/videos/node-js-on-the-road-nyc-craig-spaeth-brennan-moore">Node on the Road</a> (slides <a href="http://www.slideshare.net/craigspaeth/artsy-node-on-the-roady-slides">here</a>), and another more extensive talk at <a href="http://www.hakkalabs.co/articles/monolithic-to-distributed-how-artsy-transitioned-from-ruby-on-rails-to-node-js-and-isomorphic-javascript#">this meetup</a>.</p>
+
+<p>The short story is that we moved from a monolithic rails app to a couple of Node servers on Heroku. This vastly improved the performance of our site and our own development speed. Using the patterns in Ezel, we are able to tailor assets packages to specific pages and render some of the page on the server. This cut our page-load in half (from 6.5 seconds to under 3 seconds) and our tests take about 5 minutes (down from around 5 hours!) with little reduction in coverage. Performance numbers aside, our real win was dramatically improved development speed due to some architecture decisions we made.</p>
+
+<h2 id="modularity">Modularity</h2>
+
+<p><a href="https://artsy.net/artwork/nathan-sawaya-red-head"><img src="/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/sawaya.jpg" alt="Nathan Sawaya, Red Head, 2009" /></a></p>
+
+<p>One of the biggest takeaways from the transition is the pleasure of modularity. By breaking our project up into smaller reusable pieces such as <a href="https://github.com/artsy/ezel#project-vs-apps-vs-components">apps &amp; components</a> we make it easier to experiment, test, and refactor with confidence knowing our code is encapsulated into clearly defined pieces.</p>
+
+<p>For instance, we recently redesigned our <a href="https://artsy.net/about">about</a> page. To gradually introduce the new page, we simply started a new about2 app along side our old about app which you can see <a href="https://github.com/artsy/force/tree/0d5a49da08e94a91b3f23c7cd1005c1e83da7ba5/apps">a little back in Force&rsquo;s history</a>. This let us push code into the new about2 app with confidence it wasn&rsquo;t touching other parts of the stack. When it was time to ship it, we simply deleted the old about app folder and search and replaced &ldquo;about2&rdquo; to &ldquo;about&rdquo;. There was no need to dig around various stylesheets, views, etc. folders looking for places where code for the old about page might still live.</p>
+
+<p><a href="https://github.com/artsy/ezel#components">Components</a> are particularly useful for re-usability. For instance building <a href="https://artsy.net/gene/abstract-expressionism">this gene page</a> (source code <a href="https://github.com/artsy/force/tree/master/apps/gene">here</a>) was mostly a matter of pulling in various components like a <a href="https://github.com/artsy/force/tree/master/components/follow_button">follow button</a>, a <a href="https://github.com/artsy/force/tree/master/components/filter">filter</a> component, this <a href="https://github.com/artsy/force/tree/master/components/artist_fillwidth_list">artist fill-width layout</a>, etc. Because the CSS for those components are clearly self-contained it&rsquo;s easy to build up a small asset package that uses only the minimal CSS needed which you can see <a href="https://github.com/artsy/force/blob/master/assets/gene.styl">here</a>.</p>
+
+<p>We&rsquo;re so convinced this encapsulation is important that we&rsquo;ve updated Ezel to <a href="https://github.com/artsy/ezel/tree/master/src/js-example/apps/commits/public/images">use app/component-level public folders</a> by default so you can even modularize static assets, like images, and keep them coupled with their respective apps/components.</p>
+
+<h2 id="open-source-by-default">Open Source by Default</h2>
+
+<p><img src="/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/octocat.jpg" alt="Ocotcat" /></p>
+
+<p>Even though Force isn&rsquo;t a library, we have open-soured many of its components and libraries. Before open sourcing Force, we open sourced app-specific modules such as <a href="https://github.com/artsy/artsy-backbone-mixins">these backbone mixins</a> <a href="https://github.com/artsy/artsy-passport">this Artsy API authentication library</a>, or <a href="https://github.com/artsy/backbone-cache-sync">this module</a> we use to cache server-side Backbone requests.</p>
+
+<p>Open-sourcing Force was pretty straightforward but we needed to make our sensitive keys/secrets private while not complicating development. To do this we wrote a .env file and uploaded it as a private gist that gets downloaded when setting up the app. We wanted to spread this open-source-by-default culture so we decided to update Ezel&rsquo;s configuration to be able to use a .env file in this way as well. This makes it easy keep your sensitive configuration data private while allowing the rest of your app code to be open source. You can read more about this in Ezel&rsquo;s <a href="https://github.com/artsy/ezel#build-scripts--configuration">Build Scripts &amp; Configuration docs</a>.</p>
+
+<h2 id="spreading-the-love">Spreading The Love</h2>
+
+<p>Force serves as an example of how we structured a large <a href="http://ezeljs.com">Ezel</a> project and contains the full commit history of its construction. Unfortunately, due to image licensing issues, we cannot open up the Artsy API and therefore this repository can&rsquo;t serve as a runnable clone of our website. However, we will continue to merge our production code into it. If you have any questions feel free to hit us up on twitter: <a href="https://twitter.com/craigspaeth">@craigspaeth</a>, <a href="https://twitter.com/dzucconi">@dzucconi</a>, <a href="https://twitter.com/zamiang">@zamiang</a>.</p>
+
+<p>We&rsquo;re excited to continue pushing open source at Artsy. For more exciting open source projects take a look at <a href="https://github.com/artsy">our GitHub profile</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2014/09/12/designing-the-public-artsy-api/">Designing the Public Artsy API</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/">Using CocoaPods Caching with Travis CI</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

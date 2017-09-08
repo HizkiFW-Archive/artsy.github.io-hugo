@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Depedency Injection in Swift // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Depedency Injection in Swift" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#but-wait-there-s-more">But wait, there&rsquo;s more!</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/">Depedency Injection in Swift</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+				
+					<a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+				
+					<a class="post-category post-category-eidolon" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon">eidolon</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Dependency Injection (DI) is a <a href="http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html">$25 word for a 5¢ idea</a>, but it&rsquo;s an idea that has become wholly foundation to how I write software. I want to take a look at some of the ways our team have been using DI in Swift.</p>
+
+<p></p>
+
+<p>DI users in Swift (and Objective-C) are generally in one of a few camps:</p>
+
+<ul>
+<li>Use <a href="https://www.natashatherobot.com/unit-testing-swift-dependency-injection/">initializer injection</a> to provide objects with their dependencies.</li>
+<li>Use property injection (<a href="https://ashfurrow.com/blog/lazy-property-setup-in-swift/">with laziness even!</a>).</li>
+<li>Use <a href="https://github.com/Swinject/Swinject">frameworks like Swinject</a> to build dependency graphs at run time.</li>
+</ul>
+
+<p>If you&rsquo;ve used storybards or nibs before, you have probably already used property injection via IBOutlets. I actually consider initializer injection and property injection to be roughly the equivalent, just with different timing.</p>
+
+<p>If I had to pick a favourite, I like the initializer injection because it fits appropriately with the level of dynamism Swift offers. But Swift is still <em>super</em> young and there&rsquo;re lots of programming techniques to explore, so I&rsquo;ve been experimenting with something new.</p>
+
+<p>The idea is similar to initializer injection, where you provide an instance&rsquo;s dependencies, but instead of providing the dependencies directly, you provide closures that return a dependency. It sounds odd, and is best explained using an example that starts without any DI at all.</p>
+
+<p>Okay, we&rsquo;ve got a network layer that communicates with an API. We&rsquo;re writing the class that takes the parsed data from the <code>NetworkProvider</code> class and turns it into models consumable by the rest of the app. Right now it looks like this.</p>
+
+<pre><code class="language-swift">class StateManager {
+    let networkProvider: NetworkProvider
+    
+    init() {
+        networkProvider = NetworkProvider(&quot;https://api.wherever.com&quot;)
+    }
+}
+</code></pre>
+
+<p>There are some limitations to this, specifically around testing it. It would be better to have the <code>networkProvider</code> passed in as an argument to <code>init()</code>. That&rsquo;s initializer injection, and my opposition to it is that we&rsquo;ve moved the responsibility for creating the <code>networkProvider</code> up the stack.</p>
+
+<pre><code class="language-swift">class StateManager {
+    let networkProvider: NetworkProvider
+    
+    init(networkProvider: NetworkProvider) {
+        self.networkProvider = networkProvider
+    }
+}
+
+...
+
+let stateManager = StateManager(
+    networkProvider: NetworkProvider(&quot;https://api.wherever.com&quot;)
+    )
+</code></pre>
+
+<p>The thing is, now some <em>other</em> object has to know how to do create the <code>NetworkProvider</code>. Hrm. You can repeat this process of injecting dependencies from further up the stack until you have a general-purpose DI framework, and that&rsquo;s not my bag.</p>
+
+<p>My approach passes a closure that <em>returns</em> a network provider instead of passing in a <code>networkProvider</code> instance directly. The parameter can be given a default implementation, too.</p>
+
+<pre><code class="language-swift">class StateManager {
+    let networkProvider: NetworkProvider
+    
+    init(
+        networkProviderCreator: () -&gt; NetworkProvider = StateManager.defaultNetworkCreator()
+        ) {
+        networkProvider = networkProviderCreator()
+    }
+    
+    class func defaultNetworkCreator() -&gt; (() -&gt; NetworkProvider) {
+        return {
+            NetworkProvider(&quot;https://api.wherever.com&quot;)
+        }
+    }
+}
+</code></pre>
+
+<p>There&rsquo;s a lot to unpack here, so let&rsquo;s take it slowly. The initializer has a new <code>networkProviderCreator</code>, a closure that returns a <code>NetworkProvider</code>. In the initializer, we set our property to the return value of the closure. We also have a class method that gives us a default implementation that&rsquo;s used in production.</p>
+
+<p>But in tests, we can initialize the <code>StateManager</code> with a stub closure, something like:</p>
+
+<pre><code class="language-swift">let fakeNetworkProvider = ...
+let testSubject = StateManager({ fakeNetworkProvider })
+</code></pre>
+
+<p>Now you get the benefits of initializer injection, but the flexibility to only use DI when you need to.</p>
+
+<p>Note: we should still test the <code>defaultNetworkCreator()</code> function to make sure it works, too. Having code behave differently specifically while being tested is not generally a good idea.</p>
+
+<p>Applying the advice on using <code>typealias</code> from <a href="http://artsy.github.io/blog/2016/06/24/typealias-for-great-good/">my last post</a>, we can tidy our code up a little bit.</p>
+
+<pre><code class="language-swift">class StateManager {
+    typealias NetworkCreator: () -&gt; NetworkProvider
+
+    let networkProvider: NetworkProvider
+    
+    init(
+        networkProviderCreator: NetworkCreator = StateManager.defaultNetworkCreator()
+        ) {
+        networkProvider = networkProviderCreator()
+    }
+}
+
+private typealias ClassFunctions = StateManager
+extension ClassFunctions {
+    class func defaultNetworkCreator() -&gt; NetworkCreator {
+        return {
+            NetworkProvider(&quot;https://api.wherever.com&quot;)
+        }
+    }
+}
+</code></pre>
+
+<h3 id="but-wait-there-s-more">But wait, there&rsquo;s more!</h3>
+
+<p>The other benefits of passing in a closure instead of an instance is that it lets the initializer customize the dependency based on other data. For example, let&rsquo;s say the state manager uses an <code>enum</code> to differentiate between staging and production API endpoints (btw, <a href="https://ashfurrow.com/blog/the-wrong-binary/">two-case enums are great at this</a>). How might our initializer change?</p>
+
+<pre><code class="language-swift">enum APIEnvironment {
+    case Staging, Production
+}
+
+class StateManager {
+    typealias NetworkCreator: (String) -&gt; NetworkProvider
+
+    let networkProvider: NetworkProvider
+    
+    init(
+        environment: APIEnvironment,
+        networkProviderCreator: NetworkCreator = StateManager.defaultNetworkCreator()
+        ) {
+        let baseURLString: String
+        switch environment {
+        case .Staging:
+            baseURLString = &quot;https://staging-api.wherever.com&quot;
+        case .Production:
+            baseURLString = &quot;https://api.wherever.com&quot;
+        }
+        
+        networkProvider = networkProviderCreator(baseURLString)
+    }
+}
+
+private typealias ClassFunctions = StateManager
+extension ClassFunctions {
+    class func defaultNetworkCreator() -&gt; NetworkCreator {
+        return { baseURLString in
+            NetworkProvider(baseURLString)
+        }
+    }
+}
+</code></pre>
+
+<p>I really dig this. The closure to create the dependency is close to the code that uses it, but is insulated from any specific instance, so we get the benefits of using DI.</p>
+
+<p>You could argue that picking a base URL for an API shouldn&rsquo;t belong here, and you could probably convince me. But my point isn&rsquo;t that this specific example is ideal, it&rsquo;s that the pattern of using closures for initializer injection is pretty neat.</p>
+
+<p>The logic to create dependencies has to go <em>somewhere</em>. I think it makes sense to keep it close to the code that actually uses the dependency, but isolated in a <code>class</code> function so no actual instance is involved in its creation. As a result, developers get the benefits of initializer injection and none of the added cognitive overhead when writing your production code.</p>
+
+<p>It may not be a perfect pattern (what is?) but we&rsquo;ve been using it on <a href="https://github.com/artsy/eidolon">eidolon</a> and <a href="https://github.com/artsy/eigen">eigen</a> for nearly two years and – combined with generous use of protocols – we&rsquo;ve been really happy with the results.</p>
+
+<p>Now that I have more free time to explore the pattern, I want to take it a step further and see where it could be used outside of unit testing. It&rsquo;s possible that using this approach could make all our types less tightly coupled and provide a more modular codebase.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/">Code Spelunking: Injection for Xcode Plugin</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/">Swift Type Aliases: Use Early and Often</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

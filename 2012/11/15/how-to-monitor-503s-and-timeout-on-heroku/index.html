@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    How to Monitor 503s and Timeout Requests on Heroku // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="How to Monitor 503s and Timeout Requests on Heroku" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#what-does-503-mean">What does 503 mean?</a></li>
+<li><a href="#monitoring-503s">Monitoring 503s</a></li>
+<li><a href="#aborting-requests">Aborting Requests</a></li>
+<li><a href="#fixing-timeouts">Fixing Timeouts</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/">How to Monitor 503s and Timeout Requests on Heroku</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+				
+					<a class="post-category post-category-Rack" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rack">Rack</a>
+				
+					<a class="post-category post-category-Grape" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Grape">Grape</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>We have recently started hitting an unusually high number of &ldquo;503: Service Unavailable&rdquo; errors with one of our applications on Heroku. What are these? How can we monitor their quantity and frequency? What&rsquo;s the fix?</p>
+
+<p><img src="/images/2012-11-15-how-to-monitor-503s-and-timeout-on-heroku/503-error.png"></p>
+
+<p></p>
+
+<h2 id="what-does-503-mean">What does 503 mean?</h2>
+
+<p>A 503 error means &ldquo;Service Unavailable&rdquo;. Heroku returns a 503 error when an HTTP request times out between the Heroku routing mesh and your application, including when the application failed to boot. This timeout limit is set to 30 seconds, as <a href="https://devcenter.heroku.com/articles/request-timeout">documented by Heroku</a>, and shows up in the logs as follows.</p>
+
+<pre><code>Nov 14 12:10:50 production heroku/router:
+ Error H12 (Request timeout) -&gt; GET artsy.net/api/spline
+ dyno=web.11 queue= wait= service=30000ms status=503 bytes=0
+</code></pre>
+
+<p>This usually means that the application could not process the request fast enough, and in very rare cases, that there&rsquo;s an infrastructure problem with Heroku itself. A 504 error which means &ldquo;Gateway Timeout&rdquo; would have probably been a more appropriate choice. Either way, the root cause could be something as simple as trying to run a very long database query or do too much work that doesn&rsquo;t fit in a 30 seconds window. It could also involve an external service that didn&rsquo;t respond quickly enough. Your mileage may vary.</p>
+
+<h2 id="monitoring-503s">Monitoring 503s</h2>
+
+<p>503 errors don&rsquo;t happen within your application, they are reported by the routing mesh. They will not appear in internal monitoring systems attached to your app, including <a href="http://newrelic.com/">NewRelic</a>.</p>
+
+<p>We get the frequency of 503s by sending our Heroku logs to <a href="https://papertrailapp.com/">Papertrail</a> and using their <a href="http://help.papertrailapp.com/kb/how-it-works/alerts">alerts feature</a> to push the number of 503s to <a href="http://www.geckoboard.com/">Geckoboard</a>. You can send these to <a href="http://graphite.wikidot.com/">Graphite</a> or any other monitoring system in the same manner.</p>
+
+<p>This is what it looks like:</p>
+
+<p><img src="/images/2012-11-15-how-to-monitor-503s-and-timeout-on-heroku/503-geckoboard.png"></p>
+
+<h2 id="aborting-requests">Aborting Requests</h2>
+
+<p>When Heroku reports a 503 status code, it just gives up. Your application continues executing the request though, often to completion, which may take forever. In the meantime, Heroku will send a new request to the dyno that&rsquo;s still busy, and get a new 503. This is known as a &ldquo;stuck&rdquo; dyno.</p>
+
+<p>To prevent dynos from being stuck you must abort the request within the 30 second period. This can be accomplished with the <a href="https://github.com/kch/rack-timeout">rack-timeout</a> gem and setting <code>Rack::Timeout.timeout = 29</code> in an initializer (or a smaller value within which you want to guarantee a response). The gem automatically inserts itself into a Rails application, but you will need to manually mount it in other Rack apps, such as those using <a href="https://github.com/intridea/grape">Grape</a>.</p>
+
+<p>``` ruby api.rb
+class Api &lt; Grape::API
+  use Rack::Timeout</p>
+
+<p>desc &ldquo;Returns a reticulated spline.&rdquo;
+  get &ldquo;spline/:id&rdquo;
+    Spline.find(params[:id])
+  end
+end</p>
+
+<pre><code>
+Because your application is now getting a timeout exception, you can also report it in NewRelic. The following works in Grape.
+
+``` ruby
+rescue_from Timeout::Error, :backtrace =&gt; true do |e|
+  NewRelic::Agent.instance.error_collector.notice_error e,
+    uri: request.path,
+    referer: request.referer,
+    request_params: request.params
+  rack_response({
+    :type =&gt; &quot;timeout_error&quot;,
+    :message =&gt; &quot;The request timed out.&quot;
+  }.to_json, 503)
+end
+</code></pre>
+
+<p>Don&rsquo;t forget to write a test!</p>
+
+<p>``` ruby api_spec.rb
+require &lsquo;spec_helper&rsquo;</p>
+
+<p>describe Api do
+  it &ldquo;times out after Rack::Timeout.timeout&rdquo; do
+    Rack::Timeout.stub(:timeout).and_return(1)
+    Spline.stub(:find) { sleep 3 }
+    get &ldquo;/spline/1&rdquo;
+    response.status.should == 503
+    response.body.should == &lsquo;{&ldquo;type&rdquo;:&ldquo;timeout_error&rdquo;,&ldquo;message&rdquo;:&ldquo;The request timed out.&rdquo;}&rsquo;
+  end
+end
+```</p>
+
+<h2 id="fixing-timeouts">Fixing Timeouts</h2>
+
+<p>The root causes of timeouts are specific to your application. Our general approach for long running requests is to offload the request processing into a delayed job or background process and &ldquo;cook&rdquo; data in a way that makes it readily available to API endpoints. You can read more about this and related aspects of our system architecture in <a href="/blog/2012/10/10/artsy-technology-stack/">this earlier blog post</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/">Friendly URLs with Mongoid::Slug</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/10/18/so-you-want-to-do-a-css3-3d-transform/">So you want to do a CSS3 3D transform?</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

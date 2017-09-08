@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meta on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/meta/</link>
+    <description>Recent content in Meta on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Jan 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/meta/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Expectations</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</link>
+      <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</guid>
+      <description>&lt;p&gt;The Artsy engineering team has been moving towards Open Source by Default. In 2015 the Mobile team managed to get there. Since then, we&amp;rsquo;ve been writing up our process on this blog and offering advice to anyone would would ask for it.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been in talks with lots of companies you&amp;rsquo;ve heard of, on the how and the why of this. Recently &lt;a href=&#34;https://ello.co&#34;&gt;Ello&lt;/a&gt; got in touch, and we tried to &lt;a href=&#34;https://en.wikipedia.org/wiki/Dyson_sphere&#34;&gt;capture the process&lt;/a&gt;.  They came out with a great post that I&amp;rsquo;d strongly &lt;a href=&#34;https://ello.co/jayzes/post/tqLL-Z8U8GfbDySRk6wbKg&#34;&gt;recommend reading&lt;/a&gt;. I&amp;rsquo;d like to try and come from the other side, and address what are the questions people ask. Consider this a FAQ for how the mobile team does/got to OSS by default.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publishing on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/publishing/</link>
+    <description>Recent content in Publishing on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/publishing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Making Artsy Editorial Accessible</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/</guid>
+      <description>&lt;p&gt;During Artsy&amp;rsquo;s recent 2017 Hackathon we tackled making all of our editorial content &lt;a href=&#34;https://en.wikipedia.org/wiki/Accessibility&#34;&gt;accessible&lt;/a&gt;. The idea was hatched at  Berlin JSConf this spring, where &lt;a href=&#34;https://youtu.be/H4FzW9oFObs&#34;&gt;Laura Carvajal gave a talk&lt;/a&gt; following the &lt;em&gt;Financial Times&lt;/em&gt;&amp;rsquo; experience implementing better accessibility requirements, and how they built these considerations into their testing process.&lt;/p&gt;
+
+&lt;p&gt;What does accessibility mean in a browser? Generally the term refers to supporting the wide range of assistive technologies for users with vision or motor impairments. These include screen readers, as well as mouseless navigation using a keyboard, eye tracking and other devices. Interestingly these technologies are implemented at the OS level rather than the browser itself. Mac&amp;rsquo;s OS includes a built in screen-reader, and &lt;a href=&#34;http://www.freedomscientific.com/Products/Blindness/JAWS&#34;&gt;JAWS&lt;/a&gt; is the most popular application in this vein. It is also notable that browsers do not track users who employ assistive tools.&lt;/p&gt;
+
+&lt;p&gt;Two users on &lt;a href=&#34;http://webaim.org/discussion/mail_thread?thread=6326&#34;&gt;WebAIM&amp;rsquo;s forum&lt;/a&gt; excellently present the case for accessibility as a developer&amp;rsquo;s responsibility:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Users may be highly resistant to having their disabilities identified as they go throughout the web. Most persons with disabilities would really just rather that &lt;em&gt;the Web just work&lt;/em&gt; for them.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Looking at accessibility as a way to serve a specific population is missing the point that accessibility is about inclusion of all people.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A central tenant of Artsy&amp;rsquo;s mission is to &amp;lsquo;make art as accessible as music&amp;rsquo;. By expanding accessibility for the visually and motor impaired to writing on art and culture, this projects allows us to follow through on this statement in a very literal way. Furthermore, there&amp;rsquo;s no reason to ignore this audience; accommodating use of assistive technologies is an ethically responsible thing to do.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

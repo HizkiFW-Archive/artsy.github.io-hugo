@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Money on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/money/</link>
+    <description>Recent content in Money on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/money/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Artsy&#39;s Engineering Compensation Framework</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/03/artsy-engineering-compensation-framework/</link>
+      <pubDate>Fri, 03 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/03/artsy-engineering-compensation-framework/</guid>
+      <description>&lt;p&gt;Fair compensation is an important part of cultivating and growing engineers, and determining how much money someone is going to make is often more art than science, especially in young start-ups. We wanted this to be a collaborative process and not an adversarial one, and as our engineering team grew past 20 members it became important to think about compensation more systematically.&lt;/p&gt;
+
+&lt;p&gt;In this post I will share our individual contributor engineering ladder and our performance evaluation and compensation process.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

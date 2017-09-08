@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guest on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/guest/</link>
+    <description>Recent content in Guest on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/guest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Relay Mutations</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/26/Relay-Mutations/</link>
+      <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/26/Relay-Mutations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Hey there everyone, it took us two years to &lt;a href=&#34;https://github.com/artsy/metaphysics/pull/583&#34;&gt;make our&lt;/a&gt; GraphQL implementation support any mutations. We opted to keep it read-only for quite a long time because we use GraphQL to consolidate multiple APIs, but as we start new projects as GraphQL + databases then understanding mutations becomes much more important.&lt;/p&gt;
+
+&lt;p&gt;Last month, I talked with the team at &lt;a href=&#34;https://www.graph.cool/&#34;&gt;Graph.cool&lt;/a&gt; about having them talk through Relay mutations comprehensively as a guest post on the Artsy Engineering blog. So, I&amp;rsquo;m really excited to introduce this great post on the topic by &lt;a href=&#34;http://twitter.com/nikolasburk&#34;&gt;Nikolas Burk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Orta&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;the-magic-behind-relay-mutations&#34;&gt;The Magic behind Relay Mutations&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://facebook.github.io/relay/&#34;&gt;Relay&lt;/a&gt; is a powerful GraphQL client for React and React Native applications. It was open sourced by Facebook alongside GraphQL in 2015 and is a great tool for supporting you with managing your app&amp;rsquo;s data layer.&lt;/p&gt;
+
+&lt;p&gt;In this post, we are going to explore how Relay mutations work by looking at a React Native app. The code can be found on &lt;a href=&#34;https://github.com/graphcool-examples/react-native-relay-pokedex-example&#34;&gt;GitHub&lt;/a&gt;. Our sample application is a simple &lt;em&gt;Pokedex&lt;/em&gt;, where users can manage their Pokemons.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/S21GfEo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Note: We&amp;rsquo;re going to assume a basic familiarity with GraphQL in this article. If you haven&amp;rsquo;t heard of GraphQL before, the &lt;a href=&#34;www.graphql.org&#34;&gt;documentation&lt;/a&gt; and the &lt;a href=&#34;http://artsy.github.io/blog/2016/06/19/graphql-for-mobile/&#34;&gt;GraphQL for iOS Developers&lt;/a&gt; post are great places to start. If you&amp;rsquo;re interested in learning more about Relay in general, head over to &lt;a href=&#34;www.learnrelay.org&#34;&gt;Learn Relay&lt;/a&gt; for a comprehensive tutorial.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

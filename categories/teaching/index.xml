@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teaching on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching/</link>
+    <description>Recent content in Teaching on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/teaching/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Three</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson three of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson three and I have a &lt;a href=&#34;https://youtu.be/e2ErzD8ibG8&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Two</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson two of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson two and I have a &lt;a href=&#34;https://youtu.be/EBtzqx1YRBg&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson One</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</guid>
+      <description>&lt;p&gt;Last August, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift. There were two parallel groups of learners: a &amp;ldquo;beginners&amp;rdquo; group who had never coded before, and an &amp;ldquo;informed&amp;rdquo; group who already knew how to code. This year, we&amp;rsquo;re leading the course again with a slight twist: we&amp;rsquo;re repeating the course for absolute beginners, and we&amp;rsquo;re introduce a new course for anyone who completed last year&amp;rsquo;s beginner course.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.&lt;/p&gt;
+
+&lt;p&gt;Today was lesson one of the beginner group, and I have a &lt;a href=&#34;https://youtu.be/OLdSg0XpFqA&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One&#34;&gt;lesson one&amp;rsquo;s material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Public Speaking - Part 2: Where To Start?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</link>
+      <pubDate>Mon, 14 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/14/public-speaking-part2-where-to-start/</guid>
+      <description>&lt;p&gt;So you’ve decided &lt;a href=&#34;http://artsy.github.io/blog/2016/03/09/public-speaking-part1-is-it-for-me/&#34;&gt;you’d like to give speaking a go&lt;/a&gt;, or perhaps you were always interested. By now you’re probably wondering where to start.&lt;/p&gt;
+
+&lt;p&gt;There are various options depending on what you’re looking for. Would you prefer a smaller, intimate audience or would you like to reach far and wide? Is the topic of your choice suited for a quick talk or would you rather discuss it at length? Let’s have a look.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Public Speaking - Part 1: Is It For Me?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</link>
+      <pubDate>Wed, 09 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/09/public-speaking-part1-is-it-for-me/</guid>
+      <description>&lt;p&gt;At Artsy, sharing knowledge is heavily encouraged and so we write our code in the open, document using blog posts, and speak about our experiences. Many have &lt;a href=&#34;https://twitter.com/qnoid/status/702955785064677376&#34;&gt;bumped into us&lt;/a&gt; at various places around the world. And so I often get the question: “How did you get started? I’m interested in speaking too”.&lt;/p&gt;
+
+&lt;p&gt;In the name of sharing experiences with others, I can’t encourage this enough. Unfortunately though, public speaking is still considered &lt;a href=&#34;https://www.washingtonpost.com/news/wonk/wp/2014/10/30/clowns-are-twice-as-scary-to-democrats-as-they-are-to-republicans/&#34;&gt;man’s biggest fear&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’d like to share with you the benefits of public speaking, tips on how to get started, and how to give great presentations.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</link>
+      <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</guid>
+      <description>&lt;p&gt;While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

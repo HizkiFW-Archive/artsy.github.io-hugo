@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Testing with Delayed Jobs // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Testing with Delayed Jobs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/">Testing with Delayed Jobs</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+				
+					<a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+				
+					<a class="post-category post-category-DelayedJob" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/DelayedJob">DelayedJob</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>A mean bug made it into our production environment. It wasn&rsquo;t caught by our extensive test suite and caused thousands of emails to be sent to a handful of people. The root cause was an unfortunate combination of <a href="https://github.com/plataformatec/devise">Devise</a>, <a href="https://github.com/collectiveidea/delayed_job">DelayedJob</a> and, of course, our own code. It was an easy fix, but nobody ever wants this to happen again.</p>
+
+<p>tl;dr DelayedJob says it&rsquo;s possible to set <code>Delayed::Worker.delay_jobs = false</code> for your tests. Don&rsquo;t do it.</p>
+
+<p></p>
+
+<p>Consider the following <code>User</code> model that implements various Devise strategies which support some kind of notification.</p>
+
+<p>``` ruby app/models/user.rb
+class User
+  include Mongoid::Document</p>
+
+<p>devise :database_authenticatable, :registerable, &hellip;</p>
+
+<p>field :notified_at, type: DateTime
+  after_save :notify!, :if =&gt; :notify?</p>
+
+<p>def notify!
+    super
+    update_attributes!({ notified_at: Time.now.utc })
+  end
+end</p>
+
+<pre><code>We are overriding a black box `notify!` method and updating an attribute with a timestamp of the last notification.
+
+Let's write a test.
+
+``` ruby spec/models/user_spec.rb
+describe User do
+
+  subject { User.new }
+
+  context &quot;notification&quot; do
+
+    it &quot;sends one email&quot; do
+      expect {
+        subject.notify!
+      }.to change(ActionMailer::Base.deliveries, :count).by(1)
+    end
+
+    it &quot;updates notified_at&quot; do
+      expect {
+        subject.notify!
+      }.to change(subject, :notified_at)
+    end
+
+  end
+
+end
+</code></pre>
+
+<p>All green. But once this code hit production, <code>notify!</code> was called in an infinite loop. How is that possible?</p>
+
+<p>The call to <code>notify!</code> is delayed using DelayedJob in production and is not delayed in test. It does not work under DelayedJob and will create as many delayed notifications as it possibly can until it runs out of stack space.</p>
+
+<p>As a common pattern in Devise, the implementation of <code>notify!</code> relies on an instance variable to signal that a notification has been sent. Setting the instance variable avoids sending the notification twice for multiple calls to <code>save!</code>. Our <code>after_save</code> callback invokes <code>update_attributes!</code>, which causes another <code>notify!</code> call unless <code>notify?</code> returns <code>false</code>. In a test, the call to <code>super</code> inside <code>notify!</code> will execute the notification (setting the instance variable), but will create a delayed job in production (without setting it).</p>
+
+<p>We&rsquo;ll start by bringing our tests closer to a real production environment by leaving <code>Delayed::Worker.delay_jobs = true</code> and making sure our problem is reproduced with a spec. We could call <code>Delayed::Worker.new.work_off</code> for every test that needs to execute a delayed job, but that would be rather tedious. A better approach may be to register an observer that will execute a delayed job every time one is created. This is similar to a production environment where having enough delayed workers almost guarantees a job is picked up immediately after being scheduled.</p>
+
+<p>``` ruby config/initializers/delayed_job_observer.rb
+class DelayedJobObserver &lt; Mongoid::Observer
+  observe Delayed::Job</p>
+
+<p>class &lt;&lt; self
+    attr_accessor :runs
+  end</p>
+
+<p>def after_create(delayed_job)
+    delayed_job.invoke_job
+    DelayedJobObserver.runs += 1
+  end
+end</p>
+
+<p>DelayedJobObserver.runs = 0</p>
+
+<pre><code>
+The complete code, which handles a few more cases, including enabling and disabling the observer, and counting successful runs and errors can be found in [this gist](https://gist.github.com/3370052). Please help us improve it.
+
+We can now test our notification without compromising on the delayed nature of the job and add a test making sure we create a single delayed job from a call to `notify!`.
+
+``` ruby spec/models/user_spec.rb
+describe User do
+
+  subject { User.new }
+
+  context &quot;notification&quot; do
+
+    it &quot;creates one delayed job&quot; do
+      expect {
+        subject.notify!
+      }.to change(DelayedJobObserver, :runs).by(1)
+    end
+
+  end
+
+end
+</code></pre>
+
+<p>This test will also run for a long time before failing with a stack overflow error. Our fix was not to call <code>notify!</code> from an <code>after_save</code> callback.</p>
+
+<p>We&rsquo;ve suggested that immediate execution using an observer becomes a feature in DelayedJob in <a href="https://github.com/collectiveidea/delayed_job/issues/423">#423</a>. Please add your comments.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/09/12/how-artsy-builds-experiments-labs-and-easter-eggs/">How Artsy Builds Labs, Experiments and Easter Eggs</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/08/14/on-objective-c-code-standards/">On Our Objective-C Code Standards</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

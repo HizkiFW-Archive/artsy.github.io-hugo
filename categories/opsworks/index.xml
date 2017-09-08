@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opsworks on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/opsworks/</link>
+    <description>Recent content in Opsworks on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Aug 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/opsworks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction to AWS OpsWorks</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/</link>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/</guid>
+      <description>&lt;p&gt;OpsWorks is a new service from Amazon that promises to provide high-level tools to manage your EC2-based deployment. From &lt;a href=&#34;http://aws.typepad.com/aws/2013/02/aws-opsworks-flexible-application-management-in-the-cloud.html&#34;&gt;the announcement&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;AWS OpsWorks features an integrated management experience for the entire application lifecycle including resource provisioning, configuration management, application deployment, monitoring, and access control. It will work with applications of any level of complexity and is independent of any particular architectural pattern.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After scratching our heads about exactly what that meant, we tried it anyway. If you&amp;rsquo;ve been straining at the limits of your Platform as a Service (PaaS) provider, or just wishing for more automation for your EC2 deployment, you may want to try it out too.&lt;/p&gt;
+
+&lt;p&gt;Artsy has been experimenting with OpsWorks for a few months now and recently adopted it for the production &lt;a href=&#34;http://artsy.net&#34;&gt;artsy.net&lt;/a&gt; site. We&amp;rsquo;re excited to share what we&amp;rsquo;ve learned in the process.&lt;/p&gt;
+
+&lt;p&gt;{% include expanded_img.html url=&amp;ldquo;/images/2013-08-27-introduction-to-aws-opsworks/opsworks.png&amp;rdquo; title=&amp;ldquo;OpsWorks overview&amp;rdquo; %}&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

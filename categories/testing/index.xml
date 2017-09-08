@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/testing/</link>
+    <description>Recent content in Testing on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Splitting up a large test suite</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</guid>
+      <description>&lt;p&gt;A while back, we wrote about &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/&#34;&gt;How to Run RSpec Test Suites in Parallel with Jenkins CI Build Flow&lt;/a&gt;. A version of that still handles our largest test suite, but over time the initial division of specs became unbalanced. We ended up with some tasks that took twice as long as others. Even worse, in an attempt to rebalance task times, we ended up with awkward file patterns like &lt;code&gt;&#39;spec/api/**/[a-m]*_spec.rb&#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To keep our parallel spec tasks approximately equal in size and to support arbitrary concurrency, we&amp;rsquo;ve added a new &lt;code&gt;spec:sliced&lt;/code&gt; task:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Releasecop Tracks Stale Releases</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</guid>
+      <description>&lt;p&gt;Artsy practices a sort of &lt;a href=&#34;http://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;continuous delivery&lt;/a&gt;. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices &lt;a href=&#34;http://artsy.github.io/blog/categories/testing/&#34;&gt;multiple&lt;/a&gt; &lt;a href=&#34;http://artsy.github.io/blog/categories/continuous-integration&#34;&gt;times&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From developers&amp;rsquo; working branches&lt;/li&gt;
+&lt;li&gt;To the master branch&lt;/li&gt;
+&lt;li&gt;Through a hopefully-successful build&lt;/li&gt;
+&lt;li&gt;To a staging environment&lt;/li&gt;
+&lt;li&gt;To production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The number of apps and services we deploy has grown to &lt;em&gt;dozens&lt;/em&gt; per team, so sometimes things fall through the cracks. We&amp;rsquo;ve been using &lt;a href=&#34;https://github.com/joeyAghion/releasecop&#34;&gt;Releasecop&lt;/a&gt; for the last few months to get gentle email reminders when an environment could use a deploy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How To Write Unit Tests Like a Brood Parasite</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</link>
+      <pubDate>Mon, 06 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</guid>
+      <description>&lt;p&gt;To a beginner, &lt;a href=&#34;http://ocmock.org/&#34;&gt;OCMock&lt;/a&gt; looks scary. The syntax is strange, the idea of stubbing seems complicated, and skirting around the need to use it at all times kind of works out for a while.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[[mock stub] // three brackets!!
+
+[OCMockObject niceMockForClass:UINavigationItem.class]; // it has to be told to be nice?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All of this can be overwhelming for someone who just wants to write simple unit tests for a particular view controller.&lt;/p&gt;
+
+&lt;p&gt;Once you look into the specifics of OCMock, however, things get less terrifying really quickly. It is helpful to compare OCMock’s approach to stubbing to the &lt;a href=&#34;https://vimeo.com/60553870&#34;&gt;behaviors of certain bird species&lt;/a&gt;. As always, the soothing voice of David Attenborough brings clarity and joy to even the most mundane puzzles of life’s journey.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using CocoaPods Caching with Travis CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</link>
+      <pubDate>Fri, 08 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</guid>
+      <description>&lt;p&gt;As &lt;a href=&#34;http://artsy.github.io/blog/2014/08/07/taking-a-snapshot-with-second-curtain/&#34;&gt;Ash said earlier&lt;/a&gt; we like using Continuous Integration. Today I spent a large amount of time migrating us to use the new CocoaPods caching system in Travis CI. To make up for my lost time I&amp;rsquo;m passing on what I&amp;rsquo;ve learned and also showing how we do CI at Artsy with Objective-C apps. If you&amp;rsquo;re interested in how we do it in Swift, you can just check &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Taking a Snapshot with Second Curtain</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</link>
+      <pubDate>Mon, 04 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</guid>
+      <description>&lt;p&gt;At Artsy, we try hard to &lt;a href=&#34;https://speakerdeck.com/orta/getting-eigen-out?slide=35&#34;&gt;test&lt;/a&gt;
+our iOS applications to ensure that we avoid regressions and have a clearly
+defined spec of how our apps should look and behave. One of the core pieces of
+our testing setup is &lt;a href=&#34;https://github.com/facebook/ios-snapshot-test-case&#34;&gt;FBSnapshotTestCase&lt;/a&gt;,
+a library written by Facebook to compare views at runtime with images of those
+views that are known to be correct. If the images differ, the test fails. We
+also use &lt;a href=&#34;https://travis-ci.org&#34;&gt;Travis&lt;/a&gt; for continuous integration.&lt;/p&gt;
+
+&lt;p&gt;Lately, we&amp;rsquo;ve been noticing a friction between the developers on the iOS team
+and the tools we&amp;rsquo;re using to test our apps: while Travis allows us to easily
+access the logs of test runs, it can only indicate that a snapshot test failed,
+not why it failed. That&amp;rsquo;s because the images that are compared are locked on
+Travis&amp;rsquo; machine – we cannot access those images, so we can&amp;rsquo;t see the
+differences. This is &lt;em&gt;really&lt;/em&gt; promblematic when the tests pass locally but fail
+only on Travis.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s first closed source Pod</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</link>
+      <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/</guid>
+      <description>&lt;p&gt;When I joined Artsy, &lt;a href=&#34;http://code.dblock.org&#34;&gt;dB&lt;/a&gt; pitched me this idea: &lt;em&gt;Open source as default.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I took this to heart. I genuinely believe the idea behind the philosophy. It&amp;rsquo;s cool that our real product isn&amp;rsquo;t our implementations on the web or native but the data which powers it - &lt;a href=&#34;https://artsy.net/theartgenomeproject&#34;&gt;the Art Genome Project&lt;/a&gt;. Similarly, I spend a bunch of time &lt;a href=&#34;https://github.com/AshFurrow/ARCollectionViewMasonryLayout&#34;&gt;on&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ARASCIISwizzle&#34;&gt;open&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ios-snapshot-test-case-expecta&#34;&gt;sourcing&lt;/a&gt; &lt;a href=&#34;https://github.com/dblock/ARTiledImageView&#34;&gt;solid&lt;/a&gt; &lt;a href=&#34;https://github.com/dstnbrkr/DRBOperationTree&#34;&gt;abstractions&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ORSimulatorKeyboardAccessor&#34;&gt;from&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ORStackView&#34;&gt;our&lt;/a&gt; &lt;a href=&#34;https://github.com/orta/ARAnalytics&#34;&gt;apps&lt;/a&gt;, always taking the opinion if something is used in more than one place, it should be open sourced.&lt;/p&gt;
+
+&lt;p&gt;This week I pushed some libraries that were a bit different, read on to find out why.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building the Xcode Plugin Snapshots</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</link>
+      <pubDate>Tue, 17 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m the kind of guy who thinks better tooling means better outcomes. But when good tooling isn&amp;rsquo;t available, it&amp;rsquo;s time to build it yourself. It&amp;rsquo;s this attitude that lead to my work on &lt;a href=&#34;http://cocoadocs.org&#34;&gt;CocoaDocs.org&lt;/a&gt;, and then to &lt;a href=&#34;http://cocoapods.org&#34;&gt;CocoaPods.org&lt;/a&gt; &amp;amp; its documentation.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been trying to apply this to testing, and in order to pull this off I&amp;rsquo;ve had to extend Xcode to show off the results of failing tests in a more visual way. To that end, I&amp;rsquo;ve extended Xcode to show the results of failing &lt;a href=&#34;https://github.com/facebook/ios-snapshot-test-case&#34;&gt;view tests&lt;/a&gt; in a more visual way by building &lt;a href=&#34;https://github.com/orta/snapshots&#34;&gt;Snapshots for Xcode&lt;/a&gt;.  Let&amp;rsquo;s go through the process of building an Xcode plugin so you can do this too. Screw stability.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Testing Core Data Migrations</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/11/testing-core-data-migrations/</link>
+      <pubDate>Wed, 11 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/06/11/testing-core-data-migrations/</guid>
+      <description>&lt;p&gt;The first time I released a patch release for &lt;a href=&#34;http://orta.github.io/#folio-header-unit&#34;&gt;Artsy Folio&lt;/a&gt; it crashed instantly, on every install. Turns out I didn&amp;rsquo;t understand Core Data migrations, now a few years on I grok it better but I&amp;rsquo;ve still lived with the memories of that dark dark day. Because of this I&amp;rsquo;ve had an informal rule of testing migrations with all the old build of Folio &lt;a href=&#34;http://artsy.github.io/blog/2013/03/29/musical-chairs/&#34;&gt;using chairs&lt;/a&gt; the day before submitting to the app store.&lt;/p&gt;
+
+&lt;p&gt;This time round, I&amp;rsquo;ve made vast changes to the Core Data models but skipped the manual work. Here&amp;rsquo;s how:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Continuous integration for service-oriented architectures</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/</guid>
+      <description>&lt;p&gt;Whatever you have against monolithic architectures, at least they&amp;rsquo;re easy to test. And when those tests succeed, you can be reasonably confident the live app will work the same way.&lt;/p&gt;
+
+&lt;p&gt;Artsy began as one such monolithic app, but we&amp;rsquo;ve been refactoring into an ecosystem of related APIs and sites. Today, when you search for &lt;a href=&#34;https://artsy.net/gene/cultural-commentary&#34;&gt;&amp;ldquo;cultural commentary&amp;rdquo;&lt;/a&gt; or visit &lt;a href=&#34;https://artsy.net/artist/robert-longo&#34;&gt;Robert Longo&lt;/a&gt; on &lt;a href=&#34;https://artsy.net&#34;&gt;artsy.net&lt;/a&gt;, the page is rendered by a web app, sources data from an API, retrieves recommendations from a separate service, tracks trends in another, and records analytics in yet another.&lt;/p&gt;
+
+&lt;p&gt;This was a boost for developer productivity and scaling, but eviscerated the value of our tests. We repeatedly encountered bugs that were failings of &lt;em&gt;the interaction between codebases&lt;/em&gt; rather than failings of individual ones. Test libraries and tools typically concern themselves with one isolated app. When you have services that consume services that consume services, those isolated tests (with their stubs of everything else) don&amp;rsquo;t necessarily reflect production&amp;rsquo;s reality.&lt;/p&gt;
+
+&lt;p&gt;So how should we develop our small, focused apps (or &lt;a href=&#34;http://en.wikipedia.org/wiki/Service-oriented_architecture&#34;&gt;service-oriented architecture&lt;/a&gt;, or &lt;a href=&#34;http://martinfowler.com/articles/microservices.html&#34;&gt;microservices&lt;/a&gt;&amp;hellip;) with confidence? We set out to build a dedicated acceptance test suite that would run tests across multiple services, configuring and integrating them in a way that closely matches the production environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Isolating Spurious and Nondeterministic Tests</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/</link>
+      <pubDate>Thu, 30 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/</guid>
+      <description>&lt;p&gt;Testing is a critical part of our workflow at &lt;a href=&#34;https://artsy.net&#34;&gt;Artsy&lt;/a&gt;. It gives us confidence to make regular, aggressive enhancements. But anyone who has worked with a large, complex test suite has struggled with occasional failures that are difficult to reproduce or fix.&lt;/p&gt;
+
+&lt;p&gt;These failures might be due to slight timing differences or lack of proper isolation between tests. Integration tests are particularly thorny, since problems can originate not only in application code, but in the browser, testing tools (e.g., &lt;a href=&#34;http://docs.seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt;), database, network, or external APIs and dependencies.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-quarantine&#34;&gt;The Quarantine&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been &lt;a href=&#34;http://artsy.github.io/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/&#34;&gt;automatically retrying failed tests&lt;/a&gt;, with some success. However, these problems tend to get worse. (If you have 10 tests that each have a 1% chance of failing, roughly 1 in 10 builds will fail. If you have 50, 4 in 10 builds will fail.)&lt;/p&gt;
+
+&lt;p&gt;Martin Fowler offers the most compelling thoughts on this topic in &lt;a href=&#34;http://martinfowler.com/articles/nonDeterminism.html&#34;&gt;Eradicating Non-Determinism in Tests&lt;/a&gt;. (Read it, really.) He suggests quarantining problematic tests in a separate suite, so they don&amp;rsquo;t block the build pipeline.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Writing Headless Backbone Tests With Node.js</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/</link>
+      <pubDate>Fri, 14 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/</guid>
+      <description>&lt;h2 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h2&gt;
+
+&lt;p&gt;Write fast, headless, tests for Backbone using Node.js. See this project as an example  &lt;a href=&#34;https://github.com/craigspaeth/backbone-headless-testing&#34;&gt;https://github.com/craigspaeth/backbone-headless-testing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-brief-history&#34;&gt;A Brief History&lt;/h2&gt;
+
+&lt;p&gt;Artsy is mostly a thick client &lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone&lt;/a&gt; app that sits on &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Rails&lt;/a&gt; and largely depends on &lt;a href=&#34;http://jnicklas.github.io/capybara/&#34;&gt;Capybara&lt;/a&gt; (&lt;a href=&#34;http://docs.seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt; backed bot that clicks around Firefox) for testing it&amp;rsquo;s javascript. This leads to some seriously brittle and slow integration tests. &lt;a href=&#34;http://artsy.github.io/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/&#34;&gt;Despite being able to wrangle Capybara&lt;/a&gt; to do most of our client-side testing, we knew there must be a better way.&lt;/p&gt;
+
+&lt;p&gt;When building a CMS app for our gallery partners to manage their Artsy inventory, we built a new Backbone app on top of &lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt;. The result was a headless test suite that runs around 60 times faster.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at how it&amp;rsquo;s done.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Run RSpec Test Suites in Parallel with JenkinsCI Build Flow</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/</link>
+      <pubDate>Tue, 09 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/</guid>
+      <description>&lt;p&gt;We now have over 4700 RSpec examples in one of our projects. They are stable, using the techniques described in an &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/&#34;&gt;earlier post&lt;/a&gt; and organized in &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/&#34;&gt;suites&lt;/a&gt;. But they now take almost 3 hours to run, which is clearly unacceptable.&lt;/p&gt;
+
+&lt;p&gt;To solve this, we have parallelized parts of the process with existing tools, and can turn a build around in just under an hour. This post will dive into our &lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt; build flow setup.&lt;/p&gt;
+
+&lt;p&gt;To keep things simple, we&amp;rsquo;re going to only build the &lt;code&gt;master&lt;/code&gt; branch. When a change is committed on &lt;code&gt;master&lt;/code&gt; we&amp;rsquo;re going to push &lt;code&gt;master&lt;/code&gt; to a &lt;code&gt;master-ci&lt;/code&gt; branch and trigger a distributed build on &lt;code&gt;master-ci&lt;/code&gt;. Once all the parts have finished, we&amp;rsquo;ll complete the build by pushing &lt;code&gt;master-ci&lt;/code&gt; to &lt;code&gt;master-succeeded&lt;/code&gt; and notify the dev team of success or failure.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a diagram of what&amp;rsquo;s going on.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-10-09-how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/master-ci.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Testing with Delayed Jobs</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/</guid>
+      <description>&lt;p&gt;A mean bug made it into our production environment. It wasn&amp;rsquo;t caught by our extensive test suite and caused thousands of emails to be sent to a handful of people. The root cause was an unfortunate combination of &lt;a href=&#34;https://github.com/plataformatec/devise&#34;&gt;Devise&lt;/a&gt;, &lt;a href=&#34;https://github.com/collectiveidea/delayed_job&#34;&gt;DelayedJob&lt;/a&gt; and, of course, our own code. It was an easy fix, but nobody ever wants this to happen again.&lt;/p&gt;
+
+&lt;p&gt;tl;dr DelayedJob says it&amp;rsquo;s possible to set &lt;code&gt;Delayed::Worker.delay_jobs = false&lt;/code&gt; for your tests. Don&amp;rsquo;t do it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On-Demand Jenkins Slaves with Amazon EC2</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/</link>
+      <pubDate>Tue, 10 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://artsy.net&#34;&gt;Artsy&lt;/a&gt; team faithfully uses &lt;a href=&#34;http://jenkins-ci.org&#34;&gt;Jenkins&lt;/a&gt; for continuous integration. &lt;a href=&#34;http://artsy.github.com/blog/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/&#34;&gt;As we&amp;rsquo;ve described before&lt;/a&gt;, our Jenkins master and 8 slaves run on Linode. This arrangement has at least a few drawbacks:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Our Linode servers are manually configured. They require frequent maintenance, and inconsistencies lead to surprising build failures.&lt;/li&gt;
+&lt;li&gt;The fixed set of slaves don&amp;rsquo;t match the pattern of our build jobs: jobs get backed up during the day, but servers are mostly unused overnight and on weekends.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin&#34;&gt;Amazon EC2 Plugin&lt;/a&gt; allowed us to replace those slaves with a totally scripted environment. Now, slaves are spun up in the cloud whenever build jobs need them.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Jenkins for Ruby and Ruby-on-Rails Teams</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/</link>
+      <pubDate>Sun, 27 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://jenkins-ci.org&#34;&gt;Jenkins CI&lt;/a&gt; project has grown tremendously in the past few months. There&amp;rsquo;re now hundreds of plugins and an amazing engaged community. Artsy is a happy user and proud contributor to this effort with the essential &lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/AnsiColor+Plugin&#34;&gt;jenkins-ansicolor plugin&lt;/a&gt;, eliminating boring console output since 2011.&lt;/p&gt;
+
+&lt;p&gt;We are a continuous integration, deployment and devops shop and have been using Jenkins for over a year now. We&amp;rsquo;ve shared our experience at the &lt;a href=&#34;http://www.cloudbees.com/juc2012.cb&#34;&gt;Jenkins User Conference 2012&lt;/a&gt; in &lt;a href=&#34;http://www.slideshare.net/dblockdotorg/graduating-to-jenkins-ci-for-rubyonrails-teams&#34;&gt;a presentation&lt;/a&gt;. This blog post is an overview of how to get started with Jenkins for Ruby(-on-Rails) teams.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;Artsy Jenkins CI&#34; alt=&#34;/images/2012-05-27-using-jenkins-for-ruby-on-rails-teams/jenkins.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Organize Over 3000 RSpec Specs and Retry Test Failures</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/</link>
+      <pubDate>Tue, 15 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/</guid>
+      <description>&lt;p&gt;Having over three thousand RSpec tests in a single project has become difficult to manage. We chose to organize these into suites, somewhat mimicking our directory structure. And while we succeeded at making our Capybara integration tests more reliable (see &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/&#34;&gt;Reliably Testing Asynchronous UI with RSpec and Capybara&lt;/a&gt;), they continue relying on finicky timeouts. To avoid too many false positives we&amp;rsquo;ve put together a system to retry failed tests. We know that a spec that fails twice in a row is definitely not a fluke!&lt;/p&gt;
+
+&lt;p&gt;Create a new Rake file in &lt;code&gt;lib/tasks/test_suites.rake&lt;/code&gt; and declare an array of test suites.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Reliably Testing Asynchronous UI w/ RSpec and Capybara</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/</guid>
+      <description>&lt;p&gt;tl;dr - You can write 632 rock solid UI tests with Capybara and RSpec, too.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;Miami Weather in NYC&#34; alt=&#34;/images/2012-02-03-reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/jenkins-ci.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We have exactly 231 integration tests and 401 view tests out of a total of 3086 in our core application today. This adds up to 632 tests that exercise UI. The vast majority use &lt;a href=&#34;http://rspec.info/&#34;&gt;RSpec&lt;/a&gt; with &lt;a href=&#34;https://github.com/jnicklas/capybara&#34;&gt;Capybara&lt;/a&gt; and &lt;a href=&#34;http://seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt;. This means that every time the suite runs we set up real data in a local MongoDB and use a real browser to hit a fully running local application, 632 times. The suite currently takes 45 minutes to run headless on a slow Linode, UI tests taking more than half the time.&lt;/p&gt;
+
+&lt;p&gt;While the site is in private beta, you can get a glimpse of the complexity of the UI from the &lt;a href=&#34;http://artsy.net&#34;&gt;splash page&lt;/a&gt;. It&amp;rsquo;s a rich client-side Javascript application that talks to an API. You can open your browser&amp;rsquo;s developer tools and watch a combination of API calls and many asynchronous events.&lt;/p&gt;
+
+&lt;p&gt;Keeping the UI tests reliable is notoriously difficult. For the longest time we felt depressed under the Pacific Northwest -like weather of our Jenkins CI and blamed every possible combination of code and infrastructure for the many intermittent failures. We&amp;rsquo;ve gone on sprees of marking many such tests &amp;ldquo;pending&amp;rdquo; too.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve learned a lot and stabilized our test suite. This is how we do UI testing.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

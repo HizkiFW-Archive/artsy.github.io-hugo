@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/shell/</link>
+    <description>Recent content in Shell on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Feb 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Master the Heroku CLI with Heroku Commander</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/01/master-heroku-command-line-with-heroku-commander/</link>
+      <pubDate>Fri, 01 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/02/01/master-heroku-command-line-with-heroku-commander/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-02-01-master-heroku-command-line-with-heroku-commander/heroku-commander.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Heroku users frequently run the &lt;strong&gt;heroku&lt;/strong&gt; command-line tool that ships with the &lt;a href=&#34;https://toolbelt.heroku.com/&#34;&gt;Heroku Toolbelt&lt;/a&gt;. It has two very convenient features: it will remember API credentials and default to the &amp;ldquo;heroku&amp;rdquo; GIT remote to figure out the application to connect to. Neither of these features are available in the Heroku client API, so it&amp;rsquo;s not unusual to find developers invoke the Heroku CLI from Rake tasks and other automation scripts.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;re several problems with using the Heroku CLI for automation:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The exit code from &lt;code&gt;heroku run&lt;/code&gt; is not the exit code from the process being run on Heroku. See &lt;a href=&#34;https://github.com/heroku/heroku/issues/186&#34;&gt;#186&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Gathering console output from &lt;code&gt;heroku run:detached&lt;/code&gt; requires an external &lt;code&gt;heroku logs --tail&lt;/code&gt; process that will never finish.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://github.com/dblock/heroku-commander&#34;&gt;heroku-commander&lt;/a&gt; gem wraps execution of the Heroku CLI to overcome these common limitations.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Create MongoDB Command-Lines from Mongoid Configuration</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/</link>
+      <pubDate>Thu, 31 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/31/create-mongodb-command-lines-with-mongo/</guid>
+      <description>&lt;p&gt;We use MongoDB as our primary store and have built a healthy amount of automation around various database instances and operational environments. For example, we backup databases to S3 using &lt;code&gt;mongodump&lt;/code&gt;, mirror data between instances with &lt;code&gt;mongorestore&lt;/code&gt; and often need to open a MongoDB shell with &lt;code&gt;mongo&lt;/code&gt; to examine data at the lowest level.&lt;/p&gt;
+
+&lt;p&gt;Generating MongoDB command-lines is tedious and error-prone. Introducing a new gem called &lt;a href=&#34;https://github.com/dblock/mongoid-shell&#34;&gt;mongoid-shell&lt;/a&gt; to help with this. The library can generate command-lines for various MongoDB shell tools from your Mongoid configuration.&lt;/p&gt;
+
+&lt;p&gt;For example, connect to your production MongoDB instance from a &lt;code&gt;db:production:shell&lt;/code&gt; Rake task.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;namespace :db
+  namespace :production
+    task :shell
+      Mongoid.load! &amp;quot;mongoid.yml&amp;quot;, :production
+      system Mongoid::Shell::Commands::Mongo.new.to_s
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

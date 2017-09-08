@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Isolating Spurious and Nondeterministic Tests // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="[joey frank]">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Isolating Spurious and Nondeterministic Tests" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#the-quarantine">The Quarantine</a></li>
+<li><a href="#setting-it-up">Setting it up</a></li>
+<li><a href="#bonus-limiting-quarantined-tests">Bonus: Limiting quarantined tests</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/">Isolating Spurious and Nondeterministic Tests</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">[joey frank]</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+				
+					<a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+				
+					<a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Testing is a critical part of our workflow at <a href="https://artsy.net">Artsy</a>. It gives us confidence to make regular, aggressive enhancements. But anyone who has worked with a large, complex test suite has struggled with occasional failures that are difficult to reproduce or fix.</p>
+
+<p>These failures might be due to slight timing differences or lack of proper isolation between tests. Integration tests are particularly thorny, since problems can originate not only in application code, but in the browser, testing tools (e.g., <a href="http://docs.seleniumhq.org/">Selenium</a>), database, network, or external APIs and dependencies.</p>
+
+<h2 id="the-quarantine">The Quarantine</h2>
+
+<p>We&rsquo;ve been <a href="http://artsy.github.io/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">automatically retrying failed tests</a>, with some success. However, these problems tend to get worse. (If you have 10 tests that each have a 1% chance of failing, roughly 1 in 10 builds will fail. If you have 50, 4 in 10 builds will fail.)</p>
+
+<p>Martin Fowler offers the most compelling thoughts on this topic in <a href="http://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests</a>. (Read it, really.) He suggests quarantining problematic tests in a separate suite, so they don&rsquo;t block the build pipeline.</p>
+
+<p></p>
+
+<h2 id="setting-it-up">Setting it up</h2>
+
+<p>This turned out to be pretty easy to set up, using our preferred tools of <a href="https://relishapp.com/rspec">RSpec</a> and <a href="http://travis-ci.com/">Travis</a>. First, tag a problem test with <code>spurious</code>:</p>
+
+<pre><code>it 'performs tricky browser interaction', spurious: true do
+  ...
+end
+</code></pre>
+
+<p>Your continuous integration script can exclude the tagged tests as follows:</p>
+
+<pre><code>bundle exec rspec --tag ~spurious
+</code></pre>
+
+<p>We&rsquo;d like to be aware of spurious failures, but not allow them to fail the build. In our app&rsquo;s <code>.travis.yml</code> file, this is as simple as adding a script entry that always exits with <code>0</code> status:</p>
+
+<pre><code>language: ruby
+rvm:
+  - 1.9.3
+script:
+  - &quot;bundle exec rspec --tag ~spurious&quot;
+  - &quot;bundle exec rspec --tag spurious || true&quot;
+</code></pre>
+
+<p>We&rsquo;ll see any spurious failures in the build&rsquo;s output, but our pipeline won&rsquo;t be affected.</p>
+
+<h2 id="bonus-limiting-quarantined-tests">Bonus: Limiting quarantined tests</h2>
+
+<p>So, what prevents the quarantine from getting larger and larger, while the test suite gets weaker and weaker? Fowler <a href="http://martinfowler.com/articles/nonDeterminism.html#Quarantine">recommends</a> enforcing a limit on the number of quarantined tests (e.g., 8).</p>
+
+<p>We can even trigger a build failure if the limit is exceeded. This <code>.travis.yml</code> writes the spurious suite&rsquo;s abbreviated output to a file, then asserts that the summary mentions no more than &ldquo;8 examples&rdquo;:</p>
+
+<pre><code>language: ruby
+rvm:
+  - 1.9.3
+script:
+  - &quot;bundle exec rspec --tag ~spurious&quot;
+  - &quot;bundle exec rspec --tag spurious --format documentation --format progress --out spurious.out || true&quot;
+  - &quot;[[ $(grep -oE '^\d+' spurious.out) -le 8 ]]&quot;
+</code></pre>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The quarantine is no excuse to create tests that fail under realistic conditions. It&rsquo;s simply a framework for recognizing and, eventually, fixing or eliminating the problematic tests that inevitably crop up in a complex environment.</p>
+
+<p>Hopefully, our experiment is useful to other teams struggling with unreliable builds. Share any feedback in the comments!</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2014/03/17/some-tips-for-email-layout-and-responsiveness/">Some Tips for Email Layout and Responsiveness</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/">Rendering on the Server and Client in Node.js</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

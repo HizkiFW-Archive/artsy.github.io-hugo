@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Bringing Artsy to Google Assistant &#34;Home&#34; with Actions // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Bringing Artsy to Google Assistant &#34;Home&#34; with Actions" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#conversation-actions">Conversation Actions</a></li>
+<li><a href="#actions-sdk">Actions SDK</a></li>
+<li><a href="#actions-server">Actions Server</a></li>
+<li><a href="#local-simulator">Local Simulator</a></li>
+<li><a href="#certification">Certification</a>
+<ul>
+<li><a href="#fulfillment-endpoint">Fulfillment Endpoint</a></li>
+<li><a href="#google-actions-api-project">Google Actions API Project</a></li>
+<li><a href="#deploy-action">Deploy Action</a></li>
+</ul></li>
+<li><a href="#help">Help</a></li>
+<li><a href="#code">Code</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/">Bringing Artsy to Google Assistant &#34;Home&#34; with Actions</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Google-Home" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Google-Home">Google Home</a>
+				
+					<a class="post-category post-category-Google-Assistant" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Google-Assistant">Google Assistant</a>
+				
+					<a class="post-category post-category-Google-Actions" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Google-Actions">Google Actions</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Last month we <a href="/blog/2016/11/30/bringing-artsy-to-amazon-echo-alexa/">brought Artsy to Amazon Alexa</a>. In this post we&rsquo;ll repeat that process and enable Artsy for Google Assistant, including Google Home.</p>
+
+<p>tl;dr You can try Artsy on your Google Home now, say &ldquo;Ok Google, talk to Artsy&rdquo; or see <a href="http://assistant.artsy.net">assistant.artsy.net</a> for more info.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i9EpF18xZqQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<p></p>
+
+<h3 id="conversation-actions">Conversation Actions</h3>
+
+<p>Actions are two-way dialogs with users. A user invokes an action, which calls so-called <em>fulfillment</em> code - a REST endpoint.</p>
+
+<p>If you&rsquo;ve never worked with Google Actions, read the <a href="https://developers.google.com/actions/develop/conversation">conversation actions intro</a>.</p>
+
+<h3 id="actions-sdk">Actions SDK</h3>
+
+<p>To write an action get the <a href="https://developers.google.com/actions/develop/sdk/getting-started">actions SDK</a>, which is a node.js client library, describe the actions in JSON and use a command-line tool called <code>gactions</code> or a web simulator to invoke the action code.</p>
+
+<h3 id="actions-server">Actions Server</h3>
+
+<p>The actions SDK can be called from any node.js application, or with some help from <a href="https://github.com/manekinekko/google-actions-server">google-actions-server</a> (GAS) via boilerplate code in the <a href="https://github.com/manekinekko/google-actions-starter">google-actions-starter</a> library.</p>
+
+<p>An <code>action.json</code> that describes the actions, including the invocation trigger for each action and the text-to-speech voice for the agent to use.</p>
+
+<pre><code class="language-json">{
+  &quot;versionLabel&quot;: &quot;1.0.0&quot;,
+  &quot;agentInfo&quot;: {
+    &quot;languageCode&quot;: &quot;en-US&quot;,
+    &quot;projectId&quot;: &quot;biesenbach-one&quot;,
+    &quot;invocationNames&quot;: [&quot;artsy&quot;],
+    &quot;voiceName&quot;: &quot;female_1&quot;
+  },
+  &quot;actions&quot;: [{
+    &quot;initialTrigger&quot;: {
+      &quot;intent&quot;: &quot;assistant.intent.action.MAIN&quot;
+    },
+    &quot;httpExecution&quot;: {
+      &quot;url&quot;: &quot;https://biesenbach-one.appspot-preview.com&quot;
+    }
+  }]
+}
+</code></pre>
+
+<p>The action implementation lives in <code>lib/action.js</code> that imports and creates a new instance of <code>google-actions-server</code>, binds intents to functions and issues questions with <code>agent.ask</code> or sends final responses with <code>assistant.tell</code>.</p>
+
+<pre><code class="language-js">import { ActionServer } from '@manekinekko/google-actions-server';
+
+class ArtsyAction {
+  constructor() {
+    this.agent = new ActionServer();
+
+    this.agent.setGreetings([
+      `What is the name of the artist you would like to hear about?`
+    ]);
+  }
+
+  welcomeIntent(assistant) {
+    return this.agent.randomGreeting();
+  }
+
+  textIntent(assistant) {
+    var query = assistant.getRawInput();
+
+    // TODO: respond to a query
+
+    assistant.tell('You said ' + query + '.');
+  }
+
+  listen() {
+    // the welcome intent is invoked when the user says &quot;talk to Artsy&quot;
+    this.agent.welcome(this.welcomeIntent.bind(this));
+    // the text action is invoked for any spoken text
+    this.agent.intent(ActionServer.intent.action.TEXT, this.textIntent.bind(this));
+    return this.agent.listen();
+  }
+}
+
+module.exports = (new ArtsyAction()).listen();
+</code></pre>
+
+<p>With tests.</p>
+
+<pre><code>let request = require('supertest')
+
+describe('Artsy', () =&gt; {
+  let action;
+
+  beforeEach(() =&gt; {
+    action = require('../action');
+  });
+
+  afterEach(() =&gt; {
+    action.close();
+  });
+
+  it('asks the name of the artist when launched', () =&gt; {
+    return request(action)
+      .post('/')
+      .send({
+        inputs: [{
+          intent: 'assistant.intent.action.MAIN',
+          raw_inputs: [{
+            input_type: 2,
+            query: &quot;OK Google, talk to Artsy.&quot;
+          }]
+        }]
+      })
+      .expect(200).then((response) =&gt; {
+        var ssml = response.body.expected_inputs[0].input_prompt.initial_prompts[0].ssml;
+        expect(ssml).to.eql(`What is the name of the artist you would like to hear about?`);
+      });
+  });
+
+  it('repeats a query', () =&gt; {
+    return request(action)
+      .post('/')
+      .send({
+        inputs: [{
+          intent: 'assistant.intent.action.TEXT',
+          raw_inputs: [{
+            input_type: 2,
+            query: &quot;hello world&quot;
+          }],
+          arguments: []
+        }]
+      })
+      .expect(200).then((response) =&gt; {
+        expect(response.body.expect_user_response).to.equal(false);
+        var ssml = response.body.final_response.speech_response.text_to_speech;
+        expect(ssml).to.equal('You said hello world.');
+      });
+  });
+});
+</code></pre>
+
+<p>Find the <a href="https://github.com/artsy/biesenbach">complete source code of the Artsy action on Github</a>.</p>
+
+<h3 id="local-simulator">Local Simulator</h3>
+
+<p>GAS does a good job at enabling running of a local development version.</p>
+
+<ul>
+<li>Run <code>ngrok</code> to proxy requests to the outside world.</li>
+<li>Run <code>npm run server</code> to start the local instance.</li>
+<li>Deploy a preview version of the app with <code>npm run action:autopreview</code>.</li>
+<li>Run <code>npm run action:simulate</code> for a local simulator, use <a href="https://developers.google.com/actions/tools/web-simulator">the web version</a> or even a Google Home device registered under your development account.</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_biW8TDbBGo" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="certification">Certification</h3>
+
+<h4 id="fulfillment-endpoint">Fulfillment Endpoint</h4>
+
+<p>The certification process requires that you deploy the node.js application into a production environment, first. We deployed ours into Google Cloud, which involved creating a <code>vm.yaml</code>, creating a new deployment with <code>gcloud deployment-manager deployments create production --config vm.yaml</code>, transpiling JavaScript with <code>npm run build</code> and deploying the app with <code>gcloud app deploy</code>. You can just push the app to Heroku or AWS Lambda as well.</p>
+
+<h4 id="google-actions-api-project">Google Actions API Project</h4>
+
+<p>Create a Google Actions API project from the <a href="https://console.developers.google.com/apis/dashboard">API Dashboard</a> and configure the project in &ldquo;Directory Listing&rdquo;. It&rsquo;s important to get the sample invocations right, eg. <em>&ldquo;Ok Google, ask my first action to &hellip;&rdquo;</em>.</p>
+
+<h4 id="deploy-action">Deploy Action</h4>
+
+<p>Deploying the action makes it usable by others by submitting it for approval with Google. Once submitted you have to wait for your action to be rejected or approved, there&rsquo;s no way to un-submit an action without contacting support.</p>
+
+<p>Change the <code>httpExecution</code> URL(s) in <code>action.json</code> to the deployed fulfillment URL, eg. <code>https://my-first-action.appspot-preview.com</code>, ensure the correct action ID is used in <code>package.json</code>, and run <code>npm run action:deploy</code>, which will register and deploy your action.</p>
+
+<p>The application will appear under &ldquo;Deployment History&rdquo; in the API dashboard.</p>
+
+<p><center><img src='/images/2017-03-04-bringing-artsy-to-google-actions-assistant-home/actions-api.png'></center></p>
+
+<h3 id="help">Help</h3>
+
+<p>I found that the best place to ask questions was <a href="https://stackoverflow.com/questions/tagged/actions-on-google">stack overflow#actions-on-google</a> and their unusually responsive <a href="https://developers.google.com/actions/support/?requesttype=support&amp;prio=low">support team</a>.</p>
+
+<h3 id="code">Code</h3>
+
+<p>Find the <a href="https://github.com/artsy/biesenbach">complete source code on Github</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/">Generating Sitemaps with Apache Spark</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/">Workshop: React Native</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

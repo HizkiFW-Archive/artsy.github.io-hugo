@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Speed on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/speed/</link>
+    <description>Recent content in Speed on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Sep 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/speed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>On Grid Thumbnails</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/09/13/on-grid-thumbnails/</link>
+      <pubDate>Thu, 13 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/09/13/on-grid-thumbnails/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-09-13-on-grid-thumbnails/grid.jpg&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Artsy Folio, our free iPad app for Gallery Partners, had been in the App Store for a couple of weeks before the iPad with a Retina display was announced. This had been something we expected internally and felt the application would be ready. We had all our image assets available in &lt;em&gt;@2x&lt;/em&gt; versions and an image pipeline that would take scaling into account. With that in mind, we changed our artwork grid view to show a double resolution image. Finally, once we were happy that it worked fine on the simulator, we sent the build off to Apple for review.&lt;/p&gt;
+
+&lt;p&gt;The app passed review, and was Retina-ready before the actual release. But within hours of getting our hands on a real Retina iPad, we had to pull the app. This post will explain why, and what we did to work it out.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

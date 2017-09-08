@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/code/</link>
+    <description>Recent content in Code on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Three</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson three of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson three and I have a &lt;a href=&#34;https://youtu.be/e2ErzD8ibG8&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Two</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson two of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson two and I have a &lt;a href=&#34;https://youtu.be/EBtzqx1YRBg&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson One</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</guid>
+      <description>&lt;p&gt;Last August, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift. There were two parallel groups of learners: a &amp;ldquo;beginners&amp;rdquo; group who had never coded before, and an &amp;ldquo;informed&amp;rdquo; group who already knew how to code. This year, we&amp;rsquo;re leading the course again with a slight twist: we&amp;rsquo;re repeating the course for absolute beginners, and we&amp;rsquo;re introduce a new course for anyone who completed last year&amp;rsquo;s beginner course.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.&lt;/p&gt;
+
+&lt;p&gt;Today was lesson one of the beginner group, and I have a &lt;a href=&#34;https://youtu.be/OLdSg0XpFqA&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One&#34;&gt;lesson one&amp;rsquo;s material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Being a Good OSS Citizen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</link>
+      <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s take a look at the day in the life of an open source citizen: me. On our app, I was given &lt;a href=&#34;https://github.com/artsy/eigen/issues/971&#34;&gt;an issue&lt;/a&gt; that would allow users to refine what kinds of sale artworks they were looking at, and it included this &lt;em&gt;awesome&lt;/em&gt; slider control so they could set min/max price ranges.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</link>
+      <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</guid>
+      <description>&lt;p&gt;While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Eidolon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</link>
+      <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt; is the third app from Artsy&amp;rsquo;s mobile team, and it was the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;first to be developed totally in the open&lt;/a&gt;. It&amp;rsquo;s often used as a reference for what an app written in Swift, or written using FRP, should look like. Given how interested the community seems to be around the app, it&amp;rsquo;s about time we did a walkthrough of the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Emergence</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</link>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</guid>
+      <description>&lt;p&gt;We released the fourth app from the mobile team, &lt;a href=&#34;https://github.com/artsy/Emergence/&#34;&gt;Emergence&lt;/a&gt;, on day one for the new Apple TV and are currently getting around 2k downloads a day. The codebase was created by a single developer, and we didn&amp;rsquo;t want to keep that knowledge siloed. So, I ran an hour long code review session last night where I talked through the codebase, explained why some decisions were made and about the differences between tvOS and UIKit.&lt;/p&gt;
+
+&lt;p&gt;Given that I had been asked to write a blog post about tvOS in general, I felt that making the code review public for anyone to watch would be a nice alternative to the usual long-form writing on this blog.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=NErVWhEzIBM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

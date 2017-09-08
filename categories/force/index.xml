@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Force on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/force/</link>
+    <description>Recent content in Force on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modernizing Force</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt; is Artsy&amp;rsquo;s main website, &lt;a href=&#34;https://www.artsy.net&#34;&gt;artsy.net&lt;/a&gt;. In the three years since it was &lt;a href=&#34;http://artsy.github.io/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;open-sourced&lt;/a&gt;, it has provided a solid foundation to build features on top of without a lot of the costs associated with growth. It is an early example of Isomorphic (&amp;ldquo;universal&amp;rdquo;) JavaScript, built on top of Express, Backbone, CoffeeScript, Stylus and Jade. It is also highly modular, adopting patterns laid down by its parent project,  &lt;a href=&#34;https://github.com/artsy/ezel&#34;&gt;Ezel&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When first developed these technologies made a lot of sense; CoffeeScript fixed many of the problems with JavaScript pre-ES6, and Jade / Stylus made working with HTML / CSS much more elegant. As time progressed and new technologies became a thing these solutions starting feeling more burdensome to continue building features with and many of our developers longed to start using next-generation tools like React.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s Technology Stack, 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</link>
+      <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/</guid>
+      <description>&lt;h1 id=&#34;history&#34;&gt;History&lt;/h1&gt;
+
+&lt;p&gt;Artsy was &lt;a href=&#34;http://www.nytimes.com/2012/10/09/arts/design/artsy-is-mapping-the-world-of-art-on-the-web.html&#34;&gt;launched in 2012 as the &amp;ldquo;Art Genome Project&amp;rdquo;&lt;/a&gt; and grew exponentially ever since.&lt;/p&gt;
+
+&lt;p&gt;By 2014 we had 230,000 works of art from 600 museums and institutions and launched our first business, a subscription service for commercial galleries, bringing over 80,000 works for sale and partnerships with 37 art fairs and a handful of benefit auctions. That year collectors from 82 countries inquired on over $5.5B of art.&lt;/p&gt;
+
+&lt;p&gt;By 2015 we doubled our &amp;ldquo;for sale&amp;rdquo; inventory and aggregated 4,000 of the world&amp;rsquo;s leading galleries and 60 art fairs. We also launched two new businesses: commercial auctions and online media.&lt;/p&gt;
+
+&lt;p&gt;Finally, in 2016 we, again, doubled our paid gallery network size to become the largest gallery network in the world and grew to become the most-read online art publication as our highly engaging editorial traffic ballooned 320%. We also launched a platform to bid in live auctions and a consignments service with all major auction houses.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-artsy-business-in-2017&#34;&gt;The Artsy Business in 2017&lt;/h1&gt;
+
+&lt;p&gt;Artsy in 2017 is a very wide platform and it can be challenging to characterize simply. But when you boil it down to its essence, Artsy offers information and a marketplace. Our written content and fair coverage keep people informed about the art world, and the Art Genome powers our tools for exploration. Through our partnerships with the major player in the art market, galleries and auction houses, we offer our users a unified platform for buying and selling art.&lt;/p&gt;
+
+&lt;p&gt;Internally we consider Artsy to have three businesses: &lt;em&gt;Auctions&lt;/em&gt;, &lt;em&gt;Content&lt;/em&gt; and &lt;em&gt;Listings&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Auctions&lt;/em&gt;: Auction houses and charities use Artsy as a sales channel for a commission because collectors want to discover and buy art in a single, central platform that excels at surfacing the art they want from a global market.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Content&lt;/em&gt;: Brands pay Artsy to reach the first art audience at scale by enabling evergreen content online and for offline engagement during art world events.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Listings&lt;/em&gt;: Galleries, Fairs and Institutions subscribe to Artsy for a fee because we bring a very large audience of art collectors and enthusiasts to their virtual doors.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Artsy team is now 166 employees across three offices in New York, Berlin and London. The Engineering organization is now 28 engineers, including 4 leads, 3 directors and a CTO. In this post, we&amp;rsquo;d like to comprehensively cover what, and how we make the technical and human sides of Artsy businesses work.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Exploration: Front-end JavaScript at Artsy in 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/js2017/js.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;announced&lt;/a&gt; that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.&lt;/p&gt;
+
+&lt;p&gt;Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&amp;rsquo;ve been experimenting with finding common, natural patterns between web and native.&lt;/p&gt;
+
+&lt;p&gt;This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; &lt;a href=&#34;#TypeScript&#34;&gt;TypeScript&lt;/a&gt;, &lt;a href=&#34;#GraphQL&#34;&gt;GraphQL&lt;/a&gt;, &lt;a href=&#34;#React...React.Native&#34;&gt;React/React Native&lt;/a&gt;, &lt;a href=&#34;#Relay&#34;&gt;Relay&lt;/a&gt;, &lt;a href=&#34;#Yarn&#34;&gt;Yarn&lt;/a&gt;, &lt;a href=&#34;#Jest&#34;&gt;Jest&lt;/a&gt;, and &lt;a href=&#34;#Visual.Studio.Code&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helping the Web Towards OSS by Default</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</guid>
+      <description>&lt;p&gt;The main Artsy.net website for the desktop, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, was our first Artsy application to open its source code, &lt;a href=&#34;http://artsy.github.io/author/craig&#34;&gt;Craig&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/author/brennan&#34;&gt;Brennan&lt;/a&gt; did it &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;back in 2014&lt;/a&gt;. Force&amp;rsquo;s public offering laid the groundwork for the iOS OSS projects to come afterwards: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Eidolon&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;Eigen&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/06/open-sourcing-energy/&#34;&gt;Energy&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Though Force wasn&amp;rsquo;t quite Open Source by Default, it represented a &lt;em&gt;really&lt;/em&gt; important step for  Artsy&amp;rsquo;s OSS perspective but was not the end goal. We were opening our source, but not opening our process.&lt;/p&gt;
+
+&lt;p&gt;This month both &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, the desktop version of &lt;a href=&#34;https://www.artsy.net/&#34;&gt;Artsy.net&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/microgravity&#34;&gt;Microgravity&lt;/a&gt;, the mobile version - moved to being built entirely in the open. Read on to find out how.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s Technology Stack, 2015</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/</guid>
+      <description>&lt;p&gt;Artsy has now grown past 100 team members and our Engineering organization is now 20 strong. For a brief overview of what the company has accomplished in the last two years, check out our &lt;a href=&#34;http://2013.artsy.net&#34;&gt;2013&lt;/a&gt; and &lt;a href=&#34;http://2014.artsy.net&#34;&gt;2014&lt;/a&gt; reviews.&lt;/p&gt;
+
+&lt;p&gt;This is a good opportunity to describe our updated technology stack. Last time &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/10/10/artsy-technology-stack&#34;&gt;we did this&lt;/a&gt; was when Artsy launched publicly in 2012.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#39;https://hizkifw.github.io/artsy.github.io-hugo/images/2015-03-23-artsy-technology-stack-2015/stats.png&#39;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Three years ago Artsy was a classic &lt;a href=&#34;http://rubyonrails.org&#34;&gt;Ruby-on-Rails&lt;/a&gt; monolith with a handful of adjacent processes and tools. We&amp;rsquo;ve since broken it up into many independent services, and continue to heavily be a Ruby and JavaScript shop, using Rails where appropriate, with native code on mobile devices and some JVM-based experiments in micro-services.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#39;https://hizkifw.github.io/artsy.github.io-hugo/images/2015-03-23-artsy-technology-stack-2015/languages.png&#39;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>We open sourced our Isomorphic Javascript website</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</link>
+      <pubDate>Fri, 05 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/force.png&#34; alt=&#34;May The Force be With You&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;re happy to announce we&amp;rsquo;ve open sourced the entire Artsy.net web app, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Over the past few months, we&amp;rsquo;ve rewritten our web front-end to move off Rails and on to a &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; stack that shares Javascript code and rendering between the server and client, otherwise known as &lt;a href=&#34;http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/&#34;&gt;Isomorphic Javascript&lt;/a&gt;. After migrating to this new stack, we open-sourced our boilerplate, &lt;a href=&#34;http://ezeljs.com&#34;&gt;Ezel&lt;/a&gt;, and have now gone a step further and open sourced Artsy.net.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Retain scroll position in infinite scroll</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/</link>
+      <pubDate>Wed, 09 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://camo.githubusercontent.com/4b7e6aefa00b96ba2804b235aaaa811bbb893c4e/687474703a2f2f7777772e6578706c61696e786b63642e636f6d2f77696b692f696d616765732f352f35362f696e66696e6974655f7363726f6c6c696e672e706e67&#34; alt=&#34;Maybe we should give up on the whole idea of a &#39;back&#39; button. &#39;Show me that thing I was looking at a moment ago&#39; might just be too complicated an idea for the modern web.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Although &lt;a href=&#34;https://news.ycombinator.com/item?id=7314965&#34;&gt;some find infinite scroll to be a contentious topic&lt;/a&gt; at Artsy we&amp;rsquo;ve found it to be a useful element in many portions of our site such as &lt;a href=&#34;https://artsy.net/browse/artworks?medium=prints&amp;amp;price_range=-1%3A1000&#34;&gt;filtering&lt;/a&gt;. However, we&amp;rsquo;ve run into a common and painful usability issue with infinite scroll. That is clicking on an item redirects to the next page, losing your scroll position, and losing your place when going back. To solve this we have come up with a clever little solution using an iframe.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    The Eidolon Deploy Process // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="The Eidolon Deploy Process" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#deploying-eidolon">Deploying Eidolon</a></li>
+<li><a href="#the-script">The Script</a></li>
+<li><a href="#lessons-learned">Lessons Learned</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/">The Eidolon Deploy Process</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-eidolon" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eidolon">eidolon</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Since we <a href="http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">originally built</a> Eidolon – an auction bidding kiosk app – the project has largely remained in maintenance mode. Eidolon was one of the first projects that we used automated deploys for, and the deploy process has remained largely unchanged. I believe this stability of the deploy process is a testament to how well the automated deploys have gone.</p>
+
+<p>This post is going to detail the mechanics of automated deploys for an enterprise-distributed iOS application, discuss lessons we learned and applied to other projects&rsquo; deploy processes, and describe some of the changes we&rsquo;d like to make. Our project is entirely open source, so you can check out any part of the code on your own or <a href="https://github.com/artsy/eidolon/issues/new">open an issue</a> with questions.</p>
+
+<p></p>
+
+<h2 id="deploying-eidolon">Deploying Eidolon</h2>
+
+<p>It&rsquo;s one command on the terminal to deploy Eidolon:</p>
+
+<pre><code class="language-sh">bundle exec fast lane deploy version:X.Y.Z
+</code></pre>
+
+<p>This command does a lot of things. It uses <a href="https://fastlane.tools">Fastlane</a>, and you can <a href="https://github.com/artsy/eidolon/blob/a0aad31bccfe2b4abf648fc64892cc165be400b4/fastlane/Fastfile#L40-L131">read the entire script here</a>. We&rsquo;re going to go over each part line-by-line. A few notes:</p>
+
+<ul>
+<li>We run this command locally on a development machine that has the keys installed to sign a deploy.</li>
+<li>Our changelog is formatted in <a href="https://en.wikipedia.org/wiki/YAML">yaml</a>, our script uses this strategically.</li>
+<li>Our deploy script modifies the project&rsquo;s Info.plist version and build number, as well as the changelog.</li>
+</ul>
+
+<p>Let&rsquo;s dive in!</p>
+
+<h2 id="the-script">The Script</h2>
+
+<p>The first thing we do is verify that the version number we&rsquo;ve been given is in the proper <a href="http://semver.org">SemVer</a> format.</p>
+
+<pre><code class="language-rb">version = options[:version]
+raise &quot;You must specify a version in A.B.X format to deploy.&quot; if version.nil? || version.scan(/\d+\.\d+\.\d+/).length == 0
+</code></pre>
+
+<p>We deploy using Hockey, so make sure that an environment variable with the Hockey API key is set.</p>
+
+<pre><code class="language-rb">hockey_api_token = ENV['HOCKEY_API_TOKEN']
+raise &quot;You must specify a HOCKEY_API_TOKEN environment variable to deploy.&quot; if hockey_api_token.nil?
+</code></pre>
+
+<p>We also want to verify that we have valid API keys for analytics, the Artsy API, and a few other services the app uses. This validation only makes sure the keys have been set to non-empty values. And we don&rsquo;t want to accidentally deploy uncommited changes, so we check the git status first.</p>
+
+<pre><code class="language-rb">verify_pod_keys
+ensure_git_status_clean
+</code></pre>
+
+<p>Next we need to set the build number. These need to be unique, and we use the current date. This could be a problem if we need to deploy more than once in a day. It hasn&rsquo;t been a problem yet, though, since we rarely deploy.</p>
+
+<p>We also want to set the Info.plist&rsquo;s version to the one specified when we run the <code>fastlane</code> command.</p>
+
+<pre><code class="language-rb">build_number = Time.new.strftime(&quot;%Y.%m.%d&quot;)
+increment_build_number build_number: build_number
+
+increment_version_number version_number: version
+</code></pre>
+
+<p>Okay, now it&rsquo;s time to generate markdown release notes from the changelog. Our changelog is in the following format:</p>
+
+<pre><code class="language-yaml">upcoming:
+- Upcoming version bug fix.
+
+releases:
+- version: X.Y.Z
+  date: Month Day Year
+  notes:
+  - Previous version bug fix.
+</code></pre>
+
+<p>We want to grab the <code>upcoming</code> notes for the changelog, and then move them to the <code>releases</code> section. Let&rsquo;s generate the notes first:</p>
+
+<pre><code class="language-rb">changelog_filename = '../CHANGELOG.yml'
+changelog_yaml = YAML.load_file(changelog_filename)
+release_notes = changelog_yaml['upcoming'].map{ |note| note.prepend '- ' }.join(&quot;\n&quot;)
+</code></pre>
+
+<p>Updating the changelog is a little messy. I tried parsing the changelog as yaml, modifying it, and then writing it back as yaml, but kept running into trouble. Instead, I treat it as plain text. We open the changelog, split on <code>releases:</code>, prepend the existing releases with a the generated release notes, and write the changelog.</p>
+
+<pre><code class="language-rb">changelog_contents = File.read(changelog_filename)
+existing_releases = changelog_contents.split('releases:').last
+this_release = changelog_yaml['upcoming'].map{ |note| note.prepend '  ' }.join(&quot;\n&quot;)
+changelog_contents = &lt;&lt;-EOS
+upcoming:
+releases:
+- version: #{version}
+  date: #{Time.new.strftime(&quot;%B %d %Y&quot;)}
+  notes:
+#{this_release}
+#{existing_releases}
+EOS
+
+File.open(changelog_filename, 'w') { |file| file.puts changelog_contents }
+</code></pre>
+
+<p>At this point, we&rsquo;re ready to start the actual deploy process. First we need to download the provisioning profiles, which is only one step with Fastlane:</p>
+
+<pre><code class="language-rb">sigh
+</code></pre>
+
+<p>Next we build our app using <code>gym</code>. We need to use the legacy build API, I can&rsquo;t remember why.</p>
+
+<pre><code class="language-rb">gym(
+  scheme: &quot;Kiosk&quot;,
+  export_method: 'enterprise',
+  use_legacy_build_api: true
+)
+</code></pre>
+
+<p>With our build finished, we upload to Hockey.</p>
+
+<pre><code class="language-rb">hockey(
+  api_token: hockey_api_token,
+  notes: release_notes
+)
+</code></pre>
+
+<p>Okay, our build is deployed. Time to let the team know there&rsquo;s a new version available:</p>
+
+<pre><code class="language-rb">slack(
+  message: &quot;There is a new version of the Kiosk app available. Download it at http://artsy.net/kioskbeta&quot;,
+  success: true,        # optional, defaults to true
+  payload: {            # optional, lets you specify any number of your own Slack attachments
+    'Version' =&gt; version,
+    'What\'s new' =&gt; release_notes,
+  },
+  default_payloads: [],
+)
+</code></pre>
+
+<p><code>default_payloads</code> needs to be empty I think, I can&rsquo;t remember why. Seems like &ldquo;I can&rsquo;t remember why&rdquo; is a common theme here&hellip;</p>
+
+<p>Before committing the changes we&rsquo;ve made to the changelog and Info.plist files, we need to clean any build artefacts. This includes the actual binary that was compiled, unit test coverage reports, and downloaded provisioning profiles.</p>
+
+<pre><code class="language-rb">clean_build_artifacts
+</code></pre>
+
+<p>Finally, we commit, tag the build, and push to GitHub. Fastlane&rsquo;s built-in commands to commit to git reject any changes except to Info.plist files, and we&rsquo;ve modified the changelog, so I used <code>sh</code> and used git directly.</p>
+
+<pre><code class="language-rb">sh &quot;git add .. ; git commit -m 'Deploying version #{version}.'&quot;
+add_git_tag tag: version
+push_to_git_remote
+</code></pre>
+
+<p>And that&rsquo;s it! With one terminal command, we&rsquo;ve done all the following:</p>
+
+<ul>
+<li>Verified version number format.</li>
+<li>Verified the local environment is set up to deploy.</li>
+<li>Verified API keys used by the app aren&rsquo;t empty.</li>
+<li>Incremented the build number and version.</li>
+<li>Updated the changelog.</li>
+<li>Built and signed the app.</li>
+<li>Uploaded the build to Hockey.</li>
+<li>Posted a notification to Slack.</li>
+<li>Tagged the release and pushed to GitHub.</li>
+</ul>
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
+<p>Automating Eidolon deploys was one of the first automated deploys we built on Artsy&rsquo;s iOS team. Now, based on Eidolon&rsquo;s successful deploy process, all our iOS deploys are automated.</p>
+
+<p>We&rsquo;ve learned a few lessons.</p>
+
+<p>First, running deploys locally is <em>so 2015</em>. Our more modern deploy processes run on continuous integration servers like Circle CI. This poses some problems around securing certificates necessary to deploy, maybe we&rsquo;ll cover that in a future blog post.</p>
+
+<p>We deploy on CI based on pushes to a specific branch, and we run our deploy script only if the unit tests pass. This is a huge incentive to keep CI green.</p>
+
+<p>On other iOS projects, we sometimes deploy more than once a day, so we use <code>Year.Month.Day.Hour</code> as the build number format, which is unique enough to do one deploy per hour. This is good enough for now.</p>
+
+<p>One thing I really wish I&rsquo;d done when I set up automated deploys is to document things a little better. To be honest, that&rsquo;s part of the motivation to write this blog post (better late than never!).</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Overall, automating deploys for Eidolon has been a huge win. The other night, we had an emergency at an auction: the Eidolon app was no longer working and we needed a new deploy.</p>
+
+<p><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Guess who’s got two thumbs and forgot that their enterprise distribution certificates expire in September.<br><br>👍this guy👍</p>&mdash; Ash vs NSThread (@ashfurrow) <a href="https://twitter.com/ashfurrow/status/784548214527627266">October 8, 2016</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>From the time the team let me know about the problem to the time they had a fresh deploy with a new certificate, less than twenty minutes had passed. I issued one command and watched it do all the work for me. If I had to manually follow a set of arcane steps I hadn&rsquo;t done in a long time, our team might not have had the new build in time.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/10/10/Help-Im-becoming-Post-Junior/">Help! I&#39;m becoming Post-Junior</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/09/22/professional-development-at-artsy-engineering/">Professional Development at Artsy Engineering</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

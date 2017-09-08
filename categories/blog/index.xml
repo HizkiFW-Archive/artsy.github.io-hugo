@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/blog/</link>
+    <description>Recent content in Blog on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Octopress and Jekyll</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/18/octopress-and-jekyll/</guid>
+      <description>This blog is powered by static pages.
+I think it&amp;rsquo;s quite ironic that, while we spend a lot of time building complex large scale dynamic websites, our new favorite publishing platform is a system that compiles static content. But, in many ways, Octopress and Jekyll fit our philosophy and developer workflow perfectly. Writing an article for this blog means using the same tools and processes as contributing to a project on Github.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/05/hello-world/</link>
+      <pubDate>Thu, 05 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/05/hello-world/</guid>
+      <description>We&amp;rsquo;ve been building cool stuff at Artsy and are looking forward to sharing all things tech with you.</description>
+    </item>
+    
+  </channel>
+</rss>

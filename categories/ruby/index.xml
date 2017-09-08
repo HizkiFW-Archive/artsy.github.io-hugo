@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby/</link>
+    <description>Recent content in Ruby on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using OCR To Fix a Hilarious Bug</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</link>
+      <pubDate>Thu, 12 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</guid>
+      <description>&lt;p&gt;For a little while, we would get very strange bug reports. People would complain that artist thumbnails (viewed in several different contexts across the web and our iOS apps) would not be an image of the artist&amp;rsquo;s work, but rather text, which had inexplicably become an actual JPG. This wasn&amp;rsquo;t just text appearing in a &lt;code&gt;div&lt;/code&gt; that should contain an &lt;code&gt;img&lt;/code&gt; or something like that, these were actual JPG&amp;rsquo;s that were pictures of text.&lt;/p&gt;
+
+&lt;p&gt;We would fix these as they came up, chalking the strangeness up to some relic of an old image processing pipeline, data being migrated, etc.&lt;/p&gt;
+
+&lt;p&gt;However, the reports kept coming in. This blog post is about how we diagnosed this actual bug, and how we used a simple Ruby script and OCR to help us detect and fix the existing images.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Splitting up a large test suite</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/</guid>
+      <description>&lt;p&gt;A while back, we wrote about &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/&#34;&gt;How to Run RSpec Test Suites in Parallel with Jenkins CI Build Flow&lt;/a&gt;. A version of that still handles our largest test suite, but over time the initial division of specs became unbalanced. We ended up with some tasks that took twice as long as others. Even worse, in an attempt to rebalance task times, we ended up with awkward file patterns like &lt;code&gt;&#39;spec/api/**/[a-m]*_spec.rb&#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To keep our parallel spec tasks approximately equal in size and to support arbitrary concurrency, we&amp;rsquo;ve added a new &lt;code&gt;spec:sliced&lt;/code&gt; task:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Releasecop Tracks Stale Releases</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/</guid>
+      <description>&lt;p&gt;Artsy practices a sort of &lt;a href=&#34;http://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;continuous delivery&lt;/a&gt;. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices &lt;a href=&#34;http://artsy.github.io/blog/categories/testing/&#34;&gt;multiple&lt;/a&gt; &lt;a href=&#34;http://artsy.github.io/blog/categories/continuous-integration&#34;&gt;times&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From developers&amp;rsquo; working branches&lt;/li&gt;
+&lt;li&gt;To the master branch&lt;/li&gt;
+&lt;li&gt;Through a hopefully-successful build&lt;/li&gt;
+&lt;li&gt;To a staging environment&lt;/li&gt;
+&lt;li&gt;To production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The number of apps and services we deploy has grown to &lt;em&gt;dozens&lt;/em&gt; per team, so sometimes things fall through the cracks. We&amp;rsquo;ve been using &lt;a href=&#34;https://github.com/joeyAghion/releasecop&#34;&gt;Releasecop&lt;/a&gt; for the last few months to get gentle email reminders when an environment could use a deploy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Generating Notifications and Personalized Emails Efficiently</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</link>
+      <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</guid>
+      <description>&lt;p&gt;We recently launched a new personalized email here at &lt;a href=&#34;https://artsy.net&#34;&gt;Artsy&lt;/a&gt; that features content that a given user might find interesting. The goal of this post is to describe how we built a backend system that efficiently generates these e-mails for all our users. I&amp;rsquo;ll talk about the first, naive implementation that had performance problems right away, and how the second implementation (currently in production) solved those issues, and whose behavior at scale is well-defined and understood. I won&amp;rsquo;t go into the details of the design and layout of the mail itself and how we render the content - there are several earlier blog posts that deal with those: &lt;a href=&#34;http://artsy.github.io/blog/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/&#34;&gt;Presenters and Memoization&lt;/a&gt;, &lt;a href=&#34;http://artsy.github.io/blog/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/&#34;&gt;Pinterest-style Layouts&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/blog/2014/03/17/some-tips-for-email-layout-and-responsiveness/&#34;&gt;Email Layouts and Responsiveness&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-04-24-generating-notifications-and-personalized-emails-efficiently/percy_example.png&#34; alt=&#34;Personalized Email Example&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building an English Auction with MongoDB</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/17/building-an-english-auction-with-mongodb/</link>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/17/building-an-english-auction-with-mongodb/</guid>
+      <description>&lt;p&gt;Artsy ran several successful auctions over the past few months. The first, &lt;a href=&#34;https://artsy.net/feature/two-x-two&#34;&gt;TWO x TWO&lt;/a&gt;, raised hundreds of thousands of dollars for amfAR (the AIDS Research foundation), and the Dallas Museum of Art. It was followed by &lt;a href=&#34;https://artsy.net/feature/ici-benefit-auction&#34;&gt;Independent Curators International&lt;/a&gt;, at which Artsy launched on-site auction projection screens, which displayed competing bids coming in online from places around the world, like Oslo and Santa Monica, in realtime. Users could place bids on the website, via the iPhone app or with one of the Artsy representatives in the room carrying an iPad.  All the auction lots sold, and Artsy helped ICI to raise 50% more than its target revenue goal. Other, recent Artsy auctions include &lt;a href=&#34;https://artsy.net/feature/public-art-fund-2014-spring-benefit&#34;&gt;Public Art Fund&lt;/a&gt; and the &lt;a href=&#34;https://artsy.net/feature/brooklyn-artists-ball&#34;&gt;Brooklyn Artists Ball&lt;/a&gt;, benefitting the Brooklyn Museum.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-04-17-implementing-bidding-in-an-english-auction-with-mongodb/ici-live-auction.jpg&#34; alt=&#34;ICI Auction: Live&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The domain of auctions is a fascinating one, and includes everything from buying items on eBay to trading livestock and selling investment products on the stock exchange. For those interested in the large spectrum of auctions I highly recommend &lt;a href=&#34;http://www.sci.brooklyn.cuny.edu/~parsons/projects/mech-design/publications/bluffers-final.pdf&#34;&gt;Auctions and bidding: A guide for computer
+scientists&lt;/a&gt; by Simon Parsons (CUNY), Juan A. Rodriguez-Aguilar (CSIC) and Mark Klein (MIT).&lt;/p&gt;
+
+&lt;p&gt;At Artsy we implemented a classic English auction with, so called, &amp;ldquo;book bids&amp;rdquo;. I spent a fair amount of time visiting engineering teams that have built internet auctions, most of which were transactional systems where taking a position on an item involved starting a transaction, running an auction round and committing the changes. In contrast, we chose to deliver a simpler, eventually consistent system on top of MongoDB, in which all data is immutable and where some level of serialization occurs within a single background process.&lt;/p&gt;
+
+&lt;p&gt;In this post we&amp;rsquo;ll go over some data modeling and examine the auction engine implementation details.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Presenters and Memoization: Moving Logic out of Templates</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/</link>
+      <pubDate>Tue, 18 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/</guid>
+      <description>&lt;p&gt;When dealing with rendering data for an email, one frequently has to make many database calls to assemble the required data. This can be slow, and depending on how you structure the code that is assembling the data vs rendering the data in a template, it&amp;rsquo;s very easy to be making repeated calls, which can significantly slow down your process. Additionally, whether you are using &lt;a href=&#34;http://haml.info/&#34;&gt;Haml&lt;/a&gt;, &lt;a href=&#34;http://mustache.github.io/&#34;&gt;Mustache&lt;/a&gt;, &lt;a href=&#34;http://jade-lang.com/&#34;&gt;Jade&lt;/a&gt;, or any other templating language, embedding too much logic in the template can making things hard to maintain (especially if some logic lives in the template and some elsewhere in your domain code). Of course some logic in the template (a conditional: should I render this section?, or loops: render this hash of data) is necessary, but I like to keep as much out of there as possible. It&amp;rsquo;s easier to optimize, debug and maintain that logic elsewhere, and also writing complex logic in &lt;a href=&#34;https://www.ruby-lang.org&#34;&gt;Ruby&lt;/a&gt; is much more fun than in a templating language!&lt;/p&gt;
+
+&lt;p&gt;In this article I&amp;rsquo;ll present what I&amp;rsquo;ve been doing to keep my templates relatively logic-free, and how I make sure I don&amp;rsquo;t repeat any heavy database calls in assembling my data.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Detecting trends using Forgetsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/</link>
+      <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-03-17-detecting-trends-with-forgetsy/monolith.jpg&#34; alt=&#34;Armory Trending Screen&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As part of our partnership with &lt;a href=&#34;https://www.thearmoryshow.com/&#34;&gt;The New York Armory Show&lt;/a&gt; this year, we installed a number of terminals throughout the fair. These screens used our own real-time data to display an ever shifting set of trending artworks, artists, and booths, to the attendees.&lt;/p&gt;
+
+&lt;p&gt;Out of this work, we&amp;rsquo;ve open-sourced &lt;a href=&#34;https://github.com/cavvia/forgetsy&#34;&gt;Forgetsy&lt;/a&gt;, a lightweight Ruby trending library. Put simply, Forgetsy implements data structures that forget. Loosely based on Bit.ly&amp;rsquo;s &lt;a href=&#34;http://word.bitly.com/post/41284219720/forget-table&#34;&gt;Forget Table&lt;/a&gt; concept, Forgetsy uses decaying counters to track temporal trends in categorical distributions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby Helper to Group Artworks into a Pinterest-style Layout for Email</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/</link>
+      <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-03-17-ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/two-column-layout.png&#34; alt=&#34;Example of two column layout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Something we&amp;rsquo;d like to do is email our users some suggested artworks as part of their personalized emails. The layout of those suggestions should look something like our newly re-designed &lt;a href=&#34;https://artsy.net/browse/artworks?price_range=-1%3A1000000000000&#34;&gt;Browse&lt;/a&gt; page, with a &amp;lsquo;salon&amp;rsquo; style layout. Here&amp;rsquo;s some simple Ruby code that can group artworks into columns for you, that can then be directly rendered in an email (via &lt;a href=&#34;http://haml.info/&#34;&gt;Haml&lt;/a&gt;, &lt;a href=&#34;http://mustache.github.io/&#34;&gt;Mustache&lt;/a&gt;, &lt;a href=&#34;http://jade-lang.com/&#34;&gt;Jade&lt;/a&gt;, or your templating language of choice.)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Normalizing GMail E-Mail Addresses with CanonicalEmails</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/23/normalizing-gmail-email-addresses-with-canonical-emails/</link>
+      <pubDate>Sun, 23 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/23/normalizing-gmail-email-addresses-with-canonical-emails/</guid>
+      <description>&lt;p&gt;A whopping 49% of Artsy users have &amp;ldquo;gmail.com&amp;rdquo; email addresses. The next domain name, &amp;ldquo;hotmail.com&amp;rdquo;, doesn&amp;rsquo;t even come close, with only 6%.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-06-23-normalizing-gmail-email-addresses-with-canonical-emails/artsy-email-domains.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;GMail addresses ignore periods and are case-insensitive. For example, &amp;ldquo;Donald.Duck@gmail.com&amp;rdquo; and &amp;ldquo;donaldduck@gmail.com&amp;rdquo; are the same account. You can log-in to GMail with both. Users often register with the former and try to log-in to Artsy with the latter. With so many GMail users, expect a dozen support emails per day.&lt;/p&gt;
+
+&lt;p&gt;The solution is to normalize these emails into a canonical form.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Debugging Bundler Issues on Heroku</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/15/debugging-bundler-issues-with-heroku/</link>
+      <pubDate>Tue, 15 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/01/15/debugging-bundler-issues-with-heroku/</guid>
+      <description>&lt;p&gt;A few days ago we have started seeing the Heroku deployments of one of our applications randomly hang during &lt;code&gt;bundle install&lt;/code&gt;. The problem worsened with time and we were not able to do a deployment for days.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git push -f git@heroku.com:application.git FETCH_HEAD:master
+-----&amp;gt; Deleting 12 files matching .slugignore patterns.
+-----&amp;gt; Ruby/Rails app detected
+-----&amp;gt; Using Ruby version: ruby-1.9.3
+-----&amp;gt; Installing dependencies using Bundler version 1.3.0.pre.5
+       Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin
+       Fetching gem metadata from http://rubygems.org/.......
+       Fetching gem metadata from http://rubygems.org/..
+/app/slug-compiler/lib/utils.rb:66:in `block (2 levels) in spawn&#39;: command=&#39;/app/slug-compiler/lib/../../tmp/buildpacks/ruby/bin/compile /tmp/build_1p6071sni4hh1 /app/tmp/repo.git/.cache&#39; exit_status=0 out=&#39;&#39; at=timeout elapsed=900.1056394577026 (Utils::TimeoutError)
+  from /app/slug-compiler/lib/utils.rb:52:in `loop&#39;
+  from /app/slug-compiler/lib/utils.rb:52:in `block in spawn&#39;
+  from /app/slug-compiler/lib/utils.rb:47:in `popen&#39;
+  from /app/slug-compiler/lib/utils.rb:47:in `spawn&#39;
+  from /app/slug-compiler/lib/buildpack.rb:37:in `block in compile&#39;
+  from /app/slug-compiler/lib/buildpack.rb:35:in `fork&#39;
+  from /app/slug-compiler/lib/buildpack.rb:35:in `compile&#39;
+  from /app/slug-compiler/lib/slug.rb:497:in `block in run_buildpack&#39;
+ !     Heroku push rejected, failed to compile Ruby/rails app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Seeing bundler hang on &amp;ldquo;Fetching gem metadata from &lt;a href=&#34;http://rubygems.org/&amp;quot;&#34;&gt;http://rubygems.org/&amp;quot;&lt;/a&gt;, my immediate reaction was to blame the RubyGems Dependency API for its poor performance and attempt the &lt;a href=&#34;http://hone.herokuapp.com/bundler%20heroku/2012/10/22/rubygems-and-the-dependency-api.html&#34;&gt;recommended workaround&lt;/a&gt; of switching to &lt;em&gt;&lt;a href=&#34;http://bundler-api.herokuapp.com&#34;&gt;http://bundler-api.herokuapp.com&lt;/a&gt;&lt;/em&gt;. That didn&amp;rsquo;t work.&lt;/p&gt;
+
+&lt;p&gt;I also tried to reproduce the issue on a local environment, including a (what I thought was) a completely clean machine at no avail. My &lt;code&gt;bundle install&lt;/code&gt; would always succeed.&lt;/p&gt;
+
+&lt;p&gt;Finally, everything pointed at an infrastructure problem with Heroku itself, so I opened a ticket (#72648), &lt;a href=&#34;https://twitter.com/dblockdotorg/status/290221530892365824&#34;&gt;tweeted&lt;/a&gt; endlessly to Heroku devs, pinged a  contact at Heroku on Skype and generally annoyed people for 5 straight days. It was a frustrating problem and I was getting no useful help.&lt;/p&gt;
+
+&lt;p&gt;Fast forward, this turned out to be &lt;a href=&#34;https://github.com/carlhuda/bundler/issues/2248&#34;&gt;an issue in Bundler&lt;/a&gt;. Narrowing it down would have been relatively easy if I had known where to look.&lt;/p&gt;
+
+&lt;p&gt;I hope this post helps you with similar issues.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Beat Heroku&#39;s 60 Seconds Application Boot Timeout with a Proxy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/</link>
+      <pubDate>Thu, 13 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/12/13/beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-12-13-beat-heroku-60-seconds-application-boot-timeout-with-a-proxy/heroku-logo-light-234x60.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Heroku will log an &lt;a href=&#34;https://devcenter.heroku.com/articles/error-codes#r10-boot-timeout&#34;&gt;R10 - Boot Timeout&lt;/a&gt; error when a web process takes longer than 60 seconds to bind to its assigned port. This error is often caused by a process being unable to reach an external resource, such as a database or because you have a lot of gems in your &lt;code&gt;Gemfile&lt;/code&gt; which take a long time to load.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Dec 12 12:12:12 prod heroku/web.1:
+  Error R10 (Boot timeout)
+  Web process failed to bind to $PORT within 60 seconds of launch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There&amp;rsquo;s currently no way to increase this boot timeout, but we can beat it with a proxy implemented by our new &lt;a href=&#34;https://github.com/dblock/heroku-forward&#34;&gt;heroku-forward&lt;/a&gt; gem.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Measuring Performance in Grape APIs with NewRelic RPM</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</link>
+      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</guid>
+      <description>&lt;p&gt;Knowing how well your API performs in real time is essential to any successful project. That&amp;rsquo;s because you can&amp;rsquo;t fix what you can&amp;rsquo;t measure.&lt;/p&gt;
+
+&lt;p&gt;We use and heavily contribute to &lt;a href=&#34;http://github.com/intridea/grape&#34;&gt;Grape&lt;/a&gt;, a Ruby API DSL. Grape is a Rack middleware and we have been reporting API performance data to &lt;a href=&#34;http://newrelic.com/&#34;&gt;NewRelic&lt;/a&gt; with code from &lt;a href=&#34;http://code.dblock.org/new-relic-performance-instrumentation-with-grape-api&#34;&gt;my older blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s time to improve the reporting implementation and address performance monitoring in both development and production environments. Here&amp;rsquo;s what a single API request breakdown is going to look like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/transaction-detail.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Friendly URLs with Mongoid::Slug</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</link>
+      <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/22/friendly-urls-with-mongoid-slug/</guid>
+      <description>&lt;p&gt;All Artsy URLs shared publicly are humanly readable. For example, you&amp;rsquo;ll find all Barbara Kruger&amp;rsquo;s works at &lt;a href=&#34;https://artsy.net/artist/barbara-kruger&#34;&gt;artsy.net/artist/barbara-kruger&lt;/a&gt; and a post by Hyperallergic entitled &amp;ldquo;Superfluous Men Can&amp;rsquo;t Get No Satisfaction&amp;rdquo; at artsy.net/hyperallergic/post/superfluous-men-cant-get-no-satisfaction. This is a lot prettier than having &lt;code&gt;id=42&lt;/code&gt; in the browser&amp;rsquo;s address and is a big improvement for SEO.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-22-friendly-urls-with-mongoid-slug/barbara-kruger.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;We construct these URLs with a gem called &lt;a href=&#34;https://github.com/digitalplaywright/mongoid-slug&#34;&gt;mongoid_slug&lt;/a&gt;. Interesting implementation details under the cut.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

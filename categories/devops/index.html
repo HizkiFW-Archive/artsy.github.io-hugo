@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Devops // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Devops" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/">Xcode 8 Manual Codesigning with Fastlane</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+      					
+					        <a class="post-category post-category-ci" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ci">ci</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>New year, new deploy process! Late last year our mobile team completed the update to Swift 3 (and thus, the update to Xcode 8). The latest version of Apple&rsquo;s IDE includes a lovely feature: automating provisioning profile management! (Note: not sarcasm, the feature is really nice. Check out the <a href="https://developer.apple.com/videos/play/wwdc2016/401/">WWDC video</a> for an in-depth exploration.)</p>
+
+<p><img src="/images/2017-01-13-xcode-8-fastlane-codesigning/xcode-screenshot.png" alt="Automatic code signing settings" /></p>
+
+<p>However, when I went to make our first <a href="http://artsy.github.io/blog/2015/12/15/Automating-Testflight-Deploys/">automated deploy</a> today, things didn&rsquo;t work; I got a somewhat cryptic error about code signing.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/">Automating TestFlight Deploys using Fastlane</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+      					
+					        <a class="post-category post-category-ci" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ci">ci</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I&rsquo;ve been a really <a href="http://artsy.github.io/blog/2015/09/18/Cocoa-Architecture-Dependencies/">strong supporter</a> of the <a href="https://fastlane.tools">fastlane</a> toolset. I think it fixes a lot of common developer problems, in a space that Apple doesn&rsquo;t really touch. The command line.</p>
+
+<p>We&rsquo;ve added hints of fastlane to our apps at different rates, <a href="https://github.com/artsy/eidolon/">Eidolon</a> uses fastlane for everything but <a href="https://github.com/artsy/eigen/">Eigen</a>/<a href="https://github.com/artsy/energy">Energy</a>/<a href="https://github.com/artsy/emergence">Emergence</a> have been pretty slow on the uptake, though they have more complicated setups, being App Store apps.</p>
+
+<p>When <a href="https://krausefx.com/">Felix</a> announced <a href="https://krausefx.com/blog/introducing-match-a-new-approach-to-code-signing">match</a> this week, I felt like he tackled a problem we face in our <a href="http://artsy.net/job/mobile-engineer">small dev team</a>. I integrated this, only to find that it could also fix my problems with deployment. The rest of this post goes into the &ldquo;how I did this.&rdquo; You can also cheat and look at the <a href="https://github.com/artsy/eigen/compare/d06270882aadec8f03927455a5229b53dd0a73c8...9eaf9082ebdcdf75f12ad2804260587e01526f2d">commits</a> directly.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/">Releasecop Tracks Stale Releases</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-OSS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/OSS">OSS</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Continuous-Deployment" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Deployment">Continuous Deployment</a>
+      					
+					        <a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+      					
+					        <a class="post-category post-category-tools" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tools">tools</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Artsy practices a sort of <a href="http://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a>. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices <a href="http://artsy.github.io/blog/categories/testing/">multiple</a> <a href="http://artsy.github.io/blog/categories/continuous-integration">times</a>.)</p>
+
+<p>Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:</p>
+
+<ul>
+<li>From developers&rsquo; working branches</li>
+<li>To the master branch</li>
+<li>Through a hopefully-successful build</li>
+<li>To a staging environment</li>
+<li>To production</li>
+</ul>
+
+<p>The number of apps and services we deploy has grown to <em>dozens</em> per team, so sometimes things fall through the cracks. We&rsquo;ve been using <a href="https://github.com/joeyAghion/releasecop">Releasecop</a> for the last few months to get gentle email reminders when an environment could use a deploy.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/04/09/so-you-want-an-ssl-certificate/">So You Want an SSL Certificate? A Pragmatic Handbook</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>8 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-SSL" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/SSL">SSL</a>
+      					
+					        <a class="post-category post-category-DevOps" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/DevOps">DevOps</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Obtaining, reissuing and installing SSL certificates across various pieces of Artsy infrastructure (read about our tech stack <a href="/blog/2015/03/23/artsy-technology-stack-2015/">here</a>) is a mind-numbing excercise dreaded by every platform engineer. Few people really understand what&rsquo;s going on, installing SSL certificates is right up there in the opaque world of user-unfriendliness, along with onboarding a new iOS developer in an organization with Xcode.</p>
+
+<p>Still, it can be done - below is our cookbook.</p>
+
+<p><img src='/images/2015-04-09-so-you-want-an-ssl-certificate/ev.png'>
+<img src='/images/2015-04-09-so-you-want-an-ssl-certificate/cert.png'></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/04/09/so-you-want-an-ssl-certificate/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/11/19/how-to-write-great-outage-post-mortems/">How to Write Great Outage Post-Mortems</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Best-Practices" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Best-Practices">Best Practices</a>
+      					
+					        <a class="post-category post-category-DevOps" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/DevOps">DevOps</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The website is finally back up after crashing hard for 4 hours straight.</p>
+
+<p>Recently AWS decided to <a href="http://aws.amazon.com/blogs/aws/ec2-maintenance-update">reboot a few of your servers for a critical update</a>. It didn&rsquo;t seem like it was going to be a big deal, except that the schedule was only accommodating if you were in the Pacific Northwest. The first reboot took out a secondary replica of our MongoDB database. Unfortunately <a href="https://github.com/mongoid/moped/issues/321">the driver handled that poorly</a> and spent the first 400ms of every subsequent HTTP request trying to reconnect to the missing instance. That server came back up, but failed to find its storage volumes because of a human mistake in a past migration and the alerts were mistakenly silenced by someone monitoring the system. A few hours later the primary was being stepped down and rebooted, sending the driver into panic over <a href="https://github.com/mongoid/moped/issues/323">another bug</a>. The site went down.</p>
+
+<p>None of this was obvious while it was happening as the rate of automated alerts grew. Engineers communicated to the team that they are actively focusing on bringing the systems back up. This helped to fend off a large amount of instant messages, e-mails, texts and phone calls from various people on the team that were in the middle of demoing something to a very important prospective customer on the other side of the planet. It was also the middle of the night in New York.</p>
+
+<p>Now that all the systems are back up, lets write a detailed outage post-mortem.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/11/19/how-to-write-great-outage-post-mortems/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Rendering on the Server and Client in Node.js // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="craig">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Rendering on the Server and Client in Node.js" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#growing-pains">Growing Pains</a></li>
+<li><a href="#there-s-got-to-be-a-better-way">There&rsquo;s Got to Be a Better Way</a></li>
+<li><a href="#choosing-technology">Choosing Technology</a></li>
+<li><a href="#sharing-and-rendering-server-client">Sharing and Rendering Server/Client</a>
+<ul>
+<li><a href="#sharing-objects-backbone-models">Sharing Objects (Backbone Models)</a></li>
+<li><a href="#sharing-templates">Sharing Templates</a></li>
+<li><a href="#all-together-now">All Together Now</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#modularity">Modularity</a></li>
+</ul></li>
+<li><a href="#success">Success!</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/">Rendering on the Server and Client in Node.js</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">craig</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Browserify" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Browserify">Browserify</a>
+				
+					<a class="post-category post-category-Isomorphic" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Isomorphic">Isomorphic</a>
+				
+					<a class="post-category post-category-JavaScript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/JavaScript">JavaScript</a>
+				
+					<a class="post-category post-category-Node.js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Node.js">Node.js</a>
+				
+					<a class="post-category post-category-Shared" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Shared">Shared</a>
+				
+					<a class="post-category post-category-Architecture" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Architecture">Architecture</a>
+				
+					<a class="post-category post-category-Ezel" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ezel">Ezel</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><img src="/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/isomorphic.png" alt="Diagram of Shared Server/Client Architecture" /></p>
+
+<p>At Artsy we&rsquo;ve been building <a href="http://nodejs.org/">Node.js</a> applications that share code and rendering between the server and browser. We&rsquo;ve seen many benefits from this &ndash; pages load faster, we can optimize SEO, developers are more productive, and JavaScript coding is just an overall better experience.</p>
+
+<p>Today we&rsquo;re happy to announce <a href="http://ezeljs.com/">Ezel</a>, our open source boilerplate we use to bootstrap our Node projects and the <a href="https://github.com/artsy/benv">various</a> <a href="https://github.com/artsy/backbone-super-sync">node</a> <a href="https://github.com/artsy/sharify">modules</a> that built up to it.</p>
+
+<p>In his article, <a href="http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/"><em>Isomorphic JavaScript: The Future of Web Apps</em></a>, Spike Brehm from AirBnB describes this growing trend well and we&rsquo;re excited to be a part of it. In this article I&rsquo;ll tell Artsy&rsquo;s story of moving from a single monolithic application to modular <a href="http://backbonejs.org/">Backbone</a> apps that run in Node and the browser and consume our external API.</p>
+
+<p></p>
+
+<h2 id="growing-pains">Growing Pains</h2>
+
+<p><img src="/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/rails-evolution.png" alt="Evolution of Artsy SOA Diagramm" /></p>
+
+<p>Artsy started as a mostly standard <a href="http://rubyonrails.org/">Rails</a> app almost three years ago. In these beginnings we were wildly productive and owe a lot of props to this great framework. However as time went on we started to deviate from the conventional Rails path until we were hardly leveraging much Rails at all. To support an early iOS app we used <a href="https://github.com/intridea/grape">Grape</a> to build an API. While building our API we wrote a lot of client-side JavaScript and soon integrated <a href="http://backbonejs.org/">Backbone</a> for organization. Eventually we cleanly separated our project into a single page Backbone app talking to our API all on inside of this original repository.</p>
+
+<p>We knew we were outgrowing this monolithic project because we had some clear problems&hellip;</p>
+
+<ul>
+<li>Slow initial page loads because of lacking server-side rendering. Twitter <a href="https://blog.twitter.com/2012/improving-performance-twittercom">describes this problem well</a>.</li>
+<li>Slow following client-side renders because of downloading large asset packages without clear ways to break them up.</li>
+<li>SEO issues like building <a href="https://developers.google.com/webmasters/ajax-crawling/docs/specification">escaped fragment</a> pages in Ruby on the server while our users saw what JavaScript rendered on the client.</li>
+<li>Maintaining duplicated Ruby/JavaScript code such as templates, date libraries, etc.</li>
+<li>Very slow and brittle tests. We had a massive integration test suite consisting of over 3000 <a href="https://github.com/jnicklas/capybara">Capybara</a> tests that took hours to run because we lacked good JavaScript testing tools.</li>
+<li>Poor mobile experience from trying to responsively scale down a large single page app with bloated and unused assets.</li>
+<li>Slow asset compilation, server boot, and general build times. Productivity suffered greatly as more code was added to the same monolithic project.</li>
+</ul>
+
+<h2 id="there-s-got-to-be-a-better-way">There&rsquo;s Got to Be a Better Way</h2>
+
+<p>A monolithic app that treats it&rsquo;s client-side code as a second class citizen was clearly not going to scale. Our poor mobile web experience was a good candidate to try something new. So we started building a separate mobile optimized website (m.artsy.net).</p>
+
+<p>Some goals became clear:</p>
+
+<ul>
+<li>Better client-side tools from JavaScript testing to package managers.</li>
+<li>Share rendering code server/client to reduce duplication and optimize initial page load.</li>
+<li>Flexibility. We needed a way to divide our app into smaller chunks with smaller asset packages.</li>
+</ul>
+
+<h2 id="choosing-technology">Choosing Technology</h2>
+
+<p><img src="/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/tech.png" alt="Logos of Browserify, Express, and Backbone" /></p>
+
+<p>Node was a clear choice because it made sharing rendering code server/client possible where other languages and frameworks struggle to do so. There were some existing Node projects that accomplish this such as <a href="http://derbyjs.com/">Derby</a> and <a href="https://github.com/airbnb/rendr">Rendr</a>. However, adopting these had challenges of their own including being difficult to integrate with our API, learning unnecessary conventions, or being early prototypes with lacking documentation.</p>
+
+<p>We wanted an approach that breaks our app into smaller, more flexible, pieces. Not all of Artsy needs to be a thick-client app, or even use much client-side JavaScript at all. Adopting an existing solution and combining most of the server and client into a shared abstraction seemed like an unnecessary black box. After trying many other frameworks we found a combination of lower-level tools to be a clear winner.</p>
+
+<p>We open sourced this combination of tools and patterns into <a href="http://ezeljs.com/">Ezel</a>. Ezel is a light-weight boilerplate project using <a href="http://expressjs.com/">Express</a> and <a href="http://backbonejs.org/">Backbone</a> for structure, and <a href="http://browserify.org/">Browserify</a> to compose modules that can be shared server/client.</p>
+
+<h2 id="sharing-and-rendering-server-client">Sharing and Rendering Server/Client</h2>
+
+<p><img src="/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/rendering.png" alt="Diagram of Server + Client Render" /></p>
+
+<p>To share rendering code server/client we had to make sure our templates and objects being passed in to them could work the same server/client.</p>
+
+<h3 id="sharing-objects-backbone-models">Sharing Objects (Backbone Models)</h3>
+
+<p><a href="http://browserify.org/">Browserify</a> lets you write modules that can run in Node or the browser. Since Backbone is able to be required on the server out of the box, it&rsquo;s easy to write models and collections that can be required on both sides with Browserify. However, there are two main speed bumps in doing this:</p>
+
+<ol>
+<li>Backbone uses AJAX for persistence.</li>
+</ol>
+
+<p>We needed a Backbone.sync adapter that makes HTTP requests server-side, so we wrote one and <a href="https://github.com/artsy/backbone-super-sync">it&rsquo;s open sourced.</a></p>
+
+<ol>
+<li>Data from the server needed to be shared in modules that are used server/client.</li>
+</ol>
+
+<p>For instance, our API is an external URL stored in an environment variable. We needed to use this variable in a module that will be required on the server and the client with Browserify. <a href="http://backbonejs.org/#FAQ-bootstrap">Bootstrapping data</a> is a common technique to share data from the server by embedding JavaScript in the initial HTML and exposing that data globally to the client. To avoid exposing globals we open sourced a tiny module called <a href="https://github.com/artsy/sharify">sharify</a>.</p>
+
+<h3 id="sharing-templates">Sharing Templates</h3>
+
+<p>Browserify even lets you share non-JavaScript components server/client using <a href="https://github.com/substack/node-browserify#list-of-source-transforms">transforms</a>. To reuse our <a href="http://jade-lang.com/">jade</a> templates server/client it was a simple matter of using the <a href="https://github.com/OliverJAsh/node-jadeify2">jadeify</a> transform.</p>
+
+<h3 id="all-together-now">All Together Now</h3>
+
+<p>With templates and models require-able server/client, sharing rendering code became much simpler. Below is an example using the same artwork model and detail template server/client.</p>
+
+<p>Shared Backbone &ldquo;Artwork&rdquo; model to be required server/client:</p>
+
+<p>``` javascript models/artwork.js
+var Backbone = require(&lsquo;backbone&rsquo;),
+    API_URL = require(&lsquo;sharify&rsquo;).data.API_URL;</p>
+
+<p>module.exports = Artwork = Backbone.Model.extend({</p>
+
+<p>url: API_URL + &lsquo;/api/v1/artwork&rsquo;</p>
+
+<p>});</p>
+
+<pre><code>
+Shared partial jade template used server/client:
+
+```jade templates/artwork-details.jade
+h1= artwork.get('artist').name
+h2= artwork.get('title')
+</code></pre>
+
+<p>Full server-side page template including the partial:</p>
+
+<p>```jade templates/artwork-page.jade
+doctype 5
+html
+  head
+    title Artsy | #{artwork.get(&lsquo;title&rsquo;)}
+  body
+    include artwork-details
+    != sharify.script()</p>
+
+<pre><code>
+Route handler that uses the model server-side:
+
+``` javascript app.js
+//...
+var Artwork = require('models/artwork.js');
+
+app.get('/artwork/:id', function(req, res) {
+  new Artwork({ id: req.params.id }).fetch({
+    success: function(artwork) {
+      // Boostrap artwork data into sharify
+      res.locals.sharify.data.ARTWORK_JSON = artwork.toJSON();
+      res.render('artwork-page', { artwork: artwork });
+    }
+  });
+});
+</code></pre>
+
+<p>Client side code that requires the partial template and model:</p>
+
+<p>``` javascript client.js
+var Artwork = require(&lsquo;models/artwork.js&rsquo;),
+    ARTWORK_JSON = require(&lsquo;sharify&rsquo;).data.ARTWORK_JSON,
+    detailsTemplate = require(&lsquo;templates/artwork-details.jade&rsquo;);</p>
+
+<p>var artwork = new Artwork(ARTWORK_JSON);
+artwork.on(&lsquo;change&rsquo;, function() {
+  $(&lsquo;body&rsquo;).html(detailsTemplate({ artwork: artwork }));
+});</p>
+
+<pre><code>
+## Developer Happiness
+
+![Happy Developer Image](/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/so-much-win.png)
+
+Not only does sharing code server/client let you easily optimize page rendering for fast page loads, but development becomes a lot nicer because we can reuse server-side JavaScript tools including...
+
+### Package Managers
+
+With Browserify we were able to use npm as a package manager for server or client-side dependencies. There are [other](http://bower.io/) [package](http://component.io/) [managers](http://jamjs.org/) for the client-side. However, because we were already using npm (and npm supports git urls), we could usually point to the project hosted on npm or Github without having to fork it.
+
+For projects that don't support CommonJS modules (or npm), often one can still use npm and requires like so:
+
+``` json
+&quot;devDependencies&quot;: {
+  &quot;zepto&quot;: &quot;git://github.com/madrobby/zepto.git#c074a94f0f26dc946f1c501f5f45d603adada44d&quot;
+}
+</code></pre>
+
+<p><code>javascript client.js
+// Require the base Zepto library (attaches `Zepto` to window)
+require('zepto/src/zepto.js');
+// Attach Zepto's plugins
+require('zepto/src/event.js');
+require('zepto/src/detect.js');
+// ....
+</code></p>
+
+<h3 id="testing">Testing</h3>
+
+<p>Testing is light-years ahead because you can test all of your code in Node headless. I wrote <a href="/blog/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/">an article</a> on this a while back, and now with Browserify it&rsquo;s even better.</p>
+
+<p>Models, templates, and other modules that are shared server/client can be required into <a href="http://visionmedia.github.io/mocha/">mocha</a> and tested server-side without extra effort. For more view-like client-side code that depends on DOM APIs, pre-rendered HTML, etc., we open sourced a library called <a href="https://github.com/craigspaeth/benv">benv</a> to help build a fake browser environment in Node for testing.</p>
+
+<h3 id="modularity">Modularity</h3>
+
+<p>We wanted to avoid a monolithic organization that groups code by type such as &ldquo;stylesheets&rdquo;, &ldquo;javascripts&rdquo;, &ldquo;controllers&rdquo;, etc.. Not only is this a maintenance problem as it makes boundaries of your app unclear, but it also affects your users because it encourages grouping assets into large monolithic packages that take a long time to download.</p>
+
+<p>Instead, we borrowed a page from <a href="http://stackoverflow.com/questions/2472984/django-and-project-application-organization">Django</a> and broke up our project into smaller conceptual pieces called &ldquo;apps&rdquo; (small express sub-applications mounted into the main project) and &ldquo;components&rdquo; (portions of reusable UI such as a modal widget). This let us easily maintain decoupled segments of our project and build up smaller asset packages through Browserify&rsquo;s <code>require</code>s and <a href="http://learnboost.github.io/stylus/docs/import.html">Stylus</a>&rsquo; <code>import</code>s. For more details on how this is done please check out <a href="http://ezeljs.com/">Ezel</a>, its <a href="https://github.com/artsy/ezel#project-vs-apps-vs-components">organization</a>, and <a href="https://github.com/artsy/ezel#asset-pipeline">asset pipeline</a> docs.</p>
+
+<p>It&rsquo;s also worth noting, to avoid CSS spaghetti we followed a simple convention of name-spacing all of our classes/ids by the app or component name it was a part of. This was inspired by a <a href="http://philipwalton.com/articles/css-architecture/">blog post from Philip Walton</a>.</p>
+
+<h2 id="success">Success!</h2>
+
+<p>With this new architecture and set of Node tools we&rsquo;ve seen enormous benefits compared to the pains of developing Backbone in a monolithic project with lacking JavaScript tools. Our mobile web experience is much better, we can render more content on the server for SEO and faster page loads, our test/build/deploy cycles went from hours to minutes, our developer on-boarding time went from days to minutes, and overall developer happiness has significantly improved.</p>
+
+<p>It&rsquo;s an exciting time to be developing JavaScript apps and we will continue to open source our efforts wherever possible. Thanks and <a href="https://github.com/artsy">follow us on Github</a>!</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/">Isolating Spurious and Nondeterministic Tests</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/">Upgrading to Mongoid 4.x</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

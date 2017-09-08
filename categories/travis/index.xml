@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Travis on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/travis/</link>
+    <description>Recent content in Travis on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Aug 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/travis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using CocoaPods Caching with Travis CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</link>
+      <pubDate>Fri, 08 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/</guid>
+      <description>&lt;p&gt;As &lt;a href=&#34;http://artsy.github.io/blog/2014/08/07/taking-a-snapshot-with-second-curtain/&#34;&gt;Ash said earlier&lt;/a&gt; we like using Continuous Integration. Today I spent a large amount of time migrating us to use the new CocoaPods caching system in Travis CI. To make up for my lost time I&amp;rsquo;m passing on what I&amp;rsquo;ve learned and also showing how we do CI at Artsy with Objective-C apps. If you&amp;rsquo;re interested in how we do it in Swift, you can just check &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Taking a Snapshot with Second Curtain</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</link>
+      <pubDate>Mon, 04 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/</guid>
+      <description>&lt;p&gt;At Artsy, we try hard to &lt;a href=&#34;https://speakerdeck.com/orta/getting-eigen-out?slide=35&#34;&gt;test&lt;/a&gt;
+our iOS applications to ensure that we avoid regressions and have a clearly
+defined spec of how our apps should look and behave. One of the core pieces of
+our testing setup is &lt;a href=&#34;https://github.com/facebook/ios-snapshot-test-case&#34;&gt;FBSnapshotTestCase&lt;/a&gt;,
+a library written by Facebook to compare views at runtime with images of those
+views that are known to be correct. If the images differ, the test fails. We
+also use &lt;a href=&#34;https://travis-ci.org&#34;&gt;Travis&lt;/a&gt; for continuous integration.&lt;/p&gt;
+
+&lt;p&gt;Lately, we&amp;rsquo;ve been noticing a friction between the developers on the iOS team
+and the tools we&amp;rsquo;re using to test our apps: while Travis allows us to easily
+access the logs of test runs, it can only indicate that a snapshot test failed,
+not why it failed. That&amp;rsquo;s because the images that are compared are locked on
+Travis&amp;rsquo; machine – we cannot access those images, so we can&amp;rsquo;t see the
+differences. This is &lt;em&gt;really&lt;/em&gt; promblematic when the tests pass locally but fail
+only on Travis.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Isolating Spurious and Nondeterministic Tests</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/</link>
+      <pubDate>Thu, 30 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/</guid>
+      <description>&lt;p&gt;Testing is a critical part of our workflow at &lt;a href=&#34;https://artsy.net&#34;&gt;Artsy&lt;/a&gt;. It gives us confidence to make regular, aggressive enhancements. But anyone who has worked with a large, complex test suite has struggled with occasional failures that are difficult to reproduce or fix.&lt;/p&gt;
+
+&lt;p&gt;These failures might be due to slight timing differences or lack of proper isolation between tests. Integration tests are particularly thorny, since problems can originate not only in application code, but in the browser, testing tools (e.g., &lt;a href=&#34;http://docs.seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt;), database, network, or external APIs and dependencies.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-quarantine&#34;&gt;The Quarantine&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been &lt;a href=&#34;http://artsy.github.io/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/&#34;&gt;automatically retrying failed tests&lt;/a&gt;, with some success. However, these problems tend to get worse. (If you have 10 tests that each have a 1% chance of failing, roughly 1 in 10 builds will fail. If you have 50, 4 in 10 builds will fail.)&lt;/p&gt;
+
+&lt;p&gt;Martin Fowler offers the most compelling thoughts on this topic in &lt;a href=&#34;http://martinfowler.com/articles/nonDeterminism.html&#34;&gt;Eradicating Non-Determinism in Tests&lt;/a&gt;. (Read it, really.) He suggests quarantining problematic tests in a separate suite, so they don&amp;rsquo;t block the build pipeline.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

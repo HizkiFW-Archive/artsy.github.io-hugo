@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Relay // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Relay" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/04/26/Relay-Mutations/">Relay Mutations</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >nik</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-relay" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay">relay</a>
+      					
+					        <a class="post-category post-category-graphql" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/graphql">graphql</a>
+      					
+					        <a class="post-category post-category-JavaScript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/JavaScript">JavaScript</a>
+      					
+					        <a class="post-category post-category-guest" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/guest">guest</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<blockquote>
+<p>Hey there everyone, it took us two years to <a href="https://github.com/artsy/metaphysics/pull/583">make our</a> GraphQL implementation support any mutations. We opted to keep it read-only for quite a long time because we use GraphQL to consolidate multiple APIs, but as we start new projects as GraphQL + databases then understanding mutations becomes much more important.</p>
+
+<p>Last month, I talked with the team at <a href="https://www.graph.cool/">Graph.cool</a> about having them talk through Relay mutations comprehensively as a guest post on the Artsy Engineering blog. So, I&rsquo;m really excited to introduce this great post on the topic by <a href="http://twitter.com/nikolasburk">Nikolas Burk</a>.</p>
+
+<p>&ndash; Orta</p>
+</blockquote>
+
+<h1 id="the-magic-behind-relay-mutations">The Magic behind Relay Mutations</h1>
+
+<p><a href="https://facebook.github.io/relay/">Relay</a> is a powerful GraphQL client for React and React Native applications. It was open sourced by Facebook alongside GraphQL in 2015 and is a great tool for supporting you with managing your app&rsquo;s data layer.</p>
+
+<p>In this post, we are going to explore how Relay mutations work by looking at a React Native app. The code can be found on <a href="https://github.com/graphcool-examples/react-native-relay-pokedex-example">GitHub</a>. Our sample application is a simple <em>Pokedex</em>, where users can manage their Pokemons.</p>
+
+<p><img src="http://i.imgur.com/S21GfEo.png" alt="" /></p>
+
+<blockquote>
+<p>Note: We&rsquo;re going to assume a basic familiarity with GraphQL in this article. If you haven&rsquo;t heard of GraphQL before, the <a href="www.graphql.org">documentation</a> and the <a href="http://artsy.github.io/blog/2016/06/19/graphql-for-mobile/">GraphQL for iOS Developers</a> post are great places to start. If you&rsquo;re interested in learning more about Relay in general, head over to <a href="www.learnrelay.org">Learn Relay</a> for a comprehensive tutorial.</p>
+</blockquote>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/04/26/Relay-Mutations/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/">Workshop: React Native</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-swift" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swift">swift</a>
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+					        <a class="post-category post-category-objectivec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/objectivec">objectivec</a>
+      					
+					        <a class="post-category post-category-relay" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay">relay</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Hey there, so you&rsquo;ve decided to take a look at React Native? Well, last week I ran a workshop inside Artsy on <a href="https://facebook.github.io/react-native/">React Native</a> and <a href="https://facebook.github.io/relay/">Relay</a>.</p>
+
+<p>The video takes you from <code>react-native init</code> to having the initial structure of a View Controller based on Relay with a real working API request. The video is about 45 minutes, with inline questions.</p>
+
+<p>If you wanted to just run through the notes, you could probably get it working in about 10 minutes.</p>
+
+<p>Jump <a href="https://www.youtube.com/watch?v=PYC47YKnK4k">to YouTube</a> for the video, or click more for a smaller inline preview, as well as all of the speakers notes to copy &amp; paste from. There is also a full copy of the end-result at <a href="https://github.com/orta/Relay-Artist-Example">orta/Relay-Artist-Example</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/">Exploration: Front-end JavaScript at Artsy in 2017</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>16 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+					        <a class="post-category post-category-typescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript">typescript</a>
+      					
+					        <a class="post-category post-category-relay" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay">relay</a>
+      					
+					        <a class="post-category post-category-react" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/react">react</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><center>
+ <img src="/images/js2017/js.svg" style="width:300px;">
+</center></p>
+
+<p>The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team <a href="/blog/2016/08/15/React-Native-at-Artsy/">announced</a> that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.</p>
+
+<p>Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&rsquo;ve been experimenting with finding common, natural patterns between web and native.</p>
+
+<p>This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.</p>
+
+<p><strong>TLDR:</strong> <a href="#TypeScript">TypeScript</a>, <a href="#GraphQL">GraphQL</a>, <a href="#React...React.Native">React/React Native</a>, <a href="#Relay">Relay</a>, <a href="#Yarn">Yarn</a>, <a href="#Jest">Jest</a>, and <a href="#Visual.Studio.Code">Visual Studio Code</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

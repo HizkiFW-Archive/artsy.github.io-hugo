@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ui on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/ui/</link>
+    <description>Recent content in Ui on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Feb 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reliably Testing Asynchronous UI w/ RSpec and Capybara</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/</guid>
+      <description>&lt;p&gt;tl;dr - You can write 632 rock solid UI tests with Capybara and RSpec, too.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;Miami Weather in NYC&#34; alt=&#34;/images/2012-02-03-reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/jenkins-ci.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We have exactly 231 integration tests and 401 view tests out of a total of 3086 in our core application today. This adds up to 632 tests that exercise UI. The vast majority use &lt;a href=&#34;http://rspec.info/&#34;&gt;RSpec&lt;/a&gt; with &lt;a href=&#34;https://github.com/jnicklas/capybara&#34;&gt;Capybara&lt;/a&gt; and &lt;a href=&#34;http://seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt;. This means that every time the suite runs we set up real data in a local MongoDB and use a real browser to hit a fully running local application, 632 times. The suite currently takes 45 minutes to run headless on a slow Linode, UI tests taking more than half the time.&lt;/p&gt;
+
+&lt;p&gt;While the site is in private beta, you can get a glimpse of the complexity of the UI from the &lt;a href=&#34;http://artsy.net&#34;&gt;splash page&lt;/a&gt;. It&amp;rsquo;s a rich client-side Javascript application that talks to an API. You can open your browser&amp;rsquo;s developer tools and watch a combination of API calls and many asynchronous events.&lt;/p&gt;
+
+&lt;p&gt;Keeping the UI tests reliable is notoriously difficult. For the longest time we felt depressed under the Pacific Northwest -like weather of our Jenkins CI and blamed every possible combination of code and infrastructure for the many intermittent failures. We&amp;rsquo;ve gone on sprees of marking many such tests &amp;ldquo;pending&amp;rdquo; too.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve learned a lot and stabilized our test suite. This is how we do UI testing.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

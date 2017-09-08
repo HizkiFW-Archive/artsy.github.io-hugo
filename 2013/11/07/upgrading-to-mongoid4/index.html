@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Upgrading to Mongoid 4.x // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Upgrading to Mongoid 4.x" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#moped-bson-objectid">Moped::BSON::ObjectId</a></li>
+<li><a href="#testing-against-multiple-mongoid-versions">Testing Against Multiple Mongoid Versions</a></li>
+<li><a href="#upgraded-gems">Upgraded Gems</a></li>
+<li><a href="#upgrading-a-rails-project">Upgrading a Rails Project</a></li>
+<li><a href="#updates">Updates</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/11/07/upgrading-to-mongoid4/">Upgrading to Mongoid 4.x</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-MongoDB" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/MongoDB">MongoDB</a>
+				
+					<a class="post-category post-category-Mongoid" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Mongoid">Mongoid</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>I recently went through an exercise of upgrading one of Artsy&rsquo;s largest web projects to the current HEAD of Mongoid 4.x. This is going to be a major release with numerous changes and I wanted to flush out bugs before the final version of the ODM is released. All Mongoid changes currently live on <a href="https://github.com/mongoid/mongoid">master</a>.</p>
+
+<pre><code class="language-ruby">gem 'mongoid', github: 'mongoid/mongoid'
+</code></pre>
+
+<p>In the process I&rsquo;ve worked on making a few gems compatible with Mongoid 4 and learned a couple of things that should help you make this process smooth for your own applications.</p>
+
+<p></p>
+
+<h2 id="moped-bson-objectid">Moped::BSON::ObjectId</h2>
+
+<p>Moped&rsquo;s BSON implementation has been removed in favor of the MongoDB bson gem 2.0 and higher. All <code>Moped::BSON</code> references must change to <code>BSON</code>. This is rather annoying and forces many libraries to have to fork behavior at runtime.</p>
+
+<pre><code class="language-ruby">module Mongoid
+  def self.mongoid3?
+    ::Mongoid.const_defined? :Observer # deprecated in Mongoid 4.x
+  end
+
+  def self.mongoid2?
+    ::Mongoid.const_defined? :Contexts # deprecated in Mongoid 3.x
+  end
+end
+</code></pre>
+
+<p>The <code>mongoid2?</code> implementation is borrowed from <a href="https://github.com/pyromaniac/mongoid_orderable">mongoid_orderable</a> and I wrote the <code>mongoid3?</code> version by parsing the CHANGELOG - observers are deprecated in 4.0.</p>
+
+<p>Now, instead of calling <code>Moped::BSON::ObjectId.legal?(id)</code>, you have to do something like this:</p>
+
+<pre><code class="language-ruby">if Mongoid.mongoid3?
+  Moped::BSON::ObjectId.legal? id
+else
+  BSON::ObjectId.legal? id
+end
+</code></pre>
+
+<p>Furthermore, you can no longer convert a string into a <code>Moped::BSON::ObjectId(id)</code>, you must explicitly call <code>from_string</code>:</p>
+
+<pre><code class="language-ruby">if Mongoid.mongoid3?
+  Moped::BSON::ObjectId(id)
+else
+  BSON::ObjectId.from_string(id)
+end
+</code></pre>
+
+<p>Libraries should then adjust their dependencies on Mongoid and specify <code>&gt;= 3.0</code>, and maybe <code>&lt; 5.0</code>.</p>
+
+<h2 id="testing-against-multiple-mongoid-versions">Testing Against Multiple Mongoid Versions</h2>
+
+<p>The <a href="https://github.com/pyromaniac/mongoid_orderable">mongoid-orderable</a> gem has a neat system for testing against all versions of Mongoid with <a href="https://travis-ci.org/">Travis CI</a>. First, the <em>.travis.yml</em> file declares a test matrix that sets <code>MONGOID_VERSION</code>. Note that Mongoid 3.x or newer doesn&rsquo;t run with Ruby 1.8.x or 1.9.2.</p>
+
+<p>```ruby .travis.yml
+rvm:
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+  - ruby-head</p>
+
+<p>env:
+  - MONGOID_VERSION=2
+  - MONGOID_VERSION=3
+  - MONGOID_VERSION=4</p>
+
+<p>matrix:
+  exclude:
+    - rvm: 1.8.7
+      env: MONGOID_VERSION=3
+    - rvm: 1.8.7
+      env: MONGOID_VERSION=4
+    - rvm: 1.9.2
+      env: MONGOID_VERSION=3
+    - rvm: 1.9.2
+      env: MONGOID_VERSION=4</p>
+
+<p>services: mongodb</p>
+
+<pre><code>
+The library's *Gemfile* locks a different version depending on the environment variable, defaulting to 3.x. You can also test against a very specific version, if you must.
+
+```ruby Gemfile
+source &quot;http://rubygems.org&quot;
+
+gemspec
+
+case version = ENV['MONGOID_VERSION'] || &quot;~&gt; 3.1&quot;
+when /4/
+  gem &quot;mongoid&quot;, :github =&gt; 'mongoid/mongoid'
+when /3/
+  gem &quot;mongoid&quot;, &quot;~&gt; 3.1&quot;
+when /2/
+  gem &quot;mongoid&quot;, &quot;~&gt; 2.8&quot;
+else
+  gem &quot;mongoid&quot;, version
+end
+</code></pre>
+
+<h2 id="upgraded-gems">Upgraded Gems</h2>
+
+<p>I used the above method to make a few gems Mongoid 4.x compatible, via the following pull requests.</p>
+
+<ul>
+<li><a href="https://github.com/digitalplaywright/mongoid-slug/pull/146">mongoid-slug</a></li>
+<li><a href="https://github.com/dblock/mongoid-scroll/commit/b67e2867b133cd6bd1b8361ea51409f80ae91ffd">mongoid-scroll</a></li>
+<li><a href="https://github.com/pyromaniac/mongoid_orderable/pull/18">mongoid_orderable</a></li>
+<li><a href="https://github.com/aq1018/mongoid-history/pull/83">mongoid-history</a></li>
+<li><a href="https://github.com/aaw/mongoid_collection_snapshot/pull/5">mongoid_collection_snapshot</a></li>
+<li><a href="https://github.com/joeyAghion/delayed_job_shallow_mongoid/pull/6">delayed_job_shallow_mongoid</a></li>
+</ul>
+
+<h2 id="upgrading-a-rails-project">Upgrading a Rails Project</h2>
+
+<p>If you&rsquo;re using Rails, you&rsquo;re in for upgrading both Mongoid 4.x and Rails to 4.x. This means you will suffer a lot of pain trying to find compatible versions of various interdependent gems. I suggest locking Rails, Mongoid and ActiveSupport to begin with.</p>
+
+<p>``` ruby Gemfile
+gem &lsquo;rails&rsquo;, &lsquo;4.0.1&rsquo;
+gem &lsquo;activesupport&rsquo;, &lsquo;4.0.1&rsquo;
+gem &lsquo;mongoid&rsquo;, github: &lsquo;mongoid/mongoid&rsquo;</p>
+
+<pre><code>
+Bulk search &amp; replace `Moped::BSON::ObjectId` references.
+
+Calls to `inc`, `set` and `add_to_set` now take hashes, eg. `artist.inc(likes_count: 1)`.
+
+If you're converting Mongoid objects to JSON and seeing data such as `{ &quot;$oid&quot; =&gt; &quot;...&quot; }` instead of an ID, monkey-patch `BSON::ObjectId.as_json`. See [this discussion thread](https://groups.google.com/forum/#!msg/mongoid/MaXFVw7D_4s/T3sl6Flg428J).
+
+``` ruby config/initializers/bson/object_id.rb
+module BSON
+  class ObjectId
+    def as_json(options = {})
+      to_s
+    end
+  end
+end
+</code></pre>
+
+<p>If you&rsquo;re using Warden (including via Devise) and/or rely on session cookies that may contain a user ID, add an implementation for the deprecated <code>Moped::BSON::Document</code>. This will prevent all old cookies from causing a serialization error and logging all those users out.</p>
+
+<p>``` ruby config/initializers/bson/
+module Moped
+  module BSON
+    ObjectId = ::BSON::ObjectId</p>
+
+<pre><code>class Document &lt; Hash
+  class &lt;&lt; self
+    def deserialize(io, document = new)
+      __bson_load__(io, document)
+    end
+
+    def serialize(document, io = &quot;&quot;)
+      document.__bson_dump__(io)
+    end
+  end
+end
+</code></pre>
+
+<p>end
+end
+```</p>
+
+<h2 id="updates">Updates</h2>
+
+<p>Please post your updates below and questions to the <a href="https://groups.google.com/forum/#!forum/mongoid">mongoid mailing list</a>. I&rsquo;ll update this post up until Mongoid 4.x ships.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/">Rendering on the Server and Client in Node.js</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/08/27/introduction-to-aws-opsworks/">Introduction to AWS OpsWorks</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

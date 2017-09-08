@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Home on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/google-home/</link>
+    <description>Recent content in Google Home on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/google-home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bringing Artsy to Google Assistant &#34;Home&#34; with Actions</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/03/04/bringing-artsy-to-google-actions-assistant-home/</guid>
+      <description>&lt;p&gt;Last month we &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/11/30/bringing-artsy-to-amazon-echo-alexa/&#34;&gt;brought Artsy to Amazon Alexa&lt;/a&gt;. In this post we&amp;rsquo;ll repeat that process and enable Artsy for Google Assistant, including Google Home.&lt;/p&gt;
+
+&lt;p&gt;tl;dr You can try Artsy on your Google Home now, say &amp;ldquo;Ok Google, talk to Artsy&amp;rdquo; or see &lt;a href=&#34;http://assistant.artsy.net&#34;&gt;assistant.artsy.net&lt;/a&gt; for more info.&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/i9EpF18xZqQ?ecver=1&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

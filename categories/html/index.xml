@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/html/</link>
+    <description>Recent content in Html on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generating Notifications and Personalized Emails Efficiently</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</link>
+      <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</guid>
+      <description>&lt;p&gt;We recently launched a new personalized email here at &lt;a href=&#34;https://artsy.net&#34;&gt;Artsy&lt;/a&gt; that features content that a given user might find interesting. The goal of this post is to describe how we built a backend system that efficiently generates these e-mails for all our users. I&amp;rsquo;ll talk about the first, naive implementation that had performance problems right away, and how the second implementation (currently in production) solved those issues, and whose behavior at scale is well-defined and understood. I won&amp;rsquo;t go into the details of the design and layout of the mail itself and how we render the content - there are several earlier blog posts that deal with those: &lt;a href=&#34;http://artsy.github.io/blog/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/&#34;&gt;Presenters and Memoization&lt;/a&gt;, &lt;a href=&#34;http://artsy.github.io/blog/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/&#34;&gt;Pinterest-style Layouts&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/blog/2014/03/17/some-tips-for-email-layout-and-responsiveness/&#34;&gt;Email Layouts and Responsiveness&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-04-24-generating-notifications-and-personalized-emails-efficiently/percy_example.png&#34; alt=&#34;Personalized Email Example&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

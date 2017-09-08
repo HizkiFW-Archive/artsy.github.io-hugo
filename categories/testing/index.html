@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Testing // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Testing" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/">Splitting up a large test suite</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Rspec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rspec">Rspec</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>A while back, we wrote about <a href="/blog/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/">How to Run RSpec Test Suites in Parallel with Jenkins CI Build Flow</a>. A version of that still handles our largest test suite, but over time the initial division of specs became unbalanced. We ended up with some tasks that took twice as long as others. Even worse, in an attempt to rebalance task times, we ended up with awkward file patterns like <code>'spec/api/**/[a-m]*_spec.rb'</code>.</p>
+
+<p>To keep our parallel spec tasks approximately equal in size and to support arbitrary concurrency, we&rsquo;ve added a new <code>spec:sliced</code> task:</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/">Releasecop Tracks Stale Releases</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-OSS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/OSS">OSS</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Continuous-Deployment" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Deployment">Continuous Deployment</a>
+      					
+					        <a class="post-category post-category-devops" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/devops">devops</a>
+      					
+					        <a class="post-category post-category-tools" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/tools">tools</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Artsy practices a sort of <a href="http://en.wikipedia.org/wiki/Continuous_delivery">continuous delivery</a>. We keep release cycles short and the process of reviewing, testing, and deploying our software as reliable, fast, and automated as possible. (This blog has touched on these practices <a href="http://artsy.github.io/blog/categories/testing/">multiple</a> <a href="http://artsy.github.io/blog/categories/continuous-integration">times</a>.)</p>
+
+<p>Usually, commits that have been reviewed and merged are immediately built and tested. Successfully built versions of the codebase are often automatically deployed to a staging environment. On an automated or frequent-but-manual basis, that version is deployed to a production environment. Thus, commits form a pipeline:</p>
+
+<ul>
+<li>From developers&rsquo; working branches</li>
+<li>To the master branch</li>
+<li>Through a hopefully-successful build</li>
+<li>To a staging environment</li>
+<li>To production</li>
+</ul>
+
+<p>The number of apps and services we deploy has grown to <em>dozens</em> per team, so sometimes things fall through the cracks. We&rsquo;ve been using <a href="https://github.com/joeyAghion/releasecop">Releasecop</a> for the last few months to get gentle email reminders when an environment could use a deploy.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/04/releasecop-tracks-stale-releases/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/">How To Write Unit Tests Like a Brood Parasite</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >sarahscott</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-ocmock" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ocmock">ocmock</a>
+      					
+					        <a class="post-category post-category-open-source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/open-source">open source</a>
+      					
+					        <a class="post-category post-category-oss" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/oss">oss</a>
+      					
+					        <a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+      					
+					        <a class="post-category post-category-beginners" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/beginners">beginners</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>To a beginner, <a href="http://ocmock.org/">OCMock</a> looks scary. The syntax is strange, the idea of stubbing seems complicated, and skirting around the need to use it at all times kind of works out for a while.</p>
+
+<pre><code class="language-objc">[[[mock stub] // three brackets!!
+
+[OCMockObject niceMockForClass:UINavigationItem.class]; // it has to be told to be nice?
+</code></pre>
+
+<p>All of this can be overwhelming for someone who just wants to write simple unit tests for a particular view controller.</p>
+
+<p>Once you look into the specifics of OCMock, however, things get less terrifying really quickly. It is helpful to compare OCMock’s approach to stubbing to the <a href="https://vimeo.com/60553870">behaviors of certain bird species</a>. As always, the soothing voice of David Attenborough brings clarity and joy to even the most mundane puzzles of life’s journey.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/">Using CocoaPods Caching with Travis CI</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>As <a href="http://artsy.github.io/blog/2014/08/07/taking-a-snapshot-with-second-curtain/">Ash said earlier</a> we like using Continuous Integration. Today I spent a large amount of time migrating us to use the new CocoaPods caching system in Travis CI. To make up for my lost time I&rsquo;m passing on what I&rsquo;ve learned and also showing how we do CI at Artsy with Objective-C apps. If you&rsquo;re interested in how we do it in Swift, you can just check <a href="https://github.com/artsy/eidolon">Eidolon</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/">Taking a Snapshot with Second Curtain</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >ash</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>At Artsy, we try hard to <a href="https://speakerdeck.com/orta/getting-eigen-out?slide=35">test</a>
+our iOS applications to ensure that we avoid regressions and have a clearly
+defined spec of how our apps should look and behave. One of the core pieces of
+our testing setup is <a href="https://github.com/facebook/ios-snapshot-test-case">FBSnapshotTestCase</a>,
+a library written by Facebook to compare views at runtime with images of those
+views that are known to be correct. If the images differ, the test fails. We
+also use <a href="https://travis-ci.org">Travis</a> for continuous integration.</p>
+
+<p>Lately, we&rsquo;ve been noticing a friction between the developers on the iOS team
+and the tools we&rsquo;re using to test our apps: while Travis allows us to easily
+access the logs of test runs, it can only indicate that a snapshot test failed,
+not why it failed. That&rsquo;s because the images that are compared are locked on
+Travis&rsquo; machine – we cannot access those images, so we can&rsquo;t see the
+differences. This is <em>really</em> promblematic when the tests pass locally but fail
+only on Travis.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/">Artsy&#39;s first closed source Pod</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Objc" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Objc">Objc</a>
+      					
+					        <a class="post-category post-category-Cocoa" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Cocoa">Cocoa</a>
+      					
+					        <a class="post-category post-category-Xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Xcode">Xcode</a>
+      					
+					        <a class="post-category post-category-Plugins" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Plugins">Plugins</a>
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>When I joined Artsy, <a href="http://code.dblock.org">dB</a> pitched me this idea: <em>Open source as default.</em></p>
+
+<p>I took this to heart. I genuinely believe the idea behind the philosophy. It&rsquo;s cool that our real product isn&rsquo;t our implementations on the web or native but the data which powers it - <a href="https://artsy.net/theartgenomeproject">the Art Genome Project</a>. Similarly, I spend a bunch of time <a href="https://github.com/AshFurrow/ARCollectionViewMasonryLayout">on</a> <a href="https://github.com/dblock/ARASCIISwizzle">open</a> <a href="https://github.com/dblock/ios-snapshot-test-case-expecta">sourcing</a> <a href="https://github.com/dblock/ARTiledImageView">solid</a> <a href="https://github.com/dstnbrkr/DRBOperationTree">abstractions</a> <a href="https://github.com/orta/ORSimulatorKeyboardAccessor">from</a> <a href="https://github.com/orta/ORStackView">our</a> <a href="https://github.com/orta/ARAnalytics">apps</a>, always taking the opinion if something is used in more than one place, it should be open sourced.</p>
+
+<p>This week I pushed some libraries that were a bit different, read on to find out why.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/06/20/artsys-first-closed-source-pod/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/">Building the Xcode Plugin Snapshots</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Objc" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Objc">Objc</a>
+      					
+					        <a class="post-category post-category-Cocoa" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Cocoa">Cocoa</a>
+      					
+					        <a class="post-category post-category-Xcode" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Xcode">Xcode</a>
+      					
+					        <a class="post-category post-category-Plugins" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Plugins">Plugins</a>
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>I&rsquo;m the kind of guy who thinks better tooling means better outcomes. But when good tooling isn&rsquo;t available, it&rsquo;s time to build it yourself. It&rsquo;s this attitude that lead to my work on <a href="http://cocoadocs.org">CocoaDocs.org</a>, and then to <a href="http://cocoapods.org">CocoaPods.org</a> &amp; its documentation.</p>
+
+<p>We&rsquo;ve been trying to apply this to testing, and in order to pull this off I&rsquo;ve had to extend Xcode to show off the results of failing tests in a more visual way. To that end, I&rsquo;ve extended Xcode to show the results of failing <a href="https://github.com/facebook/ios-snapshot-test-case">view tests</a> in a more visual way by building <a href="https://github.com/orta/snapshots">Snapshots for Xcode</a>.  Let&rsquo;s go through the process of building an Xcode plugin so you can do this too. Screw stability.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/06/17/building-the-xcode-plugin-snapshots/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/06/11/testing-core-data-migrations/">Testing Core Data Migrations</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>11</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Objc" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Objc">Objc</a>
+      					
+					        <a class="post-category post-category-Cocoa" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Cocoa">Cocoa</a>
+      					
+					        <a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The first time I released a patch release for <a href="http://orta.github.io/#folio-header-unit">Artsy Folio</a> it crashed instantly, on every install. Turns out I didn&rsquo;t understand Core Data migrations, now a few years on I grok it better but I&rsquo;ve still lived with the memories of that dark dark day. Because of this I&rsquo;ve had an informal rule of testing migrations with all the old build of Folio <a href="http://artsy.github.io/blog/2013/03/29/musical-chairs/">using chairs</a> the day before submitting to the app store.</p>
+
+<p>This time round, I&rsquo;ve made vast changes to the Core Data models but skipped the manual work. Here&rsquo;s how:</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/06/11/testing-core-data-migrations/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/">Continuous integration for service-oriented architectures</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>12</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Rspec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rspec">Rspec</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-SOA" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/SOA">SOA</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Whatever you have against monolithic architectures, at least they&rsquo;re easy to test. And when those tests succeed, you can be reasonably confident the live app will work the same way.</p>
+
+<p>Artsy began as one such monolithic app, but we&rsquo;ve been refactoring into an ecosystem of related APIs and sites. Today, when you search for <a href="https://artsy.net/gene/cultural-commentary">&ldquo;cultural commentary&rdquo;</a> or visit <a href="https://artsy.net/artist/robert-longo">Robert Longo</a> on <a href="https://artsy.net">artsy.net</a>, the page is rendered by a web app, sources data from an API, retrieves recommendations from a separate service, tracks trends in another, and records analytics in yet another.</p>
+
+<p>This was a boost for developer productivity and scaling, but eviscerated the value of our tests. We repeatedly encountered bugs that were failings of <em>the interaction between codebases</em> rather than failings of individual ones. Test libraries and tools typically concern themselves with one isolated app. When you have services that consume services that consume services, those isolated tests (with their stubs of everything else) don&rsquo;t necessarily reflect production&rsquo;s reality.</p>
+
+<p>So how should we develop our small, focused apps (or <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture">service-oriented architecture</a>, or <a href="http://martinfowler.com/articles/microservices.html">microservices</a>&hellip;) with confidence? We set out to build a dedicated acceptance test suite that would run tests across multiple services, configuring and integrating them in a way that closely matches the production environment.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/">Isolating Spurious and Nondeterministic Tests</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[joey frank]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Testing is a critical part of our workflow at <a href="https://artsy.net">Artsy</a>. It gives us confidence to make regular, aggressive enhancements. But anyone who has worked with a large, complex test suite has struggled with occasional failures that are difficult to reproduce or fix.</p>
+
+<p>These failures might be due to slight timing differences or lack of proper isolation between tests. Integration tests are particularly thorny, since problems can originate not only in application code, but in the browser, testing tools (e.g., <a href="http://docs.seleniumhq.org/">Selenium</a>), database, network, or external APIs and dependencies.</p>
+
+<h2 id="the-quarantine">The Quarantine</h2>
+
+<p>We&rsquo;ve been <a href="http://artsy.github.io/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">automatically retrying failed tests</a>, with some success. However, these problems tend to get worse. (If you have 10 tests that each have a 1% chance of failing, roughly 1 in 10 builds will fail. If you have 50, 4 in 10 builds will fail.)</p>
+
+<p>Martin Fowler offers the most compelling thoughts on this topic in <a href="http://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests</a>. (Read it, really.) He suggests quarantining problematic tests in a separate suite, so they don&rsquo;t block the build pipeline.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/">Writing Headless Backbone Tests With Node.js</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jun</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >craig</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>7 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Javascript">Javascript</a>
+      					
+					        <a class="post-category post-category-Backbone.js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Backbone.js">Backbone.js</a>
+      					
+					        <a class="post-category post-category-Node.js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Node.js">Node.js</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<h2 id="tl-dr">TL;DR</h2>
+
+<p>Write fast, headless, tests for Backbone using Node.js. See this project as an example  <a href="https://github.com/craigspaeth/backbone-headless-testing">https://github.com/craigspaeth/backbone-headless-testing</a>.</p>
+
+<h2 id="a-brief-history">A Brief History</h2>
+
+<p>Artsy is mostly a thick client <a href="http://backbonejs.org/">Backbone</a> app that sits on <a href="http://rubyonrails.org/">Rails</a> and largely depends on <a href="http://jnicklas.github.io/capybara/">Capybara</a> (<a href="http://docs.seleniumhq.org/">Selenium</a> backed bot that clicks around Firefox) for testing it&rsquo;s javascript. This leads to some seriously brittle and slow integration tests. <a href="http://artsy.github.io/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Despite being able to wrangle Capybara</a> to do most of our client-side testing, we knew there must be a better way.</p>
+
+<p>When building a CMS app for our gallery partners to manage their Artsy inventory, we built a new Backbone app on top of <a href="http://nodejs.org/">node.js</a>. The result was a headless test suite that runs around 60 times faster.</p>
+
+<p>Let&rsquo;s take a look at how it&rsquo;s done.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/">How to Run RSpec Test Suites in Parallel with JenkinsCI Build Flow</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We now have over 4700 RSpec examples in one of our projects. They are stable, using the techniques described in an <a href="/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">earlier post</a> and organized in <a href="/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">suites</a>. But they now take almost 3 hours to run, which is clearly unacceptable.</p>
+
+<p>To solve this, we have parallelized parts of the process with existing tools, and can turn a build around in just under an hour. This post will dive into our <a href="http://jenkins-ci.org/">Jenkins</a> build flow setup.</p>
+
+<p>To keep things simple, we&rsquo;re going to only build the <code>master</code> branch. When a change is committed on <code>master</code> we&rsquo;re going to push <code>master</code> to a <code>master-ci</code> branch and trigger a distributed build on <code>master-ci</code>. Once all the parts have finished, we&rsquo;ll complete the build by pushing <code>master-ci</code> to <code>master-succeeded</code> and notify the dev team of success or failure.</p>
+
+<p>Here&rsquo;s a diagram of what&rsquo;s going on.</p>
+
+<p><img src="/images/2012-10-09-how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/master-ci.png"></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/">Testing with Delayed Jobs</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-DelayedJob" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/DelayedJob">DelayedJob</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>A mean bug made it into our production environment. It wasn&rsquo;t caught by our extensive test suite and caused thousands of emails to be sent to a handful of people. The root cause was an unfortunate combination of <a href="https://github.com/plataformatec/devise">Devise</a>, <a href="https://github.com/collectiveidea/delayed_job">DelayedJob</a> and, of course, our own code. It was an easy fix, but nobody ever wants this to happen again.</p>
+
+<p>tl;dr DelayedJob says it&rsquo;s possible to set <code>Delayed::Worker.delay_jobs = false</code> for your tests. Don&rsquo;t do it.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/">On-Demand Jenkins Slaves with Amazon EC2</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>10</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[joey frank]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Jenkins" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Jenkins">Jenkins</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-EC2" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/EC2">EC2</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The <a href="http://artsy.net">Artsy</a> team faithfully uses <a href="http://jenkins-ci.org">Jenkins</a> for continuous integration. <a href="http://artsy.github.com/blog/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/">As we&rsquo;ve described before</a>, our Jenkins master and 8 slaves run on Linode. This arrangement has at least a few drawbacks:</p>
+
+<ul>
+<li>Our Linode servers are manually configured. They require frequent maintenance, and inconsistencies lead to surprising build failures.</li>
+<li>The fixed set of slaves don&rsquo;t match the pattern of our build jobs: jobs get backed up during the day, but servers are mostly unused overnight and on weekends.</li>
+</ul>
+
+<p>The <a href="https://wiki.jenkins-ci.org/display/JENKINS/Amazon+EC2+Plugin">Amazon EC2 Plugin</a> allowed us to replace those slaves with a totally scripted environment. Now, slaves are spun up in the cloud whenever build jobs need them.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/">Using Jenkins for Ruby and Ruby-on-Rails Teams</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Jenkins" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Jenkins">Jenkins</a>
+      					
+					        <a class="post-category post-category-Automation" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Automation">Automation</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The <a href="http://jenkins-ci.org">Jenkins CI</a> project has grown tremendously in the past few months. There&rsquo;re now hundreds of plugins and an amazing engaged community. Artsy is a happy user and proud contributor to this effort with the essential <a href="https://wiki.jenkins-ci.org/display/JENKINS/AnsiColor+Plugin">jenkins-ansicolor plugin</a>, eliminating boring console output since 2011.</p>
+
+<p>We are a continuous integration, deployment and devops shop and have been using Jenkins for over a year now. We&rsquo;ve shared our experience at the <a href="http://www.cloudbees.com/juc2012.cb">Jenkins User Conference 2012</a> in <a href="http://www.slideshare.net/dblockdotorg/graduating-to-jenkins-ci-for-rubyonrails-teams">a presentation</a>. This blog post is an overview of how to get started with Jenkins for Ruby(-on-Rails) teams.</p>
+
+<p><img src="Artsy Jenkins CI" alt="/images/2012-05-27-using-jenkins-for-ruby-on-rails-teams/jenkins.png" /></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/05/27/using-jenkins-for-ruby-and-ruby-on-rails-teams/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">How to Organize Over 3000 RSpec Specs and Retry Test Failures</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Having over three thousand RSpec tests in a single project has become difficult to manage. We chose to organize these into suites, somewhat mimicking our directory structure. And while we succeeded at making our Capybara integration tests more reliable (see <a href="/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Reliably Testing Asynchronous UI with RSpec and Capybara</a>), they continue relying on finicky timeouts. To avoid too many false positives we&rsquo;ve put together a system to retry failed tests. We know that a spec that fails twice in a row is definitely not a fluke!</p>
+
+<p>Create a new Rake file in <code>lib/tasks/test_suites.rake</code> and declare an array of test suites.</p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Reliably Testing Asynchronous UI w/ RSpec and Capybara</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Capybara" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Capybara">Capybara</a>
+      					
+					        <a class="post-category post-category-Selenium" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Selenium">Selenium</a>
+      					
+					        <a class="post-category post-category-UI" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UI">UI</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>tl;dr - You can write 632 rock solid UI tests with Capybara and RSpec, too.</p>
+
+<p><img src="Miami Weather in NYC" alt="/images/2012-02-03-reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/jenkins-ci.png" /></p>
+
+<p>We have exactly 231 integration tests and 401 view tests out of a total of 3086 in our core application today. This adds up to 632 tests that exercise UI. The vast majority use <a href="http://rspec.info/">RSpec</a> with <a href="https://github.com/jnicklas/capybara">Capybara</a> and <a href="http://seleniumhq.org/">Selenium</a>. This means that every time the suite runs we set up real data in a local MongoDB and use a real browser to hit a fully running local application, 632 times. The suite currently takes 45 minutes to run headless on a slow Linode, UI tests taking more than half the time.</p>
+
+<p>While the site is in private beta, you can get a glimpse of the complexity of the UI from the <a href="http://artsy.net">splash page</a>. It&rsquo;s a rich client-side Javascript application that talks to an API. You can open your browser&rsquo;s developer tools and watch a combination of API calls and many asynchronous events.</p>
+
+<p>Keeping the UI tests reliable is notoriously difficult. For the longest time we felt depressed under the Pacific Northwest -like weather of our Jenkins CI and blamed every possible combination of code and infrastructure for the many intermittent failures. We&rsquo;ve gone on sprees of marking many such tests &ldquo;pending&rdquo; too.</p>
+
+<p>We&rsquo;ve learned a lot and stabilized our test suite. This is how we do UI testing.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

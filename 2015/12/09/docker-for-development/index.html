@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Using Docker and Dusty for Development // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="barry">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Using Docker and Dusty for Development" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2015/12/09/docker-for-development/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/12/09/docker-for-development/">Using Docker and Dusty for Development</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">barry</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Docker" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Docker">Docker</a>
+				
+					<a class="post-category post-category-development" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/development">development</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>When I first proposed using Docker for development, and began doing my work that way, there were some doubts.</p>
+
+<ul>
+<li>Doesn&rsquo;t it seem like a lot of trouble to set up Docker to get my work done?</li>
+<li>Isn&rsquo;t it easier to use <a href="http://brew.sh/">Homebrew</a> to install the services and database servers I need?</li>
+</ul>
+
+<p></p>
+
+<p>At Artsy, our main API aka Gravity uses MongoDB, Solr, Elasticsearch, and memcached. In development, we use <a href="http://mailcatcher.me/">Mailcatcher</a> so we can view emails. When a new software engineer starts, that person studies a big Getting Started document, and spends most of a day to get everything installed and configured. Not only do they need to get the software installed, figuring out all of the environment variables that need to be set up can take some time too. While we have good documentation, it is still a tedious and repetitive process that takes up the time of our new employee, and more experienced developers who need to answer questions.</p>
+
+<p>Now that Gravity has been dockerized, getting set up consists of a one-time install of <a href="https://www.docker.com/docker-toolbox">Docker Toolbox</a> followed by running</p>
+
+<pre><code class="language-bash">docker-compose build &amp;&amp; docker-compose up
+</code></pre>
+
+<p>in the root directory of the checked-out repo. Here is a simplified version of our <a href="https://docs.docker.com/compose/">docker-compose</a> setup. Because we run a web server and a delayed_job process, <code>docker-compose.yml</code> uses a <code>common.yml</code> file for shared setup:</p>
+
+<pre><code class="language-yaml">gravity:
+  build: .
+  environment:
+    MEMCACHE_SERVERS: memcached
+    SOLR_URL: http://solr4:8983/solr/gravity
+    MONGO_HOST: mongodb
+    ELASTICSEARCH_URL: elasticsearch:9200
+    SMTP_PORT: 1025
+    SMTP_ADDRESS: mailcatcher
+  env_file: .env
+</code></pre>
+
+<p>The <code>.env</code> file is used for secrets such as Amazon Web Services credentials we don&rsquo;t want to put into the git repository.</p>
+
+<p>Our <code>docker-compose.yml</code> looks like this:</p>
+
+<pre><code class="language-yaml">mongodb:
+  image: mongo:2.4
+  command: bash -c &quot;rm -f /data/db/mongod.lock; mongod --smallfiles --quiet --logpath=/dev/null&quot;
+  ports: 
+  - &quot;27017:27017&quot;
+
+solr4:
+  image: artsy/solr4
+
+memcached:
+  image: memcached
+
+elasticsearch:
+  image: artsy/elasticsearch
+  ports:
+  - &quot;9200:9200&quot;
+  - &quot;9300:9300&quot;
+
+web:
+  extends:
+    file: common.yml
+    service: gravity
+  command: script/rails s -b 0.0.0.0 -p 80
+  ports:
+  - &quot;80:80&quot;
+  volumes:
+  - .:/app
+  links:
+  - elasticsearch
+  - mongodb
+  - memcached
+  - solr4
+  - mailcatcher
+
+dj:
+  extends:
+    file: common.yml
+    service: gravity
+  command: bundle exec rake jobs:work
+  volumes:
+  - .:/app
+  links:
+  - elasticsearch
+  - mongodb
+  - memcached
+  - solr4
+
+mailcatcher:
+  image: zolweb/docker-mailcatcher
+  ports:
+  - &quot;1080:1080&quot;
+</code></pre>
+
+<p>The command for the MongoDB section removes a lock file that can remain in place sometimes when the container is killed. Do not use that in production! We mount the local directory into the container with a <code>volumes:</code> command, so that local changes are reloaded in the running containers.</p>
+
+<p>Recently, <a href="https://github.com/ashkan18">Ashkan Nasseri</a> began to move our delayed jobs from <a href="https://github.com/collectiveidea/delayed_job_mongoid">delayed_job_mongoid</a> to <a href="http://sidekiq.org/">sidekiq</a>, which brings in Redis and another process that needs to run during development. Since we are using Docker, all we have to do is add a couple of new sections to our <code>docker-compose.yml</code> file:</p>
+
+<pre><code class="language-yaml">redis:
+  image: redis
+  ports:
+  - &quot;6379:6379&quot;
+
+sidekiq:
+  extends: 
+    file: common.yml
+    service: gravity
+  command: bundle exec sidekiq
+  volumes:
+  - .:/app
+  links:
+  - elasticsearch
+  - mongodb
+  - memcached
+  - solr4
+  - redis
+</code></pre>
+
+<p>and add this line to <code>common.yml</code>:</p>
+
+<pre><code class="language-yaml">REDIS_URL: redis://redis
+</code></pre>
+
+<p>The next time someone runs <code>docker-compose up</code>, this will cause a one-time download of a redis image, and then it brings up the additional sidekiq service.</p>
+
+<p>For development which involves multiple applications in separate git repositories, we use <a href="http://dusty.gc.com/">Dusty</a>, which was created by <a href="https://gc.com/">GameChanger</a>. Some of the advantages of using Dusty include the use of NFS (which performs much better than shared volumes in VirtualBox), and a built-in nginx proxy along with modifications to your <code>/etc/hosts</code> file so that you can more easily connect to your applications.</p>
+
+<p>With Dusty, you set up services, apps, and bundles of apps with YAML files. Here is a repo with <a href="https://github.com/gamechanger/dusty-example-specs">sample Dusty specs</a>.</p>
+
+<p>Our MongoDB service is defined as:</p>
+
+<pre><code class="language-yaml"># services/mongo2.yml
+image: mongo:2.4
+volumes:
+- /persist/persistentMongo:/data/db
+entrypoint: [&quot;sh&quot;, &quot;-c&quot;, &quot;rm -f /data/db/mongod.lock; mongod --smallfiles --quiet --logpath=/dev/null&quot;]
+ports:
+- &quot;27017:27017&quot;
+</code></pre>
+
+<p>It&rsquo;s not necessary to expose the ports, but in case we want to connect directly to the MongoDB instance with the <code>mongo</code> command without shelling into a container, we need it to be available on our Docker VM&rsquo;s IP address.</p>
+
+<p>Our Gravity app&rsquo;s Dusty YAML file is:</p>
+
+<pre><code class="language-yaml"># apps/gravity.yml
+repo: github.com/artsy/gravity
+mount: /app
+build: .
+
+depends:
+  services:
+  - mongo2
+  - memcached
+  - solr4
+  - es15
+  - mailcatcher
+  - redis
+  apps:
+  - radiation
+
+host_forwarding:
+- host_name: gravity
+  host_port: 80
+  container_port: 80
+
+compose:
+  environment:
+    RADIATION_URL: http://radiation
+    MONGO_HOST: mongo2
+    MEMCACHE_SERVERS: memcached
+    SOLR_URL: http://solr4:8983/solr/gravity
+    ELASTICSEARCH_URL: es15:9200
+    SMTP_ADDRESS: mailcatcher
+    SMTP_PORT: 1025
+    REDIS_URL: redis://redis
+
+commands:
+  once:
+  - bundle install -j 10
+  - bundle exec rake db:client_applications:create_all
+  - bundle exec rake db:admin:create
+  always:
+  - rails s -b 0.0.0.0 -p 80
+</code></pre>
+
+<p>The <code>depends:</code> configuration is similar to the <a href="https://docs.docker.com/compose/compose-file/#links">links</a> functionality of docker-compose. It makes sure that those applications (as defined in <code>apps/*.yml</code>) are running, and sets up <code>/etc/hosts</code> in the containers to allow your applications to refer to other services using their hostnames.</p>
+
+<p>For now, Dusty doesn&rsquo;t have a way of sharing common setup like <code>common.yml</code> above, so there are similar configurations for our Sidekiq and Delayed Job workers.</p>
+
+<p>Dusty uses bundles for clusters of applications that need to work together. An example bundle, for a CMS application that needs many APIs, is:</p>
+
+<pre><code class="language-yaml"># apps/volt.yml
+description: Volt
+apps:
+  - tangentApi
+  - radiation
+  - superposition
+  - gravity
+  - volt
+</code></pre>
+
+<p>We bring up that cluster of applications with</p>
+
+<pre><code class="language-bash">dusty bundles activate volt
+dusty up
+</code></pre>
+
+<p>As we have added new services over time, using Docker and Dusty to bring clusters of apps together has made it much easier for developers to work on projects without having to spend time on installation and configuration. Having Docker configuration in the repo also serves as good (and up-to-date) documentation of how a given application is configured and its dependencies. It is also much less resource-intensive compared to using virtual machines configured with Vagrant or another provisioning tool. All of our Docker applications and services can run in a single VM. If you are developing on Linux, you don&rsquo;t even need a VM!</p>
+
+<p>We are also starting to use Docker to run integrated testing across multiple applications using Selenium. That will be covered in a future blog post.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2015/12/11/License-and-You/">Licenses for OSS Code</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/">Upgrading to RxSwift</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

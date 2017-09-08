@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    CocoaPods and Frameworks // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="CocoaPods and Frameworks" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/">CocoaPods and Frameworks</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>As I mentioned in my <a href="https://artsy.github.io/blog/2014/11/13/eidolon-retrospective/">retrospective on Eidolon</a>, Artsy iOS codebases are often used as testbeds for new CocoaPods features. With Eidolon, we had the opportunity to try out CocoaPods&rsquo; support for frameworks and Swift. This post is a look back at the month of using dependencies as dynamic frameworks instead of static libraries.</p>
+
+<p></p>
+
+<p>Updating was pretty easy: we used a <code>Gemfile</code> and <code>bundler</code> to specify a pre-release version of CocoaPods, as well as pre-release versions of its dependencies. (Updating now is easy – just run <code>[sudo] gem install cocoapods --prerelease</code> to grab the latest beta.)</p>
+
+<p>After updating to CocoaPods, all of our existing code had to be migrated. Previously, we could import all the frameworks we used in the bridging header and they would be accessible to all of our Swift files. <a href="https://github.com/orta/eidolon/commit/abc359c55d4322d21d88349fbd044bf5b5f04725">This commit</a> is an example of having to add <code>import Moya</code> statements all throughout our Swift files that needed to access that library.</p>
+
+<p>One by one, we created podspecs for libraries we were using. Then we would push the podspecs to a fork of that library. By specifying in our Podfile which repository CocoaPods should fetch the code from, we were able to use our own podspecs without bothering the library authors themselves. Some libraries did <a href="https://github.com/Quick/Quick/pull/197">accepted pull requests</a> to add the podspecs from us.</p>
+
+<p>The final step to update was getting our tests to pass. Up to this point, we had added all of our classes to both the app target <em>and</em> the test target. The helpful upshot of this is that all of the test were able to access the Swift classes without us having had declared those classes <code>public</code>. Swift classes are <code>internal</code> by default, so separating out the app code from the test target required <a href="https://github.com/orta/eidolon/pull/4">quite a few</a> tedious changes throughout our codebase.</p>
+
+<p><img src="/images/2015-01-04-cocoapods-and-frameworks/levelup.gif" alt="Level up." /></p>
+
+<p>Eidolon is pretty distinct among iOS applications: from day one, it was developed completely in the open. Developing this kind of app in the open posed some new challenges, including limiting access to fonts for which we have licenses to use but not to distribute. Orta <a href="http://artsy.github.io/blog/2014/06/20/artsys-first-closed-source-pod/">solved this problem</a> earlier this year by having two pods: one private, and one public, but with identical header files. When installing the dependencies, CocoaPods uses one pod or the other depending on a <a href="https://github.com/artsy/eidolon/blob/4ae52f166f2d1620f25a59f36e6a87915ba32705/Podfile#L31-L35">complex heuristic</a>. However, the names of the pods are used as names for the Swift modules generated from them. Since the pods have different names, the <code>import Artsy_UIFonts</code> statements won&rsquo;t make sense if someone only has access to the <code>Artsy_OSSUIFonts</code> module. Swift&rsquo;s lack of a preprocessor led to some <a href="https://github.com/artsy/eidolon/commit/57aa66681727cfed11239f9b5a62bb59fee35f1a">hacks</a>. However, CocoaPods now allows you to specify a module name for a pod, so we&rsquo;ll be fixing the issue <a href="https://github.com/artsy/Artsy-OSSUIFonts/issues/1">shortly</a>.</p>
+
+<p>Of course, Swift still has some rough edges, too. Namely, we can&rsquo;t compile our app with compiler optimizations enabled – the compiler will segfault. It turns out that one of our dependencies was causing the segfault – probably just a Swift compiler bug, but we needed a workaround until it&rsquo;s fixed. I got more familiar with post-install hooks when I dipped my toes into Ruby to <a href="https://github.com/ashfurrow/cocoapods-chillax-swift">disable the optimization on specific pods</a>.</p>
+
+<p>Orta used the opportunity of using a prerelease version of CocoaPods to help define the new <code>plugin</code> syntax in the <a href="https://github.com/artsy/eidolon/commit/cdc8dde011e98878a7dde646d0da75c34c8fd5a9#diff-4a25b996826623c4a3a4910f47f10c30">Podfile</a>.</p>
+
+<p>One issue that Marius covered in the <a href="http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/">CocoaPods blog post</a> is that of bundles. Since a framework is a separate bundle from the app (as opposed to a static library, which is in the same bundle), code that relies on <code>[NSBundle mainBundle]</code> isn&rsquo;t going to behave correctly in a framework. An unexpected problem we encountered related to bundles was our use of custom fonts. For Eidolon, our fonts reside in a CocoaPod and, therefore, now in a framework. That means that the font files aren&rsquo;t in our app&rsquo;s bundle anymore and <code>UIFont</code>&rsquo;s <code>fontWithName:</code> wasn&rsquo;t finding those font files, regardless our use of the <code>UIAppFonts</code> key in any info.plist file. Borrowing a <a href="https://github.com/CocoaPods-Fonts/OpenSans/blob/874e65bc21abe54284e195484d2259b2fe858680/UIFont%2BOpenSans.m#L18-L38">solution from OpenSans</a>, we were able to use CoreText to load the font manually.</p>
+
+<p>Finally, we were done.</p>
+
+<p><img src="/images/2015-01-04-cocoapods-and-frameworks/success.gif" alt="Finally finished." /></p>
+
+<p>Adopting CocoaPods with support for frameworks early helped us identify features and bug fixes that we could ask the CocoaPods developers for. Now, there is still time to let the team know what awesome feature you&rsquo;d like to see included, but you&rsquo;ll have to try the fancy new CocoaPods version in order to figure out what that feature is. Sure, CocoaPods 0.36 is still in beta, but since you&rsquo;re already using a pre-1.0 dependency mananger, you&rsquo;re probably cool with trying out awesome, cutting-edge stuff. Try the new release when you get a chance and <a href="https://github.com/CocoaPods/CocoaPods/issues/new">let the team know</a> if you have feedback.</p>
+
+<p>Our path to using CocoaPods with frameworks was bumpy, but we were the first ones to try. Today, the process is a lot easier.</p>
+
+<p>The CocoaPods team has a <a href="http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/">wonderful guide</a> for library authors to adopt the new CocoaPods version, so we&rsquo;ll likely see lots of new pods from open source Swift code, just like we already have with Objective-C.</p>
+
+<p>A sincere thanks to <a href="http://twitter.com/mrackwitz">Marius</a> and everyone on the CocoaPods team for their dedicated work on the support for frameworks in CocoaPods.</p>
+
+<p><img src="/images/2015-01-04-cocoapods-and-frameworks/highfive.gif" alt="Great work, team." /></p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2015/01/21/cocoapods-keys-and-CI/">CocoaPods-Keys and CI</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2014/11/19/how-to-write-great-outage-post-mortems/">How to Write Great Outage Post-Mortems</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/networking/</link>
+    <description>Recent content in Networking on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Transparent Prerequisite Network Requests with Swift and ReactiveCocoa</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/</guid>
+      <description>&lt;p&gt;Artsy&amp;rsquo;s &lt;a href=&#34;http://developers.artsy.net&#34;&gt;API&lt;/a&gt; requires something called an &lt;a href=&#34;https://developers.artsy.net/docs/authentication&#34;&gt;XApp
+token&lt;/a&gt; in order to perform
+requests. The token comes back with an expiry date, after which the token will
+no longer work. A new token will have to be fetched.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+	&amp;quot;xapp_token&amp;quot;: &amp;quot;SOME_TOKEN&amp;quot;,
+	&amp;quot;expires_in&amp;quot;:&amp;quot;2014-09-19T12:22:21.570Z&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In our previous iOS apps, tragically written in Objective-C, we have a lot of
+code that looks like the following. &lt;code&gt;getXappTokenWithCompletion:&lt;/code&gt; checks to
+make sure that there is a valid token. If there is, it invokes the completion
+block immediately. Otherwise, it fetches a token, sets it in a static variable,
+and then invokes the completion block.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[ArtsyAPI getXappTokenWithCompletion:^(NSString *xappToken, NSDate *expirationDate) {
+    [ArtsyAPI getSomething:^(NSDictionary *results) {
+       // do something
+    } failure:^(NSError *error) {
+        // handle herror
+    }];
+}];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s kind of ugly. A better approach might be to embed the token-requesting
+logic within the &lt;code&gt;getSomething:&lt;/code&gt; method. But that kind of sucks, since we&amp;rsquo;d have
+to reproduce that logic for &lt;em&gt;every&lt;/em&gt; network-accessing method. If we have ten
+methods, that&amp;rsquo;s ten times we need to duplicate that logic.&lt;/p&gt;
+
+&lt;p&gt;With our &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;new app&lt;/a&gt; (written in Swift), we&amp;rsquo;re
+using a network abstraction layer we&amp;rsquo;ve created called &lt;a href=&#34;https://github.com/AshFurrow/Moya&#34;&gt;Moya&lt;/a&gt;.
+Moya sits on top of &lt;a href=&#34;https://github.com/Alamofire/Alamofire&#34;&gt;Alamofire&lt;/a&gt; and
+provides an abstraction for API endpoints. Instead of having ten different
+network-accessing methods, there is only &lt;em&gt;one&lt;/em&gt; method to which you pass one of
+the ten different possible &lt;code&gt;enum&lt;/code&gt; values. This means you have compile-time
+safety in your networking code, but that&amp;rsquo;s not really what we&amp;rsquo;re here to talk
+about.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

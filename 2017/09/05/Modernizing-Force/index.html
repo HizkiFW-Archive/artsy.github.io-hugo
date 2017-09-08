@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Modernizing Force // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="chris">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Modernizing Force" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#step-1-get-your-house-aka-compiler-in-order">Step 1: Get Your House (aka Compiler) in Order</a></li>
+<li><a href="#step-2-tune-up-iteration-time">Step 2: Tune-up Iteration Time</a></li>
+<li><a href="#step-3-the-view-layer-or-how-i-stopped-worrying-and-learned-to-love-legacy-ui">Step 3: The View Layer, or: How I Stopped Worrying and Learned to Love Legacy UI</a></li>
+<li><a href="#moving-forward">Moving Forward</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/09/05/Modernizing-Force/">Modernizing Force</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">chris</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+				
+					<a class="post-category post-category-reaction" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reaction">reaction</a>
+				
+					<a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+				
+					<a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+				
+					<a class="post-category post-category-typescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript">typescript</a>
+				
+					<a class="post-category post-category-react" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/react">react</a>
+				
+					<a class="post-category post-category-babel" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/babel">babel</a>
+				
+					<a class="post-category post-category-styled-components" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/styled-components">styled-components</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p><a href="https://github.com/artsy/force">Force</a> is Artsy&rsquo;s main website, <a href="https://www.artsy.net">artsy.net</a>. In the three years since it was <a href="http://artsy.github.io/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/">open-sourced</a>, it has provided a solid foundation to build features on top of without a lot of the costs associated with growth. It is an early example of Isomorphic (&ldquo;universal&rdquo;) JavaScript, built on top of Express, Backbone, CoffeeScript, Stylus and Jade. It is also highly modular, adopting patterns laid down by its parent project,  <a href="https://github.com/artsy/ezel">Ezel</a>.</p>
+
+<p>When first developed these technologies made a lot of sense; CoffeeScript fixed many of the problems with JavaScript pre-ES6, and Jade / Stylus made working with HTML / CSS much more elegant. As time progressed and new technologies became a thing these solutions starting feeling more burdensome to continue building features with and many of our developers longed to start using next-generation tools like React.</p>
+
+<p></p>
+
+<p>Looking at output from <code>cloc</code>, the question is &ldquo;But how?&rdquo;</p>
+
+<pre><code class="language-js">[artsy/force] $ cloc desktop mobile
+
+--------------------------------------------------------
+Language                     files                  code
+--------------------------------------------------------
+CoffeeScript                  1828                 81569
+CSS                              9                 76632
+Stylus                         577                 32324
+JavaScript                     274                 18310
+JSON                            30                  6145
+Markdown                        41                  1097
+HTML                             3                    25
+XML                              3                    24
+--------------------------------------------------------
+SUM:                          2765                216126
+--------------------------------------------------------
+
+</code></pre>
+
+<p>216k+ LOC, spread across multiple languages and formats. Given finite resources and a small team rebuilds can be difficult to execute, and so we had to figure out a way to marry the old with the new while also maintaining backwards compatibility / interoperability. Out of this exercise came a few patterns, libraries and projects that I would like to describe in an effort to help those caught in similar situations.</p>
+
+<h2 id="step-1-get-your-house-aka-compiler-in-order">Step 1: Get Your House (aka Compiler) in Order</h2>
+
+<p><a href="https://babeljs.io/">Babel</a> has been around for a while, but lately their team has been putting effort into making it as easy as possible to use. By dropping a <a href="https://github.com/artsy/force/blob/master/.babelrc">.babelrc</a> file into the root of your project, server and client-side JavaScript can share the same configuration, including <a href="https://github.com/tleunen/babel-plugin-module-resolver">module resolution</a> (aka, no more <code>../../../</code>).</p>
+
+<p>A simplified example:</p>
+
+<pre><code class="language-json">// .babelrc
+
+{
+  &quot;presets&quot;: [&quot;es2015&quot;, &quot;react&quot;, &quot;stage-3&quot;],
+  &quot;plugins&quot;: [
+    [&quot;module-resolver&quot;, {
+      &quot;root&quot;: [&quot;./&quot;]
+    }]
+  ]
+}
+</code></pre>
+
+<pre><code class="language-js">// index.js
+
+require('coffee-script/register')
+require('babel-core/register')
+
+// Start the app
+require('./boot')
+
+</code></pre>
+
+<p>On the client, we use <a href="http://browserify.org/">Browserify</a> with <a href="https://github.com/substack/coffeeify">Coffeeify</a> and <a href="https://github.com/babel/babelify">Babelify</a>:</p>
+
+<pre><code class="language-json">// package.json
+
+{
+  &quot;scripts&quot;: {
+    &quot;assets&quot;: &quot;browserify -t babelify -t coffeeify -o bundle.js&quot;,
+    &quot;start&quot;: &quot;yarn assets &amp;&amp; node index.js&quot;
+  }
+}
+</code></pre>
+
+<p>And then boot it up:</p>
+
+<pre><code class="language-sh">$ yarn start
+</code></pre>
+
+<p>By adding just a few lines, our existing CoffeeScript pipeline was augmented to support modern JavaScript on both the server and the client, with code that can be shared between.</p>
+
+<h2 id="step-2-tune-up-iteration-time">Step 2: Tune-up Iteration Time</h2>
+
+<p>A question that every developer should ask of their stack is:</p>
+
+<blockquote>
+<p>&ldquo;How long does it take for me to make a change and see that change reflected in a running process?&rdquo;</p>
+</blockquote>
+
+<p>Does your code take one second to compile, or ten? When writing a back-end service, does your server <a href="https://github.com/remy/nodemon">automatically restart</a> after you make a change, or do you need to <code>ctrl+c</code> (stop it) and then restart manually?</p>
+
+<p>For those of us working in Force, the bottleneck typically involved making changes to back-end code. Due to how we organize our sub-apps, client-side code compilation &ndash; after the server heats up &ndash; is pretty much instant, but that heat-up time can often take a while depending on which app we&rsquo;re working on. So even with a &ldquo;restart on code change&rdquo; setup that listens for updates it still felt terribly slow, and this iteration time would often discourage developers from touching certain areas of the codebase. We needed something better!</p>
+
+<p>Enter Webpack and React, which helped popularize the concept of HMR, or &ldquo;Hot Module Replacement&rdquo;.</p>
+
+<p>From the Webpack docs:
+&gt; &ldquo;Hot Module Replacement (HMR) exchanges, adds, or removes modules while an application is running, without a full reload.&rdquo;</p>
+
+<p>That&rsquo;s more like it! But is there anything similar for the server given we don&rsquo;t use Webpack? This was the question <a href="https://github.com/alloy">@alloy</a>, one of our Engineering Leads, asked himself while researching various setups that ultimately led to <a href="https://github.com/artsy/reaction">Reaction</a>, and for which he found an answer to in Glen Mailer&rsquo;s excellent <a href="https://github.com/glenjamin/ultimate-hot-reloading-example">ultimate-hot-reloading-example</a>. Digging into the code, <a href="https://github.com/glenjamin/ultimate-hot-reloading-example/blob/master/server.js#L38-L45">this little snippet</a> jumped out:</p>
+
+<pre><code class="language-js">watcher.on('ready', function() {
+  watcher.on('all', function() {
+    console.log(&quot;Clearing /server/ module cache from server&quot;);
+    Object.keys(require.cache).forEach(function(id) {
+      if (/[\/\\]server[\/\\]/.test(id)) delete require.cache[id];
+    });
+  });
+});
+</code></pre>
+
+<p>The code seemed simple enough &ndash; on change, iterate through Node.js&rsquo;s internal require cache, look for the changed module, and clear it out. When the module is <code>require</code>&rsquo;d at a later point it will be like it was required for the first time, effectively hot-swapping out the code.</p>
+
+<p>With this knowledge we wrapped a modified version of this snippet into <a href="https://github.com/artsy/express-reloadable">@artsy/express-reloadable</a>, a small utility package meant to be used with Express.</p>
+
+<p>Here&rsquo;s a full example:</p>
+
+<pre><code class="language-js">import express from 'express'
+import { createReloadable, isDevelopment } from '@artsy/express-reloadable'
+
+const app = express()
+
+if (isDevelopment) {
+
+  // Pass in app and current `require` context
+  const reloadAndMount = createReloadable(app, require)
+
+  // Note that if you need to mount an app at a particular root (`/api`), pass
+  // in `mountPoint` as an option.
+  app.use('/api', reloadAndMount(path.resolve(__dirname, 'api'), {
+    mountPoint: '/api'
+  }))
+
+  // Otherwise, just pass in the path to the express app and everything is taken care of
+  reloadAndMount(path.resolve(__dirname, 'client'))
+} else {
+  app.use('/api', require('./api')
+  app.use(require('./client')
+}
+
+app.listen(3000, () =&gt; {
+  console.log(`Listening on port 3000`)
+})
+</code></pre>
+
+<p>In Force, we mounted this library <a href="https://github.com/artsy/force/blob/master/lib/setup.js#L205">at the root</a>, allowing us to make changes anywhere within our numerous sub-apps and with a fresh page reload instantly see those changes reflected without a restart. This approach also works great with API servers, as this implementation from Artsy&rsquo;s <a href="https://github.com/artsy/positron/blob/master/boot.js#L34">editorial app Positron</a> shows. Like magic, it &ldquo;just works&rdquo;. Why isn&rsquo;t this trick more widely used and known?</p>
+
+<h2 id="step-3-the-view-layer-or-how-i-stopped-worrying-and-learned-to-love-legacy-ui">Step 3: The View Layer, or: How I Stopped Worrying and Learned to Love Legacy UI</h2>
+
+<p>This one was a bit tricky to solve, but ultimately ended up being fairly straightforward and conceptually simple. In Force, we&rsquo;ve got dozens of apps built on top of hundreds of components supported by thousands of tests stretched across desktop and mobile. From the perspective of sheer code volume these things aren&rsquo;t going anywhere any time soon. On top of that, our view templates are built using Jade (now known as <a href="https://pugjs.org">Pug</a>), which supports an interesting form of inheritance known as <a href="https://pugjs.org/language/inheritance.html">blocks</a>. What this means in practice is our UI has been extended in a variety of complex ways making alternative view engines difficult on the surface to interpolate.</p>
+
+<p>What to do? It&rsquo;s 2017 and the era of handlebars templates bound to Backbone MVC views is over. We want <a href="https://facebook.github.io/react/">React</a>! We want <a href="https://www.styled-components.com/">Styled Components</a>! And when those tools are surpassed by the Next Big Thing we want that too! But we also want our existing CoffeeScript and Jade and old-school <code>Backbone.View</code>s as well.</p>
+
+<p>Thinking through this problem, <a href="https://github.com/artsy/stitch">@artsy/stitch</a> was born.</p>
+
+<p>Stitch helps your Template and Component dependencies peacefully co-exist. You feed it a layout and some data and out pops a string of compiled html that can be passed down to the client. &ldquo;Blocks&rdquo; can be added that represent portions of UI, injected by key. It aims for maximum flexibility: templating engines supported by <a href="https://github.com/tj/consolidate.js">consolidate</a> can be installed and custom rendering engines <a href="https://github.com/artsy/stitch#custom-renderers">can be swapped out or extended</a>. With very little setup it unlocks UI configurations that have been lost to time.</p>
+
+<p>A basic example:</p>
+
+<p>{% raw %}</p>
+
+<pre><code class="language-html">&lt;div&gt;
+  {{title}}
+&lt;/div&gt;
+</code></pre>
+
+<p>{% endraw %}</p>
+
+<pre><code class="language-js">const html = await renderLayout({
+  layout: 'templates/layout.handlebars',
+  data: {
+    title: 'Hello!'
+  }
+})
+
+console.log(html)
+
+// =&gt; Outputs:
+/*
+&lt;div&gt;
+  Hello!
+&lt;/div&gt;
+*/
+</code></pre>
+
+<p>By adding &ldquo;blocks&rdquo; you can begin assembling (or adapting to) more complex layouts. Blocks represent either a path to a template or a component (with &ldquo;component&rdquo; meaning a React or <a href="https://preactjs.com">React-like</a> function / class component):</p>
+
+<p>{% raw %}</p>
+
+<pre><code class="language-html">// templates/layout.handlebars
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;
+      {{title}}
+    &lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body
+    {{{body}}}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>{% endraw %}</p>
+
+<pre><code class="language-js">// index.js
+
+const html = await renderLayout({
+  layout: 'templates/layout.handlebars',
+  data: {
+    title: 'Hello World!',
+  },
+  blocks: {
+    body: (props) =&gt; {
+      return (
+        &lt;h1&gt;
+          {props.title}
+        &lt;/h1&gt;
+      )
+    }
+  }
+})
+
+console.log(html)
+
+// =&gt; Outputs:
+/*
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello World!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;
+      Hello World!
+    &lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+*/
+</code></pre>
+
+<p>In Force, we&rsquo;re using this to pattern to incrementally migrate portions of our app over to React, by taking existing block-based Jade layouts and injecting <code>ReactDOM.renderToString</code> output into them, and then rendering the layout into an HTML string that is passed down from the server and rehydrated on the client, isomorphically.</p>
+
+<p>Our existing Backbone views take advantage of the <code>templates</code> key:</p>
+
+<pre><code class="language-js">// server.js
+
+import LoginApp from 'apps/login/LoginApp'
+import { Provider } from 'react-redux'
+import { StaticRouter } from 'react-router'
+
+const html = await renderLayout({
+  layout: 'templates/layout.handlebars',
+  data: {
+    title: 'Login / Sign-up',
+  },
+  templates: {
+    login: 'templates/login.jade'
+  },
+  blocks: {
+    app: (props) =&gt; (
+      &lt;Provider store={store}&gt;
+        &lt;StaticRouter&gt;
+          &lt;LoginApp {...props} /&gt;
+        &lt;/StaticRouter&gt;
+      &lt;/Provider&gt;
+    )
+  }
+})
+
+res.send(html)
+</code></pre>
+
+<p>Similar to blocks, templates located in this object are pre-compiled and available to your components as <code>props.templates</code>.</p>
+
+<p>Once the html has been sent over the wire, we mount it like so:</p>
+
+<pre><code class="language-js">// client.js
+
+import LoginApp from 'apps/login/LoginApp'
+
+React.render(
+  &lt;LoginApp {...window.__BOOTSTRAP__} /&gt; // Data passed down from `data` key
+)
+</code></pre>
+
+<pre><code class="language-js">// apps/login/LoginApp.js
+
+import React from 'react'
+import Login from 'apps/login/Login'
+
+export default function LoginApp (props) {
+  const {
+    templates: {
+      login
+    }
+  } = props
+
+  return (
+    &lt;Login
+      template={login}
+    /&gt;
+  )
+}
+</code></pre>
+
+<p>During the server-side render phase existing template code will be rendered with the component, and once the component is mounted on the client <code>componentDidMount</code> will fire and the Backbone view instantiated:</p>
+
+<p>{% raw %}</p>
+
+<pre><code class="language-js">// apps/login/Login.js
+
+import React, { Component } from 'react'
+import LoginBackboneView from 'apps/login/views/LoginView'
+
+export default class Login extends Component {
+  componentDidMount () {
+    this.loginView = new LoginBackboneView()
+    this.loginView.render()
+  }
+
+  componentWillUnmount () {
+    this.loginView.remove()
+  }
+
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;div dangerouslySetInnerHtml={{
+          __html: this.props.template
+        }}&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>{% endraw %}</p>
+
+<p>All of the possibilities that Stitch provides are too numerous to go over here, but check out the <a href="https://github.com/artsy/stitch#usage">documentation</a> and <a href="https://github.com/artsy/stitch/tree/master/examples">example apps</a> for more complete usage. While new, this pattern has worked quite well for us and has allowed Force to evolve alongside existing code with very little friction.</p>
+
+<h2 id="moving-forward">Moving Forward</h2>
+
+<p>A common thread that connects <a href="https://github.com/artsy/force">Force</a> to <a href="https://github.com/artsy/eigen">Eigen</a> (Artsy&rsquo;s mobile app) is an understanding that while grand re-writes will gladly remove technical debt, technical debt is not our issue. A lot of the patterns we&rsquo;ve laid down within our apps still work for us, and many of our implementations remain sufficient to the task. What we needed was an environment where <em>incremental revolution</em> was possible, where old ideas could merge with new and evolve. In terms of Eigen, we felt the best way forward was the adoption of <a href="https://facebook.github.io/react-native/">React Native</a> &ndash; and <a href="https://github.com/artsy/emission">Emission</a> was born. Likewise, for our web and web-based mobile apps, <a href="https://github.com/artsy/reaction">Reaction</a> is serving a similar role. Both of these projects are built with <a href="https://www.typescriptlang.org/">TypeScript</a>, and both rely heavily on functionality that our <a href="http://graphql.org/">GraphQL</a> interface <a href="https://github.com/artsy/metaphysics">Metaphysics</a> provides. But crucially, these projects <em>augment</em> our existing infrastructure; they don&rsquo;t replace it. They fit in with existing ideas, tools and processes that have facilitated Artsy&rsquo;s growth, including highly-specific domain knowledge that our engineers have built up over time.</p>
+
+<p>In conclusion, I hope this post has provided a bit of a window into some of our processes here at Artsy for those facing similar challenges. If you want to take a deeper dive, check out the links below:</p>
+
+<ul>
+<li><a href="https://github.com/artsy/express-reloadable">express-reloadable</a></li>
+<li><a href="https://github.com/artsy/stitch">stitch</a></li>
+<li><a href="https://github.com/artsy/reaction">reaction</a></li>
+<li><a href="https://github.com/artsy/emission">emission</a></li>
+</ul>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/09/04/Introducing-Peril/">Introducing Peril to the Artsy Org</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile/</link>
+    <description>Recent content in Mobile on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploying your app on a weekly basis via fastlane &#43; Travis CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/31/fastlane-travis-weekly-deploys/</guid>
+      <description>&lt;p&gt;We have a few apps now, but one of them isn&amp;rsquo;t really used by anyone other than developers. This is &lt;a href=&#34;https://github.com/artsy/emission/tree/master/Example&#34;&gt;our React Native host app&lt;/a&gt;. We built our React Native components &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/24/On-Emission/&#34;&gt;as a library&lt;/a&gt; to be consumed by our other apps. Our development environment for these components is a unique app that acts as a host for the React Native components. It&amp;rsquo;s effectively a long tableview.&lt;/p&gt;
+
+&lt;p&gt;This app is often updated for developers, but never deployed to beta users inside Artsy. So I automated it. Using Travis CI and fastlane. This post covers how I got that set up.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>What is fastlane match?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/</link>
+      <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/</guid>
+      <description>&lt;p&gt;Like anyone working on a non-trivial app in the iOS world who values their time, we use fastlane. &lt;a href=&#34;https://fastlane.tools&#34;&gt;fastlane&lt;/a&gt; is a suite
+of tools that makes it much simpler to automate the very manual processes provided by Apple for deployment.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve adopted it in a relatively piece-meal manner in different projects, converting custom in-house code to something
+provided by the gem.  Over time we found what pieces of the suite work for us. &lt;a href=&#34;https://github.com/artsy/energy/pull/266&#34;&gt;I&amp;rsquo;ve adopted another today&lt;/a&gt;: &lt;a href=&#34;https://github.com/fastlane/fastlane/tree/master/match&#34;&gt;match&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;match automates setting up your iOS projects for code signing. One of the most arduous orthogonal tasks which every dev team learns and then forgets.&lt;/p&gt;
+
+&lt;p&gt;In using match, we have given away a bit of control with code signing, and so this post is going to dig into; what we used
+to have, and how it works now with match instead.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Xcode 8 Manual Codesigning with Fastlane</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/</guid>
+      <description>&lt;p&gt;New year, new deploy process! Late last year our mobile team completed the update to Swift 3 (and thus, the update to Xcode 8). The latest version of Apple&amp;rsquo;s IDE includes a lovely feature: automating provisioning profile management! (Note: not sarcasm, the feature is really nice. Check out the &lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2016/401/&#34;&gt;WWDC video&lt;/a&gt; for an in-depth exploration.)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2017-01-13-xcode-8-fastlane-codesigning/xcode-screenshot.png&#34; alt=&#34;Automatic code signing settings&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, when I went to make our first &lt;a href=&#34;http://artsy.github.io/blog/2015/12/15/Automating-Testflight-Deploys/&#34;&gt;automated deploy&lt;/a&gt; today, things didn&amp;rsquo;t work; I got a somewhat cryptic error about code signing.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Accessing the app&#39;s Source Code from your Simulator</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/</link>
+      <pubDate>Fri, 14 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/14/Accessing-the-Source-Code-from-your-Simulator/</guid>
+      <description>&lt;p&gt;In the last few months twice I&amp;rsquo;ve wanted to access the source code of our application. The first time I did it I came up with a pretty neat hack, but it wouldn&amp;rsquo;t really work in many places. The second time however, I &lt;a href=&#34;https://twitter.com/orta/status/786470282093625344&#34;&gt;asked the internet&lt;/a&gt;, and the &lt;a href=&#34;https://twitter.com/saniul/status/786470857635827712&#34;&gt;internet&lt;/a&gt; &lt;a href=&#34;https://twitter.com/0xced/status/786619335116750848&#34;&gt;replied&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;TLDR: You can use your &lt;a href=&#34;https://github.com/artsy/emission/pull/350/commits/2a39c743bcaaf2e3b848ad60621198f40365fdd2&#34;&gt;project&amp;rsquo;s scheme&lt;/a&gt; to expose derived Xcode environment variables to your source code.&lt;/p&gt;
+
+&lt;p&gt;The rest of the blog post is a little bit about &lt;em&gt;why&lt;/em&gt; I wanted to do that and what I did with it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Eidolon Deploy Process</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/</link>
+      <pubDate>Sat, 08 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/10/08/eidolon-deploy-process/</guid>
+      <description>&lt;p&gt;Since we &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;originally built&lt;/a&gt; Eidolon – an auction bidding kiosk app – the project has largely remained in maintenance mode. Eidolon was one of the first projects that we used automated deploys for, and the deploy process has remained largely unchanged. I believe this stability of the deploy process is a testament to how well the automated deploys have gone.&lt;/p&gt;
+
+&lt;p&gt;This post is going to detail the mechanics of automated deploys for an enterprise-distributed iOS application, discuss lessons we learned and applied to other projects&amp;rsquo; deploy processes, and describe some of the changes we&amp;rsquo;d like to make. Our project is entirely open source, so you can check out any part of the code on your own or &lt;a href=&#34;https://github.com/artsy/eidolon/issues/new&#34;&gt;open an issue&lt;/a&gt; with questions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Three</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/30/swift-at-artsy-beginners-lesson-three/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson three of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson three and I have a &lt;a href=&#34;https://youtu.be/e2ErzD8ibG8&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Three&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On our implementation of React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</link>
+      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/emission/emission-logo-artsy.svg&#34; style=&#34;height:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I arrived fashionably late to the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;React Native party&lt;/a&gt; in Artsy. I had been a part of our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;Auctions Team&lt;/a&gt;, where we worked in Swift with &lt;a href=&#34;https://cocoapods.org/pods/Interstellar&#34;&gt;some light-FRP&lt;/a&gt;. We were not affected by the 4 months of simultaneous work on moving to React Native, at all.&lt;/p&gt;
+
+&lt;p&gt;It was a quiet revolution. I did not have to install &lt;code&gt;npm&lt;/code&gt;, I made zero changes to the code for auctions and the whole app&amp;rsquo;s infrastructure barely changed. Yet we moved to making all new code inside our 3 year old iOS app use React Native. What gives?&lt;/p&gt;
+
+&lt;p&gt;Well, first up we weren&amp;rsquo;t planning a re-write, we don&amp;rsquo;t have that kind of luxury and the scope of our app is too big compared to the team working on it. Second, we reused existing dependency infrastructure to support JavaScript based apps. Read on to find out what that looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson Two</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/23/swift-at-artsy-beginners-lesson-two/</guid>
+      <description>&lt;p&gt;And we&amp;rsquo;re back! With lesson two of the beginners&amp;rsquo; Swift-at-Artsy course. To recap, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift &lt;em&gt;last&lt;/em&gt; August, and we&amp;rsquo;re doing it again. I&amp;rsquo;m leading the stream for people who&amp;rsquo;ve never programmed before.&lt;/p&gt;
+
+&lt;p&gt;Yesterday was lesson two and I have a &lt;a href=&#34;https://youtu.be/EBtzqx1YRBg&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20Two&#34;&gt;the material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learn Swift at Artsy, Beginners Lesson One</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/swift-at-artsy-beginners-lesson-one/</guid>
+      <description>&lt;p&gt;Last August, Orta and I &lt;a href=&#34;http://artsy.github.io/blog/2016/01/26/swift-at-artsy/&#34;&gt;led a course at Artsy&lt;/a&gt; to teach our colleagues Swift. There were two parallel groups of learners: a &amp;ldquo;beginners&amp;rdquo; group who had never coded before, and an &amp;ldquo;informed&amp;rdquo; group who already knew how to code. This year, we&amp;rsquo;re leading the course again with a slight twist: we&amp;rsquo;re repeating the course for absolute beginners, and we&amp;rsquo;re introduce a new course for anyone who completed last year&amp;rsquo;s beginner course.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really excited both to help new colleagues take their first steps into programming, and to help returning colleagues continue their journey.&lt;/p&gt;
+
+&lt;p&gt;Today was lesson one of the beginner group, and I have a &lt;a href=&#34;https://youtu.be/OLdSg0XpFqA&#34;&gt;screen recording&lt;/a&gt; of my walkthrough of &lt;a href=&#34;https://github.com/artsy/Swift-at-Artsy/tree/master/Beginners/Lesson%20One&#34;&gt;lesson one&amp;rsquo;s material&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Native at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/React-Native-at-Artsy/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/React-Native-at-Artsy/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/react-native/artsy_react_logo.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;As &lt;a href=&#34;https://github.com/artsy/eigen&#34;&gt;the Artsy iOS app&lt;/a&gt; grew larger, we started hitting pain
+points:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We want to support other future platforms such as Android without creating more teams.&lt;/li&gt;
+&lt;li&gt;We want different business teams to work on the app without disrupting each other.&lt;/li&gt;
+&lt;li&gt;We want our architecture to evolve in order to increase programmer efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It took us &lt;a href=&#34;https://github.com/artsy/mobile/issues/22&#34;&gt;about a year&lt;/a&gt; to start resolving these issues.
+Ideally, we wanted to find a solution to our architectural issues that would also improve the user
+experience. Notably we wanted more efficient networking, due to mobile device constraints.&lt;/p&gt;
+
+&lt;p&gt;It would have been an easy leap to start using Swift and, as a matter of fact, we do use Swift in parts of
+our flagship application and entirely in &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;2 other apps&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, while Swift is a great language, it’s also just that: &lt;em&gt;another&lt;/em&gt; language. It does not do much in terms of new
+paradigms that solved our architectural needs, it does not help in terms of cross-platform - as most of our code is
+building views and thus very framework specific, and it did not really offer anything in terms of more efficient network
+data fetching.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve seen that the web teams integrate React in their projects with really great results. We&amp;rsquo;ve been
+&lt;a href=&#34;https://github.com/artsy/mobile/issues/22&#34;&gt;paying attention&lt;/a&gt; to React Native since it came out; the solutions provided
+by the React ecosystem ticked all of our boxes.&lt;/p&gt;
+
+&lt;p&gt;Six months ago we took the plunge, and last month we formalized that this is the direction we want to go.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Handling Large OSS Projects Defensively</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</link>
+      <pubDate>Sun, 03 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</guid>
+      <description>&lt;p&gt;I help maintain big OSS projects: from a third-party &lt;a href=&#34;https://cocoapods.org&#34;&gt;dependency manager&lt;/a&gt; used in most iOS apps (&lt;a href=&#34;https://github.com/CocoaPods/cocoapods.org&#34;&gt;CocoaPods&lt;/a&gt;), to the most popular Objective-C &lt;a href=&#34;http://cocoapods.org/pods/Specta&#34;&gt;testing framework&lt;/a&gt; and the most popular Swift &lt;a href=&#34;http://cocoapods.org/pods/Moya&#34;&gt;networking API client&lt;/a&gt;. I&amp;rsquo;ve been doing this for years.&lt;/p&gt;
+
+&lt;p&gt;Projects with this much impact are big time-sinks. This time comes from ensuring infrastructure continues to work, support tickets need replies, new code needs reviewing and releases need coordinating.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2016-07-03-big-oss/danger_logo_black@2x.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Last September, almost a year ago, I started work on a new project, &lt;a href=&#34;https://github.com/danger/danger/&#34;&gt;Danger&lt;/a&gt;. Danger fixes a problem we were seeing in the Artsy mobile team around adding &amp;ldquo;&lt;a href=&#34;https://github.com/artsy/mobile/issues/31&#34;&gt;process&lt;/a&gt;&amp;rdquo; to our team.&lt;/p&gt;
+
+&lt;p&gt;As a part of discussing Danger internally, I&amp;rsquo;ve referenced that building CocoaPods has greatly influenced Danger. This blog post is about the way I&amp;rsquo;ve built Danger, knowing fully well that I cannot afford the level of time to maintain it at the scale it may get to.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Spelunking: Injection for Xcode Plugin</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</link>
+      <pubDate>Wed, 29 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/29/code-spelunking-injection/</guid>
+      <description>&lt;p&gt;It was only three months ago that I came to the conclusion of just how much time I had wasted &lt;a href=&#34;http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/&#34;&gt;on code compilation cycles&lt;/a&gt;, once I started to play with &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection for Xcode&lt;/a&gt;. I still feel guilt about the time I wasted. However, I&amp;rsquo;m trying to turn that into something constructive. In order to do that, I need to have a solid understanding of the fundamentals on how Injection For Xcode works.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ashfurrow.com/&#34;&gt;Ash&lt;/a&gt; says one of the best ways to &lt;a href=&#34;https://ashfurrow.com/blog/teaching-learning/&#34;&gt;learn is to teach&lt;/a&gt;. So I&amp;rsquo;m going to try take you through a guided tour of the code-base. You need some pretty reasonable Objective-C chops to get this, but anyone with an app or two under their belt should be able to &lt;a href=&#34;https://en.wikipedia.org/wiki/Grok&#34;&gt;grok&lt;/a&gt; it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Depedency Injection in Swift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/</link>
+      <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/27/dependency-injection-in-swift/</guid>
+      <description>&lt;p&gt;Dependency Injection (DI) is a &lt;a href=&#34;http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html&#34;&gt;$25 word for a 5¢ idea&lt;/a&gt;, but it&amp;rsquo;s an idea that has become wholly foundation to how I write software. I want to take a look at some of the ways our team have been using DI in Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Swift Type Aliases: Use Early and Often</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/</link>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/24/typealias-for-great-good/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been so fun to watch the Swift developer community experiment with Swift and to experiment with what idiomatic Swift will look like. No one really knows the answer yet, but we&amp;rsquo;re starting to see some design patterns used more than others. We&amp;rsquo;re seeing some language features used in key ways that define idiomatic Swift, and other language features that are being mostly ignored.&lt;/p&gt;
+
+&lt;p&gt;Regrettably, one of my favourite features of Swift has not enjoyed the meteoric rise in popularity I believe it deserves: &lt;code&gt;typealias&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GraphQL for iOS Developers</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/</link>
+      <pubDate>Sun, 19 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/06/19/graphql-for-mobile/</guid>
+      <description>&lt;p&gt;GraphQL is something you may have heard in passing, usually from the web team. It&amp;rsquo;s a Facebook API technology, that describes itself as a &lt;em&gt;A Data Query Language and Runtime&lt;/em&gt;. GraphQL is a &lt;a href=&#34;http://facebook.github.io/graphql/&#34;&gt;spec&lt;/a&gt;, and there are &lt;a href=&#34;https://github.com/chentsulin/awesome-graphql#libraries&#34;&gt;multiple implementations&lt;/a&gt; of it. As mobile engineers, we can consider it an API, where the front-end team have as much control as the backend.&lt;/p&gt;
+
+&lt;p&gt;This blog post covers our usage of GraphQL, and what I&amp;rsquo;ve learned in the last 3 months of using it in &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Why does my team&#39;s Podfile.lock Podspec checksums change?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</link>
+      <pubDate>Tue, 03 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</guid>
+      <description>&lt;p&gt;We use CocoaPods, and &lt;a href=&#34;https://github.com/artsy/eigen/issues/418&#34;&gt;we don&amp;rsquo;t check in our Pods&lt;/a&gt; directory for one of our fastest moving apps, &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;. This sometimes can cause an &lt;a href=&#34;https://github.com/artsy/eigen/pull/1464&#34;&gt;interesting data churn&lt;/a&gt; inside the &lt;code&gt;Podfile.lock&lt;/code&gt; when developers have different sha checksums for their Pods. This is weird, what gives?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Paw with Per-Developer Settings</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</link>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</guid>
+      <description>&lt;p&gt;I am a big fan of developer tooling, as spending time upfront on improving your process can pay a lot of dividends over time. I want to talk about one in particular: &lt;a href=&#34;https://luckymarmot.com/paw&#34;&gt;Paw&lt;/a&gt;. Paw is a native HTTP client with a bunch of features. I want to cover one that means that we can now &lt;a href=&#34;https://github.com/artsy/energy/pull/192&#34;&gt;introduce&lt;/a&gt; &lt;code&gt;[AppName].paw&lt;/code&gt; files in our mobile projects, making it easy for us to discuss networking requests.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Xcode&#39;s Schemes to run a subset of your tests</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/06/Testing-Schemes/</link>
+      <pubDate>Wed, 06 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/06/Testing-Schemes/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eigen&#34;&gt;Eigen&lt;/a&gt; has hit the point where testing is a chore. This is a positive sign, the app has grown in terms of size, complexity, and number of developers considerably over the last 3 years. The test suite makes us feel comfortable making changes.&lt;/p&gt;
+
+&lt;p&gt;On my fastest computer, we&amp;rsquo;re just under a minute - &lt;code&gt;Executed 1105 tests, with 1 failure (0 unexpected) in 43.221 (48.201) seconds&lt;/code&gt;  for the whole suite. I think I could probably live with 20 seconds max. So I studied how &lt;a href=&#34;https://www.jetbrains.com/objc/&#34;&gt;AppCode&lt;/a&gt; handles running tests, and this will be an illustrated guide as to how you can easily run the subset of tests in Xcode based on their techniques.&lt;/p&gt;
+
+&lt;p&gt;I &lt;a href=&#34;https://github.com/orta/life/issues/71&#34;&gt;have ideas&lt;/a&gt; on how to improve time for testing in general, based on &lt;a href=&#34;http://artsy.github.io/blog/2016/03/05/iOS-Code-Injection/&#34;&gt;Code Injection&lt;/a&gt;, but they aren&amp;rsquo;t fully fleshed out and I expect it to be time-intensive to pull off. Time I haven&amp;rsquo;t made yet.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Injection for Xcode</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/03/05/iOS-Code-Injection/</guid>
+      <description>&lt;p&gt;I have been writing code for roughly a decade. A large chunk of that time has been sitting waiting for my project to compile. It&amp;rsquo;s a nice excuse to &lt;a href=&#34;https://xkcd.com/303/&#34;&gt;practice sword fighting&lt;/a&gt; in the office, but really, deep down. It&amp;rsquo;s frustrating. It&amp;rsquo;s so easy to become &lt;a href=&#34;https://xkcd.com/356/&#34;&gt;nerd-sniped&lt;/a&gt; when you wait for a long time.&lt;/p&gt;
+
+&lt;p&gt;As we integrate Swift into our projects, I&amp;rsquo;ve been seeing our compile times increase. So, I took some time to look at ways to improve this. The best option, so far, has been dynamic code injection via &lt;a href=&#34;https://github.com/johnno1962/injectionforxcode&#34;&gt;Injection Plugin for Xcode&lt;/a&gt;. In a gist: This means that we don&amp;rsquo;t recompile and re-launch, instead we inject new bits of code into a running application. This reduced the compile cycle on Eigen from 7 seconds to 1 second.&lt;/p&gt;
+
+&lt;p&gt;I took some time over the weekend to try and put together a video showing how I used code injection on a trivial app to create a view controller in code. It covers the technique I&amp;rsquo;ve &lt;a href=&#34;https://github.com/artsy/eigen/pull/1236&#34;&gt;started using in Eigen&lt;/a&gt; and talks a little bit about how the pieces come together.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=uftvtmyZ8TM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Energy Sync</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</link>
+      <pubDate>Fri, 12 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/12/Code-Review-Energy-Sync/</guid>
+      <description>&lt;p&gt;We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&amp;rsquo;ve covered &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/01/14/eidolon-code-review/&#34;&gt;Eidolon&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt; and now &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/02/11/Code-Review-Energy/&#34;&gt;Energy&lt;/a&gt;. This is the second part of the Energy code review. The &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/02/11/Code-Review-Energy/&#34;&gt;first part&lt;/a&gt; covers the the critical codepaths that go from the App&amp;rsquo;s launch to sending an email, which is the main use-case for the app. This video covers how Folio does sync between the Artsy API and the app.&lt;/p&gt;
+
+&lt;p&gt;Sync is a complex problem. This video covers our old techniques, how we changed them, the underlying abstractions we use now and how we can test each component individually. It&amp;rsquo;s an hour long, and it&amp;rsquo;s a little computer-sciencey. So I think people who have shipped some small apps would get a lot out of it.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=05HaKChPe_g&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Energy overview</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/02/11/Code-Review-Energy/</guid>
+      <description>&lt;p&gt;We are slowly trying to do high-level code-review views for all of our iOS apps. So far, we&amp;rsquo;ve covered &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/01/14/eidolon-code-review/&#34;&gt;Eidolon&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;. Folio is an app that&amp;rsquo;s shipped to the App Store in early 2012, it&amp;rsquo;s used by our Partners to showcase their works offline, at fairs and on the go. If you want the full spiel, check out &lt;a href=&#34;http://folio.artsy.net&#34;&gt;this microsite&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This video talks through a lot of the critical codepaths that go from the App&amp;rsquo;s launch to sending an email, which is the main use-case for the app. We have another video coming up which exclusively covers how Folio does sync between the Artsy API and the app.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=Xhd25hFzN4o&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Interviewing, applying and getting your first job in iOS</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/30/iOS-Junior-Interviews/</link>
+      <pubDate>Sat, 30 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/30/iOS-Junior-Interviews/</guid>
+      <description>&lt;p&gt;When I was at the beginning of my career, my first developer job application was to a design agency who were doing Mac development too. It was pretty nerve-wracking to apply for my first programming job, and I came into the interview with no idea what to expect. I had just graduated from university and was at the first few steps of my career, I&amp;rsquo;d call this being a junior. It was a time period where I would need mentoring, and supervision in order to grow. A good explanation is in &lt;a href=&#34;http://programmers.stackexchange.com/questions/14914/whats-the-difference-between-entry-level-jr-sr-developers&#34;&gt;this StackOverflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now that I&amp;rsquo;m both further on in my career, and involved with so many juniors in NYC, I&amp;rsquo;m meeting with a lot of people who are in the same position I was then and I get a lot of questions asking what they can do to prepare. This post &lt;em&gt;attempts&lt;/em&gt; at being a comprehensive collection of recommendations. It is subjective, of course, and strongly biased towards my experiences.&lt;/p&gt;
+
+&lt;p&gt;Before I jump through to the article, there&amp;rsquo;s one thing that should be above the fold. &lt;em&gt;Chill out&lt;/em&gt;. You might not get it right on the first try, I&amp;rsquo;ve applied for jobs and received a &amp;ldquo;no thanks.&amp;rdquo; Yet eventually I became the head of mobile at Artsy. Everyone finds their place in time.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Being a Good OSS Citizen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</link>
+      <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/28/being-a-good-open-source-citizen/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s take a look at the day in the life of an open source citizen: me. On our app, I was given &lt;a href=&#34;https://github.com/artsy/eigen/issues/971&#34;&gt;an issue&lt;/a&gt; that would allow users to refine what kinds of sale artworks they were looking at, and it included this &lt;em&gt;awesome&lt;/em&gt; slider control so they could set min/max price ranges.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Teaching Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</link>
+      <pubDate>Tue, 26 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/26/swift-at-artsy/</guid>
+      <description>&lt;p&gt;While the Artsy engineering team includes many disciplines, tech stacks, and personalities, we all share a few things in common: a respect for each other, an appreciation of art-meets-science, and a celebration of learning. These are actually traits shared with our entire company, even non-engineers. So last Summer when Orta and I had some down time, it occurred to us how we could do something super-productive that was congruent with our values: we could teach the company Swift.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Eidolon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</link>
+      <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/14/eidolon-code-review/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt; is the third app from Artsy&amp;rsquo;s mobile team, and it was the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;first to be developed totally in the open&lt;/a&gt;. It&amp;rsquo;s often used as a reference for what an app written in Swift, or written using FRP, should look like. Given how interested the community seems to be around the app, it&amp;rsquo;s about time we did a walkthrough of the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Open Expectations</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</link>
+      <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/01/13/OSS-Expectations/</guid>
+      <description>&lt;p&gt;The Artsy engineering team has been moving towards Open Source by Default. In 2015 the Mobile team managed to get there. Since then, we&amp;rsquo;ve been writing up our process on this blog and offering advice to anyone would would ask for it.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been in talks with lots of companies you&amp;rsquo;ve heard of, on the how and the why of this. Recently &lt;a href=&#34;https://ello.co&#34;&gt;Ello&lt;/a&gt; got in touch, and we tried to &lt;a href=&#34;https://en.wikipedia.org/wiki/Dyson_sphere&#34;&gt;capture the process&lt;/a&gt;.  They came out with a great post that I&amp;rsquo;d strongly &lt;a href=&#34;https://ello.co/jayzes/post/tqLL-Z8U8GfbDySRk6wbKg&#34;&gt;recommend reading&lt;/a&gt;. I&amp;rsquo;d like to try and come from the other side, and address what are the questions people ask. Consider this a FAQ for how the mobile team does/got to OSS by default.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Automating TestFlight Deploys using Fastlane</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/15/Automating-Testflight-Deploys/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been a really &lt;a href=&#34;http://artsy.github.io/blog/2015/09/18/Cocoa-Architecture-Dependencies/&#34;&gt;strong supporter&lt;/a&gt; of the &lt;a href=&#34;https://fastlane.tools&#34;&gt;fastlane&lt;/a&gt; toolset. I think it fixes a lot of common developer problems, in a space that Apple doesn&amp;rsquo;t really touch. The command line.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve added hints of fastlane to our apps at different rates, &lt;a href=&#34;https://github.com/artsy/eidolon/&#34;&gt;Eidolon&lt;/a&gt; uses fastlane for everything but &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;/&lt;a href=&#34;https://github.com/artsy/energy&#34;&gt;Energy&lt;/a&gt;/&lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Emergence&lt;/a&gt; have been pretty slow on the uptake, though they have more complicated setups, being App Store apps.&lt;/p&gt;
+
+&lt;p&gt;When &lt;a href=&#34;https://krausefx.com/&#34;&gt;Felix&lt;/a&gt; announced &lt;a href=&#34;https://krausefx.com/blog/introducing-match-a-new-approach-to-code-signing&#34;&gt;match&lt;/a&gt; this week, I felt like he tackled a problem we face in our &lt;a href=&#34;http://artsy.net/job/mobile-engineer&#34;&gt;small dev team&lt;/a&gt;. I integrated this, only to find that it could also fix my problems with deployment. The rest of this post goes into the &amp;ldquo;how I did this.&amp;rdquo; You can also cheat and look at the &lt;a href=&#34;https://github.com/artsy/eigen/compare/d06270882aadec8f03927455a5229b53dd0a73c8...9eaf9082ebdcdf75f12ad2804260587e01526f2d&#34;&gt;commits&lt;/a&gt; directly.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Licenses for OSS Code</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/11/License-and-You/</guid>
+      <description>&lt;p&gt;As a part of our internal Lunch and Learn series, I  gave a talk to our developers with an overview of the different types of source code licenses available.&lt;/p&gt;
+
+&lt;p&gt;We always recommend MIT within Artsy, but understanding what the other ones are and &lt;a href=&#34;http://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/&#34;&gt;why we made&lt;/a&gt; the choices we have done is valuable.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=0r7JcN3Q_LY&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Upgrading to RxSwift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/08/reactive-cocoa-to-rxswift/</guid>
+      <description>&lt;p&gt;When we &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;built Eidolon last year&lt;/a&gt;, Swift was still pre-1.0 and we couldn&amp;rsquo;t rely on the wide variety of available Swift libraries we enjoy today. I wanted to build it using functional reactive programming, because that&amp;rsquo;s how I believe &lt;a href=&#34;https://realm.io/news/altconf-ash-furrow-functional-reactive-swift/&#34;&gt;everyone should write software&lt;/a&gt;, but there were no Swift-based FRP libraries at the time. As a compromise, I used ReactiveCocoa&amp;rsquo;s Objective-C API (the Swift API was months away from an alpha).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Review: Emergence</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</link>
+      <pubDate>Thu, 05 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/05/Emergence-Code-Review/</guid>
+      <description>&lt;p&gt;We released the fourth app from the mobile team, &lt;a href=&#34;https://github.com/artsy/Emergence/&#34;&gt;Emergence&lt;/a&gt;, on day one for the new Apple TV and are currently getting around 2k downloads a day. The codebase was created by a single developer, and we didn&amp;rsquo;t want to keep that knowledge siloed. So, I ran an hour long code review session last night where I talked through the codebase, explained why some decisions were made and about the differences between tvOS and UIKit.&lt;/p&gt;
+
+&lt;p&gt;Given that I had been asked to write a blog post about tvOS in general, I felt that making the code review public for anyone to watch would be a nice alternative to the usual long-form writing on this blog.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=NErVWhEzIBM&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Work Offline More</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/30/Work-Offline-More/</link>
+      <pubDate>Wed, 30 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/30/Work-Offline-More/</guid>
+      <description>&lt;p&gt;Want to know what I love writing in a pull request? &lt;em&gt;Sorry this is such a big PR, but I was working offline…&lt;/em&gt; It is one of &lt;a href=&#34;https://github.com/artsy/Emergence/pull/23&#34;&gt;the&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/Emergence/pull/39&#34;&gt;key&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/Emergence/pull/45&#34;&gt;reasons&lt;/a&gt; I managed to get our &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Artsy Shows TV&lt;/a&gt; app released ahead of schedule with a looming unknown App Store &lt;a href=&#34;https://github.com/artsy/Emergence/issues?q=milestone%3A%221.0+Ship+to+Apple%22&#34;&gt;deadline&lt;/a&gt;. Offering more time for polish like thumbnail image &lt;a href=&#34;https://github.com/artsy/Emergence/compare/84855a310d47e071419b52b78978d14d751ec4e0...40966752111a309a20b4878e00a1c8e27cb53261&#34;&gt;pre-caching&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;During the last week before shipping I was scheduled to get a H1B VISA stamp for my passport, which means a trip to London. London is basically a &lt;strong&gt;million&lt;/strong&gt; miles away from where I occasionally live in Huddersfield. So I opted for a coach. On the 5 and a half hours of travel, I had gone from behind schedule to feature complete prototype. On the way back, I had started to remove the word prototype from what we were looking at.&lt;/p&gt;
+
+&lt;p&gt;I &lt;em&gt;always&lt;/em&gt; optimise to work offline on every iOS project. Here&amp;rsquo;s some tips on how we do it in all our apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MVVM in Swift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/24/mvvm-in-swift/</guid>
+      <description>&lt;p&gt;Model View ViewModel has become the default way I write apps on iOS – it makes writing iOS apps a joy. I&amp;rsquo;ve written &lt;a href=&#34;https://www.objc.io/issues/13-architecture/mvvm/&#34;&gt;about it&lt;/a&gt; &lt;a href=&#34;http://www.teehanlax.com/blog/model-view-viewmodel-for-ios/&#34;&gt;again&lt;/a&gt; and &lt;a href=&#34;https://speakerdeck.com/ashfurrow/reactivecocoa-at-mdevcon-2014&#34;&gt;again&lt;/a&gt; and &lt;a href=&#34;https://leanpub.com/iosfrp&#34;&gt;oh my&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But last Autumn, as our team was all-hands-on-deck to wrap up the &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;auctions kiosk app&lt;/a&gt;, we chose not to use MVVM. Why not?&lt;/p&gt;
+
+&lt;p&gt;We were building a &lt;em&gt;new app&lt;/em&gt; in a &lt;em&gt;new language&lt;/em&gt; using a &lt;em&gt;non-Swift framework&lt;/em&gt; for functional reactive programming. I was also teaching colleagues what they needed to know about ReactiveCocoa to help write the app. We used the MVC pattern because the relative cost of MVVM was too high.&lt;/p&gt;
+
+&lt;p&gt;&amp;rdquo;&amp;hellip; &lt;em&gt;was&lt;/em&gt; &amp;hellip;&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocoa Architecture: Dependencies</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/</link>
+      <pubDate>Fri, 18 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/</guid>
+      <description>&lt;p&gt;As a part of going through the design patterns we&amp;rsquo;ve found in the creation of the Artsy iOS apps, I&amp;rsquo;d like to talk a bit about some of
+the way in which we decide our apps dependencies.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s easy to think of your dependencies as being things in your Podfile, but it&amp;rsquo;s a bit more nuanced than that. The tools you use for development, deployment, testing and external integrations are all things in which you depend on others to make your app work. I&amp;rsquo;d like to look into the hows and the whys of the decisions we&amp;rsquo;ve made.&lt;/p&gt;
+
+&lt;h2 id=&#34;hugomore42&#34;&gt;&lt;/h2&gt;
+
+&lt;p&gt;The mobile team of is a collection of smart people; we aim to work with people who have different opinions, and different backgrounds. This means we often don&amp;rsquo;t agree on project direction but moving forwards is about finding compromise. Every technical project within Artsy has a de-facto leader, and they get to make the call at the end of the day.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocoa Architecture: Dropped Design Patterns</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/01/Cocoa-Architecture-Dropped-Design-Patterns/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/01/Cocoa-Architecture-Dropped-Design-Patterns/</guid>
+      <description>&lt;p&gt;As a part of going through the design patterns we&amp;rsquo;ve found in the creation of the Artsy iOS apps, I&amp;rsquo;d like to talk a bit about some of the patterns that we&amp;rsquo;ve had and migrated away from. This is not 100% comprehensive, as there has been a lot of time, and a lot of people involved. Instead I&amp;rsquo;m going to try and give a birds eye view, and zoom in on some things that feel more important overall.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Swift Trek 2: The Wrath of count()</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/27/swift-trek-2-the-wrath-of-count/</guid>
+      <description>&lt;p&gt;On Tuesday at our mobile practice standup, I mentioned that I was in-between projects and looking for something to do. Orta suggested migrating Eidolon, the Artsy bidding kiosk app, to Swift 2.&lt;/p&gt;
+
+&lt;p&gt;Our CI is &lt;a href=&#34;https://github.com/artsy/eidolon/pull/466&#34;&gt;broken anyway&lt;/a&gt;, so now is the perfect opportunity to make changes that would break CI. Additionally, Swift 2 seems to have more-or-less stabilized in the latest betas, so we don&amp;rsquo;t expect many gotchas leading up to the GM. Finally, this is an enterprise-distributed app, so we don&amp;rsquo;t have to worry about submitting to the App Store using betas of Xcode.&lt;/p&gt;
+
+&lt;p&gt;So Swift 2 it is!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocoa Architecture: Hybrid Apps</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/</link>
+      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/</guid>
+      <description>&lt;p&gt;As a part of going through the design patterns we&amp;rsquo;ve found in the creation of the Artsy iOS apps, I&amp;rsquo;d like to talk a bit about &lt;em&gt;Hybrid Applications&lt;/em&gt;. A hybrid application refers to an app that uses native code and web content intertwined. Our flagship iOS app, &lt;a href=&#34;https://github.com/artsy/eigen&#34;&gt;eigen&lt;/a&gt; is a hybrid app, and it seems to get more and more hybrid-y each release. Let&amp;rsquo;s talk a little bit about the pros and cons of this approach.&lt;/p&gt;
+
+&lt;h2 id=&#34;hugomore42&#34;&gt;&lt;/h2&gt;
+
+&lt;h1 id=&#34;what-is-a-hybrid-app&#34;&gt;What is a Hybrid App&lt;/h1&gt;
+
+&lt;p&gt;Above is the widest possible definition above, so let&amp;rsquo;s dig in as this can be a contentious. There is a whole spectrum of which an app can be classed as a hybrid app. This ranges from more or less web-tech everywhere to 100% native code like Objective-C / Swift.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocoa Architecture: ARSwitchboard</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/</link>
+      <pubDate>Wed, 19 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cocoa Architecture: ARRouter</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/</link>
+      <pubDate>Sat, 15 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/15/Cocoa-Architecture-Router-Pattern/</guid>
+      <description>&lt;p&gt;I want to talk about a pattern that we&amp;rsquo;ve been using for the last few years on the Artsy Mobile team. This pattern pre-dates me joining Artsy by a few weeks, and was introduced into our codebase by &lt;a href=&#34;http://90wpm.com&#34;&gt;Ben Jackson&lt;/a&gt;, this was the &lt;code&gt;ARRouter&lt;/code&gt;&amp;rsquo;s first method:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;  + (NSURL *)newOAuthURLWithUsername:(NSString *)username password:(NSString *)password {
+      NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              username, @&amp;quot;email&amp;quot;,
+                              password, @&amp;quot;password&amp;quot;,
+                              ARAuthClientID, @&amp;quot;client_id&amp;quot;,
+                              ARAuthSecret, @&amp;quot;client_secret&amp;quot;,
+                              @&amp;quot;credentials&amp;quot;, @&amp;quot;grant_type&amp;quot;,
+                              nil];
+      NSString *url_string = [[NSString alloc] initWithFormat:@&amp;quot;%@%@&amp;quot;, AROAuthURL, [params queryString]];
+      NSURL *url = [ARRouter newURLWithPath:url_string];
+      [url_string release];
+      [params release];
+      return url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yep, that&amp;rsquo;s pre-ARC, pre-Dictionary Literals, memory-managed code. We took this pattern and rolled with it for the next 4 years, this article is about where we&amp;rsquo;ve taken it.&lt;/p&gt;
+
+&lt;p&gt;Within Eigen, &lt;code&gt;ARRouter&lt;/code&gt; is one of our &lt;a href=&#34;https://github.com/artsy/eigen/blob/904e8abfc11ce6ea4b6e81f0e02684b755a280c3/Artsy/Networking/ARRouter.m&#34;&gt;biggest classes&lt;/a&gt;, coming in at almost 1,000 lines of code. Whereas in Energy, it sits at a &lt;a href=&#34;https://github.com/artsy/energy/blob/e51529250ede359c781042f222d5836eb9e8a979/Classes/Util/App/ARRouter.m&#34;&gt;more reasonable&lt;/a&gt; 300 lines. Eidolon does not have an ARRouter, what gives?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Peer Lab</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/10/peer-lab/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/10/peer-lab/</guid>
+      <description>&lt;p&gt;When I was living in Amsterdam, I participated in plenty of &lt;a href=&#34;https://appsterdam.rs&#34;&gt;Appsterdam&lt;/a&gt; events. Things like the weekly Meeten en Drinken. I even helped lead a class in Swift. One of the events I liked the most was called Peer Lab, organized every Saturday morning by &lt;a href=&#34;https://twitter.com/samuelgoodwin&#34;&gt;Samuel Goodwin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea of Peer Lab is pretty simple, but also somewhat profound: developers gather in a physical space to work on things. If someone has a question, they ask the group. If you can help, you offer assistance. The goal is to foster a collaborative learning environment where everyone feels fulfilled.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Open Sourcing Energy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/</link>
+      <pubDate>Thu, 06 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/06/open-sourcing-energy/</guid>
+      <description>&lt;p&gt;The Artsy Mobile team is pretty aggressive in our stance on &lt;a href=&#34;http://code.dblock.org/2015/02/09/becoming-open-source-by-default.html&#34;&gt;Open Source by Default&lt;/a&gt;. We&amp;rsquo;ve talked about it at &lt;a href=&#34;https://www.youtube.com/watch?v=2DvDeEZ0NDw&amp;amp;spfreload=10&#34;&gt;conferences&lt;/a&gt; &lt;a href=&#34;https://www.youtube.com/watch?v=SjjvnrqDjpM&#34;&gt;around&lt;/a&gt; &lt;a href=&#34;https://www.youtube.com/watch?v=zPbLYWmLPow&#34;&gt;the&lt;/a&gt; &lt;a href=&#34;https://speakerdeck.com/orta/ios-at-artsy&#34;&gt;world&lt;/a&gt;, in &lt;a href=&#34;http://www.objc.io/issues/22-scale/artsy&#34;&gt;renowned magazines&lt;/a&gt; and on &lt;a href=&#34;http://artsy.github.io/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;our blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s worth mentioning that we don&amp;rsquo;t just talk externally about Open Source. Internally, the Mobile team runs talks about Open Source for the rest of the Artsy staff. As well, we discuss the tooling and business implications of having our work in public repos. Artsy strives for an open culture, in this case the development team, on the whole, is just further along in the process.&lt;/p&gt;
+
+&lt;p&gt;The Open Source app idea started with an experiment in the Summer of 2014, asking, &amp;ldquo;What does a truly Open Source App look like?&amp;rdquo; The outcome of that was our Swift Kiosk app, &lt;a href=&#34;https://github.com/artsy/eidolon/&#34;&gt;Eidolon&lt;/a&gt;. Open from day one. We took the knowledge from that and applied it to our public facing app, &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;. Open from day 806. That made 2/3rds of our apps Open Source.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to talk about our final app, &lt;a href=&#34;https://github.com/artsy/energy&#34;&gt;Energy&lt;/a&gt;. Open from day 1433 and ~3500 commits.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How To Write Unit Tests Like a Brood Parasite</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</link>
+      <pubDate>Mon, 06 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/06/how-to-write-unit-tests-like-a-brood-parasite/</guid>
+      <description>&lt;p&gt;To a beginner, &lt;a href=&#34;http://ocmock.org/&#34;&gt;OCMock&lt;/a&gt; looks scary. The syntax is strange, the idea of stubbing seems complicated, and skirting around the need to use it at all times kind of works out for a while.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[[mock stub] // three brackets!!
+
+[OCMockObject niceMockForClass:UINavigationItem.class]; // it has to be told to be nice?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All of this can be overwhelming for someone who just wants to write simple unit tests for a particular view controller.&lt;/p&gt;
+
+&lt;p&gt;Once you look into the specifics of OCMock, however, things get less terrifying really quickly. It is helpful to compare OCMock’s approach to stubbing to the &lt;a href=&#34;https://vimeo.com/60553870&#34;&gt;behaviors of certain bird species&lt;/a&gt;. As always, the soothing voice of David Attenborough brings clarity and joy to even the most mundane puzzles of life’s journey.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Eigenstate of Mind</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/</link>
+      <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/06/04/an-eigenstate-of-mind/</guid>
+      <description>&lt;p&gt;Prior to starting at Artsy, I followed a few online tutorials on iOS development. But a simple application demonstrating how to &lt;a href=&#34;http://www.raywenderlich.com/85578/first-core-data-app-using-swift&#34;&gt;build a todo list&lt;/a&gt; didn&amp;rsquo;t illustrate the nuances of a production codebase. Tutorials are an important learning tool for beginners, but can&amp;rsquo;t possibly prepare you for everything you would encounter within an application like Artsy&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;I was lucky to have a mentor at Artsy to help me get started, and I wrote this post to pass along the lessons I learned. This is meant to be a guide for iOS beginners to get to know an open source production codebase. I&amp;rsquo;ll cover the Xcode project organization and where to find things.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How we Open Source&#39;d Eigen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</guid>
+      <description>&lt;p&gt;It was 95 days ago, and I was sitting before of my computer in NYC. I loaded my terminal, opened &lt;a href=&#34;https://taptalk.me&#34;&gt;TapTalk&lt;/a&gt; on my phone, tapped on my collegue &lt;a href=&#34;http://ashfurrow.com&#34;&gt;Ash&amp;rsquo;s&lt;/a&gt; avatar and held my finger there. I paused, this moment was a long time, it was worth waiting. I switched the camera from my face to the screen with the terminal open.&lt;/p&gt;
+
+&lt;p&gt;This moment was probably the most nervous I had been in years. It showed &lt;code&gt;git push origin master&lt;/code&gt;. I said &amp;ldquo;it&amp;rsquo;s happening.&amp;rdquo; I hit return. A new era in the Artsy mobile team had started. A few minutes later, I wrote this tweet:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; lang=&#34;en&#34;&gt;&lt;p&gt;We have open source’d the &lt;a href=&#34;https://twitter.com/artsy&#34;&gt;@Artsy&lt;/a&gt; iOS app.&amp;#10;&amp;#10;&lt;a href=&#34;https://t.co/c1SWtHmUgy&#34;&gt;https://t.co/c1SWtHmUgy&lt;/a&gt;&amp;#10;&amp;#10;🎉&lt;/p&gt;&amp;mdash; Ørta (@orta) &lt;a href=&#34;https://twitter.com/orta/status/558395611754819586&#34;&gt;January 22, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go over the process we went through to get to that point.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Culture of Openness in the Artsy Mobile Team</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/31/the-culture-of-openness-artsy-mobile/</link>
+      <pubDate>Tue, 31 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/03/31/the-culture-of-openness-artsy-mobile/</guid>
+      <description>Recently, the Artsy Mobile team had the pleasure of working together on an article for objc.io, an online publication dedicated to in-depth articles about iOS and OS X development. Each monthly issue consists of several articles centered around a theme—past issues include Testing, Animations and Swift. objc.io’s latest issue, iOS at Scale, features articles by a handful of developers about how they approach iOS development at their respective companies. Our contribution to the issue is a collaboratively-written article by and about Artsy’s Mobile team from the angle of Artsy&amp;rsquo;s focus on the core value of openness that is foundational to how we (and the greater Artsy team) work.</description>
+    </item>
+    
+    <item>
+      <title>CocoaPods-Keys and CI</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/01/21/cocoapods-keys-and-CI/</link>
+      <pubDate>Wed, 21 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/01/21/cocoapods-keys-and-CI/</guid>
+      <description>&lt;p&gt;We built CocoaPods-Keys as a way to remove API keys and secrets from our source code. We use it to open up our code to the public, without leaking private details. One of the cool things about doing it this way was that we could all use different API keys stashed away in each developers Keychain.&lt;/p&gt;
+
+&lt;p&gt;To ensure we could run CI on our apps we came up with two different ways to use keys on CI. This post explains them both.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CocoaPods and Frameworks</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/</link>
+      <pubDate>Sun, 04 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/01/04/cocoapods-and-frameworks/</guid>
+      <description>&lt;p&gt;As I mentioned in my &lt;a href=&#34;https://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;retrospective on Eidolon&lt;/a&gt;, Artsy iOS codebases are often used as testbeds for new CocoaPods features. With Eidolon, we had the opportunity to try out CocoaPods&amp;rsquo; support for frameworks and Swift. This post is a look back at the month of using dependencies as dynamic frameworks instead of static libraries.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Close to the Metal: Debugging Our Hardware Problem</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/18/debugging-our-hardware-problem/</link>
+      <pubDate>Tue, 18 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/18/debugging-our-hardware-problem/</guid>
+      <description>&lt;p&gt;For the past few months, Artsy’s mobile team has been working on &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt;, a bidding kiosk for Artsy’s auctions platform. While we’ve written a &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;retrospective&lt;/a&gt; on the process of making Eidolon from the software side of things, we didn’t really touch on how our software is being used.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Developing a Bidding Kiosk for iOS in Swift</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/13/eidolon-retrospective/</link>
+      <pubDate>Thu, 13 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/11/13/eidolon-retrospective/</guid>
+      <description>&lt;p&gt;In the Summer of 2014, we began developing a bidding kiosk for the Artsy auctions platform (code-named &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;Eidolon&lt;/a&gt;). Typically, the iOS team here at Artsy worked on two main apps: a &lt;a href=&#34;http://iphone.artsy.net&#34;&gt;consumer-facing iPhone app&lt;/a&gt; and an iPad app used by art galleries. For Eidolon, we followed &lt;a href=&#34;https://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/&#34;&gt;Artsy’s standard practices&lt;/a&gt; for building our software and use GitHub issues as our canonical source for bug reports and feature requests. Many of the components used in our apps are &lt;a href=&#34;https://github.com/artsy&#34;&gt;open source&lt;/a&gt;, but the codebases themselves remain in private repositories.&lt;/p&gt;
+
+&lt;p&gt;Initial planning for Eidolon began over the Summer. Our designer &lt;a href=&#34;http://twitter.com/katarinabatina&#34;&gt;Katarina&lt;/a&gt; had the main features sketched out. I was scheduled to work on it at first, with &lt;a href=&#34;http://twitter.com/orta&#34;&gt;Orta&lt;/a&gt; and &lt;a href=&#34;http://twitter.com/1aurabrown&#34;&gt;Laura&lt;/a&gt; joining me near the end of the project. We had a rough scope: the app would be able to list artworks at an auction and allow prospective bidders to learn more about these artworks. The user would be able to register to bid and place bids using the Kiosk, including credit card processing for identity-checking.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Transparent Prerequisite Network Requests with Swift and ReactiveCocoa</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/18/transparent-prerequisite-network-requests/</guid>
+      <description>&lt;p&gt;Artsy&amp;rsquo;s &lt;a href=&#34;http://developers.artsy.net&#34;&gt;API&lt;/a&gt; requires something called an &lt;a href=&#34;https://developers.artsy.net/docs/authentication&#34;&gt;XApp
+token&lt;/a&gt; in order to perform
+requests. The token comes back with an expiry date, after which the token will
+no longer work. A new token will have to be fetched.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+	&amp;quot;xapp_token&amp;quot;: &amp;quot;SOME_TOKEN&amp;quot;,
+	&amp;quot;expires_in&amp;quot;:&amp;quot;2014-09-19T12:22:21.570Z&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In our previous iOS apps, tragically written in Objective-C, we have a lot of
+code that looks like the following. &lt;code&gt;getXappTokenWithCompletion:&lt;/code&gt; checks to
+make sure that there is a valid token. If there is, it invokes the completion
+block immediately. Otherwise, it fetches a token, sets it in a static variable,
+and then invokes the completion block.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[ArtsyAPI getXappTokenWithCompletion:^(NSString *xappToken, NSDate *expirationDate) {
+    [ArtsyAPI getSomething:^(NSDictionary *results) {
+       // do something
+    } failure:^(NSError *error) {
+        // handle herror
+    }];
+}];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s kind of ugly. A better approach might be to embed the token-requesting
+logic within the &lt;code&gt;getSomething:&lt;/code&gt; method. But that kind of sucks, since we&amp;rsquo;d have
+to reproduce that logic for &lt;em&gt;every&lt;/em&gt; network-accessing method. If we have ten
+methods, that&amp;rsquo;s ten times we need to duplicate that logic.&lt;/p&gt;
+
+&lt;p&gt;With our &lt;a href=&#34;https://github.com/artsy/eidolon&#34;&gt;new app&lt;/a&gt; (written in Swift), we&amp;rsquo;re
+using a network abstraction layer we&amp;rsquo;ve created called &lt;a href=&#34;https://github.com/AshFurrow/Moya&#34;&gt;Moya&lt;/a&gt;.
+Moya sits on top of &lt;a href=&#34;https://github.com/Alamofire/Alamofire&#34;&gt;Alamofire&lt;/a&gt; and
+provides an abstraction for API endpoints. Instead of having ten different
+network-accessing methods, there is only &lt;em&gt;one&lt;/em&gt; method to which you pass one of
+the ten different possible &lt;code&gt;enum&lt;/code&gt; values. This means you have compile-time
+safety in your networking code, but that&amp;rsquo;s not really what we&amp;rsquo;re here to talk
+about.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Musical Chairs</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/03/29/musical-chairs/</link>
+      <pubDate>Fri, 29 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/03/29/musical-chairs/</guid>
+      <description>&lt;p&gt;At Artsy we make Artsy Folio. Folio is an awesome portfolio app that shows our gallery and museum partners their artworks in one place, allows them to easily get information about their inventory and to send works by email to their contacts.&lt;/p&gt;
+
+&lt;p&gt;Folio has to deal with large multi-gigabyte syncs in order to operate offline. That makes for a great user experience, but for the developer working on the sync, it&amp;rsquo;s not as pleasant. Combined with our use of Core Data, the app’s maturity, and dealing with data store migrations, things can get hairy. We needed a tool that could freeze and restore app data at will, obviating the need for constant syncing and resyncing.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s why I built &lt;a href=&#34;https://github.com/orta/chairs&#34;&gt;chairs&lt;/a&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On Making It Personal in iOS with Searchbars</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/</link>
+      <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/11/on-making-it-personal--in-iOS-with-searchbars/</guid>
+      <description>&lt;p&gt;We make Folio, a pretty kick-ass iPad app that we give away to our partners to showcase their inventory at art fairs. Whilst making it we tried to ensure that all of the application fits in with the &lt;a href=&#34;http://artsy.net&#34;&gt;Artsy&lt;/a&gt; website aesthetic, and recently the last natively styled control fell to our mighty code hammers. That was the &lt;code&gt;UISearchBar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ortastuff.s3.amazonaws.com/images/custom_searchbar_example.jpg&#34; alt=&#34;Screenshot of Artsy Folio&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When displaying only search results in a table it makes a lot of sense to use Apple&amp;rsquo;s &lt;code&gt;UISearchDisplayController&lt;/code&gt; as it handles a lot of edge cases for you. However the downside is that you lose some control over how the views interact.&lt;/p&gt;
+
+&lt;p&gt;The search bar was the only native control that actually made it into the version 1 release. This was mainly due to it requiring a bit of black magic in order to get it to work the way we wanted. So lets go through the code and rip it to pieces.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

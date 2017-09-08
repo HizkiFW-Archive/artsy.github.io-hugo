@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reactnative on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative/</link>
+    <description>Recent content in Reactnative on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Workshop: React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</link>
+      <pubDate>Mon, 06 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</guid>
+      <description>&lt;p&gt;Hey there, so you&amp;rsquo;ve decided to take a look at React Native? Well, last week I ran a workshop inside Artsy on &lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; and &lt;a href=&#34;https://facebook.github.io/relay/&#34;&gt;Relay&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The video takes you from &lt;code&gt;react-native init&lt;/code&gt; to having the initial structure of a View Controller based on Relay with a real working API request. The video is about 45 minutes, with inline questions.&lt;/p&gt;
+
+&lt;p&gt;If you wanted to just run through the notes, you could probably get it working in about 10 minutes.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=PYC47YKnK4k&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes to copy &amp;amp; paste from. There is also a full copy of the end-result at &lt;a href=&#34;https://github.com/orta/Relay-Artist-Example&#34;&gt;orta/Relay-Artist-Example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Exploration: Front-end JavaScript at Artsy in 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/js2017/js.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;announced&lt;/a&gt; that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.&lt;/p&gt;
+
+&lt;p&gt;Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&amp;rsquo;ve been experimenting with finding common, natural patterns between web and native.&lt;/p&gt;
+
+&lt;p&gt;This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; &lt;a href=&#34;#TypeScript&#34;&gt;TypeScript&lt;/a&gt;, &lt;a href=&#34;#GraphQL&#34;&gt;GraphQL&lt;/a&gt;, &lt;a href=&#34;#React...React.Native&#34;&gt;React/React Native&lt;/a&gt;, &lt;a href=&#34;#Relay&#34;&gt;Relay&lt;/a&gt;, &lt;a href=&#34;#Yarn&#34;&gt;Yarn&lt;/a&gt;, &lt;a href=&#34;#Jest&#34;&gt;Jest&lt;/a&gt;, and &lt;a href=&#34;#Visual.Studio.Code&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Exploration: Front-end JavaScript at Artsy in 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/js2017/js.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;announced&lt;/a&gt; that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.&lt;/p&gt;
+
+&lt;p&gt;Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&amp;rsquo;ve been experimenting with finding common, natural patterns between web and native.&lt;/p&gt;
+
+&lt;p&gt;This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; &lt;a href=&#34;#TypeScript&#34;&gt;TypeScript&lt;/a&gt;, &lt;a href=&#34;#GraphQL&#34;&gt;GraphQL&lt;/a&gt;, &lt;a href=&#34;#React...React.Native&#34;&gt;React/React Native&lt;/a&gt;, &lt;a href=&#34;#Relay&#34;&gt;Relay&lt;/a&gt;, &lt;a href=&#34;#Yarn&#34;&gt;Yarn&lt;/a&gt;, &lt;a href=&#34;#Jest&#34;&gt;Jest&lt;/a&gt;, and &lt;a href=&#34;#Visual.Studio.Code&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Retrospective: Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/swift-in-rn/swift-in-react-native.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Swift became public in June 2014, by August we had started using it in Artsy. By October, we had &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Swift in production&lt;/a&gt; channelling hundreds of thousands of dollars in auction bids.&lt;/p&gt;
+
+&lt;p&gt;It is pretty obvious that Swift is the future of native development on Apple platforms. It was a no-brainer to then build an &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Apple TV app&lt;/a&gt; in Swift, integrated Swift-support into our key app Eigen and built non-trivial parts of that &lt;a href=&#34;http://artsy.github.io/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;application in Swift&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We first started experimenting with React Native in February 2016, and by August 2016, we announced that &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;Artsy moved to React Native&lt;/a&gt; effectively meaning new code would be in JavaScript from here onwards.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re regularly asked &lt;em&gt;why&lt;/em&gt; we moved, and it was touched on briefly in our announcement but I&amp;rsquo;d like to dig in to this and try to cover a lot of our decision process. So, if you&amp;rsquo;re into understanding why a small team of iOS developers with decades of native experience switched to JavaScript, read on.&lt;/p&gt;
+
+&lt;p&gt;This post will cover: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#What.are.Artsy.s.apps.&#34;&gt;What are Artsy&amp;rsquo;s apps?&lt;/a&gt;, Swifts &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Swift.s.upsides&#34;&gt;positives&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Native.Downsides&#34;&gt;negatives&lt;/a&gt; for us, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native&#34;&gt;React Native&lt;/a&gt;, and our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native..one.year.later&#34;&gt;1-year summary&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On our implementation of React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</link>
+      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/24/On-Emission/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/emission/emission-logo-artsy.svg&#34; style=&#34;height:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I arrived fashionably late to the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;React Native party&lt;/a&gt; in Artsy. I had been a part of our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;Auctions Team&lt;/a&gt;, where we worked in Swift with &lt;a href=&#34;https://cocoapods.org/pods/Interstellar&#34;&gt;some light-FRP&lt;/a&gt;. We were not affected by the 4 months of simultaneous work on moving to React Native, at all.&lt;/p&gt;
+
+&lt;p&gt;It was a quiet revolution. I did not have to install &lt;code&gt;npm&lt;/code&gt;, I made zero changes to the code for auctions and the whole app&amp;rsquo;s infrastructure barely changed. Yet we moved to making all new code inside our 3 year old iOS app use React Native. What gives?&lt;/p&gt;
+
+&lt;p&gt;Well, first up we weren&amp;rsquo;t planning a re-write, we don&amp;rsquo;t have that kind of luxury and the scope of our app is too big compared to the team working on it. Second, we reused existing dependency infrastructure to support JavaScript based apps. Read on to find out what that looks like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using VS Code for JavaScript</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/vscode/vscode_logo_artsy.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m an old school TextMate user, who has also been using Xcode for the last decade. These two sit at a very opposite ends of an &amp;ldquo;editor&amp;rdquo; spectrum.&lt;/p&gt;
+
+&lt;p&gt;TextMate is extremely bare bones at the core, but introduced the idea of bundles as plugins. Making it really easy for others to build their own plugins for their own contexts. Xcode on the other-hand includes a 3D scene editor, the best interface builder I&amp;rsquo;ve seen, super rich debugging tools and close to zero support for improving it yourself.&lt;/p&gt;
+
+&lt;p&gt;As we agreed on moving to React Native, we needed to decide what the team should use for &lt;a href=&#34;https://github.com/artsy/emission/blob/master/docs/vscode.md&#34;&gt;working in that environment&lt;/a&gt;. After experimentation with many editors, we decided on Microsoft&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wanted to keep a lot of the best features from Xcode, while working in a completely JavaScript environment. For example: debuggers, inline errors, auto-complete, symbol mapping and to ideally have them all inside a single editor.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s dig into the principals of how Visual Studio Code works, what makes it a better option for us, and what parts of it really shine.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

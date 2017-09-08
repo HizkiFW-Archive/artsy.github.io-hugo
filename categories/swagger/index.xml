@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swagger on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/swagger/</link>
+    <description>Recent content in Swagger on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/swagger/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding API Docs with Grape and Swagger</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</link>
+      <pubDate>Fri, 21 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</guid>
+      <description>&lt;p&gt;The Artsy website, Partner CMS, mobile tools, and all our hackathon experiments are built on top of a core API. We&amp;rsquo;ve put a lot of effort into documenting it internally. But developers don&amp;rsquo;t want to have to grok through code. With &lt;a href=&#34;https://github.com/intridea/grape&#34;&gt;Grape&lt;/a&gt; and &lt;a href=&#34;https://developers.helloreverb.com/swagger&#34;&gt;Swagger&lt;/a&gt;, adding an API explorer and exposing the API documentation has never been easier.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-06-21-adding-api-documentation-with-grape-swagger/swagger-ui.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Beyond Heroku: &#34;Satellite&#34; Delayed Job Workers on EC2 // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="joey">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Beyond Heroku: &#34;Satellite&#34; Delayed Job Workers on EC2" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/">Beyond Heroku: &#34;Satellite&#34; Delayed Job Workers on EC2</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">joey</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Heroku" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Heroku">Heroku</a>
+				
+					<a class="post-category post-category-EC2" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/EC2">EC2</a>
+				
+					<a class="post-category post-category-Fog" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Fog">Fog</a>
+				
+					<a class="post-category post-category-Chef" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Chef">Chef</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>[TL;DR: To supplement Heroku-managed app servers, we launched custom EC2 instances to host Delayed Job worker processes. See the <a href="https://github.com/joeyAghion/satellite_setup">satellite_setup github repo</a> for rake tasks and Chef recipes that make it easy.]</p>
+
+<p><a href="http://artsy.net">Artsy</a> engineers are big users and abusers of <a href="http://heroku.com">Heroku</a>. It&rsquo;s a neat abstraction of server resources, so we were conflicted when parts of our application started to bump into Heroku&rsquo;s limitations. While we weren&rsquo;t eager to start managing additional infrastructure, we found that&ndash;with a few good tools&ndash;we could migrate some components away from Heroku without fragmenting the codebase or over-complicating our development environments.</p>
+
+<p>There are a number of reasons your app might need to go beyond Heroku. It might rely on a locally installed tool (not possible on Heroku&rsquo;s locked-down servers), or require heavy file-system usage (limited to <code>tmp/</code> and <code>log/</code>, and not permanent or shared). In our case, the culprit was Heroku&rsquo;s 512 MB RAM limit&ndash;reasonable for most web processes, but quickly exceeded by the image-processing tasks of our <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a> workers. We considered building a specialized image-processing service, but decided instead to supplement our web apps with a custom <a href="http://aws.amazon.com/ec2/">EC2</a> instance dedicated to processing background tasks. We call these servers &ldquo;satellites.&rdquo;</p>
+
+<p>We&rsquo;ll walk through the pertinent sections here, but you can find Rake tasks that correspond with these scripts, plus all of the necessary cookbooks, in the <a href="https://github.com/joeyAghion/satellite_setup">satellite_setup github repo</a>. Now, on to the code!</p>
+
+<p>First, generate a key-pair from <a href="https://console.aws.amazon.com/ec2/home?#s=KeyPairs">Amazon&rsquo;s AWS Management Console</a>. Then we&rsquo;ll use <a href="http://fog.io">Fog</a> to spawn the EC2 instance.</p>
+
+<pre><code class="language-ruby">require 'fog'
+
+# Update these values according to your environment...
+S3_ACCESS_KEY_ID = 'XXXXXXXXXXXXXXXXXXXX'
+S3_SECRET_ACCESS_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+KEY_NAME = 'satellite_keypair'
+KEY_PATH = &quot;#{ENV['HOME']}/.ssh/#{KEY_NAME}.pem&quot;
+IMAGE_ID = 'ami-c162a9a8'  # 64-bit Ubuntu 11.10
+FLAVOR_ID = 'm1.large'
+
+connection = Fog::Compute.new(provider: 'AWS',
+  aws_access_key_id: S3_ACCESS_KEY_ID,
+  aws_secret_access_key: S3_SECRET_ACCESS_KEY)
+
+server = connection.servers.bootstrap(
+  key_name: KEY_NAME,
+  private_key_path: KEY_PATH,
+  image_id: IMAGE_ID,
+  flavor_id: FLAVOR_ID)
+</code></pre>
+
+<p>Next, we&rsquo;ll do some basic server prep and install our preferred Ruby version. We&rsquo;ll again use Fog, this time to SSH into the new instance and run the following commands:</p>
+
+<pre><code class="language-ruby">[ %{sudo sh -c &quot;grep '^[^#].*us-east-1\.ec2' /etc/apt/sources.list | sed 's/us-east-1\.ec2/us/g' &gt; /etc/apt/sources.list.d/better.list&quot;},
+  %{sudo apt-get update; sudo apt-get install -y make gcc rsync curl zlib1g-dev libssl-dev libreadline-dev libreadline5},
+  %{mkdir -p /tmp/bootstrap},
+  %{cd /tmp/bootstrap &amp;&amp; curl -L 'ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.gz' | tar xvzf - &amp;&amp; cd ruby-1.9.2-p290 &amp;&amp; ./configure &amp;&amp; make &amp;&amp; sudo make install},
+  %{cd /tmp/bootstrap &amp;&amp; curl -L 'http://production.cf.rubygems.org/rubygems/rubygems-1.6.2.tgz' | tar xvzf - &amp;&amp; cd rubygems* &amp;&amp; sudo ruby setup.rb --no-ri --no-rdoc},
+  %{sudo gem install rdoc chef ohai --no-ri --no-rdoc --source http://gems.rubyforge.org}
+].each do |command|
+  server.ssh command
+end
+</code></pre>
+
+<p>The first command replaces some broken links in the AMI&rsquo;s <code>/etc/apt/sources.list</code>, so that the later package installation commands have a chance. We then install a few necessary packages, download and install Ruby 1.9.2 from source, and install RubyGems. Finally, we install <a href="http://www.opscode.com/chef/">Chef</a> so we can let <code>chef-solo</code> drive the remainder of the configuration (and manage it going forward).</p>
+
+<p>Chef deserves a few blog posts of its own, but know that it provides a platform-independent DSL for specifying an environment&rsquo;s configuration. <a href="http://www.opscode.com">Opscode</a> supplies a deep set of related tools, but for our purposes, <code>chef-solo</code>&ndash;which applies a local set of configuration &ldquo;cookbooks&rdquo; to an individual server&ndash;will be plenty. These lines copy our local cookbooks folder (originally in <code>config/satellite</code>) up to a temporary location on the server, then execute the <code>chef-solo</code> command via SSH:</p>
+
+<pre><code class="language-ruby">system &quot;rsync -rlP --rsh=\&quot;ssh -i #{KEY_PATH}\&quot; --delete --exclude '.*' ./config/satellite ubuntu@#{server.dns_name}:/tmp/chef/&quot;
+server.ssh &quot;cd /tmp/chef/satellite; RAILS_ENV=staging sudo -H -E chef-solo -c solo.rb -j configure.json -l info&quot;
+</code></pre>
+
+<p>The first file referenced in that command simply declares where cookbooks will be found. In our case, they&rsquo;re stored alongside <code>solo.rb</code> in the temporary directory.</p>
+
+<p>```ruby config/satellite/solo.rb
+cookbook_path File.expand_path(File.join(File.dirname(<strong>FILE</strong>), &ldquo;cookbooks&rdquo;))</p>
+
+<pre><code>
+The next file, `configure.json`, specifies that Chef should apply the `configure` recipe found in the `example_app` cookbook.
+
+```javascript config/satellite/configure.json
+{&quot;recipes&quot;: [&quot;example_app::configure&quot;]}
+</code></pre>
+
+<p>Finally, let&rsquo;s look at the <code>example_app::configure</code> recipe. First it will make sure necessary packages and gems are installed. These, of course, might be different for your app.</p>
+
+<p>```ruby config/satellite/cookbooks/example_app/recipes/configure.rb
+[ &lsquo;build-essential&rsquo;,
+  &lsquo;binutils-doc&rsquo;,
+  &lsquo;autoconf&rsquo;,
+  &lsquo;flex&rsquo;,
+  &lsquo;bison&rsquo;,
+  &lsquo;openssl&rsquo;,
+  &lsquo;libreadline5&rsquo;,
+  &lsquo;libreadline-dev&rsquo;,
+  &lsquo;git-core&rsquo;,
+  &lsquo;zlib1g&rsquo;,
+  &lsquo;zlib1g-dev&rsquo;,
+  &lsquo;libssl-dev&rsquo;,
+  &lsquo;libxml2-dev&rsquo;,
+  &lsquo;autoconf&rsquo;,
+  &lsquo;libxslt-dev&rsquo;,
+  &lsquo;imagemagick&rsquo;,
+  &lsquo;libmagick9-dev&rsquo;
+].each do |pkg|
+  package(pkg)
+end</p>
+
+<p>gem_package &lsquo;bundler&rsquo; do
+  version &lsquo;1.0.10&rsquo;
+end</p>
+
+<pre><code>
+Next, it will ensure that a user and group (named for `example_app`) are created and configured:
+
+``` ruby config/satellite/cookbooks/example_app/recipes/configure.rb (cont'd)
+group 'example_app'
+
+user 'example_app' do
+  gid 'example_app'
+  home '/home/example_app'
+  shell '/bin/bash'
+  supports :manage_home =&gt; true
+end
+
+directory '/home/example_app/.ssh' do
+  owner 'example_app'
+  group 'example_app'
+  mode 0700
+end
+
+# Ensure example_app can sudo
+cookbook_file '/etc/sudoers.d/example_app' do
+  mode 0440
+end
+
+[ 'authorized_keys',  # place the keys you want to authorize for SSH in this file
+  'id_dsa',  # a new private key file, authorized to pull from your git repo
+   'config'  # avoid prompt when pulling from github
+].each do |config_file|
+  cookbook_file &quot;/home/example_app/.ssh/#{config_file}&quot; do
+    owner 'example_app'
+    group 'example_app'
+    mode 0600
+  end
+end
+
+# Allow other developers to SSH as primary ubuntu account as well.
+cookbook_file &quot;/home/ubuntu/.ssh/authorized_keys&quot; do
+  owner 'ubuntu'
+  group 'ubuntu'
+  mode 0600
+end
+</code></pre>
+
+<p>Next, it creates supporting directories.</p>
+
+<p>``` ruby config/satellite/cookbooks/example_app/recipes/configure.rb (cont&rsquo;d)
+[ &lsquo;/app&rsquo;,
+  &lsquo;/app/example_app&rsquo;,
+  &lsquo;/app/example_app/shared&rsquo;,
+  &lsquo;/app/example_app/shared/log&rsquo;,
+  &lsquo;/app/example_app/shared/pids&rsquo;,
+  &lsquo;/app/example_app/shared/config&rsquo;
+].each do |dir|
+  directory dir do
+    owner &lsquo;example_app&rsquo;
+    group &lsquo;example_app&rsquo;
+    mode 0755
+  end
+end</p>
+
+<pre><code>
+We rely heavily on the [New Relic](http://newrelic.com/) plug-in, and want to enable it in our custom environment as well. Heroku usually takes care of injecting a `newrelic.yml` configuration file into our app servers, so we'll have to replicate that in our custom environment. Depending on what plug-ins you've enabled (e.g., [Sendgrid](http://sendgrid.com)), you might need to replicate other configuration files or initializers.
+
+``` ruby config/satellite/cookbooks/example_app/recipes/configure.rb (cont'd)
+cookbook_file &quot;/app/example_app/shared/config/newrelic.yml&quot; do
+  owner 'example_app'
+  group 'example_app'
+  mode 0755
+end
+</code></pre>
+
+<p><a href="http://mmonit.com/monit/">Monit</a> is a great tool for starting, managing, and monitoring long-running processes. It can be configured with all sorts of thresholds and alerting. (We&rsquo;ve included only a simple configuration in the <a href="https://github.com/joeyAghion/satellite_setup">github repo</a> for now.) Let&rsquo;s include the <code>monit</code> recipe, to ensure that monit is installed and running, and then add the necessary configuration for monit to start and monitor our delayed_job worker process.</p>
+
+<p>``` ruby config/satellite/cookbooks/example_app/recipes/configure.rb (cont&rsquo;d)
+include_recipe &lsquo;monit&rsquo;
+monitrc &lsquo;delayed_job&rsquo;, {}, :immediately</p>
+
+<pre><code>
+To keep disk space from becoming a problem, we'll automatically rotate all of the logs in our app's shared `log/` directory.
+
+``` ruby config/satellite/cookbooks/example_app/recipes/configure.rb (cont'd)
+logrotate_app &quot;example_app&quot; do
+  path &quot;/app/example_app/shared/log/*.log&quot;
+  frequency &quot;daily&quot;
+  rotate 30
+end
+
+include_recipe 'example_app::deploy'
+</code></pre>
+
+<p>That last line loads up the neighboring <code>deploy.rb</code> recipe, which is responsible for checking out the appropriate version of the codebase to the server and [re]starting the delayed_job worker:</p>
+
+<p>```ruby config/satellite/cookbooks/example_app/deploy.rb
+deploy &ldquo;/app/example_app&rdquo; do</p>
+
+<p>repo &ldquo;git@github.com:my_org/example_app.git&rdquo;  # update this!
+  branch node[&lsquo;rails_env&rsquo;]  # assumes a branch named for this RAILS_ENV (e.g., staging, production)
+  shallow_clone true
+  environment node[&lsquo;rails_env&rsquo;]
+  symlinks &lsquo;pids&rsquo; =&gt; &lsquo;tmp/pids&rsquo;, &lsquo;log&rsquo; =&gt; &lsquo;log&rsquo;, &lsquo;config/newrelic.yml&rsquo; =&gt; &lsquo;config/newrelic.yml&rsquo;
+  before_restart do
+    current_release = release_path
+    execute(&ldquo;bundle install &ndash;without development test&rdquo;) do
+      cwd current_release
+      user &lsquo;example_app&rsquo;
+      group &lsquo;example_app&rsquo;
+      environment &lsquo;HOME&rsquo; =&gt; &lsquo;/home/example_app&rsquo;
+    end
+  end
+  restart_command { execute &ldquo;monit restart delayed_job&rdquo; }
+  user &lsquo;example_app&rsquo;
+  group &lsquo;example_app&rsquo;</p>
+
+<p>end</p>
+
+<pre><code>
+The `deploy` Chef command creates a new timestamped directory under `/app/example_app/releases` and cleans up any older release directories, leaving the most recent 5 (much in the style of [Capistrano](https://github.com/capistrano/capistrano)). It also symlinks necessary directories and files and restarts the delayed_job worker.
+
+Did you notice how we ensure that Heroku and the satellite use the same version of the codebase? We've formalized `staging` and `production` branches and update them with the commits we intend to deploy. Of course, we can't simply `git push heroku master` anymore. Instead, we push to the appropriate branch, then push that to heroku and re-run the satellite's `deploy` recipe. Here, we've wrapped the process up into a single `deploy:[staging|production]` rake task. (The precise branches might vary depending on your development workflow.)
+
+``` ruby lib/tasks/deploy.rake
+namespace :deploy do
+  desc 'Merge master into a staging branch and deploy it to example_app-staging.'
+  task :staging =&gt; 'git:tag:staging' do
+    puts `git push git@heroku.com:example_app-staging.git origin/staging:master`
+    ENV['RAILS_ENV'] = 'staging'
+    task('satellite:deploy').invoke
+  end
+
+  desc 'Merge staging into a production branch and deploy it to example_app-production.'
+  task :production =&gt; 'git:tag:production' do
+    puts `git push git@heroku.com:example_app-production.git origin/production:master`
+    ENV['RAILS_ENV'] = 'production'
+    task('satellite:deploy').invoke
+  end
+end
+
+namespace :git do
+  task :tag, [:from, :to] =&gt; :confirm_clean do |t, args|
+    raise &quot;Must specify 'from' and 'to' branches&quot; unless args[:from] &amp;&amp; args[:to]
+    `git fetch`
+    `git branch -f #{args[:to]} origin/#{args[:to]}`
+    `git checkout #{args[:to]}`
+    `git reset --hard origin/#{args[:from]}`
+    puts &quot;Updating #{args[:to]} with these commits:&quot;
+    puts `git log origin/#{args[:to]}..#{args[:to]} --format=format:&quot;%h  %s  (%an)&quot;`
+    `git push -f origin #{args[:to]}`
+    `git checkout master`
+    `git branch -D #{args[:to]}`
+  end
+
+  task :confirm_clean do
+    raise &quot;Must have clean working directory&quot; unless `git status` =~ /working directory clean/
+  end
+
+  namespace :tag do
+    task :staging do
+      task('git:tag').invoke('master',  'staging')
+    end
+    task :production do
+      task('git:tag').invoke('staging', 'production')
+    end
+  end
+end
+</code></pre>
+
+<p>Our satellite requires access to some of the same environment variables as our Heroku web apps (such as a database host or mail server credentials). To keep these synchronized, we rely on a <code>config/heroku.yml</code> file. (This duplication is an obvious hazard and deserves improvement, but we&rsquo;ve actually found it convenient to have these locally for easy access from Rake tasks, etc.)</p>
+
+<p>In the <a href="https://github.com/joeyAghion/satellite_setup">satellite_setup</a> github repo, we&rsquo;ve simplified this set-up into a few tasks that we use on an ongoing basis:</p>
+
+<pre><code class="language-bash">$ rake satellite:spawn RAILS_ENV=staging
+$ rake satellite:configure RAILS_ENV=staging
+$ rake satellite:info RAILS_ENV=staging
+	1 satellite server(s)
+		state: running (1)
+			i-f4583196	staging	ec2-170-179-113-159.compute-1.amazonaws.com	2012-01-03 14:48:11 UTC
+$ rake satellite:deploy RAILS_ENV=staging
+$ rake satellite:destroy RAILS_ENV=staging
+</code></pre>
+
+<p>This arrangement has worked for us so far. Satellite servers cost a little more, but can benefit from arbitrary customization and are served out of the same data-centers as our Heroku-based web apps and S3 storage. Since the same app is running transparently in 2 different environments, our developers&rsquo; workflow has hardly needed modification. In fact, the portability enforced by Heroku&rsquo;s design (elaborated in <a href="http://12factor.net">The Twelve-Factor App</a>) made this transition relatively straightforward.</p>
+
+<p>Some worthy enhancements might be:</p>
+
+<ul>
+<li>Improving monitoring and notifications</li>
+<li>Extending the recipes to manage multiple parallel workers</li>
+<li>Using Chef attributes to replace uses of <code>example_app</code> with a parameter</li>
+<li>Cleaning up the duplication of Heroku configuration values in <code>heroku.yml</code></li>
+</ul>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Reliably Testing Asynchronous UI w/ RSpec and Capybara</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/">Delaying CarrierWave Image Processing</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

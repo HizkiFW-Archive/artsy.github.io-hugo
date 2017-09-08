@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/web/</link>
+    <description>Recent content in Web on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Making Artsy Editorial Accessible</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/</guid>
+      <description>&lt;p&gt;During Artsy&amp;rsquo;s recent 2017 Hackathon we tackled making all of our editorial content &lt;a href=&#34;https://en.wikipedia.org/wiki/Accessibility&#34;&gt;accessible&lt;/a&gt;. The idea was hatched at  Berlin JSConf this spring, where &lt;a href=&#34;https://youtu.be/H4FzW9oFObs&#34;&gt;Laura Carvajal gave a talk&lt;/a&gt; following the &lt;em&gt;Financial Times&lt;/em&gt;&amp;rsquo; experience implementing better accessibility requirements, and how they built these considerations into their testing process.&lt;/p&gt;
+
+&lt;p&gt;What does accessibility mean in a browser? Generally the term refers to supporting the wide range of assistive technologies for users with vision or motor impairments. These include screen readers, as well as mouseless navigation using a keyboard, eye tracking and other devices. Interestingly these technologies are implemented at the OS level rather than the browser itself. Mac&amp;rsquo;s OS includes a built in screen-reader, and &lt;a href=&#34;http://www.freedomscientific.com/Products/Blindness/JAWS&#34;&gt;JAWS&lt;/a&gt; is the most popular application in this vein. It is also notable that browsers do not track users who employ assistive tools.&lt;/p&gt;
+
+&lt;p&gt;Two users on &lt;a href=&#34;http://webaim.org/discussion/mail_thread?thread=6326&#34;&gt;WebAIM&amp;rsquo;s forum&lt;/a&gt; excellently present the case for accessibility as a developer&amp;rsquo;s responsibility:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Users may be highly resistant to having their disabilities identified as they go throughout the web. Most persons with disabilities would really just rather that &lt;em&gt;the Web just work&lt;/em&gt; for them.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Looking at accessibility as a way to serve a specific population is missing the point that accessibility is about inclusion of all people.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A central tenant of Artsy&amp;rsquo;s mission is to &amp;lsquo;make art as accessible as music&amp;rsquo;. By expanding accessibility for the visually and motor impaired to writing on art and culture, this projects allows us to follow through on this statement in a very literal way. Furthermore, there&amp;rsquo;s no reason to ignore this audience; accommodating use of assistive technologies is an ethically responsible thing to do.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helping the Web Towards OSS by Default</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</guid>
+      <description>&lt;p&gt;The main Artsy.net website for the desktop, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, was our first Artsy application to open its source code, &lt;a href=&#34;http://artsy.github.io/author/craig&#34;&gt;Craig&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/author/brennan&#34;&gt;Brennan&lt;/a&gt; did it &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;back in 2014&lt;/a&gt;. Force&amp;rsquo;s public offering laid the groundwork for the iOS OSS projects to come afterwards: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Eidolon&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;Eigen&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/06/open-sourcing-energy/&#34;&gt;Energy&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Though Force wasn&amp;rsquo;t quite Open Source by Default, it represented a &lt;em&gt;really&lt;/em&gt; important step for  Artsy&amp;rsquo;s OSS perspective but was not the end goal. We were opening our source, but not opening our process.&lt;/p&gt;
+
+&lt;p&gt;This month both &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, the desktop version of &lt;a href=&#34;https://www.artsy.net/&#34;&gt;Artsy.net&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/microgravity&#34;&gt;Microgravity&lt;/a&gt;, the mobile version - moved to being built entirely in the open. Read on to find out how.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using Paw with Per-Developer Settings</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</link>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/04/14/net-working-with-paw/</guid>
+      <description>&lt;p&gt;I am a big fan of developer tooling, as spending time upfront on improving your process can pay a lot of dividends over time. I want to talk about one in particular: &lt;a href=&#34;https://luckymarmot.com/paw&#34;&gt;Paw&lt;/a&gt;. Paw is a native HTTP client with a bunch of features. I want to cover one that means that we can now &lt;a href=&#34;https://github.com/artsy/energy/pull/192&#34;&gt;introduce&lt;/a&gt; &lt;code&gt;[AppName].paw&lt;/code&gt; files in our mobile projects, making it easy for us to discuss networking requests.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Musical Chairs // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Musical Chairs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/03/29/musical-chairs/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/03/29/musical-chairs/">Musical Chairs</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+				
+					<a class="post-category post-category-UIKIT" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UIKIT">UIKIT</a>
+				
+					<a class="post-category post-category-Customisation" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Customisation">Customisation</a>
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>At Artsy we make Artsy Folio. Folio is an awesome portfolio app that shows our gallery and museum partners their artworks in one place, allows them to easily get information about their inventory and to send works by email to their contacts.</p>
+
+<p>Folio has to deal with large multi-gigabyte syncs in order to operate offline. That makes for a great user experience, but for the developer working on the sync, it&rsquo;s not as pleasant. Combined with our use of Core Data, the app’s maturity, and dealing with data store migrations, things can get hairy. We needed a tool that could freeze and restore app data at will, obviating the need for constant syncing and resyncing.</p>
+
+<p>That&rsquo;s why I built <a href="https://github.com/orta/chairs">chairs</a>&hellip;</p>
+
+<p></p>
+
+<p>Chairs is a gem you can install via <code>gem install chairs</code>. It allows you to stash and replace your current iOS simulator application state. It will grab everything related to the app ( including the current <code>NSUserDefaults</code>) and store it in a named subfolder in your current working directory. No black magic, just lots of copying files.</p>
+
+<p>The command line interface is based on git, so to bring in the current state you run <code>chairs pull [name]</code> and to replace the state you use <code>chairs push [name]</code>. The name is just a label so you can remember which version corresponds to that musical chair. You can get a list of these by doing <code>chairs list</code>, and delete them with <code>chairs rm [name]</code>.</p>
+
+<p>Besides the core functionality, chairs has a little bit of sugar to help you with related tasks. My personal favourite is <code>chairs open</code>; this will just open the folder of the most recently used app so you can go and have a snoop around. Amazing for making sure files are where they say they are or for opening your sqlite database in <a href="http://menial.co.uk/base/">Base</a>.</p>
+
+<p>So <code>gem install chairs</code> or check out the <a href="https://github.com/orta/chairs">README</a> for some more information.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/04/01/an-easter-egg-for-curl/">An Easter Egg for Curl</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/02/17/impact-of-heroku-routing-mesh-and-random-routing/">The Impact of Heroku&#39;s Routing Mesh and Random Routing</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

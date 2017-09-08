@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css3 on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/css3/</link>
+    <description>Recent content in Css3 on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Oct 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/css3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>So you want to do a CSS3 3D transform?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/so-you-want-to-do-a-css3-3d-transform/</link>
+      <pubDate>Thu, 18 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/so-you-want-to-do-a-css3-3d-transform/</guid>
+      <description>&lt;p&gt;This post details the first of many challenges we faced in 3D
+transforming the &lt;a href=&#34;http://artsy.net&#34;&gt;homepage of Artsy&lt;/a&gt; (inspired by
+&lt;a href=&#34;https://github.com/hakimel/meny&#34;&gt;Meny&lt;/a&gt;): detecting CSS 3D transform
+support.&lt;/p&gt;
+
+&lt;p&gt;Front-end development is messy in today&amp;rsquo;s fragmented world. At Artsy,
+our goal is to do what it takes to provide an incredible experience
+for &lt;em&gt;all&lt;/em&gt; of our users (IE8+, iOS and the usual suspects). Deploying
+bleeding edge tech, like CSS 3D transforms, is an exercise in
+compromising principals for practicality &amp;ndash; and managing these
+&amp;ldquo;compromises&amp;rdquo; in well-documented code.&lt;/p&gt;
+
+&lt;p&gt;We looked to &lt;a href=&#34;http://modernizr.com/&#34;&gt;Modernizr&amp;rsquo;s&lt;/a&gt; feature detection approach to provide us with
+a reliable way to detect CSS3 3D transform support across browsers. They have some
+&lt;a href=&#34;https://github.com/Modernizr/Modernizr/issues/590&#34;&gt;well&lt;/a&gt;-
+&lt;a href=&#34;https://github.com/Modernizr/Modernizr/issues/465&#34;&gt;documented&lt;/a&gt;
+&lt;a href=&#34;https://github.com/Modernizr/Modernizr/issues/240&#34;&gt;struggles&lt;/a&gt; around
+the issue. After flipping most of the tables in the office ┻━┻ ︵ヽ
+(`Д´)ﾉ︵﻿ ┻━┻ , we settled on user agent sniffing as the most robust
+method for detecting CSS3 3D transform support. But why did none
+of the available methods work for us?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

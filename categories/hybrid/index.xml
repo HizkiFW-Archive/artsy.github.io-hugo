@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hybrid on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/hybrid/</link>
+    <description>Recent content in Hybrid on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/hybrid/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cocoa Architecture: Hybrid Apps</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/</link>
+      <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/08/24/Cocoa-Architecture-Hybrid-Apps/</guid>
+      <description>&lt;p&gt;As a part of going through the design patterns we&amp;rsquo;ve found in the creation of the Artsy iOS apps, I&amp;rsquo;d like to talk a bit about &lt;em&gt;Hybrid Applications&lt;/em&gt;. A hybrid application refers to an app that uses native code and web content intertwined. Our flagship iOS app, &lt;a href=&#34;https://github.com/artsy/eigen&#34;&gt;eigen&lt;/a&gt; is a hybrid app, and it seems to get more and more hybrid-y each release. Let&amp;rsquo;s talk a little bit about the pros and cons of this approach.&lt;/p&gt;
+
+&lt;h2 id=&#34;hugomore42&#34;&gt;&lt;/h2&gt;
+
+&lt;h1 id=&#34;what-is-a-hybrid-app&#34;&gt;What is a Hybrid App&lt;/h1&gt;
+
+&lt;p&gt;Above is the widest possible definition above, so let&amp;rsquo;s dig in as this can be a contentious. There is a whole spectrum of which an app can be classed as a hybrid app. This ranges from more or less web-tech everywhere to 100% native code like Objective-C / Swift.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

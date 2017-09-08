@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Carrierwave on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/carrierwave/</link>
+    <description>Recent content in Carrierwave on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/carrierwave/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Delaying CarrierWave Image Processing</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/</link>
+      <pubDate>Tue, 31 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/31/delaying-carrierwave-image-processing/</guid>
+      <description>&lt;p&gt;We do a lot of image processing at Artsy. We have tens of thousands of beautiful original high resolution images from our partners and treat them with care. The files mostly come from professional art photographers, include embedded color profiles and other complicated features that make image processing a big deal.&lt;/p&gt;
+
+&lt;p&gt;Once uploaded, these images are converted to JPG, resized into many versions and often resampled. We are using &lt;a href=&#34;https://github.com/jnicklas/carrierwave&#34;&gt;CarrierWave&lt;/a&gt; for this process - our typical image uploader starts like a usual CarrierWave implementation with a few additional features.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

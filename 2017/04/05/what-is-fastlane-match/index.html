@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    What is fastlane match? // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="What is fastlane match?" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li><a href="#so-how-does-it-work-now">So how does it work now?</a>
+<ul>
+<li><a href="#so-what-is-match-doing-here">So, what is Match doing here?</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/04/05/what-is-fastlane-match/">What is fastlane match?</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mobile" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mobile">mobile</a>
+				
+					<a class="post-category post-category-ios" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/ios">ios</a>
+				
+					<a class="post-category post-category-energy" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/energy">energy</a>
+				
+					<a class="post-category post-category-fastlane" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/fastlane">fastlane</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Like anyone working on a non-trivial app in the iOS world who values their time, we use fastlane. <a href="https://fastlane.tools">fastlane</a> is a suite
+of tools that makes it much simpler to automate the very manual processes provided by Apple for deployment.</p>
+
+<p>We&rsquo;ve adopted it in a relatively piece-meal manner in different projects, converting custom in-house code to something
+provided by the gem.  Over time we found what pieces of the suite work for us. <a href="https://github.com/artsy/energy/pull/266">I&rsquo;ve adopted another today</a>: <a href="https://github.com/fastlane/fastlane/tree/master/match">match</a>.</p>
+
+<p>match automates setting up your iOS projects for code signing. One of the most arduous orthogonal tasks which every dev team learns and then forgets.</p>
+
+<p>In using match, we have given away a bit of control with code signing, and so this post is going to dig into; what we used
+to have, and how it works now with match instead.</p>
+
+<p></p>
+
+<p>When match came out, I knew this was a 🌟 idea.</p>
+
+<ul>
+<li>Automatically generate the right certificates and keys for your different apps and environments.</li>
+<li>Take all your developer certificates and keys, move them to a central place accessible via private git repos.</li>
+<li>Encrypt all your certs and keys, the team just needs to share one password.</li>
+<li>Migrate all of those keys on both the developer&rsquo;s and CI&rsquo;s computers.</li>
+</ul>
+
+<p>You can now have a consistent signing setup between how you work, and how your CI runs. After understanding this, I migrated
+Artsy&rsquo;s app store apps to deploy via <a href="https://circleci.com">Circle CI</a>. We initially gave match a shot, but ended up having issues with supporting
+multiple apps. So, I replicated the core ideas in match into our Fastfile. It looked like this:</p>
+
+<pre><code class="language-ruby">lane :setup_for_app_store do
+  app_name = &quot;eigen&quot;
+  signing_root = &quot;signing&quot;
+
+  `git clone https://github.com/artsy/mobile_code_signing.git #{signing_root}`
+
+  # prints out the codesigning identities
+  system &quot;security find-identity -v -p codesigning&quot;
+
+  # Install the iOS distribution certificate, -A
+  system &quot;security import #{signing_root}/ios_distribution.cer  -k ~/Library/Keychains/login.keychain -A&quot;
+
+  # Move our provisioning profile in
+  profile_path = File.expand_path(&quot;~&quot;) + &quot;/Library/MobileDevice/Provisioning Profiles/&quot;
+  destination = profile_path + &quot;/&quot; + app_name + &quot;.mobileprovision&quot;
+  profile = Dir.glob(signing_root + &quot;/profiles/&quot; + app_name + &quot;/*&quot;).first
+
+  # Ensure folder exists
+  unless File.directory?(profile_path)
+    FileUtils.mkdir_p(profile_path)
+  end
+
+  # Migrate it in
+  FileUtils.copy profile, destination
+  puts &quot;Installed Profile&quot;
+
+  # Install the key
+  key = Dir.glob(signing_root + &quot;/keys/&quot; + app_name + &quot;/*&quot;).first
+  system &quot;security import #{key} -k ~/Library/Keychains/login.keychain -P #{ENV['MATCH_PASSWORD']}  -A &quot;
+
+  # prints out the codesigning identities
+  system &quot;security find-identity -v -p codesigning&quot;
+
+  # Clean-up
+  `rm -rf #{signing_root}`
+end
+</code></pre>
+
+<p>Pretty neat, huh? It handles the centralization and migration of certificates. The trade-off against match is:</p>
+
+<ul>
+<li>We continue to maintain our own certificates, keys and provisioning profiles.</li>
+<li>There is no easy way to update these.</li>
+<li>There is tooling which makes it easy to see the state of all the code signing process.</li>
+</ul>
+
+<p>A year later, on a project which gets no-where near as much developer attention, I discovered that we had got multiple
+parts of the certs, keys and profiles wrong when updating our central repo. So, for <a href="http://folio.artsy.net">this project</a>, I have switched to use match.</p>
+
+<hr />
+
+<h1 id="so-how-does-it-work-now">So how does it work now?</h1>
+
+<p>First, I ran <code>bundle exec fastlane appstore</code> and <code>bundle exec fastlane dev</code>.</p>
+
+<p>This creates the certificates, keys and profiles on iTunes connect and gives you output similar to this:</p>
+
+<pre><code class="language-sh">
++-----------------------+------------------------------------------------+
+|                        Summary for match 2.25.0                        |
++-----------------------+------------------------------------------------+
+| readonly              | true                                           |
+| git_url               | https://github.com/artsy/mobile_fastlane_match |
+| type                  | appstore                                       |
+| git_branch            | master                                         |
+| app_identifier        | sy.art.folio                                   |
+| username              | it@artsymail.com                               |
+| keychain_name         | login.keychain                                 |
+| team_id               | 23KMWZ572J                                     |
+| team_name             | Art.sy Inc.                                    |
+| verbose               | false                                          |
+| force                 | false                                          |
+| skip_confirmation     | false                                          |
+| shallow_clone         | false                                          |
+| force_for_new_devices | false                                          |
+| skip_docs             | false                                          |
+| platform              | ios                                            |
++-----------------------+------------------------------------------------+
+
+[17:03:52]: Cloning remote git repo...
+[17:03:54]: 🔓  Successfully decrypted certificates repo
+[17:03:54]: Installing certificate...
+
++-------------------+-----------------------------------------------+
+|                       Installed Certificate                       |
++-------------------+-----------------------------------------------+
+| User ID           | 23KMWZ572J                                    |
+| Common Name       | iPhone Distribution: Art.sy Inc. (23KMWZ572J) |
+| Organisation Unit | 23KMWZ572J                                    |
+| Organisation      | Art.sy Inc.                                   |
+| Country           | US                                            |
+| Start Datetime    | Apr  4 13:59:06 2017 GMT                      |
+| End Datetime      | Apr  4 13:59:06 2018 GMT                      |
++-------------------+-----------------------------------------------+
+
+[17:03:56]: Installing provisioning profile...
+
++---------------------+-----------------------------------------+-------------------------------------------------------------------------------------------------------------+
+|                                                                       Installed Provisioning Profile                                                                        |
++---------------------+-----------------------------------------+-------------------------------------------------------------------------------------------------------------+
+| Parameter           | Environment Variable                    | Value                                                                                                       |
++---------------------+-----------------------------------------+-------------------------------------------------------------------------------------------------------------+
+| App Identifier      |                                         | sy.art.folio                                                                                                |
+| Type                |                                         | appstore                                                                                                    |
+| Platform            |                                         | ios                                                                                                         |
+| Profile UUID        | sigh_sy.art.folio_appstore              | b045df0f-a691-4b7a-ac34-8349a3684030                                                                        |
+| Profile Name        | sigh_sy.art.folio_appstore_profile-name | match AppStore sy.art.folio                                                                                 |
+| Profile Path        | sigh_sy.art.folio_appstore_profile-path | /Users/orta/Library/MobileDevice/Provisioning Profiles/b045df0f-a691-4b7a-ac34-8349a3684030.mobileprovision |
+| Development Team ID | sigh_sy.art.folio_appstore_team-id      | 23KMWZ572J                                                                                                  |
++---------------------+-----------------------------------------+-------------------------------------------------------------------------------------------------------------+
+
+[17:03:56]: All required keys, certificates and provisioning profiles are installed 🙌
+</code></pre>
+
+<p>Which at a glimpse gives a lot of the most useful information about how all the pieces come together. The new repo looks like this:</p>
+
+<pre><code class="language-sh">$ tree mobile_fastlane_match
+
+├── README.md
+├── certs
+│   ├── development
+│   │   ├── P4K6FACAUD.cer
+│   │   └── P4K6FACAUD.p12
+│   └── distribution
+│       ├── N5BMJ28RQ2.cer
+│       └── N5BMJ28RQ2.p12
+├── match_version.txt
+└── profiles
+    ├── appstore
+    │   └── AppStore_sy.art.folio.mobileprovision
+    └── development
+        └── Development_sy.art.folio.mobileprovision
+
+</code></pre>
+
+<h2 id="so-what-is-match-doing-here">So, what is Match doing here?</h2>
+
+<ol>
+<li><p>match creates a new key (the <code>*.p12</code>) - normally you would generate one of these through Keychain, and the entire team would
+to share this. We keep ours in team <a href="http://1password.com">1Password</a>. It needs to be used consistently when request certificates from Apple
+though the &ldquo;Request a Certificate from a Certificate Authority&rdquo; part of getting your certs set up.</p></li>
+
+<li><p>Using <a href="https://github.com/fastlane/fastlane/tree/master/cert">cert</a>: match will use this key <a href="https://github.com/fastlane/fastlane/blob/14dea61e4c81bf9be13bb86c09aa225c6e572618/cert/lib/cert/runner.rb#L141">to create a signing request</a> for you.</p></li>
+
+<li><p>Using <a href="https://github.com/fastlane/fastlane/tree/master/cert">cert</a>: match will generate a certificate for <a href="https://github.com/fastlane/fastlane/blob/14dea61e4c81bf9be13bb86c09aa225c6e572618/cert/lib/cert/runner.rb#L79">development or distribution</a> for you.</p></li>
+
+<li><p>Using <a href="https://github.com/fastlane/fastlane/tree/master/cert">cert</a>: match will <a href="https://github.com/fastlane/fastlane/blob/14dea61e4c81bf9be13bb86c09aa225c6e572618/match/lib/match/runner.rb#L133">generate a Provisioning Profile</a> using your certificate and data pulled from your Xcode Project.
+In my case, for development and distribution.</p></li>
+</ol>
+
+<p>These profiles are tied directly to one app and the certificate in step 3. For development, all devices in the dev center are also added.</p>
+
+<ol>
+<li><p>These files are then installed in their various methods.</p></li>
+
+<li><p>These files are then moved into your git repo, a commit is made for you, then pushed and the repo is removed from your computer.</p></li>
+</ol>
+
+<p>This process is nice, because this ^ is a lot of work. I only had to run a command.</p>
+
+<p>It would take at about 30 minutes to do this if I knew exactly what I wanted through the web interface + Keychain.</p>
+
+<p>We currently need to do this for every app. This works fine for the app where we are deploying multiple betas a month,
+but for one when we&rsquo;re deploying <em>maybe</em> a beta once a month or two (<em>eek! sorry&hellip;</em>) then it feels like every time you&rsquo;ve come
+back to do some work, the world has shifted a bit.</p>
+
+<p>We do lose the fact that we know someone has specifically set everything up to work right at some point, but given how
+Xcode updates, <a href="http://stackoverflow.com/questions/4057241/iphone-what-is-a-wwdr-intermediate-certificate">WWDR updates</a> and certificate expirations tend to crop up - it can be frustrating to maintain.</p>
+
+<p>So would I move <a href="https://github.com/artsy/eigen">Eigen</a> to match? Maybe, next time something breaks. Till then I think new apps, and less-often updated
+apps should use match.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/">Artsy&#39;s Technology Stack, 2017</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/04/02/generating-sitemaps-with-apache-spark/">Generating Sitemaps with Apache Spark</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

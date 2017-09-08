@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grape on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/grape/</link>
+    <description>Recent content in Grape on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/grape/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding API Docs with Grape and Swagger</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</link>
+      <pubDate>Fri, 21 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/21/adding-api-documentation-with-grape-swagger/</guid>
+      <description>&lt;p&gt;The Artsy website, Partner CMS, mobile tools, and all our hackathon experiments are built on top of a core API. We&amp;rsquo;ve put a lot of effort into documenting it internally. But developers don&amp;rsquo;t want to have to grok through code. With &lt;a href=&#34;https://github.com/intridea/grape&#34;&gt;Grape&lt;/a&gt; and &lt;a href=&#34;https://developers.helloreverb.com/swagger&#34;&gt;Swagger&lt;/a&gt;, adding an API explorer and exposing the API documentation has never been easier.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-06-21-adding-api-documentation-with-grape-swagger/swagger-ui.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Measuring Performance in Grape APIs with NewRelic RPM</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</link>
+      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/29/measuring-performance-in-grape-apis-with-new-relic/</guid>
+      <description>&lt;p&gt;Knowing how well your API performs in real time is essential to any successful project. That&amp;rsquo;s because you can&amp;rsquo;t fix what you can&amp;rsquo;t measure.&lt;/p&gt;
+
+&lt;p&gt;We use and heavily contribute to &lt;a href=&#34;http://github.com/intridea/grape&#34;&gt;Grape&lt;/a&gt;, a Ruby API DSL. Grape is a Rack middleware and we have been reporting API performance data to &lt;a href=&#34;http://newrelic.com/&#34;&gt;NewRelic&lt;/a&gt; with code from &lt;a href=&#34;http://code.dblock.org/new-relic-performance-instrumentation-with-grape-api&#34;&gt;my older blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s time to improve the reporting implementation and address performance monitoring in both development and production environments. Here&amp;rsquo;s what a single API request breakdown is going to look like.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-29-measuring-performance-in-grape-apis-with-new-relic/transaction-detail.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Monitor 503s and Timeout Requests on Heroku</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/</link>
+      <pubDate>Thu, 15 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/11/15/how-to-monitor-503s-and-timeout-on-heroku/</guid>
+      <description>&lt;p&gt;We have recently started hitting an unusually high number of &amp;ldquo;503: Service Unavailable&amp;rdquo; errors with one of our applications on Heroku. What are these? How can we monitor their quantity and frequency? What&amp;rsquo;s the fix?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2012-11-15-how-to-monitor-503s-and-timeout-on-heroku/503-error.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

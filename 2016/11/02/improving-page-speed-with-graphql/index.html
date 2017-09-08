@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Improving Page Speed with GraphQL // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="kana">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Improving Page Speed with GraphQL" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#prior-to-graphql">Prior to GraphQL</a></li>
+<li><a href="#speed-issues">Speed Issues</a></li>
+<li><a href="#enter-graphql-and-joiql">Enter GraphQL and JoiQL</a></li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#reduced-payload">Reduced Payload</a></li>
+<li><a href="#multiple-fetches">Multiple fetches</a></li>
+</ul></li>
+<li><a href="#what-s-next">What&rsquo;s next?</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/">Improving Page Speed with GraphQL</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>2</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">kana</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-graphql" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/graphql">graphql</a>
+				
+					<a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+				
+					<a class="post-category post-category-positron" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/positron">positron</a>
+				
+					<a class="post-category post-category-joi" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/joi">joi</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>This past year, our team started using a GraphQL orchestration layer that connects various APIs with multiple front-end apps including <a href="http://artsy.github.io/blog/2016/06/19/graphql-for-mobile">iOS</a>. It also handles caching and extracts some business logic out of our client apps. This helped us not only to be more consistent with the way we fetch data across apps, but also improved developer happiness and even bridged teams by having our web and iOS developers work with the same API layer. This got me thinking what other problems GraphQL could solve at Artsy.</p>
+
+<p>I work on the Publishing Team at Artsy, and we&rsquo;ve recently been focused on page speed as a KPI. With so many ways of measuring speed, it&rsquo;s a daunting task but for this post, I&rsquo;ll focus on the way we handled things on the server-side and how integrating GraphQL on our API improved page speed.</p>
+
+<p></p>
+
+<h2 id="prior-to-graphql">Prior to GraphQL</h2>
+
+<p>In our publishing CMS called <a href="http://github.com/artsy/positron">Positron</a>, we serve a separate API, database, and front-end from the rest of the Artsy stack. We&rsquo;re also responsible for the delivery and presentation of the content itself. Over the past year we&rsquo;ve focused a lot on how the content appears, and now we&rsquo;ve opened up time to focus on speed since in the land of content, every second counts.</p>
+
+<p>Before we went ahead with adding a GraphQL-based endpoint to Positron, I spent about a week and refactoring our current codebase. We refactored our router code to make less fetches, made better use of caching, and moved some below-the-fold rendering into the client side. These are important steps towards a faster page, but it doesn&rsquo;t push our technology in a direction that lets us reimagine things.</p>
+
+<h2 id="speed-issues">Speed Issues</h2>
+
+<p>We split the speed problem in two: <code>Server Response Time</code> (server-side) and <code>Document Interactive Time</code> (client-side). We currently use Google Analytics to track these <a href="https://support.google.com/analytics/answer/2383341?hl=en">metrics</a>. There are some inaccuracies with GA such as small sampling, geographic noise (countries with different download speeds), and timeouts being counted as zero, but for our initial testing this will suffice for relative measuring.</p>
+
+<h2 id="enter-graphql-and-joiql">Enter GraphQL and JoiQL</h2>
+
+<p>Our very own <a href="https://twitter.com/craigspaeth">Craig Spaeth</a> recently started working on a project called <a href="https://github.com/muraljs/mural">Mural</a>. It&rsquo;s a framework for React and GraphQL. One library that came out of this project is called <a href="http://github.com/muraljs/joiql">JoiQL</a>. It&rsquo;s a The main purpose of JoiQL is to convert <a href="http://github.com/hapijs/joi">Joi</a> schemas into GraphQL schemas.</p>
+
+<p>We already use Joi in Positron so creating a GraphQL-based endpoint was trivial with JoiQL. Note that while JoiQL is currently used in production, it&rsquo;s still a beta project! Below is an example of how the JoiQL setup works.</p>
+
+<pre><code class="language-javascript">const joiql = require('../')
+const { object, string, number, array, date } = require('joi')
+const app = require('express')()
+const graphqlHTTP = require('express-graphql')
+
+// Given a Joi schema:
+const Article = object({
+  title: string(),
+  body: string(),
+  published_at: date()
+}).meta({
+  args: { id: number().required() }
+})
+
+// Define api with JoiQL like this:
+const api = joiql({
+  query: {
+    article: Article
+  }
+})
+
+// Resolve the request using a Koa 2 style middleware pattern:
+api.use((ctx, next) =&gt; {
+  return new Promise (resolve, reject) -&gt;
+    // Method that fetches an article based on the query
+    findArticle(ctx.req.query.article.args), (err, results) -&gt;
+      ctx.res.article = results.article
+      next()
+      resolve()
+})
+
+// Finally, mount our schema to express:
+app.use('/graphql', graphqlHTTP({
+  schema: api.schema,
+  graphiql: true
+}))
+app.listen(3000, () =&gt; console.log('listening on 3000'))
+
+</code></pre>
+
+<p>You can see how simple it becomes to convert apps that already use Joi with JoiQL. Joi provides a nice API for building GraphQL schemas with minimal boilerplate and we also get a nice Koa 2 style middleware pattern that lets us hook into a downstream/upstream flow. This downstream/upstream flow could be useful later on if we were to get really granular with measuring speed. For instance, if we decide to track the speed of the whole lifecycle of a request, we could do something like this:</p>
+
+<pre><code class="language-javascript">api.use((ctx, next) =&gt; {
+  startTIme = Date.now()
+  next()
+  console.log(Date.now() - startTime)
+}
+
+api.use((ctx, next) =&gt; {
+  // fetch content here
+  next() #we get bumped back up after this
+})
+</code></pre>
+
+<h2 id="results">Results</h2>
+
+<p>The two features of GraphQL that have been helpful for reducing page speed are:
+1. Reduced payload because you only request the data you need
+2. Multiple fetches can be coalesced into a single request</p>
+
+<p>Not surprisingly, decreased payload and coalesced requests are the same two features <a href="http://twitter.com/orta">Orta</a> describes in part of his post on the killer features of <a href="http://artsy.github.io/blog/2016/06/19/graphql-for-mobile">GraphQL for Mobile</a>.</p>
+
+<h3 id="reduced-payload">Reduced Payload</h3>
+
+<p>Reduced payload turned out to be one of the biggest factors in reducing speed. Just after October 27 we switched over to using GraphQL on our <a href="http://m.artsy.net/articles">mobile articles landing page</a>.</p>
+
+<p>{% expanded_img /images/2016-11-02-improving-page-speed-with-graphql/download_time.png %}</p>
+
+<p>Since we were previously getting back collection of articles with all of its content, rendering a simple page with a list of articles meant the payload size was unnecessarily huge. Now, we only request a few things like the title and image without having to do any extra work. This is especially important for mobile devices where we encounter slow network speeds!</p>
+
+<h3 id="multiple-fetches">Multiple fetches</h3>
+
+<p>Although we haven&rsquo;t made use of this in production yet, I anticipate that the ability to coalesce requests will be significant. For example, to render an article page, there are up to five fetches that can be requested by our front-end app with a normal REST API. Now, we can combine the requests to a single fetch, which moves the responsibility of coalescing requests from aggregating slow HTTP requests to fanning out fast database queries. If we aggregate the request and cache the response using a client like <a href="https://github.com/kadirahq/lokka">Lokka</a>, our future looks bright.</p>
+
+<h2 id="what-s-next">What&rsquo;s next?</h2>
+
+<p>Besides making use of this new endpoint on all the things, I think the next big win with GraphQL is to add <a href="http://graphql.org/learn/queries/#mutations">mutations</a>. By adding support for mutations, we can modify our data with GraphQL just as simply as we can query it.</p>
+
+<p>We currently use a combination of Backbone and React to edit articles on our front-end CMS. After we move our CMS&rsquo;s data platform to GraphQL, we can move away from frameworks like Backbone and towards managing state containers like Redux which are made to work with GraphQL. Features like revision history and undo events would feel natural with state containers like Redux and a joy for our editors!</p>
+
+<p>In the context of speed, some other topics I look forward to exploring are optimizing expensive database queries and client-side asset compression.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2016/11/14/JS-Glossary/">JavaScript Glossary for 2017</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2016/10/26/jwt-artsy-journey/">JSON Web Tokens: Artsy&#39;s Journey</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

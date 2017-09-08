@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Search on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/search/</link>
+    <description>Recent content in Search on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/search/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How we customized Google Site Search at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/10/23/how-we-customized-google-site-search-at-artsy/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/10/23/how-we-customized-google-site-search-at-artsy/</guid>
+      <description>&lt;p&gt;This post is about how, in a week, we switched from Solr to &lt;a href=&#34;https://support.google.com/customsearch/answer/72326?hl=en&#34;&gt;Google Site Search&lt;/a&gt; and customized it into a fast, &lt;a href=&#34;https://artsy.net/search?q=banksy&#34;&gt;beautiful search service&lt;/a&gt;. Search is a difficult problem &amp;ndash; a really difficult problem. For small companies and startups, the common solution to search is to launch a custom search service based on &lt;a href=&#34;http://lucene.apache.org/solr/&#34;&gt;Solr&lt;/a&gt; or &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elastic Search&lt;/a&gt;. While these services are very appropriate for private data, we think Google Site Search should be considered in addition to these services for a public website. It is often not considered because users search on a dedicated site with different intent than they search Google. We found that while this may be true, it is not necessarily a good reason to roll your own search service for your public site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-10-23-how-we-customized-google-site-search-at-artsy/photography-site-search.jpg&#34; alt=&#34;Search for photography on artsy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

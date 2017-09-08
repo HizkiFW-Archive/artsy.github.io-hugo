@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Delayedjob on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/delayedjob/</link>
+    <description>Recent content in Delayedjob on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Aug 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/delayedjob/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing with Delayed Jobs</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/</guid>
+      <description>&lt;p&gt;A mean bug made it into our production environment. It wasn&amp;rsquo;t caught by our extensive test suite and caused thousands of emails to be sent to a handful of people. The root cause was an unfortunate combination of &lt;a href=&#34;https://github.com/plataformatec/devise&#34;&gt;Devise&lt;/a&gt;, &lt;a href=&#34;https://github.com/collectiveidea/delayed_job&#34;&gt;DelayedJob&lt;/a&gt; and, of course, our own code. It was an easy fix, but nobody ever wants this to happen again.&lt;/p&gt;
+
+&lt;p&gt;tl;dr DelayedJob says it&amp;rsquo;s possible to set &lt;code&gt;Delayed::Worker.delay_jobs = false&lt;/code&gt; for your tests. Don&amp;rsquo;t do it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

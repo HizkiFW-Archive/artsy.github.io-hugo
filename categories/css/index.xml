@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/css/</link>
+    <description>Recent content in Css on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Apr 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generating Notifications and Personalized Emails Efficiently</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</link>
+      <pubDate>Thu, 24 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/04/24/generating-notifications-and-personalized-emails-efficiently/</guid>
+      <description>&lt;p&gt;We recently launched a new personalized email here at &lt;a href=&#34;https://artsy.net&#34;&gt;Artsy&lt;/a&gt; that features content that a given user might find interesting. The goal of this post is to describe how we built a backend system that efficiently generates these e-mails for all our users. I&amp;rsquo;ll talk about the first, naive implementation that had performance problems right away, and how the second implementation (currently in production) solved those issues, and whose behavior at scale is well-defined and understood. I won&amp;rsquo;t go into the details of the design and layout of the mail itself and how we render the content - there are several earlier blog posts that deal with those: &lt;a href=&#34;http://artsy.github.io/blog/2014/03/18/presenters-and-memoization-moving-logic-out-of-templates/&#34;&gt;Presenters and Memoization&lt;/a&gt;, &lt;a href=&#34;http://artsy.github.io/blog/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/&#34;&gt;Pinterest-style Layouts&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/blog/2014/03/17/some-tips-for-email-layout-and-responsiveness/&#34;&gt;Email Layouts and Responsiveness&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-04-24-generating-notifications-and-personalized-emails-efficiently/percy_example.png&#34; alt=&#34;Personalized Email Example&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ruby Helper to Group Artworks into a Pinterest-style Layout for Email</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/</link>
+      <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-03-17-ruby-helper-to-group-artworks-into-a-pinterest-style-layout-for-email/two-column-layout.png&#34; alt=&#34;Example of two column layout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Something we&amp;rsquo;d like to do is email our users some suggested artworks as part of their personalized emails. The layout of those suggestions should look something like our newly re-designed &lt;a href=&#34;https://artsy.net/browse/artworks?price_range=-1%3A1000000000000&#34;&gt;Browse&lt;/a&gt; page, with a &amp;lsquo;salon&amp;rsquo; style layout. Here&amp;rsquo;s some simple Ruby code that can group artworks into columns for you, that can then be directly rendered in an email (via &lt;a href=&#34;http://haml.info/&#34;&gt;Haml&lt;/a&gt;, &lt;a href=&#34;http://mustache.github.io/&#34;&gt;Mustache&lt;/a&gt;, &lt;a href=&#34;http://jade-lang.com/&#34;&gt;Jade&lt;/a&gt;, or your templating language of choice.)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Some Tips for Email Layout and Responsiveness</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/some-tips-for-email-layout-and-responsiveness/</link>
+      <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/some-tips-for-email-layout-and-responsiveness/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-03-17-some-tips-for-email-layout-and-responsiveness/analytics.png&#34; alt=&#34;Example of Analytics Email&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Email can be one of the most powerful ways to engage with your users, and can serve a multitude of purposes. It can be used as a way to highlight selected content (weekly/monthly newsletters, &amp;lsquo;year in review&amp;rsquo;, etc.), provide a service to users (analytics breakdown of visits to your profile/favorites page), or re-engage with users (new feature announcements, etc.). Here at Artsy we use all of these kinds of emails and have found them to be a very valuable asset. However, best practices for template layout and CSS (keeping in mind the variety of devices and screen sizes that your users have) are quite different from, and very far behind, the current HTML5 standards and practices for making beautiful web pages. In this article, I&amp;rsquo;d like to present some techniques I&amp;rsquo;ve successfully used at Artsy to create emails that look good on your browser or mobile device, in some of the most popular email clients out there.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CSS Trick: Adjusting Text Underlines</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/04/10/css-trick-adjusting-text-underlines/</link>
+      <pubDate>Tue, 10 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/04/10/css-trick-adjusting-text-underlines/</guid>
+      <description>Often times people will use border-bottom: 1px solid in favor of text-decoration: underline to give their links some breathing room. But what if you&amp;rsquo;re giving it too much breathing room and want to adjust the height of that underline. With Adobe Garamond that happened to be the case, so we&amp;rsquo;ve come up with this little css trick:
+a { display: inline-block; position: relative; } a::after { content: &#39;&#39;; position: absolute; left: 0; display: inline-block; height: 1em; width: 100%; border-bottom: 1px solid; margin-top: 5px; }  This overlays a CSS pseudo element with a border-bottom that can be adjusted by changing margin-top.</description>
+    </item>
+    
+    <item>
+      <title>Responsive Layouts with CSS3</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</link>
+      <pubDate>Tue, 17 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/17/responsive-layouts-with-css3/</guid>
+      <description>All of the SCSS stylesheets used to design this blog compile down to one file (view the source of this page and check out screen.css), and there isn&amp;rsquo;t any JavaScript affecting the layout. But there are really three versions of this page. If you&amp;rsquo;re reading this on a smartphone, what you see is almost entirely different from what you would see if you were reading this in a full screen browser.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Experiments on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/experiments/</link>
+    <description>Recent content in Experiments on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Sep 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/experiments/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How Artsy Builds Labs, Experiments and Easter Eggs</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/09/12/how-artsy-builds-experiments-labs-and-easter-eggs/</link>
+      <pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/09/12/how-artsy-builds-experiments-labs-and-easter-eggs/</guid>
+      <description>&lt;p&gt;At Artsy Engineering we encourage a culture of experimentation with something called &lt;em&gt;labs&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;A new feature released into production is usually only turned on for a handful of users. We get feedback from our own team and a tiny group of early adopters, iterate, fix bugs, toss failed experiments and work on promoting complete, well behaved features to all users. The labs infrastructure gives us a chance to sleep on an idea and polish details. It also allows us to make progress continuously and flip a switch on the very last day.&lt;/p&gt;
+
+&lt;p&gt;My favorite labs features push our collective imagination and give birth to productive brainstorms around coffee at a popular startup hangout around the corner from our Manhattan office. But the team&amp;rsquo;s favorite labs are, by far, those that ship as easter eggs. These are fun and sometimes useful features that don&amp;rsquo;t make much business sense. So, before I explain our rudimentary labs system, I want to invite you to our easter egg hunt. Check out &lt;a href=&#34;https://artsy.net/humans.txt&#34;&gt;https://artsy.net/humans.txt&lt;/a&gt; for instructions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

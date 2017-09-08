@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript/</link>
+    <description>Recent content in Javascript on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modernizing Force</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/05/Modernizing-Force/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt; is Artsy&amp;rsquo;s main website, &lt;a href=&#34;https://www.artsy.net&#34;&gt;artsy.net&lt;/a&gt;. In the three years since it was &lt;a href=&#34;http://artsy.github.io/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;open-sourced&lt;/a&gt;, it has provided a solid foundation to build features on top of without a lot of the costs associated with growth. It is an early example of Isomorphic (&amp;ldquo;universal&amp;rdquo;) JavaScript, built on top of Express, Backbone, CoffeeScript, Stylus and Jade. It is also highly modular, adopting patterns laid down by its parent project,  &lt;a href=&#34;https://github.com/artsy/ezel&#34;&gt;Ezel&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When first developed these technologies made a lot of sense; CoffeeScript fixed many of the problems with JavaScript pre-ES6, and Jade / Stylus made working with HTML / CSS much more elegant. As time progressed and new technologies became a thing these solutions starting feeling more burdensome to continue building features with and many of our developers longed to start using next-generation tools like React.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introducing Peril to the Artsy Org</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</link>
+      <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</guid>
+      <description>&lt;p&gt;Once Danger Ruby was stable enough for everyday use in 2015, it became obvious that running Danger on CI was both a
+positive and a negative. On the positive side, Danger has access to all artifacts created during testing - and on the negative
+side it takes a long time to get feedback. It was obvious that Danger could &lt;a href=&#34;https://github.com/danger/danger/issues/42&#34;&gt;run on a server&lt;/a&gt;, but it was a big unknown what that could look like.&lt;/p&gt;
+
+&lt;p&gt;Eventually, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/06/30/danger-one-oh-again/&#34;&gt;I came to the conclusion&lt;/a&gt; that we would need a JavaScript replacement of Danger - and so I applied
+constraints to Danger JS that made a server-side version of Danger a possibility. It was a stroke of luck that around the
+time Danger JS became usable for day to day usage, that GitHub introduced &lt;a href=&#34;https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/&#34;&gt;GitHub Apps&lt;/a&gt; - so I started work on Peril. Peril is server-side Danger. The rest of this post talks about how we use it Artsy today, how you can use it yourself and where it&amp;rsquo;s heading.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Art &#43; Feminism and Artsy Wikipedia/Wikidata Editathon</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</link>
+      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/08/31/Editathon/</guid>
+      <description>&lt;p&gt;Artsy has always had a focus on Art meets Science, and we &lt;a href=&#34;https://www.meetup.com/CocoaPods-NYC/messages/boards/thread/50940969&#34;&gt;hosted a meet-up in July&lt;/a&gt; that really hits on both. We had a collection of Artsy Staff, members of &lt;a href=&#34;http://www.artandfeminism.org&#34;&gt;Art + Feminism&lt;/a&gt; NYC, the &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/10/peer-lab/&#34;&gt;CocoaPods Peer Lab&lt;/a&gt;, &lt;a href=&#34;http://www.artspracticum.org&#34;&gt;New York Arts Practicum&lt;/a&gt; and volunteers from &lt;a href=&#34;https://nyc.wikimedia.org/&#34;&gt;Wikimedia NYC&lt;/a&gt; all helping out.&lt;/p&gt;
+
+&lt;p&gt;We came with two aims:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Help anyone interested in contributing to Wikipedia get started.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&#34;https://github.com/artsy/the-art-genome-project&#34;&gt;The Art Genome Project&lt;/a&gt;(TAGP) to improve Wikidata entries for women Artists.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I helped out with the second part, and the rest of this post will be about the lessons learned during this &lt;a href=&#34;https://en.wikipedia.org/wiki/Edit-a-thon&#34;&gt;editathon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using GitHub Issues for Blog Comments</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve worked on a few large-scale OSS projects, and I believe that people find it easier to just leave a comment and rely on a contributor to explain a problem rather than consulting the documentation. I consider doing everything you can to make people find their own answers a strong part of &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/07/03/handling-big-projects/&#34;&gt;defensive open source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For the posts I write, I have an even lower tolerance for comments. For example, I added the ability to turn off comments per-post and haven&amp;rsquo;t allowed comments on any posts I&amp;rsquo;ve written here. A lot of transitory discussion around an article happens on twitter via &lt;a href=&#34;https://twitter.com/ArtsyOpenSource/&#34;&gt;@ArtsyOpenSource&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m willing to give it another shot though, and so I got around to creating a simple system for allowing opt-in comments on posts using GitHub Issues. The rest of this post will be about how you can do it also, and a bit about why I think GitHub Issues are a happy medium for the comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Intro to React Native for an iOS Developer</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</link>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/06/React-Native-for-iOS-devs/</guid>
+      <description>&lt;p&gt;React Native is a new native library that vastly changes the way in which you can create applications. The majority of the information and tutorials on the subject come from the angle of &lt;em&gt;&amp;ldquo;you are a web developer, and want to do native&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This makes sense, given that the size of the JavaScript/web audience is much bigger than native developers, and far more open in the idea of writing apps using JavaScript. For web developers it opens a new creative space to work, however for native developers it provides a way to work with different tools on the same problem. Considering that most developers with a few years on the platform will be comfortable with the Xcode toolset, recommending a change this drastic is a tough sell.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve been using React Native now for about a year and a half, and have started to slow down on sweeping changes inside the codebase. This is great because it means we&amp;rsquo;re spending less time trying to get things to work, and more time building on top of a solid foundations. Now that we&amp;rsquo;re settled, it&amp;rsquo;s time to start deeply understanding what happens with React Native.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d like cover a lot of the common questions we get asked about from the perspective of native developers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is React Native?&lt;/li&gt;
+&lt;li&gt;How do you use React Native?&lt;/li&gt;
+&lt;li&gt;When is React Native a good technology choice?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This article covers an awful lot, so free up at least 45 minutes, make a tea and then come back to this on your computer. It&amp;rsquo;s worth your time if you&amp;rsquo;re interested in all the hype around React Native.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Relay Mutations</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/26/Relay-Mutations/</link>
+      <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/04/26/Relay-Mutations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Hey there everyone, it took us two years to &lt;a href=&#34;https://github.com/artsy/metaphysics/pull/583&#34;&gt;make our&lt;/a&gt; GraphQL implementation support any mutations. We opted to keep it read-only for quite a long time because we use GraphQL to consolidate multiple APIs, but as we start new projects as GraphQL + databases then understanding mutations becomes much more important.&lt;/p&gt;
+
+&lt;p&gt;Last month, I talked with the team at &lt;a href=&#34;https://www.graph.cool/&#34;&gt;Graph.cool&lt;/a&gt; about having them talk through Relay mutations comprehensively as a guest post on the Artsy Engineering blog. So, I&amp;rsquo;m really excited to introduce this great post on the topic by &lt;a href=&#34;http://twitter.com/nikolasburk&#34;&gt;Nikolas Burk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Orta&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;the-magic-behind-relay-mutations&#34;&gt;The Magic behind Relay Mutations&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://facebook.github.io/relay/&#34;&gt;Relay&lt;/a&gt; is a powerful GraphQL client for React and React Native applications. It was open sourced by Facebook alongside GraphQL in 2015 and is a great tool for supporting you with managing your app&amp;rsquo;s data layer.&lt;/p&gt;
+
+&lt;p&gt;In this post, we are going to explore how Relay mutations work by looking at a React Native app. The code can be found on &lt;a href=&#34;https://github.com/graphcool-examples/react-native-relay-pokedex-example&#34;&gt;GitHub&lt;/a&gt;. Our sample application is a simple &lt;em&gt;Pokedex&lt;/em&gt;, where users can manage their Pokemons.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/S21GfEo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Note: We&amp;rsquo;re going to assume a basic familiarity with GraphQL in this article. If you haven&amp;rsquo;t heard of GraphQL before, the &lt;a href=&#34;www.graphql.org&#34;&gt;documentation&lt;/a&gt; and the &lt;a href=&#34;http://artsy.github.io/blog/2016/06/19/graphql-for-mobile/&#34;&gt;GraphQL for iOS Developers&lt;/a&gt; post are great places to start. If you&amp;rsquo;re interested in learning more about Relay in general, head over to &lt;a href=&#34;www.learnrelay.org&#34;&gt;Learn Relay&lt;/a&gt; for a comprehensive tutorial.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Workshop: React Native</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</link>
+      <pubDate>Mon, 06 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/06/React-Native-Workshop/</guid>
+      <description>&lt;p&gt;Hey there, so you&amp;rsquo;ve decided to take a look at React Native? Well, last week I ran a workshop inside Artsy on &lt;a href=&#34;https://facebook.github.io/react-native/&#34;&gt;React Native&lt;/a&gt; and &lt;a href=&#34;https://facebook.github.io/relay/&#34;&gt;Relay&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The video takes you from &lt;code&gt;react-native init&lt;/code&gt; to having the initial structure of a View Controller based on Relay with a real working API request. The video is about 45 minutes, with inline questions.&lt;/p&gt;
+
+&lt;p&gt;If you wanted to just run through the notes, you could probably get it working in about 10 minutes.&lt;/p&gt;
+
+&lt;p&gt;Jump &lt;a href=&#34;https://www.youtube.com/watch?v=PYC47YKnK4k&#34;&gt;to YouTube&lt;/a&gt; for the video, or click more for a smaller inline preview, as well as all of the speakers notes to copy &amp;amp; paste from. There is also a full copy of the end-result at &lt;a href=&#34;https://github.com/orta/Relay-Artist-Example&#34;&gt;orta/Relay-Artist-Example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Exploration: Front-end JavaScript at Artsy in 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/js2017/js.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;announced&lt;/a&gt; that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.&lt;/p&gt;
+
+&lt;p&gt;Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&amp;rsquo;ve been experimenting with finding common, natural patterns between web and native.&lt;/p&gt;
+
+&lt;p&gt;This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; &lt;a href=&#34;#TypeScript&#34;&gt;TypeScript&lt;/a&gt;, &lt;a href=&#34;#GraphQL&#34;&gt;GraphQL&lt;/a&gt;, &lt;a href=&#34;#React...React.Native&#34;&gt;React/React Native&lt;/a&gt;, &lt;a href=&#34;#Relay&#34;&gt;Relay&lt;/a&gt;, &lt;a href=&#34;#Yarn&#34;&gt;Yarn&lt;/a&gt;, &lt;a href=&#34;#Jest&#34;&gt;Jest&lt;/a&gt;, and &lt;a href=&#34;#Visual.Studio.Code&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Retrospective: Swift at Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/05/Retrospective-Swift-at-Artsy/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/swift-in-rn/swift-in-react-native.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Swift became public in June 2014, by August we had started using it in Artsy. By October, we had &lt;a href=&#34;http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Swift in production&lt;/a&gt; channelling hundreds of thousands of dollars in auction bids.&lt;/p&gt;
+
+&lt;p&gt;It is pretty obvious that Swift is the future of native development on Apple platforms. It was a no-brainer to then build an &lt;a href=&#34;https://github.com/artsy/emergence&#34;&gt;Apple TV app&lt;/a&gt; in Swift, integrated Swift-support into our key app Eigen and built non-trivial parts of that &lt;a href=&#34;http://artsy.github.io/blog/2016/08/09/the-tech-behind-live-auction-integration/&#34;&gt;application in Swift&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We first started experimenting with React Native in February 2016, and by August 2016, we announced that &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/08/15/React-Native-at-Artsy/&#34;&gt;Artsy moved to React Native&lt;/a&gt; effectively meaning new code would be in JavaScript from here onwards.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re regularly asked &lt;em&gt;why&lt;/em&gt; we moved, and it was touched on briefly in our announcement but I&amp;rsquo;d like to dig in to this and try to cover a lot of our decision process. So, if you&amp;rsquo;re into understanding why a small team of iOS developers with decades of native experience switched to JavaScript, read on.&lt;/p&gt;
+
+&lt;p&gt;This post will cover: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#What.are.Artsy.s.apps.&#34;&gt;What are Artsy&amp;rsquo;s apps?&lt;/a&gt;, Swifts &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Swift.s.upsides&#34;&gt;positives&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#Native.Downsides&#34;&gt;negatives&lt;/a&gt; for us, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native&#34;&gt;React Native&lt;/a&gt;, and our &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/02/05/Retrospective-Swift-at-Artsy/#React.Native..one.year.later&#34;&gt;1-year summary&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Animating the Year In Art</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/01/year-in-art/</link>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/02/01/year-in-art/</guid>
+      <description>&lt;p&gt;Artsy&amp;rsquo;s end of year features are an annual chance to walk through highlights of the year while also exploring front-end experiments. Created in collaboration with UBS and designed by Owen Dodd, &lt;a href=&#34;https://www.artsy.net/2016-year-in-art&#34;&gt;The Year In Art 2016&lt;/a&gt; presents an interactive timeline of singular moments in art and culture over the past year.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2017-02-01-year-in-art/blog-eoy-headeranimation.gif&#34; alt=&#34;2017 Year In Art Animation Sample&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The piece opens with header animation, a series of transparent sliding boxes that presented a unique challenge. The finalized look is somewhat like a slinky- a stack of containers that are stretched open from the bottom, and compress again as they reach the top of the viewport, collapsing inward without ever crossing outside the screen.&lt;/p&gt;
+
+&lt;p&gt;Achieving this effect required animating elements in response both to the size of other elements in the viewport, and to the client’s scroll interactions, all while sitting transparently over a video background.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Glossary for 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</link>
+      <pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</guid>
+      <description>&lt;p&gt;Getting to grips with the entire JavaScript ecosystem is a tough job when you&amp;rsquo;re getting started. Coming from the native mobile space, there&amp;rsquo;s a lot to learn. I&amp;rsquo;ve spent a few months immersed in the environment now, and can try summerize a lot of topics. This should make it easier to find more information when you need it. This post is semi-opinionated, with links for further reading so you can get a different perspective too.&lt;/p&gt;
+
+&lt;p&gt;This post focus specifically on the JavaScript tooling around React Native projects, but is applicable to all JavaScript projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improving Page Speed with GraphQL</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/</link>
+      <pubDate>Wed, 02 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/02/improving-page-speed-with-graphql/</guid>
+      <description>&lt;p&gt;This past year, our team started using a GraphQL orchestration layer that connects various APIs with multiple front-end apps including &lt;a href=&#34;http://artsy.github.io/blog/2016/06/19/graphql-for-mobile&#34;&gt;iOS&lt;/a&gt;. It also handles caching and extracts some business logic out of our client apps. This helped us not only to be more consistent with the way we fetch data across apps, but also improved developer happiness and even bridged teams by having our web and iOS developers work with the same API layer. This got me thinking what other problems GraphQL could solve at Artsy.&lt;/p&gt;
+
+&lt;p&gt;I work on the Publishing Team at Artsy, and we&amp;rsquo;ve recently been focused on page speed as a KPI. With so many ways of measuring speed, it&amp;rsquo;s a daunting task but for this post, I&amp;rsquo;ll focus on the way we handled things on the server-side and how integrating GraphQL on our API improved page speed.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helping the Web Towards OSS by Default</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</link>
+      <pubDate>Tue, 06 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/</guid>
+      <description>&lt;p&gt;The main Artsy.net website for the desktop, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, was our first Artsy application to open its source code, &lt;a href=&#34;http://artsy.github.io/author/craig&#34;&gt;Craig&lt;/a&gt; and &lt;a href=&#34;http://artsy.github.io/author/brennan&#34;&gt;Brennan&lt;/a&gt; did it &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/&#34;&gt;back in 2014&lt;/a&gt;. Force&amp;rsquo;s public offering laid the groundwork for the iOS OSS projects to come afterwards: &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2014/11/13/eidolon-retrospective/&#34;&gt;Eidolon&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/04/28/how-we-open-sourced-eigen/&#34;&gt;Eigen&lt;/a&gt;, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/08/06/open-sourcing-energy/&#34;&gt;Energy&lt;/a&gt; and &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2015/11/05/Emergence-Code-Review/&#34;&gt;Emergence&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Though Force wasn&amp;rsquo;t quite Open Source by Default, it represented a &lt;em&gt;really&lt;/em&gt; important step for  Artsy&amp;rsquo;s OSS perspective but was not the end goal. We were opening our source, but not opening our process.&lt;/p&gt;
+
+&lt;p&gt;This month both &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;, the desktop version of &lt;a href=&#34;https://www.artsy.net/&#34;&gt;Artsy.net&lt;/a&gt; and &lt;a href=&#34;https://github.com/artsy/microgravity&#34;&gt;Microgravity&lt;/a&gt;, the mobile version - moved to being built entirely in the open. Read on to find out how.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Tech Behind Live Auction Integration</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/the-tech-behind-live-auction-integration/</link>
+      <pubDate>Tue, 09 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/09/the-tech-behind-live-auction-integration/</guid>
+      <description>&lt;p&gt;In late June, the &lt;a href=&#34;https://www.artsy.net/auctions/&#34;&gt;Artsy auctions&lt;/a&gt; team launched our Live Auction Integration (LAI) product. It allows people to participate online in live sales held at auction houses &lt;a href=&#34;https://www.artsy.net/auction-partnerships&#34;&gt;that partner with Artsy&lt;/a&gt;. It was a big project, begun in December, involving both brand new software and extensive integration work with the rest of our systems. This is the first in what will be a series of blog posts discussing the engineering work we did to get a complex product from inception to launch in such a brief time window, with a go-live deadline set in stone weeks in advance. In this, I’ll dig into what we shipped on a high level, as well as some of the overarching technical decisions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trying out React</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/08/creating-a-dynamic-single-page-app-for-our-genome-team-using-react/</link>
+      <pubDate>Wed, 08 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/08/creating-a-dynamic-single-page-app-for-our-genome-team-using-react/</guid>
+      <description>&lt;p&gt;We recently picked up a Rails application that was a few features away from completion. This application allows our &lt;a href=&#34;https://www.artsy.net/about/the-art-genome-project&#34;&gt;Genome Team&lt;/a&gt; to classify multiple artworks based on visual and art historical characteristics. These characteristics, or &amp;ldquo;genes&amp;rdquo;, can be added, removed, and changed for any of the artworks on the panel.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#39;https://hizkifw.github.io/artsy.github.io-hugo/images/2015-04-08-creating-a-dynamic-single-page-app-for-our-genome-team-using-react/helix_screenshot.png&#39;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Our genomers are masters of efficiency, and over the years we have worked closely with them to tailor a dynamic interface to their specific workflow.&lt;/p&gt;
+
+&lt;p&gt;When we started working on the app, the back-end was organized, modular, and interfaced seamlessly with the Artsy API, but there were still a few front-end features we needed to implement before it could be used by the Genome Team. The app did not use a front-end framework, and as our features scaled it was difficult to keep track of UI state with pure CoffeeScript and global event listeners. Eventually, we decided to stop trying to patch our leaky roof and build a new one.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>We open sourced our Isomorphic Javascript website</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</link>
+      <pubDate>Fri, 05 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/force.png&#34; alt=&#34;May The Force be With You&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;re happy to announce we&amp;rsquo;ve open sourced the entire Artsy.net web app, &lt;a href=&#34;https://github.com/artsy/force&#34;&gt;Force&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Over the past few months, we&amp;rsquo;ve rewritten our web front-end to move off Rails and on to a &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; stack that shares Javascript code and rendering between the server and client, otherwise known as &lt;a href=&#34;http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/&#34;&gt;Isomorphic Javascript&lt;/a&gt;. After migrating to this new stack, we open-sourced our boilerplate, &lt;a href=&#34;http://ezeljs.com&#34;&gt;Ezel&lt;/a&gt;, and have now gone a step further and open sourced Artsy.net.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rendering on the Server and Client in Node.js</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/</link>
+      <pubDate>Wed, 18 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/12/18/rendering-on-the-server-and-client-in-node-dot-js/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2013-12-18-rendering-on-the-server-and-client-in-node-dot-js/isomorphic.png&#34; alt=&#34;Diagram of Shared Server/Client Architecture&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At Artsy we&amp;rsquo;ve been building &lt;a href=&#34;http://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; applications that share code and rendering between the server and browser. We&amp;rsquo;ve seen many benefits from this &amp;ndash; pages load faster, we can optimize SEO, developers are more productive, and JavaScript coding is just an overall better experience.&lt;/p&gt;
+
+&lt;p&gt;Today we&amp;rsquo;re happy to announce &lt;a href=&#34;http://ezeljs.com/&#34;&gt;Ezel&lt;/a&gt;, our open source boilerplate we use to bootstrap our Node projects and the &lt;a href=&#34;https://github.com/artsy/benv&#34;&gt;various&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/backbone-super-sync&#34;&gt;node&lt;/a&gt; &lt;a href=&#34;https://github.com/artsy/sharify&#34;&gt;modules&lt;/a&gt; that built up to it.&lt;/p&gt;
+
+&lt;p&gt;In his article, &lt;a href=&#34;http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/&#34;&gt;&lt;em&gt;Isomorphic JavaScript: The Future of Web Apps&lt;/em&gt;&lt;/a&gt;, Spike Brehm from AirBnB describes this growing trend well and we&amp;rsquo;re excited to be a part of it. In this article I&amp;rsquo;ll tell Artsy&amp;rsquo;s story of moving from a single monolithic application to modular &lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone&lt;/a&gt; apps that run in Node and the browser and consume our external API.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Writing Headless Backbone Tests With Node.js</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/</link>
+      <pubDate>Fri, 14 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/</guid>
+      <description>&lt;h2 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h2&gt;
+
+&lt;p&gt;Write fast, headless, tests for Backbone using Node.js. See this project as an example  &lt;a href=&#34;https://github.com/craigspaeth/backbone-headless-testing&#34;&gt;https://github.com/craigspaeth/backbone-headless-testing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-brief-history&#34;&gt;A Brief History&lt;/h2&gt;
+
+&lt;p&gt;Artsy is mostly a thick client &lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone&lt;/a&gt; app that sits on &lt;a href=&#34;http://rubyonrails.org/&#34;&gt;Rails&lt;/a&gt; and largely depends on &lt;a href=&#34;http://jnicklas.github.io/capybara/&#34;&gt;Capybara&lt;/a&gt; (&lt;a href=&#34;http://docs.seleniumhq.org/&#34;&gt;Selenium&lt;/a&gt; backed bot that clicks around Firefox) for testing it&amp;rsquo;s javascript. This leads to some seriously brittle and slow integration tests. &lt;a href=&#34;http://artsy.github.io/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/&#34;&gt;Despite being able to wrangle Capybara&lt;/a&gt; to do most of our client-side testing, we knew there must be a better way.&lt;/p&gt;
+
+&lt;p&gt;When building a CMS app for our gallery partners to manage their Artsy inventory, we built a new Backbone app on top of &lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt;. The result was a headless test suite that runs around 60 times faster.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at how it&amp;rsquo;s done.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>So you want to do a CSS3 3D transform?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/so-you-want-to-do-a-css3-3d-transform/</link>
+      <pubDate>Thu, 18 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/so-you-want-to-do-a-css3-3d-transform/</guid>
+      <description>&lt;p&gt;This post details the first of many challenges we faced in 3D
+transforming the &lt;a href=&#34;http://artsy.net&#34;&gt;homepage of Artsy&lt;/a&gt; (inspired by
+&lt;a href=&#34;https://github.com/hakimel/meny&#34;&gt;Meny&lt;/a&gt;): detecting CSS 3D transform
+support.&lt;/p&gt;
+
+&lt;p&gt;Front-end development is messy in today&amp;rsquo;s fragmented world. At Artsy,
+our goal is to do what it takes to provide an incredible experience
+for &lt;em&gt;all&lt;/em&gt; of our users (IE8+, iOS and the usual suspects). Deploying
+bleeding edge tech, like CSS 3D transforms, is an exercise in
+compromising principals for practicality &amp;ndash; and managing these
+&amp;ldquo;compromises&amp;rdquo; in well-documented code.&lt;/p&gt;
+
+&lt;p&gt;We looked to &lt;a href=&#34;http://modernizr.com/&#34;&gt;Modernizr&amp;rsquo;s&lt;/a&gt; feature detection approach to provide us with
+a reliable way to detect CSS3 3D transform support across browsers. They have some
+&lt;a href=&#34;https://github.com/Modernizr/Modernizr/issues/590&#34;&gt;well&lt;/a&gt;-
+&lt;a href=&#34;https://github.com/Modernizr/Modernizr/issues/465&#34;&gt;documented&lt;/a&gt;
+&lt;a href=&#34;https://github.com/Modernizr/Modernizr/issues/240&#34;&gt;struggles&lt;/a&gt; around
+the issue. After flipping most of the tables in the office ┻━┻ ︵ヽ
+(`Д´)ﾉ︵﻿ ┻━┻ , we settled on user agent sniffing as the most robust
+method for detecting CSS3 3D transform support. But why did none
+of the available methods work for us?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The perils of iOS user agent strings</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/the-perils-of-ios-user-agent-sniffing/</link>
+      <pubDate>Thu, 18 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/10/18/the-perils-of-ios-user-agent-sniffing/</guid>
+      <description>&lt;p&gt;There is a great deal of misinformation on the web about detecting an
+iPad or an iPhone in JavaScript. The
+&lt;a href=&#34;http://stackoverflow.com/a/4617648&#34;&gt;top answer on stackoverflow&lt;/a&gt; -
+and many &lt;a href=&#34;http://www.sitepoint.com/identify-apple-iphone-ipod-ipad-visitors/&#34;&gt;blog posts&lt;/a&gt; using &lt;a href=&#34;http://www.askdavetaylor.com/detect_apple_iphone_user_web_site_server.html&#34;&gt;this technique&lt;/a&gt; - are all incorrect.&lt;/p&gt;
+
+&lt;p&gt;The conventional wisdom is that iOS devices have a user agent for
+Safari and a user agent for the UIWebView. This assumption is
+incorrect as iOS apps can and do
+&lt;a href=&#34;http://stackoverflow.com/a/8666438&#34;&gt;customize their user agent&lt;/a&gt;. The
+main offender here is Facebook, whose iOS app alone accounts for about
+1-3% of Artsy&amp;rsquo;s daily traffic.&lt;/p&gt;
+
+&lt;p&gt;Compare these user agent strings from iOS devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# iOS Safari
+iPad: Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3
+iPhone: Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3
+
+# UIWebView
+iPad: Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/98176
+iPhone: Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Mobile/8B117
+
+# Facebook UIWebView
+iPad: Mozilla/5.0 (iPad; U; CPU iPhone OS 5_1_1 like Mac OS X; en_US) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.1.1;FBBV/4110.0;FBDV/iPad2,1;FBMD/iPad;FBSN/iPhone OS;FBSV/5.1.1;FBSS/1; FBCR/;FBID/tablet;FBLC/en_US;FBSF/1.0]
+iPhone: Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; ru_RU) AppleWebKit (KHTML, like Gecko) Mobile [FBAN/FBForIPhone;FBAV/4.1;FBBV/4100.0;FBDV/iPhone3,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/5.1.1;FBSS/2; tablet;FBLC/en_US]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Replacing #! Routes with PushState Using Backbone.js</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/25/replacing-hashbang-routes-with-pushstate/</link>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/06/25/replacing-hashbang-routes-with-pushstate/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;The only constant is change, continuing change, inevitable change, that is the dominant factor in society
+[and web apps!] today. No sensible decision can be made any longer without taking into account not only
+the world as it is, but the world as it will be.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Isaac Asimov&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;r-i-p&#34;&gt;R.I.P #!&lt;/h2&gt;
+
+&lt;p&gt;It did not take us long to discover we shared the concerns of Twitter&amp;rsquo;s
+&lt;a href=&#34;http://danwebb.net/2011/5/28/it-is-about-the-hashbangs&#34;&gt;Dan Webb on hashbang routes&lt;/a&gt;,
+but it was almost a year before we were able to remove them from Artsy. Here&amp;rsquo;s how it went down.&lt;/p&gt;
+
+&lt;p&gt;Artsy relies on the &lt;a href=&#34;http://documentcloud.github.com/backbone/&#34;&gt;Backbone.js&lt;/a&gt; framework for our client application
+which offers a solid pushState routing scheme. This includes a seamless hashtag fallback for
+&lt;a href=&#34;http://caniuse.com/#feat=history&#34;&gt;browsers that don&amp;rsquo;t support the HTML5 History API&lt;/a&gt; (looking at you IE 9).&lt;/p&gt;
+
+&lt;p&gt;The pushState routing is optional, but &lt;em&gt;&amp;ldquo;the world as it should be&amp;rdquo;&lt;/em&gt; suggests we say &amp;ldquo;Yes!&amp;rdquo; (or true) to pushState.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-coffeescript&#34;&gt;Backbone.history.start({ pushState: true })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How To Redirect Bang Hash Urls</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/06/how-to-redirect-bang-hash-urls/</link>
+      <pubDate>Tue, 06 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/03/06/how-to-redirect-bang-hash-urls/</guid>
+      <description>Sometimes you type a hash-bang URL too fast, bang first.
+Consider https://artsy.net/!#/log_in. Rails will receive /! as the file path, resulting in a 404, File Not Found error. The part of the URL after the hash is a position within the page and is never sent to the web server.
+It&amp;rsquo;s actually pretty easy to handle this scenario and redirect to the corresponding hash-bang URL.
+The most straightforward way is to create a file called !</description>
+    </item>
+    
+  </channel>
+</rss>

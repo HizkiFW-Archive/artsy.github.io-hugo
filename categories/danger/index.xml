@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Danger on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/danger/</link>
+    <description>Recent content in Danger on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/danger/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introducing Peril to the Artsy Org</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</link>
+      <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/09/04/Introducing-Peril/</guid>
+      <description>&lt;p&gt;Once Danger Ruby was stable enough for everyday use in 2015, it became obvious that running Danger on CI was both a
+positive and a negative. On the positive side, Danger has access to all artifacts created during testing - and on the negative
+side it takes a long time to get feedback. It was obvious that Danger could &lt;a href=&#34;https://github.com/danger/danger/issues/42&#34;&gt;run on a server&lt;/a&gt;, but it was a big unknown what that could look like.&lt;/p&gt;
+
+&lt;p&gt;Eventually, &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2017/06/30/danger-one-oh-again/&#34;&gt;I came to the conclusion&lt;/a&gt; that we would need a JavaScript replacement of Danger - and so I applied
+constraints to Danger JS that made a server-side version of Danger a possibility. It was a stroke of luck that around the
+time Danger JS became usable for day to day usage, that GitHub introduced &lt;a href=&#34;https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/&#34;&gt;GitHub Apps&lt;/a&gt; - so I started work on Peril. Peril is server-side Danger. The rest of this post talks about how we use it Artsy today, how you can use it yourself and where it&amp;rsquo;s heading.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Danger</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/</link>
+      <pubDate>Fri, 30 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/06/30/danger-one-oh-again/</guid>
+      <description>&lt;p&gt;Danger came out of two needs. One from the needs of a growing dev team working together full-time, and the other from the needs of a completely asymmetric large Open Source project.&lt;/p&gt;
+
+&lt;p&gt;A work environment dev team is a complex place. You naturally grow, and to grow safely you add process. Process is a mixed bag, it&amp;rsquo;s a net benefit at the trade-off of individual&amp;rsquo;s time vs team cohesion. You want to grow your team guided by smart applications of process.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, working on a large open source project, it&amp;rsquo;s easy to feel overwhelmed at the amount of work that needs to get done on a daily basis. The growth of your OSS team probably doesn&amp;rsquo;t tie to the amount of work that needs to be done. Especially if you&amp;rsquo;re like me, and you don&amp;rsquo;t want to be maintaining OSS as a 2nd full-time job.&lt;/p&gt;
+
+&lt;p&gt;So what do you do? Well in a work environment you don&amp;rsquo;t really have a choice, as a team you hold each other to the rules that you set. In OSS, you sacrifice your spare time or you can find time at work, you could stop or you could burn out.&lt;/p&gt;
+
+&lt;p&gt;And this is the environment in which the idea of Danger was incubated.&lt;/p&gt;
+
+&lt;p&gt;Today mark version 1.0 of the second version of Danger. I&amp;rsquo;m going to cover what they are, how they continue to grow and what I see their trajectory as.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Glossary for 2017</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</link>
+      <pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/11/14/JS-Glossary/</guid>
+      <description>&lt;p&gt;Getting to grips with the entire JavaScript ecosystem is a tough job when you&amp;rsquo;re getting started. Coming from the native mobile space, there&amp;rsquo;s a lot to learn. I&amp;rsquo;ve spent a few months immersed in the environment now, and can try summerize a lot of topics. This should make it easier to find more information when you need it. This post is semi-opinionated, with links for further reading so you can get a different perspective too.&lt;/p&gt;
+
+&lt;p&gt;This post focus specifically on the JavaScript tooling around React Native projects, but is applicable to all JavaScript projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Using VS Code for JavaScript</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/08/15/vscode/</guid>
+      <description>&lt;p&gt;&lt;center&gt;
+ &lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/vscode/vscode_logo_artsy.svg&#34; style=&#34;width:300px;&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m an old school TextMate user, who has also been using Xcode for the last decade. These two sit at a very opposite ends of an &amp;ldquo;editor&amp;rdquo; spectrum.&lt;/p&gt;
+
+&lt;p&gt;TextMate is extremely bare bones at the core, but introduced the idea of bundles as plugins. Making it really easy for others to build their own plugins for their own contexts. Xcode on the other-hand includes a 3D scene editor, the best interface builder I&amp;rsquo;ve seen, super rich debugging tools and close to zero support for improving it yourself.&lt;/p&gt;
+
+&lt;p&gt;As we agreed on moving to React Native, we needed to decide what the team should use for &lt;a href=&#34;https://github.com/artsy/emission/blob/master/docs/vscode.md&#34;&gt;working in that environment&lt;/a&gt;. After experimentation with many editors, we decided on Microsoft&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wanted to keep a lot of the best features from Xcode, while working in a completely JavaScript environment. For example: debuggers, inline errors, auto-complete, symbol mapping and to ideally have them all inside a single editor.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s dig into the principals of how Visual Studio Code works, what makes it a better option for us, and what parts of it really shine.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Handling Large OSS Projects Defensively</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</link>
+      <pubDate>Sun, 03 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/07/03/handling-big-projects/</guid>
+      <description>&lt;p&gt;I help maintain big OSS projects: from a third-party &lt;a href=&#34;https://cocoapods.org&#34;&gt;dependency manager&lt;/a&gt; used in most iOS apps (&lt;a href=&#34;https://github.com/CocoaPods/cocoapods.org&#34;&gt;CocoaPods&lt;/a&gt;), to the most popular Objective-C &lt;a href=&#34;http://cocoapods.org/pods/Specta&#34;&gt;testing framework&lt;/a&gt; and the most popular Swift &lt;a href=&#34;http://cocoapods.org/pods/Moya&#34;&gt;networking API client&lt;/a&gt;. I&amp;rsquo;ve been doing this for years.&lt;/p&gt;
+
+&lt;p&gt;Projects with this much impact are big time-sinks. This time comes from ensuring infrastructure continues to work, support tickets need replies, new code needs reviewing and releases need coordinating.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2016-07-03-big-oss/danger_logo_black@2x.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Last September, almost a year ago, I started work on a new project, &lt;a href=&#34;https://github.com/danger/danger/&#34;&gt;Danger&lt;/a&gt;. Danger fixes a problem we were seeing in the Artsy mobile team around adding &amp;ldquo;&lt;a href=&#34;https://github.com/artsy/mobile/issues/31&#34;&gt;process&lt;/a&gt;&amp;rdquo; to our team.&lt;/p&gt;
+
+&lt;p&gt;As a part of discussing Danger internally, I&amp;rsquo;ve referenced that building CocoaPods has greatly influenced Danger. This blog post is about the way I&amp;rsquo;ve built Danger, knowing fully well that I cannot afford the level of time to maintain it at the scale it may get to.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

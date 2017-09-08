@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Keys on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/keys/</link>
+    <description>Recent content in Keys on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/keys/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How we Open Source&#39;d Eigen</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/28/how-we-open-sourced-eigen/</guid>
+      <description>&lt;p&gt;It was 95 days ago, and I was sitting before of my computer in NYC. I loaded my terminal, opened &lt;a href=&#34;https://taptalk.me&#34;&gt;TapTalk&lt;/a&gt; on my phone, tapped on my collegue &lt;a href=&#34;http://ashfurrow.com&#34;&gt;Ash&amp;rsquo;s&lt;/a&gt; avatar and held my finger there. I paused, this moment was a long time, it was worth waiting. I switched the camera from my face to the screen with the terminal open.&lt;/p&gt;
+
+&lt;p&gt;This moment was probably the most nervous I had been in years. It showed &lt;code&gt;git push origin master&lt;/code&gt;. I said &amp;ldquo;it&amp;rsquo;s happening.&amp;rdquo; I hit return. A new era in the Artsy mobile team had started. A few minutes later, I wrote this tweet:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; lang=&#34;en&#34;&gt;&lt;p&gt;We have open source’d the &lt;a href=&#34;https://twitter.com/artsy&#34;&gt;@Artsy&lt;/a&gt; iOS app.&amp;#10;&amp;#10;&lt;a href=&#34;https://t.co/c1SWtHmUgy&#34;&gt;https://t.co/c1SWtHmUgy&lt;/a&gt;&amp;#10;&amp;#10;🎉&lt;/p&gt;&amp;mdash; Ørta (@orta) &lt;a href=&#34;https://twitter.com/orta/status/558395611754819586&#34;&gt;January 22, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go over the process we went through to get to that point.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

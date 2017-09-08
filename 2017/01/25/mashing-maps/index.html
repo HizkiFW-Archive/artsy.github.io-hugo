@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Mashing Data, Making Maps // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Mashing Data, Making Maps" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2017/01/25/mashing-maps/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#coming-back-to-an-npm-app-2-years-later">Coming back to an npm app 2 years later</a></li>
+<li><a href="#coffeescript">CoffeeScript</a></li>
+<li><a href="#databases">Databases</a>
+<ul>
+<li><a href="#mongodb">MongoDB</a></li>
+<li><a href="#postgres">Postgres</a></li>
+<li><a href="#database-as-csv">Database as CSV</a></li>
+</ul></li>
+<li><a href="#d3-datamaps">D3 + Datamaps</a></li>
+<li><a href="#too-much-data">Too much data</a></li>
+<li><a href="#code-cleanup-docs">Code Cleanup + Docs</a></li>
+<li><a href="#going-solo">Going solo</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/01/25/mashing-maps/">Mashing Data, Making Maps</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>25</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2017</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-mongo" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/mongo">mongo</a>
+				
+					<a class="post-category post-category-postgres" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/postgres">postgres</a>
+				
+					<a class="post-category post-category-coffeescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/coffeescript">coffeescript</a>
+				
+					<a class="post-category post-category-node" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node">node</a>
+				
+					<a class="post-category post-category-analytics" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/analytics">analytics</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>We have a lot of really awesome data. Things worth exploring, and visualizing. We have an entire team devoted to it, <a href="https://www.artsy.net/article/artsy-jobs-data-analyst">looks like they&rsquo;re hiring too</a>. Not all of the output of the data comes from that team though, 2 years ago our Director of Product Engineering, <a href="https://github.com/craigspaeth">Craig Spaeth</a> created a <a href="https://github.com/artsy/partner-map">static-site generator</a> that mapped our partners around the globe. Last week I&rsquo;ve been improving it.</p>
+
+<p><img src="/images/mappings/preview.gif" alt="An animated map of galleries" /></p>
+
+<p>Projects like these happen in most companies, quick hacks for one offs that are opened 2 years later by someone completely different to build on top of it. In trying to follow <a href="http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule">the Boy Scout rule</a>, I&rsquo;ve cleaned it up and consolidated some other similar projects. This post is a rough road-map of what making <a href="https://github.com/artsy/partner-map/pull/3">this PR</a> looked like.</p>
+
+<p></p>
+
+<p>The aim was to visualise data we had created on when galleries were founded. Then to be able to see how that corresponds with our artwork inquiry data.</p>
+
+<h2 id="coming-back-to-an-npm-app-2-years-later">Coming back to an npm app 2 years later</h2>
+
+<p>Straight off the bat, nothing worked :D</p>
+
+<p>This isn&rsquo;t too surprising, I&rsquo;m pretty sure we&rsquo;d have the same problem with an iOS project too. This was mainly due to dependencies switching between major versions due to zero locking on any of the versions.</p>
+
+<pre><code class="language-json">{
+  ...
+  &quot;dependencies&quot;: {
+    &quot;async&quot;: &quot;*&quot;,
+    &quot;browserify&quot;: &quot;*&quot;,
+    &quot;coffee-script&quot;: &quot;*&quot;,
+    &quot;coffeeify&quot;: &quot;*&quot;,
+    &quot;d3&quot;: &quot;*&quot;,
+    &quot;datamaps&quot;: &quot;git://github.com/markmarkoh/datamaps.git&quot;,
+    &quot;mongojs&quot;: &quot;*&quot;,
+    &quot;topojson&quot;: &quot;*&quot;,
+    &quot;watchify&quot;: &quot;*&quot;
+  }
+}
+</code></pre>
+
+<p><a href="/blog/2016/11/14/JS-Glossary/#yarn">Switching to Yarn</a> fixed this by introducing a lock file, this means that the next time someone else comes along they&rsquo;ll get the exact same setup that I&rsquo;ve been working against.</p>
+
+<h2 id="coffeescript">CoffeeScript</h2>
+
+<p>I have zero experience with <a href="http://coffeescript.org">CoffeeScript</a>. My high-level JavaScript experience only comes from the last 6 months, and it&rsquo;s a different world at the minute. Two years ago CoffeeScript was in it&rsquo;s prime, as the first of the JavaScript transpilers - if this is new to you, I&rsquo;d strongly recommend watching this talk:</p>
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/DspYurD75Ns" frameborder="0" allowfullscreen></iframe>
+
+<p>&nbsp;</p>
+
+<p>We have a lot of CoffeeScript in production, here&rsquo;s a few key parts of Artsy&rsquo;s infrastructure:</p>
+
+<ul>
+<li><a href="https://github.com/artsy/force">artsy/force</a> - our website</li>
+<li><a href="https://github.com/artsy/microgravity">artsy/microgravity</a> - our mobile website</li>
+<li><a href="https://github.com/artsy/positron">artsy/positron</a> - our editorial staff&rsquo;s CMS</li>
+</ul>
+
+<p><a href="https://github.com/artsy?language=coffeescript">..and there&rsquo;s more</a>. Thus having an understanding of it is pretty essential to writing code across all of Artsy&rsquo;s businesses. The TLDR for CoffeeScript is that it applies a lot of the elegance in Ruby to JavaScript. You should feel comfortable with JavaScript before using it, as it requires understanding what the language facade is doing.</p>
+
+<p>A lot of the best ideas from CoffeeScript have been migrated into <a href="/blog/2016/11/14/JS-Glossary/#es6">modern JavaScript</a>. My favourite is ease in how functions can be created:</p>
+
+<pre><code class="language-coffee">random = (min, max) -&gt; Math.round(Math.random() * (max - min) + min)
+</code></pre>
+
+<p>It also supports my favourite part of <a href="http://danger.systems/guides/a_quick_ruby_overview.html#variables-and-keyword-syntax">Ruby&rsquo;s handling of code-flow</a> using single-line reverse ifs:</p>
+
+<pre><code class="language-coffee">pgClient.connect (err) -&gt; 
+  console.error(err) if err
+</code></pre>
+
+<p>Which gets to the crux of CoffeeScript&rsquo;s ideology, I would often start with writing it in JavaScript in my head, then slowly remove syntax. When I got stuck I visited <a href="http://js2.coffee">js.coffee</a> to see how something I know what I want to write would look.</p>
+
+<h2 id="databases">Databases</h2>
+
+<p>You want to convert all data your companies data into something useful? You better get that data available locally or you&rsquo;re going to spend a long time iterating. As a side-effect of Artsy converting <a href="/blog/2014/05/12/continuous-integration-for-service-oriented-architectures/">to microservices</a> I needed three separate databases to connect all the data I needed. It covers over two types of databases: MongoDB and Postgres.</p>
+
+<h3 id="mongodb">MongoDB</h3>
+
+<p>MongoDB is a NoSQL document store database, this means it has no formal data-structure. It feels very JavaScript-y because of this. I host it <a href="http://gcollazo.github.io/mongodbapp/">inside an app</a>, and I <a href="https://robomongo.org">use RoboMongo</a> to inspect it.</p>
+
+<p>{% expanded_img /images/mappings/robomongo.png %}</p>
+
+<p>This works out nicely, I needed to make a local copy of the databases, so I used the answers from this <a href="http://stackoverflow.com/questions/23652402/how-to-copy-a-collection-from-one-mongodb-to-another">stack overflow</a></p>
+
+<pre><code class="language-sh"># You'll need to figure out how to connect to your database
+mongoexport -d gravity_staging -c artworks -o artworks_collection.json
+
+# Then into merge it into your development machine
+mongoimport -d gravity_development -c artworks --file artworks_collection.json
+</code></pre>
+
+<p>Doing this for the specific collections you&rsquo;re interested in will help get you set up.</p>
+
+<h3 id="postgres">Postgres</h3>
+
+<p>Other databases I needed access to were Postgres databases, I don&rsquo;t know much about databases but Postgres seems to be <a href="https://blog.heroku.com/postgres-essentials">Heroku&rsquo;s favourite database</a> so I&rsquo;ll take that endorsement as gold. It&rsquo;s an SQL database, which you can do <a href="https://github.com/calebmer/postgraphql">amazing things with</a>. I host it <a href="http://postgresapp.com">inside an app</a> and use <a href="https://eggerapps.at/postico/">Postico</a> to inspect it.</p>
+
+<p>{% expanded_img /images/mappings/postico.png %}</p>
+
+<p>I grabbed a <a href="https://devcenter.heroku.com/articles/heroku-postgres-backups">backup</a> of our databases, they come down as a <a href="https://www.commandprompt.com/blog/a_better_backup_with_postgresql_using_pg_dump/">pg_dump file</a> file which you can replicate locally in your postgres using a command like:</p>
+
+<pre><code class="language-sh">pg_restore --verbose --clean --no-acl --no-owner -h localhost -U [your_name] -d [db_name] [filepath]
+</code></pre>
+
+<h3 id="database-as-csv">Database as CSV</h3>
+
+<p>This almost gave me all the data necessary to start work. The other part is a good chunk of new data we wanted mapping was not in a database, it was in a collection of spreadsheet files and occasionally hosted on google docs. Meaning it&rsquo;s time to reach for a good parser. Whenever this happens I reach for Ruby, which ships with a great CSV parser/writer. I also open the CSV inside <a href="http://www.apple.com/numbers/">Numbers</a> from Apple, which does a great job of providing visibility ( and letting you make quick changes.)</p>
+
+<p>I have a bunch of scripts like this, one which generate more CSV files - I&rsquo;m keeping the filenames intact to give you a real sense of how much of a quick hack these are:</p>
+
+<pre><code class="language-ruby"># Create a new CSV file
+CSV.open(&quot;/Users/orta/Downloads/end-result.csv&quot;, &quot;wb&quot;) do |csv|
+  # Loop through both derived tables
+  tables = [&quot;Partners-Table 1.csv&quot;, &quot;Non-Partners-Table 1.csv&quot;]
+  tables.each do |t| 
+    CSV.foreach(&quot;/Users/orta/Documents/Gallery\ Date\ Research/&quot; + t) do |row|
+      next unless row[0] # bad data
+      next unless row[1] # no dates
+
+      # don't trust the CSV
+      query = Regexp.new(row[0], Regexp::IGNORECASE)
+      partner = Partner.where(given_name: query).first
+      partner ||= Partner.where(display_name: query).first
+
+      start_date = row[1]
+
+      # did we find a partner &amp; a location?
+      if partner and partner.location_coordinates and partner.location_coordinates.first
+        loc = partner.location_coordinates.first
+        csv &lt;&lt; [partner.name, start_date, loc[:lat], loc[:lon]]
+      else
+        csv &lt;&lt; [row[0], start_date, nil, nil]
+        # look up org in burden inside postgres
+        # go from org -&gt; lat, long via location's organization_id
+      end
+    end
+  end
+end
+</code></pre>
+
+<p>Once this was ready I created a new script to pull things from another databasea, in theory this code could have gone inside the previous script, but it felt like a good time to get up and make a tea during a pairing session.</p>
+
+<pre><code class="language-ruby">require 'CSV'
+conn = PG.connect(host: &quot;localhost&quot;, dbname: 'burden')
+
+# Write to another end-results
+CSV.open(&quot;/Users/orta/Downloads/end-result-2.csv&quot;, &quot;wb&quot;) do |csv|
+  CSV.foreach(&quot;/Users/orta/Downloads/end-result.csv&quot;) do |row|
+    # gravity lookups passed, don't need to do anything
+    if row &amp;&amp; row[2]
+      # put in the normal row
+      csv &lt;&lt; row
+      next
+    end
+    
+    # Galleries  have ' in their names, breaking SQL
+    name = row[0].gsub(/'/, &quot;\\'&quot;)
+    result = conn.exec( &quot;SELECT latitude, longitude FROM locations WHERE organization_id in (SELECT id FROM organizations WHERE name = '#{name}') &quot; )
+
+    # If we've found something, set it
+    if result.cmd_tuples &gt; 0 and result[0]
+      row[2] = result[0][&quot;latitude&quot;]
+      row[3] = result[0][&quot;longitude&quot;]
+    end
+    result.clear
+    
+    csv &lt;&lt; row
+  end
+end
+</code></pre>
+
+<p>Then finally with a fully fleshed out CSV, I could convert that into something that&rsquo;s useful for this project, JSON:</p>
+
+<pre><code class="language-ruby">require 'CSV'
+require 'JSON'
+
+data = []
+CSV.foreach(&quot;/Users/orta/Downloads/end-result-2.csv&quot;) do |row|
+  created_at = row[1]
+  if row[1] &amp;&amp; created_at.strip.length &gt; 0 &amp;&amp; row[2] and row[3]
+    data &lt;&lt; { name: row[0], radius: 4, created_at: created_at.to_i, latitude: row[2].to_f, longitude: row[3].to_f }
+  end
+end
+
+File.open(&quot;/Users/orta/dev/js/sites/partner-map/data/jsons/galleries-subset.json&quot;,&quot;w&quot;) { |f| f.write( data.sort_by { |h| h[:created_at] }.to_json) }
+</code></pre>
+
+<p>And that gives me the raw data that I can now use with our mapping system.</p>
+
+<h2 id="d3-datamaps">D3 + Datamaps</h2>
+
+<p>There are concepts that you can just pick up, because they are simple evolutions of something you know. <a href="https://d3js.org">D3 is not one of these</a>. D3 is a system for making data-based graphical documents. Learning how to do D3 properly takes time and a perspective change. Luckily we had a Lunch &amp; Learn <a href="https://twitter.com/orta/status/809451441882628096">2 weeks ago on D3</a> and now I am a total domain expert.</p>
+
+<p>I jest. However, the talk was definitely enough to do the majority of what I wanted to do. Which was take some static data, and animate it over time. In these cases I get out the trusty <code>setTimeout</code> API call in JavaScript which gets the ball rolling.</p>
+
+<p>I had a few thousand datapoints with a <code>date_created</code> attribute, so it was pretty simple to pull that out and  group them according to a time interval. I wanted the freedom to decide how long each animation should last, there probably is a D3 API for this kind of thing but I never spent the time researching. Maybe the next developer can do that.</p>
+
+<p>We use the <em>amazing</em> library <a href="http://datamaps.github.io">Datamaps</a> to show the globe and handle a lot of the lat/long -&gt; pixel mathematics. It is built in a D3 mindset, so with each interval of the animation, I added all of the locations or arcs to it and D3/Datamaps will derive the difference between what it has and what is new and animate those. This makes thinking about the animation simple.</p>
+
+<h2 id="too-much-data">Too much data</h2>
+
+<p>One problem I kept hitting against was that we were working with a dataset that couldn&rsquo;t fit into memory. Initially a direct port of our algorithm to get all of Artsy&rsquo;s partners and locations would crash node due to memory pressure. Originally we were working with a much smaller data-set, now it&rsquo;s multiple orders of magnitude bigger. These were pretty easy to fix with a bit of understanding about all the asynchronous callbacks and by finding the <code>async.eachOfLimit</code> <a href="http://caolan.github.io/async/docs.html#eachOfLimit">function</a>.</p>
+
+<p>Another issue with the amount of data came through trying to visualise them. It would bring down my computer, in the end after trying a few ideas (looking for averages, grouping similar data-points) I found the simplest option to be the one worth shipping. <code>rand(x, y)</code>.</p>
+
+<pre><code class="language-coffee">#
+# Take a set of arcs, and pick a random 1 in x
+# yarn run coffee -- data/inquiries/inquiry-random-subsets.coffee
+#
+
+fs = require 'fs'
+
+# Random number between min, max
+random = (min, max) -&gt; Math.round(Math.random() * (max - min) + min)
+
+# Take an array or arcs, and reduce it to one in amount, then save to path
+derive = (amount, arcs, path) -&gt;
+  luckyOnes = arcs.filter (arc) -&gt; random(0, amount) == 23
+  console.log &quot;There are #{luckyOnes.length} arcs from #{arcs.length} in #{path}&quot;
+  fs.writeFileSync __dirname + '/' + path, JSON.stringify luckyOnes
+
+all_arcs = require '../jsons/every-inquiry-arcs.json'
+derive(1500, all_arcs, &quot;../jsons/all-inquiries-random-subset.json&quot;)
+</code></pre>
+
+<p>This ended up creating a pretty useful representation of the whole data-set, in a way that is actually renderable without killing the browser&rsquo;s process.</p>
+
+<h2 id="code-cleanup-docs">Code Cleanup + Docs</h2>
+
+<p>I spent most of my time inside <a href="https://github.com/artsy/partner-map">artsy/partner-map</a> but we had another repo with very similar code, <a href="https://github.com/artsy/inquiry-map">partner/inquiry-map</a>. So I took the time to merge the two of them, officially deprecating inquiry-map. Now those maps can be generated by partner-map, and there&rsquo;s space for more expansion.</p>
+
+<p>Other than that, I took the time to improve the repo and to do this write-up, so that the next person who comes along can have an idea of some of the scripts and how they all fit together.</p>
+
+<h2 id="going-solo">Going solo</h2>
+
+<p>For a project like this, I did no code review, no testing or other staples of engineering culture at Artsy. This is fine for a project of this scope and pace.</p>
+
+<p>However, I think it&rsquo;s always worth throwing in an extra 2-3 hours at the end of a hack project to write up some of the tricky parts and cleaning up the codebase for the next person. If you don&rsquo;t write some tests, then writing some docs or do a <a href="http://artsy.github.io/blog/2015/11/05/Emergence-Code-Review/">quick video</a>.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2017/02/01/year-in-art/">Animating the Year In Art</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2017/01/13/xcode-8-fastlane-codesigning/">Xcode 8 Manual Codesigning with Fastlane</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

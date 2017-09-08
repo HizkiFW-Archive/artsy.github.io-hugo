@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pattern Recognition on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/pattern-recognition/</link>
+    <description>Recent content in Pattern Recognition on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/pattern-recognition/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using Pattern Recognition to Automatically Crop Framed Art</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/24/using-pattern-recognition-to-automatically-crop-framed-art/</link>
+      <pubDate>Wed, 24 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/09/24/using-pattern-recognition-to-automatically-crop-framed-art/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://artsy.net/imamuseum&#34;&gt;Indianapolis Museum of Art&lt;/a&gt; (IMA) recently shared thousands of high-resolution images from its permanent collection with Artsy, including 5,000 images that were in an un-cropped state. These images contain color swatches, frames, and diverse backgrounds, as shown below. The clutter in these images made them inappropriate to display to end users, and invited an approach to automatically crop the images. This post explores some fully automated techniques to locate the piece of art within each photo. If you&amp;rsquo;re eager to jump straight to the code that worked best, you&amp;rsquo;ll find the implementation of the &amp;lsquo;Rectangular Contour Search&amp;rsquo; section &lt;a href=&#34;https://gist.github.com/ilyakava/b2dbca43991d6c668dbb&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://f.cl.ly/items/2C0e2X1G1R1i1z1Y0M1B/banner.png&#34; alt=&#34;All of these images are open access. For reference, the accession numbers/names. 45-115.tif 45-9-v01.tif 54-4.tif 76-166-1-12b.tif 14-57.tif&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

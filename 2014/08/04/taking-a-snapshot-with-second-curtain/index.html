@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Taking a Snapshot with Second Curtain // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="ash">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Taking a Snapshot with Second Curtain" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/08/04/taking-a-snapshot-with-second-curtain/">Taking a Snapshot with Second Curtain</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>4</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">ash</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+				
+					<a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+				
+					<a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+				
+					<a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>At Artsy, we try hard to <a href="https://speakerdeck.com/orta/getting-eigen-out?slide=35">test</a>
+our iOS applications to ensure that we avoid regressions and have a clearly
+defined spec of how our apps should look and behave. One of the core pieces of
+our testing setup is <a href="https://github.com/facebook/ios-snapshot-test-case">FBSnapshotTestCase</a>,
+a library written by Facebook to compare views at runtime with images of those
+views that are known to be correct. If the images differ, the test fails. We
+also use <a href="https://travis-ci.org">Travis</a> for continuous integration.</p>
+
+<p>Lately, we&rsquo;ve been noticing a friction between the developers on the iOS team
+and the tools we&rsquo;re using to test our apps: while Travis allows us to easily
+access the logs of test runs, it can only indicate that a snapshot test failed,
+not why it failed. That&rsquo;s because the images that are compared are locked on
+Travis&rsquo; machine – we cannot access those images, so we can&rsquo;t see the
+differences. This is <em>really</em> promblematic when the tests pass locally but fail
+only on Travis.</p>
+
+<p></p>
+
+<p>A few weeks ago, <a href="http://twitter.com/orta">Orta</a> and I were discussing this
+problem and we came up with a potential solution. Since the images were stored
+on disk on Travis&rsquo; machine, why not just upload them somewhere we <em>can</em> see
+them? Like an S3 bucket. We could even generate a basic HTML page showing you
+the different test failures.</p>
+
+<p>Time passed and, later on, I had tests passing locally but failing on Travis.
+I saw an opportunity to build something new. I&rsquo;m not a proficient Ruby developer,
+but I enjoy learning new things, so I decided to create a Ruby gem that could
+fit within our existing testing pipeline. A lot of the structure for the code
+came from an existing gem we already use with Travis, <a href="https://github.com/supermarin/xcpretty">xcpretty</a>.
+With an example of how gems that support iOS testing are written, I was on my
+way to creating my own.</p>
+
+<p>At first, things were very difficult. While I had contributed small patches to
+existing Ruby projects before, I had never created a brand new one from scratch.
+The existing <a href="http://guides.rubygems.org/make-your-own-gem/">guides</a> were very
+helpful, and I found help from the CocoaPods developers when I had questions
+about things like the arcane semantics of Ruby&rsquo;s <code>require</code> syntax.</p>
+
+<p>Eventually, I had a working proof-of-concept. Everything seemed ready to go, and
+I prepared to incorporate my new tool, which I called <a href="https://github.com/AshFurrow/second_curtain">Second Curtain</a>,
+into my pull request on the Artsy repo. But there was a problem.</p>
+
+<p>Second Curtain relies on environment variables to get access to the S3 bucket
+where it stores the images. I planned on using Travis&rsquo; system to <a href="http://docs.travis-ci.com/user/encryption-keys/">encrypt</a>
+those credentials. It turns out, for very good reasons, encrypted environment
+variables are not available on pull requests created on forks of repositories.
+This is a problem because of the way that <a href="http://artsy.github.io/blog/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/">Artsy uses GitHub</a>.
+While it&rsquo;s not a problem for a closed-source repository to have (restrictive)
+access to an S3 bucket, it would be irresponsible to expose S3 credentials for
+an open-source project. I&rsquo;m <a href="https://github.com/AshFurrow/second_curtain/issues/5">working</a>
+on a solution.</p>
+
+<p>Orta helped with the design aspect of the tool; while uploading the images was
+sufficient, we could make the process of seeing the differences between the two
+images even easier. He created a <a href="https://eigen-ci.s3.amazonaws.com/snapshots/2014-08-04--15-47/index.html">HTML page</a>
+that would allow developers to see the before-and-after versions by moving their
+mouse cursor over the different images.</p>
+
+<p><img src="http://static.ashfurrow.com/github/second_curtain.png" alt="Image Diff" /></p>
+
+<p>In the end, I got Second Curtain to work with Artsy&rsquo;s iOS repository and I
+discovered the discrepency between the two images: due to a timezone difference
+between my computer and Travis&rsquo;, a date was being formatted differently. Not a
+difficult thing to fix, but not something I would have ever been able to
+discover had I not been able to see the images side-by-side.</p>
+
+<p>So after all that, one line of Objective-C was changed and the tests passed – my
+pull request was merged. I learnt a lot about how Ruby developers structure
+their code and what tools they use to write software. While I&rsquo;m happy to return
+to iOS apps for a while, it was a great experience and I&rsquo;m hoping to bring some
+of the ideas I discovered writing Ruby back to Objective-C.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2014/08/08/CocoaPods-Caching/">Using CocoaPods Caching with Travis CI</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/">Retain scroll position in infinite scroll</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/data/</link>
+    <description>Recent content in Data on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Mar 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Detecting trends using Forgetsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/</link>
+      <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/03/17/detecting-trends-with-forgetsy/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/2014-03-17-detecting-trends-with-forgetsy/monolith.jpg&#34; alt=&#34;Armory Trending Screen&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As part of our partnership with &lt;a href=&#34;https://www.thearmoryshow.com/&#34;&gt;The New York Armory Show&lt;/a&gt; this year, we installed a number of terminals throughout the fair. These screens used our own real-time data to display an ever shifting set of trending artworks, artists, and booths, to the attendees.&lt;/p&gt;
+
+&lt;p&gt;Out of this work, we&amp;rsquo;ve open-sourced &lt;a href=&#34;https://github.com/cavvia/forgetsy&#34;&gt;Forgetsy&lt;/a&gt;, a lightweight Ruby trending library. Put simply, Forgetsy implements data structures that forget. Loosely based on Bit.ly&amp;rsquo;s &lt;a href=&#34;http://word.bitly.com/post/41284219720/forget-table&#34;&gt;Forget Table&lt;/a&gt; concept, Forgetsy uses decaying counters to track temporal trends in categorical distributions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Start Small with Big Data and Google Analytics</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/</link>
+      <pubDate>Tue, 01 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/</guid>
+      <description>&lt;p&gt;Why do so many companies write a homegrown pageviews tracking system? Between Google Analytics, Kissmetrics and many others, isn&amp;rsquo;t that a completely solved problem?&lt;/p&gt;
+
+&lt;p&gt;These popular solutions lack domain knowledge. They are easily capable of segmenting users by region or browser, but they fail to recognize rules core to your business. Tracking pageviews with a homegrown system becomes your next sprint&amp;rsquo;s goal.&lt;/p&gt;
+
+&lt;p&gt;Implementing a hit counter service is quite tricky. This is a write-heavy, asynchronous problem that must minimize impact on page rendering time, while dealing with rapidly growing amounts of data. Is there a middle ground between using Google Analytics and rolling out our own homegrown implementation? How can we use Google Analytics for data collection and inject domain knowledge into gathered data, incrementally, without writing our own service?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

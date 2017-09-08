@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/github/</link>
+    <description>Recent content in Github on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using GitHub Issues for Blog Comments</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve worked on a few large-scale OSS projects, and I believe that people find it easier to just leave a comment and rely on a contributor to explain a problem rather than consulting the documentation. I consider doing everything you can to make people find their own answers a strong part of &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/07/03/handling-big-projects/&#34;&gt;defensive open source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For the posts I write, I have an even lower tolerance for comments. For example, I added the ability to turn off comments per-post and haven&amp;rsquo;t allowed comments on any posts I&amp;rsquo;ve written here. A lot of transitory discussion around an article happens on twitter via &lt;a href=&#34;https://twitter.com/ArtsyOpenSource/&#34;&gt;@ArtsyOpenSource&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m willing to give it another shot though, and so I got around to creating a simple system for allowing opt-in comments on posts using GitHub Issues. The rest of this post will be about how you can do it also, and a bit about why I think GitHub Issues are a happy medium for the comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How Artsy Uses GitHub to Build Artsy</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/</link>
+      <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/29/how-art-dot-sy-uses-github-to-build-art-dot-sy/</guid>
+      <description>Zach Holman gave a good talk on How GitHub uses GitHub to build GitHub at Rubyconf. It was great to hear how similar our own processes are at Artsy, with a few notable differences.
+Artsy engineers store almost everything on GitHub. We use GitHub Wikis, but don&amp;rsquo;t use GitHub Issues much. We work in 3-week sprints with Pivotal Tracker instead. This blog is on GitHub. And, of course, we have our own Hubot which feeds funny animated GIFs after each successful deploy to our IRC channel.</description>
+    </item>
+    
+  </channel>
+</rss>

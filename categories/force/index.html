@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Force // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Force" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/force/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/09/05/Modernizing-Force/">Modernizing Force</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >chris</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>9 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+					        <a class="post-category post-category-reaction" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reaction">reaction</a>
+      					
+					        <a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-typescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript">typescript</a>
+      					
+					        <a class="post-category post-category-react" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/react">react</a>
+      					
+					        <a class="post-category post-category-babel" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/babel">babel</a>
+      					
+					        <a class="post-category post-category-styled-components" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/styled-components">styled-components</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><a href="https://github.com/artsy/force">Force</a> is Artsy&rsquo;s main website, <a href="https://www.artsy.net">artsy.net</a>. In the three years since it was <a href="http://artsy.github.io/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/">open-sourced</a>, it has provided a solid foundation to build features on top of without a lot of the costs associated with growth. It is an early example of Isomorphic (&ldquo;universal&rdquo;) JavaScript, built on top of Express, Backbone, CoffeeScript, Stylus and Jade. It is also highly modular, adopting patterns laid down by its parent project,  <a href="https://github.com/artsy/ezel">Ezel</a>.</p>
+
+<p>When first developed these technologies made a lot of sense; CoffeeScript fixed many of the problems with JavaScript pre-ES6, and Jade / Stylus made working with HTML / CSS much more elegant. As time progressed and new technologies became a thing these solutions starting feeling more burdensome to continue building features with and many of our developers longed to start using next-generation tools like React.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/09/05/Modernizing-Force/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/">Artsy&#39;s Technology Stack, 2017</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[orta artsy_engineering]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>12 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Technology" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Technology">Technology</a>
+      					
+					        <a class="post-category post-category-eigen" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/eigen">eigen</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+					        <a class="post-category post-category-gravity" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/gravity">gravity</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<h1 id="history">History</h1>
+
+<p>Artsy was <a href="http://www.nytimes.com/2012/10/09/arts/design/artsy-is-mapping-the-world-of-art-on-the-web.html">launched in 2012 as the &ldquo;Art Genome Project&rdquo;</a> and grew exponentially ever since.</p>
+
+<p>By 2014 we had 230,000 works of art from 600 museums and institutions and launched our first business, a subscription service for commercial galleries, bringing over 80,000 works for sale and partnerships with 37 art fairs and a handful of benefit auctions. That year collectors from 82 countries inquired on over $5.5B of art.</p>
+
+<p>By 2015 we doubled our &ldquo;for sale&rdquo; inventory and aggregated 4,000 of the world&rsquo;s leading galleries and 60 art fairs. We also launched two new businesses: commercial auctions and online media.</p>
+
+<p>Finally, in 2016 we, again, doubled our paid gallery network size to become the largest gallery network in the world and grew to become the most-read online art publication as our highly engaging editorial traffic ballooned 320%. We also launched a platform to bid in live auctions and a consignments service with all major auction houses.</p>
+
+<h1 id="the-artsy-business-in-2017">The Artsy Business in 2017</h1>
+
+<p>Artsy in 2017 is a very wide platform and it can be challenging to characterize simply. But when you boil it down to its essence, Artsy offers information and a marketplace. Our written content and fair coverage keep people informed about the art world, and the Art Genome powers our tools for exploration. Through our partnerships with the major player in the art market, galleries and auction houses, we offer our users a unified platform for buying and selling art.</p>
+
+<p>Internally we consider Artsy to have three businesses: <em>Auctions</em>, <em>Content</em> and <em>Listings</em>.</p>
+
+<ul>
+<li><p><em>Auctions</em>: Auction houses and charities use Artsy as a sales channel for a commission because collectors want to discover and buy art in a single, central platform that excels at surfacing the art they want from a global market.</p></li>
+
+<li><p><em>Content</em>: Brands pay Artsy to reach the first art audience at scale by enabling evergreen content online and for offline engagement during art world events.</p></li>
+
+<li><p><em>Listings</em>: Galleries, Fairs and Institutions subscribe to Artsy for a fee because we bring a very large audience of art collectors and enthusiasts to their virtual doors.</p></li>
+</ul>
+
+<p>The Artsy team is now 166 employees across three offices in New York, Berlin and London. The Engineering organization is now 28 engineers, including 4 leads, 3 directors and a CTO. In this post, we&rsquo;d like to comprehensively cover what, and how we make the technical and human sides of Artsy businesses work.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/04/14/artsy-technology-stack-2017/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/">Exploration: Front-end JavaScript at Artsy in 2017</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>16 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-javascript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/javascript">javascript</a>
+      					
+					        <a class="post-category post-category-emission" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/emission">emission</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+					        <a class="post-category post-category-typescript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/typescript">typescript</a>
+      					
+					        <a class="post-category post-category-relay" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/relay">relay</a>
+      					
+					        <a class="post-category post-category-react" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/react">react</a>
+      					
+					        <a class="post-category post-category-reactnative" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/reactnative">reactnative</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><center>
+ <img src="/images/js2017/js.svg" style="width:300px;">
+</center></p>
+
+<p>The Artsy web team have been early adopters of node, and for the last 4 years the stable stack for the Artsy website has been predominantly been Node + CoffeeScript + Express + Backbone. In 2016 the mobile team <a href="/blog/2016/08/15/React-Native-at-Artsy/">announced</a> that it had moved to React Native, matching the web team as using JavaScript as the tools of their trade.</p>
+
+<p>Historically we have always had two separate dev teams for building Artsy.net and the corresponding iOS app, we call them (Art) Collector Web, and Collector Mobile. By the end of 2016 we decided to merge the teams. The merger has given way to a whole plethora of ideas about what contemporary JavaScript looks like and we&rsquo;ve been experimenting with finding common, natural patterns between web and native.</p>
+
+<p>This post tries to encapsulate what we consider to be our consolidated stack for web/native Artsy in 2017.</p>
+
+<p><strong>TLDR:</strong> <a href="#TypeScript">TypeScript</a>, <a href="#GraphQL">GraphQL</a>, <a href="#React...React.Native">React/React Native</a>, <a href="#Relay">Relay</a>, <a href="#Yarn">Yarn</a>, <a href="#Jest">Jest</a>, and <a href="#Visual.Studio.Code">Visual Studio Code</a>.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/02/05/Front-end-JavaScript-at-Artsy-2017/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/">Helping the Web Towards OSS by Default</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>6</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2016</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >orta</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+					        <a class="post-category post-category-node" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/node">node</a>
+      					
+					        <a class="post-category post-category-microgravity" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/microgravity">microgravity</a>
+      					
+					        <a class="post-category post-category-js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/js">js</a>
+      					
+					        <a class="post-category post-category-JavaScript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/JavaScript">JavaScript</a>
+      					
+					        <a class="post-category post-category-web" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/web">web</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>The main Artsy.net website for the desktop, <a href="https://github.com/artsy/force">Force</a>, was our first Artsy application to open its source code, <a href="http://artsy.github.io/author/craig">Craig</a> and <a href="http://artsy.github.io/author/brennan">Brennan</a> did it <a href="/blog/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/">back in 2014</a>. Force&rsquo;s public offering laid the groundwork for the iOS OSS projects to come afterwards: <a href="/blog/2014/11/13/eidolon-retrospective/">Eidolon</a>, <a href="/blog/2015/04/28/how-we-open-sourced-eigen/">Eigen</a>, <a href="/blog/2015/08/06/open-sourcing-energy/">Energy</a> and <a href="/blog/2015/11/05/Emergence-Code-Review/">Emergence</a>.</p>
+
+<p>Though Force wasn&rsquo;t quite Open Source by Default, it represented a <em>really</em> important step for  Artsy&rsquo;s OSS perspective but was not the end goal. We were opening our source, but not opening our process.</p>
+
+<p>This month both <a href="https://github.com/artsy/force">Force</a>, the desktop version of <a href="https://www.artsy.net/">Artsy.net</a> and <a href="https://github.com/artsy/microgravity">Microgravity</a>, the mobile version - moved to being built entirely in the open. Read on to find out how.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2016/09/06/Milestone-on-OSS-by-Default/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/">Artsy&#39;s Technology Stack, 2015</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>23</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Technology" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Technology">Technology</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Artsy has now grown past 100 team members and our Engineering organization is now 20 strong. For a brief overview of what the company has accomplished in the last two years, check out our <a href="http://2013.artsy.net">2013</a> and <a href="http://2014.artsy.net">2014</a> reviews.</p>
+
+<p>This is a good opportunity to describe our updated technology stack. Last time <a href="/blog/2012/10/10/artsy-technology-stack">we did this</a> was when Artsy launched publicly in 2012.</p>
+
+<p><center><img src='/images/2015-03-23-artsy-technology-stack-2015/stats.png'></center></p>
+
+<p>Three years ago Artsy was a classic <a href="http://rubyonrails.org">Ruby-on-Rails</a> monolith with a handful of adjacent processes and tools. We&rsquo;ve since broken it up into many independent services, and continue to heavily be a Ruby and JavaScript shop, using Rails where appropriate, with native code on mobile devices and some JVM-based experiments in micro-services.</p>
+
+<p><center><img src='/images/2015-03-23-artsy-technology-stack-2015/languages.png'></center></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/03/23/artsy-technology-stack-2015/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/">We open sourced our Isomorphic Javascript website</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[craig brennan]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Isomorphic" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Isomorphic">Isomorphic</a>
+      					
+					        <a class="post-category post-category-JavaScript" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/JavaScript">JavaScript</a>
+      					
+					        <a class="post-category post-category-Node.js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Node.js">Node.js</a>
+      					
+					        <a class="post-category post-category-Shared" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Shared">Shared</a>
+      					
+					        <a class="post-category post-category-Ezel" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ezel">Ezel</a>
+      					
+					        <a class="post-category post-category-Open-Source" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Open-Source">Open Source</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><img src="/images/2014-09-05-we-open-sourced-our-isomorphic-javascript-website/force.png" alt="May The Force be With You" /></p>
+
+<p>Today we&rsquo;re happy to announce we&rsquo;ve open sourced the entire Artsy.net web app, <a href="https://github.com/artsy/force">Force</a>.</p>
+
+<p>Over the past few months, we&rsquo;ve rewritten our web front-end to move off Rails and on to a <a href="http://nodejs.org/">Node.js</a> stack that shares Javascript code and rendering between the server and client, otherwise known as <a href="http://nerds.airbnb.com/isomorphic-JavaScript-future-web-apps/">Isomorphic Javascript</a>. After migrating to this new stack, we open-sourced our boilerplate, <a href="http://ezeljs.com">Ezel</a>, and have now gone a step further and open sourced Artsy.net.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/09/05/we-open-sourced-our-isomorphic-javascript-website/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/">Retain scroll position in infinite scroll</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >craig</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Infinite" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Infinite">Infinite</a>
+      					
+					        <a class="post-category post-category-Infinite-Scroll" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Infinite-Scroll">Infinite Scroll</a>
+      					
+					        <a class="post-category post-category-Iframe" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Iframe">Iframe</a>
+      					
+					        <a class="post-category post-category-Modal" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Modal">Modal</a>
+      					
+					        <a class="post-category post-category-Scroll-Position" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Scroll-Position">Scroll Position</a>
+      					
+					        <a class="post-category post-category-Retain-Scroll-Position" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Retain-Scroll-Position">Retain Scroll Position</a>
+      					
+					        <a class="post-category post-category-force" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/force">force</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p><img src="https://camo.githubusercontent.com/4b7e6aefa00b96ba2804b235aaaa811bbb893c4e/687474703a2f2f7777772e6578706c61696e786b63642e636f6d2f77696b692f696d616765732f352f35362f696e66696e6974655f7363726f6c6c696e672e706e67" alt="Maybe we should give up on the whole idea of a 'back' button. 'Show me that thing I was looking at a moment ago' might just be too complicated an idea for the modern web." /></p>
+
+<p>Although <a href="https://news.ycombinator.com/item?id=7314965">some find infinite scroll to be a contentious topic</a> at Artsy we&rsquo;ve found it to be a useful element in many portions of our site such as <a href="https://artsy.net/browse/artworks?medium=prints&amp;price_range=-1%3A1000">filtering</a>. However, we&rsquo;ve run into a common and painful usability issue with infinite scroll. That is clicking on an item redirects to the next page, losing your scroll position, and losing your place when going back. To solve this we have come up with a clever little solution using an iframe.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/07/09/retain-scroll-position-in-infinite-scroll/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

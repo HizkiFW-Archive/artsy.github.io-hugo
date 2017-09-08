@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogging on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/blogging/</link>
+    <description>Recent content in Blogging on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/blogging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using GitHub Issues for Blog Comments</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/07/15/Comments-are-on/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve worked on a few large-scale OSS projects, and I believe that people find it easier to just leave a comment and rely on a contributor to explain a problem rather than consulting the documentation. I consider doing everything you can to make people find their own answers a strong part of &lt;a href=&#34;https://hizkifw.github.io/artsy.github.io-hugo/blog/2016/07/03/handling-big-projects/&#34;&gt;defensive open source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For the posts I write, I have an even lower tolerance for comments. For example, I added the ability to turn off comments per-post and haven&amp;rsquo;t allowed comments on any posts I&amp;rsquo;ve written here. A lot of transitory discussion around an article happens on twitter via &lt;a href=&#34;https://twitter.com/ArtsyOpenSource/&#34;&gt;@ArtsyOpenSource&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m willing to give it another shot though, and so I got around to creating a simple system for allowing opt-in comments on posts using GitHub Issues. The rest of this post will be about how you can do it also, and a bit about why I think GitHub Issues are a happy medium for the comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

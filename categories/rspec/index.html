@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Rspec // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Rspec" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/rspec/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/rspec/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/">Splitting up a large test suite</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Ruby" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Ruby">Ruby</a>
+      					
+					        <a class="post-category post-category-testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/testing">testing</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Rspec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rspec">Rspec</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>A while back, we wrote about <a href="/blog/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/">How to Run RSpec Test Suites in Parallel with Jenkins CI Build Flow</a>. A version of that still handles our largest test suite, but over time the initial division of specs became unbalanced. We ended up with some tasks that took twice as long as others. Even worse, in an attempt to rebalance task times, we ended up with awkward file patterns like <code>'spec/api/**/[a-m]*_spec.rb'</code>.</p>
+
+<p>To keep our parallel spec tasks approximately equal in size and to support arbitrary concurrency, we&rsquo;ve added a new <code>spec:sliced</code> task:</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2015/09/24/splitting-up-a-large-test-suite/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/">Continuous integration for service-oriented architectures</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>12</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >joey</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>6 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Rspec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rspec">Rspec</a>
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-SOA" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/SOA">SOA</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Whatever you have against monolithic architectures, at least they&rsquo;re easy to test. And when those tests succeed, you can be reasonably confident the live app will work the same way.</p>
+
+<p>Artsy began as one such monolithic app, but we&rsquo;ve been refactoring into an ecosystem of related APIs and sites. Today, when you search for <a href="https://artsy.net/gene/cultural-commentary">&ldquo;cultural commentary&rdquo;</a> or visit <a href="https://artsy.net/artist/robert-longo">Robert Longo</a> on <a href="https://artsy.net">artsy.net</a>, the page is rendered by a web app, sources data from an API, retrieves recommendations from a separate service, tracks trends in another, and records analytics in yet another.</p>
+
+<p>This was a boost for developer productivity and scaling, but eviscerated the value of our tests. We repeatedly encountered bugs that were failings of <em>the interaction between codebases</em> rather than failings of individual ones. Test libraries and tools typically concern themselves with one isolated app. When you have services that consume services that consume services, those isolated tests (with their stubs of everything else) don&rsquo;t necessarily reflect production&rsquo;s reality.</p>
+
+<p>So how should we develop our small, focused apps (or <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture">service-oriented architecture</a>, or <a href="http://martinfowler.com/articles/microservices.html">microservices</a>&hellip;) with confidence? We set out to build a dedicated acceptance test suite that would run tests across multiple services, configuring and integrating them in a way that closely matches the production environment.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/05/12/continuous-integration-for-service-oriented-architectures/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/">Isolating Spurious and Nondeterministic Tests</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jan</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >[joey frank]</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-Travis" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Travis">Travis</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Testing is a critical part of our workflow at <a href="https://artsy.net">Artsy</a>. It gives us confidence to make regular, aggressive enhancements. But anyone who has worked with a large, complex test suite has struggled with occasional failures that are difficult to reproduce or fix.</p>
+
+<p>These failures might be due to slight timing differences or lack of proper isolation between tests. Integration tests are particularly thorny, since problems can originate not only in application code, but in the browser, testing tools (e.g., <a href="http://docs.seleniumhq.org/">Selenium</a>), database, network, or external APIs and dependencies.</p>
+
+<h2 id="the-quarantine">The Quarantine</h2>
+
+<p>We&rsquo;ve been <a href="http://artsy.github.io/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">automatically retrying failed tests</a>, with some success. However, these problems tend to get worse. (If you have 10 tests that each have a 1% chance of failing, roughly 1 in 10 builds will fail. If you have 50, 4 in 10 builds will fail.)</p>
+
+<p>Martin Fowler offers the most compelling thoughts on this topic in <a href="http://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests</a>. (Read it, really.) He suggests quarantining problematic tests in a separate suite, so they don&rsquo;t block the build pipeline.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2014/01/30/isolating-spurious-and-nondeterministic-tests/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/">How to Run RSpec Test Suites in Parallel with JenkinsCI Build Flow</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>9</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-Continuous-Integration" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Continuous-Integration">Continuous Integration</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>We now have over 4700 RSpec examples in one of our projects. They are stable, using the techniques described in an <a href="/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">earlier post</a> and organized in <a href="/blog/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">suites</a>. But they now take almost 3 hours to run, which is clearly unacceptable.</p>
+
+<p>To solve this, we have parallelized parts of the process with existing tools, and can turn a build around in just under an hour. This post will dive into our <a href="http://jenkins-ci.org/">Jenkins</a> build flow setup.</p>
+
+<p>To keep things simple, we&rsquo;re going to only build the <code>master</code> branch. When a change is committed on <code>master</code> we&rsquo;re going to push <code>master</code> to a <code>master-ci</code> branch and trigger a distributed build on <code>master-ci</code>. Once all the parts have finished, we&rsquo;ll complete the build by pushing <code>master-ci</code> to <code>master-succeeded</code> and notify the dev team of success or failure.</p>
+
+<p>Here&rsquo;s a diagram of what&rsquo;s going on.</p>
+
+<p><img src="/images/2012-10-09-how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/master-ci.png"></p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/10/09/how-to-run-rspec-test-suites-in-parallel-with-jenkins-ci-build-flow/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/">Testing with Delayed Jobs</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+					        <a class="post-category post-category-DelayedJob" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/DelayedJob">DelayedJob</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>A mean bug made it into our production environment. It wasn&rsquo;t caught by our extensive test suite and caused thousands of emails to be sent to a handful of people. The root cause was an unfortunate combination of <a href="https://github.com/plataformatec/devise">Devise</a>, <a href="https://github.com/collectiveidea/delayed_job">DelayedJob</a> and, of course, our own code. It was an easy fix, but nobody ever wants this to happen again.</p>
+
+<p>tl;dr DelayedJob says it&rsquo;s possible to set <code>Delayed::Worker.delay_jobs = false</code> for your tests. Don&rsquo;t do it.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/">How to Organize Over 3000 RSpec Specs and Retry Test Failures</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>Having over three thousand RSpec tests in a single project has become difficult to manage. We chose to organize these into suites, somewhat mimicking our directory structure. And while we succeeded at making our Capybara integration tests more reliable (see <a href="/blog/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Reliably Testing Asynchronous UI with RSpec and Capybara</a>), they continue relying on finicky timeouts. To avoid too many false positives we&rsquo;ve put together a system to retry failed tests. We know that a spec that fails twice in a row is definitely not a fluke!</p>
+
+<p>Create a new Rake file in <code>lib/tasks/test_suites.rake</code> and declare an array of test suites.</p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/05/15/how-to-organize-over-3000-rspec-specs-and-retry-test-failures/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Reliably Testing Asynchronous UI w/ RSpec and Capybara</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2012</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >db</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+      					
+					        <a class="post-category post-category-Capybara" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Capybara">Capybara</a>
+      					
+					        <a class="post-category post-category-Selenium" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Selenium">Selenium</a>
+      					
+					        <a class="post-category post-category-UI" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UI">UI</a>
+      					
+					        <a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>tl;dr - You can write 632 rock solid UI tests with Capybara and RSpec, too.</p>
+
+<p><img src="Miami Weather in NYC" alt="/images/2012-02-03-reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/jenkins-ci.png" /></p>
+
+<p>We have exactly 231 integration tests and 401 view tests out of a total of 3086 in our core application today. This adds up to 632 tests that exercise UI. The vast majority use <a href="http://rspec.info/">RSpec</a> with <a href="https://github.com/jnicklas/capybara">Capybara</a> and <a href="http://seleniumhq.org/">Selenium</a>. This means that every time the suite runs we set up real data in a local MongoDB and use a real browser to hit a fully running local application, 632 times. The suite currently takes 45 minutes to run headless on a slow Linode, UI tests taking more than half the time.</p>
+
+<p>While the site is in private beta, you can get a glimpse of the complexity of the UI from the <a href="http://artsy.net">splash page</a>. It&rsquo;s a rich client-side Javascript application that talks to an API. You can open your browser&rsquo;s developer tools and watch a combination of API calls and many asynchronous events.</p>
+
+<p>Keeping the UI tests reliable is notoriously difficult. For the longest time we felt depressed under the Pacific Northwest -like weather of our Jenkins CI and blamed every possible combination of code and infrastructure for the many intermittent failures. We&rsquo;ve gone on sprees of marking many such tests &ldquo;pending&rdquo; too.</p>
+
+<p>We&rsquo;ve learned a lot and stabilized our test suite. This is how we do UI testing.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

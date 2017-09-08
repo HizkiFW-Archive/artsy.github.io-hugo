@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Reliably Testing Asynchronous UI w/ RSpec and Capybara // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Reliably Testing Asynchronous UI w/ RSpec and Capybara" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#an-asynchronous-application">An Asynchronous Application</a></li>
+<li><a href="#testing-a-login-form">Testing a Login Form</a></li>
+<li><a href="#waiting-for-explicit-events">Waiting for Explicit Events</a></li>
+<li><a href="#there-s-just-too-much-going-on">There&rsquo;s Just Too Much Going On</a></li>
+<li><a href="#remaining-ajax-requests">Remaining AJAX Requests</a></li>
+<li><a href="#combining-techniques">Combining Techniques</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/02/03/reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/">Reliably Testing Asynchronous UI w/ RSpec and Capybara</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>3</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-RSpec" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/RSpec">RSpec</a>
+				
+					<a class="post-category post-category-Capybara" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Capybara">Capybara</a>
+				
+					<a class="post-category post-category-Selenium" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Selenium">Selenium</a>
+				
+					<a class="post-category post-category-UI" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/UI">UI</a>
+				
+					<a class="post-category post-category-Testing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Testing">Testing</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>tl;dr - You can write 632 rock solid UI tests with Capybara and RSpec, too.</p>
+
+<p><img src="Miami Weather in NYC" alt="/images/2012-02-03-reliably-testing-asynchronous-ui-w-slash-rspec-and-capybara/jenkins-ci.png" /></p>
+
+<p>We have exactly 231 integration tests and 401 view tests out of a total of 3086 in our core application today. This adds up to 632 tests that exercise UI. The vast majority use <a href="http://rspec.info/">RSpec</a> with <a href="https://github.com/jnicklas/capybara">Capybara</a> and <a href="http://seleniumhq.org/">Selenium</a>. This means that every time the suite runs we set up real data in a local MongoDB and use a real browser to hit a fully running local application, 632 times. The suite currently takes 45 minutes to run headless on a slow Linode, UI tests taking more than half the time.</p>
+
+<p>While the site is in private beta, you can get a glimpse of the complexity of the UI from the <a href="http://artsy.net">splash page</a>. It&rsquo;s a rich client-side Javascript application that talks to an API. You can open your browser&rsquo;s developer tools and watch a combination of API calls and many asynchronous events.</p>
+
+<p>Keeping the UI tests reliable is notoriously difficult. For the longest time we felt depressed under the Pacific Northwest -like weather of our Jenkins CI and blamed every possible combination of code and infrastructure for the many intermittent failures. We&rsquo;ve gone on sprees of marking many such tests &ldquo;pending&rdquo; too.</p>
+
+<p>We&rsquo;ve learned a lot and stabilized our test suite. This is how we do UI testing.</p>
+
+<p></p>
+
+<h2 id="an-asynchronous-application">An Asynchronous Application</h2>
+
+<p>The splash page on <a href="http://artsy.net">Artsy</a> is a <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> application where views fade in and out depending on user actions. It also implements a responsive layout because some elements cannot render on mobile devices or shouldn&rsquo;t depending on the size of your browser.</p>
+
+<p>The application is initialized in a usual Backbone way.</p>
+
+<pre><code class="language-coffeescript">window.Splash =
+  Views: {}
+  Routers: {}
+  Models: {}
+  initialize: -&gt;
+    contentWindow = new @Models.ContentWindow()
+    @router = new @Routers.Client contentWindow
+    new @Views.Responsive contentWindow
+</code></pre>
+
+<p>From here, everything is asynchronous. The router will wire up the events and the different views that make up the page will render themselves.</p>
+
+<h2 id="testing-a-login-form">Testing a Login Form</h2>
+
+<p>When a user clicks on a &ldquo;Log In&rdquo; link, he sees the <code>Splash.Views.Login</code> Backbone view. There&rsquo;s no page reload or server roundtrip: the current view is swapped out by the Backbone view coming in. Some CSS animates the transition.</p>
+
+<pre><code class="language-coffeescript">
+class Splash.Routers.Client extends Backbone.Router
+
+  routes:
+    'log_in' : 'log_in'
+
+  log_in: -&gt;
+    Splash.login = new Splash.Views.Login()
+    @navigate 'log_in'
+
+</code></pre>
+
+<p>The log-in view has two input fields: an e-mail address and password. We can write a Capybara test that enters valid values and ensures that the user logged in by checking for a specific header.</p>
+
+<pre><code class="language-ruby">require 'spec_helper'
+
+feature &quot;Log In&quot; do
+  context &quot;using a browser&quot;, :js =&gt; true do
+    scenario &quot;allows a user to login&quot; do
+      user = Fabricate(:user)
+      visit &quot;/&quot;
+      click_link &quot;log_in&quot;
+      fill_in &quot;user[email]&quot;, :with =&gt; user.email
+      fill_in &quot;user[password]&quot;, :with =&gt; user.password
+      click_button &quot;sign in&quot;
+      find(&quot;h1&quot;, :visible =&gt; true).text.should == &quot;Login Successful&quot;
+    end
+  end
+end
+</code></pre>
+
+<p>This test works well with Capybara, because it tries to wait for elements to appear on the page. For example, when you use <code>fill_in</code> it attempts to locate an element with the <code>user[email]</code> id, several times, until it times out or until the element is on the page.</p>
+
+<h2 id="waiting-for-explicit-events">Waiting for Explicit Events</h2>
+
+<p>The above test is &ldquo;reliable&rdquo; within some limits. It works as long as all the necessary asynchronous events run within a timeout period. But what if they don&rsquo;t? What if the test hardware is taking a break from flushing to disk? Or waiting on Google Analytics when the network cable is unplugged, which shouldn&rsquo;t affect the outcome of the test? These external issues make this code very brittle, so everyone keeps increasing the default timeout values.</p>
+
+<p>A winning strategy to avoid this is to introduce explicit wait controls inside the tests. These wait <code>Capybara.default_wait_time</code> for a true result and no longer force you to know which method in Capybara waits for a timeout and which doesn&rsquo;t. It effectively breaks up a single wait into multiple waits.</p>
+
+<p>Consider a widget that needs to be saved by making a postback.</p>
+
+<pre><code class="language-coffeescript">@$el.removeClass(&quot;saved&quot;).addClass('saving')
+@widget.save
+  success: =&gt;
+    @$el.removeClass(&quot;saving&quot;).addClass(&quot;saved&quot;)
+</code></pre>
+
+<p>When the widget is saved, its element will get a <code>.saved</code> CSS class. The test can wait for it.</p>
+
+<pre><code class="language-ruby">it &quot;saves the widget&quot; do
+  widget_count = Widget.count
+  find(&quot;save&quot;).click
+  wait_until { find(&quot;.saved&quot;, visible: true) }
+  Widget.count.should == widget_count + 1
+end
+</code></pre>
+
+<h2 id="there-s-just-too-much-going-on">There&rsquo;s Just Too Much Going On</h2>
+
+<p>Sometimes, waiting on explicit events is just not practical. You may have many AJAX requests going on at the same time and after those are done, you may still be executing JavaScript that modifies the DOM in meaningful ways. Lets attempt to answer the following two questions:</p>
+
+<ul>
+<li>How can we wait on all remaining AJAX requests to finish?</li>
+<li>How can we wait on all remaining DOM events to finish?</li>
+</ul>
+
+<h2 id="remaining-ajax-requests">Remaining AJAX Requests</h2>
+
+<p>If you&rsquo;re using jQuery, you can test the number of active connections to a server. The number is zero when all pending AJAX requests have finished. This was an original idea from <a href="http://pivotallabs.com/users/mgehard/blog/articles/1671-waiting-for-jquery-ajax-calls-to-finish-in-cucumber">Pivotal</a>.</p>
+
+<p>``` ruby spec/support/wait_for_ajax_helper.rb
+def wait_for_ajax(timeout = Capybara.default_wait_time)
+  page.wait_until(timeout) do
+    page.evaluate_script &lsquo;jQuery.active == 0&rsquo;
+  end
+end</p>
+
+<pre><code>
+Remaining DOM Events
+--------------------
+
+This one is a bit tricker. We can leverage the fact that JavaScript engines are updating the UI on a single thread. If you defer an action it will execute after everything else that has been deferred before it. Therefore we can queue an addition of an empty DIV with a new id and finally wait for it. By using a unique ID we allow the waits to stack up nicely in a single spec.
+
+``` ruby spec/support/wait_for_dom_helper_.rb
+def wait_for_dom(timeout = Capybara.default_wait_time)
+  uuid = SecureRandom.uuid
+  page.find(&quot;body&quot;)
+  page.evaluate_script &lt;&lt;-EOS
+    _.defer(function() {
+      $('body').append(&quot;&lt;div id='#{uuid}'&gt;&lt;/div&gt;&quot;);
+    });
+  EOS
+  page.find(&quot;##{uuid}&quot;)
+end
+</code></pre>
+
+<p>We do have to make sure that the body element is loaded, first. This allows a <code>wait_for_dom</code> right after we navigate to a page that executes AJAX queries on load.</p>
+
+<h2 id="combining-techniques">Combining Techniques</h2>
+
+<p>With enough attention we were able to explain and fix most spec failures. When implementing Capybara tests we favor explicit waits and use the combination of the two wait functions above when we just want to generically make sure that everything on the page has loaded and is ready for more action.</p>
+
+<p>Finally, integration tests are essential for continuous deployment. They are very much worth the extra development effort.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/02/20/caching-model-json-with-mongoid-cached-json/">Caching Model JSON with Mongoid-Cached-Json</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/01/31/beyond-heroku-satellite-delayed-job-workers-on-ec2/">Beyond Heroku: &#34;Satellite&#34; Delayed Job Workers on EC2</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

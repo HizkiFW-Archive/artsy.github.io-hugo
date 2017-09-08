@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    On Our Objective-C Code Standards // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="orta">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="On Our Objective-C Code Standards" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2012/08/14/on-objective-c-code-standards/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#remove-private-method-declarations-and-use-class-extensions-to-add-ivars">Remove private method declarations and use class extensions to add ivars.</a></li>
+<li><a href="#use-object-literals-when-possible">Use object literals when possible.</a></li>
+<li><a href="#dot-syntax-is-ok-for-non-properties">Dot syntax is OK for non-properties.</a></li>
+<li><a href="#keep-external-code-out-of-your-project">Keep external code out of your project.</a></li>
+<li><a href="#use-umbrella-imports">Use umbrella imports.</a></li>
+<li><a href="#keep-your-code-clean">Keep your code clean.</a></li>
+<li><a href="#iboutlets-should-probably-go-in-your-class-extensions">IBOutlets should probably go in your class extensions.</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2012/08/14/on-objective-c-code-standards/">On Our Objective-C Code Standards</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2012</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">orta</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-iOS" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/iOS">iOS</a>
+				
+					<a class="post-category post-category-Objective-C" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Objective-C">Objective C</a>
+				
+					<a class="post-category post-category-Standards" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Standards">Standards</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>With the release of Xcode 4.4 I&rsquo;ve taken a look back at our existing code standards and tried to come up with something that is cleaner and more elegant. Here are a few of the ideas I&rsquo;ve been using to modernize the codebase.</p>
+
+<h3 id="remove-private-method-declarations-and-use-class-extensions-to-add-ivars">Remove private method declarations and use class extensions to add ivars.</h3>
+
+<p>First to get chopped by the deletion button are private method declarations. After Xcode 4.2 came out we took to using the class extension feature to add private method declarations at the top of implementation files. This was a nice way of keeping private methods out of the header files. Now that the compiler will check for pre-existing method signatures within the same object there&rsquo;s no need to define their interfaces.</p>
+
+<p></p>
+
+<p>Occasionally it&rsquo;s necessary for subclass to know about private methods defined by its superclass, so we use a shared category to let them know what they respond to. Like Apple, we also quit using <code>@private</code> in header files.</p>
+
+<p>Ivars now should go in class extensions, and be prefixed by an underscore. Apple advises that you don&rsquo;t use method names with underscores but encourage underscored variable names. This also can free up method parameters from having ugly names such as anArtwork or aString.</p>
+
+<h3 id="use-object-literals-when-possible">Use object literals when possible.</h3>
+
+<p>Object literals are ways of adding syntacitcal sugar to the Objective-C language, they let you access keys and values easily on <code>NSDictionary</code>s and objects in <code>NSArray</code>s. There&rsquo;s no reason to not be using them if you&rsquo;re supporting iOS 4 and above. It&rsquo;s simple a matter of <code>_artworks[2]</code> vs <code>[_artworks objectAtIndex:2]</code>.</p>
+
+<h3 id="dot-syntax-is-ok-for-non-properties">Dot syntax is OK for non-properties.</h3>
+
+<p>OK so, I admit it. I whined when properties came out. It was back in 2007 and the Objective-C was ranked 40th in the world, it&rsquo;s now ranked <a href="http://www.tiobe.com/index.php/paperinfo/tpci/Objective-C.html">3nd most popular programming language.</a> Within timeframe, my opinion on the subject of properties changed also.</p>
+
+<p>Originally when properties came out they exclusively were given the right to use dot notation on objects. This makes sense as they were created to provide public access to ivars which normally you can only access internally using the dot notation. With Xcode 4.3, that also changed. Now, if a method doesn&rsquo;t have any arguments it can be called using dot notation. I&rsquo;m in favour of using this. For me a good rule of thumb has been if a method returns something, dot notation is OK. For example, <code>_artworksArray.count</code> is fine whilst <code>_parsingOperation.stop</code> isn&rsquo;t.</p>
+
+<h3 id="keep-external-code-out-of-your-project">Keep external code out of your project.</h3>
+
+<p>External, or vendored code should be kept out of the main body of your code. You can use CocoaPods to keep all that code in check and up-to-date. CocoaPods is a project that aims to be what bundler does for ruby projects, or npm for node. It will deal with your dependancies whilst you can concentrate on your own code. It will create a seperate Xcode project that handles all you dependancies leaving your project only as your own code.</p>
+
+<h3 id="use-umbrella-imports">Use umbrella imports.</h3>
+
+<p>To try and keep the amount of noise we have at the top of our implementation files we have started to reduce the number of <code>#import &quot;ARModel.h&quot;</code> lines we use. By creating a <code>Models.h</code> file and having that include all the models it means we can still have a look through the <code>#imports</code> at the top to get an idea of the connections between the objects as that will only show the important imports. These can optionally be moved into your precompiled header files.</p>
+
+<h3 id="keep-your-code-clean">Keep your code clean.</h3>
+
+<p>Whitespace can and does slowly accumulate at the line-endings of your code. You should make sure that the new preference for automatically trimming whitespace is turned on in the text editing section of Xcode&rsquo;s preferences.</p>
+
+<h3 id="iboutlets-should-probably-go-in-your-class-extensions">IBOutlets should probably go in your class extensions.</h3>
+
+<p>With modern versions of Xcode, it doesn&rsquo;t matter that your IBOutlets are defined in places other than in headers. As Objective-C developers, we&rsquo;ve come a long way from having to repeatedly drag a .h from Xcode to Interface Builder, so maybe it&rsquo;s time to rethink the idea that our interface outlets should be publicly accessible. My opinion is that a controller&rsquo;s views are for the most part a private affair and that if you want to expose their functionality you do it through custom methods in the controller. There are some downsides to this, in that  initially you have to change to the implementation file when using hybrid view when connecting them.</p>
+
+<p>These decisions have come from internal discussions and from watching many WWDC sessions on the topic. We highly recommend watching the following <a href="https://developer.apple.com/wwdc/">WWDC sessions</a>.</p>
+
+<p><a href="https://developer.apple.com/videos/wwdc/2011/">WWDC 2011</a>: 105 Polishing Your App, 112 Writing Easy To Change Code and 322 - Objective-C Advancements in Depth.</p>
+
+<p><a href="https://developer.apple.com/videos/wwdc/2012/">WWDC 2012</a>: 405 Modern Objective-C and 413 Migrating to Modern Objective-C</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2012/08/16/testing-with-delayed-jobs/">Testing with Delayed Jobs</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2012/07/10/on-demand-jenkins-slaves-with-amazon-ec2/">On-Demand Jenkins Slaves with Amazon EC2</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

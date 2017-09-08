@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Bootstrapping JSON Data with Rails and Backbone.js // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="db">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Bootstrapping JSON Data with Rails and Backbone.js" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/2013/04/13/bootstrapping-json-data-with-rails-and-backbone-js/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#model-repository">Model Repository</a></li>
+<li><a href="#fetching-data">Fetching Data</a></li>
+<li><a href="#bootstrapping-data">Bootstrapping Data</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2013/04/13/bootstrapping-json-data-with-rails-and-backbone-js/">Bootstrapping JSON Data with Rails and Backbone.js</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2013</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">db</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-Rails" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Rails">Rails</a>
+				
+					<a class="post-category post-category-Backbone.js" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/Backbone.js">Backbone.js</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>The <a href="http://artsy.net">artsy.net website</a> is a Backbone.js application that talks to a server-side RESTful Grape API sitting on top of a Rails app which serves minimal HTML markup. The latter includes such things as a page title, along with links to JavaScript and stylesheet packages. A page loads, scripts run, data is fetched from the API. The result is merged into a HAMLJS template and rendered client-side.</p>
+
+<p>Building this kind of one-page apps allows for clean separation between the presentation and API layers. The downside is that it will slow page render times - fetching data after page load means waiting for an AJAX request to complete before displaying anything.</p>
+
+<p>There&rsquo;re many solutions to this problem, all involving some kind of server-side rendering. You could, for example, share views and JavaScript between client and server. This would be a major paradigm shift for a large application like ours and not something we could possibly maneuver in a short amount of time.</p>
+
+<p>Without changing the entire architecture of the system, how can we bootstrap JSON data server-side and avoid the data roundtrip on every page load?</p>
+
+<p></p>
+
+<h3 id="model-repository">Model Repository</h3>
+
+<p>First, we need to keep track of our objects on the client. We&rsquo;ve implemented a simple data repository. It ensures that the same model is passed around instead of instantiating new models each time. This helps prevent unnecessary trips to the server, and makes sure events are bound to the same model instance.</p>
+
+<pre><code class="language-coffeescript">App.Repository =
+
+  # Gets a model from the repository or fetches it from the server.
+  getOrFetch: (id, options) -&gt;
+    model = @get(id)
+    if model?
+      options?.success? options, model
+      model
+    else
+      model = new @model({ id: id })
+      model.fetch options
+      @add model
+    model
+
+# Function to extend a collection in to a repository
+App.Repository.extend = (collectionClass) -&gt;
+  collection = new collectionClass
+  repository = _.extend collection, App.Repository
+  repository.collectionClass = collectionClass
+  repository
+</code></pre>
+
+<p>Objects of the same type are stored together in a repository collection.</p>
+
+<pre><code class="language-coffeescript">class App.Collections.Artists extends Backbone.Collection
+
+  model: App.Models.Artist
+  App.Repositories.Artists = App.Repository.extend @
+
+</code></pre>
+
+<h3 id="fetching-data">Fetching Data</h3>
+
+<p>A view requires data before it can be rendered. For example, navigating to <a href="https://artsy.net/artist/hendrik-kerstens">artsy.net/artist/hendrik-kerstens</a> (a Dutch photographer who obsessively took pictures of his daughter in all kinds of artificial setups for 20 years) will call the following.</p>
+
+<pre><code class="language-coffeescript">class App.Views.ArtistView extends Backbone.View
+
+  render: -&gt;
+
+    App.Repositories.Artists.getOrFetch @options.artistId,
+      success: (artist) =&gt;
+        @$el.html(JST['templates/artist/show']({ artist: artist }))
+
+</code></pre>
+
+<h3 id="bootstrapping-data">Bootstrapping Data</h3>
+
+<p>Since our implementation sits on top of a Rails app, we can now bootstrap the data in a server-side Rails view without any JavaScript code changes. The following example lives in <code>app/views/artists/_bootstrap.html.haml</code>.</p>
+
+<pre><code class="language-javascript">:javascript
+  var json = $.parseJSON(&quot;#{j @artist.to_json}&quot;)
+  App.Repositories.Artists.add(new App.Models.Artist(json));
+</code></pre>
+
+<p>You must encode JSON data inside a Rails template, otherwise unicode characters like U+2028 become actual line-endings. This has been discussed <a href="http://stackoverflow.com/questions/2965293/javascript-parse-error-on-u2028-unicode-character">here</a> and <a href="http://stackoverflow.com/questions/9691611/print-valid-non-escaped-json-in-a-view-with-rails">here</a>. The <code>j</code> above is an alias for <code>escape_javascript</code>.</p>
+
+<p>The Rails view layout calls <code>yield :javascript</code> and the <code>show.html.haml</code> template includes the bootstrapped data as a partial.</p>
+
+<pre><code class="language-haml">= content_for :javascript do
+  = render partial: &quot;artists/bootstrap&quot;
+</code></pre>
+
+<p>The generated HTML includes the escaped JSON representation of the artist, which will be parsed client-side when the page loads and inserted into <code>App.Repositories.Artists</code>. The <code>App.Views.ArtistView</code> will no longer need to fetch the data from the server with an AJAX call.</p>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/artsy.github.io-hugo/2013/06/14/writing-headless-backbone-tests-with-node-dot-js/">Writing Headless Backbone Tests With Node.js</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/artsy.github.io-hugo/2013/04/10/aranalytics/">ARAnalytics - Analytics for iOS Apps</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>

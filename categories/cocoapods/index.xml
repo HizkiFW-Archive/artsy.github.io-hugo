@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cocoapods on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/cocoapods/</link>
+    <description>Recent content in Cocoapods on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/cocoapods/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why does my team&#39;s Podfile.lock Podspec checksums change?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</link>
+      <pubDate>Tue, 03 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</guid>
+      <description>&lt;p&gt;We use CocoaPods, and &lt;a href=&#34;https://github.com/artsy/eigen/issues/418&#34;&gt;we don&amp;rsquo;t check in our Pods&lt;/a&gt; directory for one of our fastest moving apps, &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;. This sometimes can cause an &lt;a href=&#34;https://github.com/artsy/eigen/pull/1464&#34;&gt;interesting data churn&lt;/a&gt; inside the &lt;code&gt;Podfile.lock&lt;/code&gt; when developers have different sha checksums for their Pods. This is weird, what gives?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

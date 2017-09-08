@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Team on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/team/</link>
+    <description>Recent content in Team on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/team/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Future Fridays</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/22/future-fridays/</link>
+      <pubDate>Tue, 22 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/12/22/future-fridays/</guid>
+      <description>&lt;p&gt;Artsy&amp;rsquo;s Platform engineering team is responsible for much of our shared infrastructure and services. Some of that responsibility is naturally focused on the very near term, such as diagnosing service interruptions and fixing bugs. However, we must regularly balance that with more long-term-focused work such as evaluating new technologies, paying off technical debt, and devising foundational improvements to our platform.&lt;/p&gt;
+
+&lt;p&gt;This is a tricky balance! Near-term work is appealing. It&amp;rsquo;s well-understood, more easily scoped, and often promises a satisfying &amp;ldquo;quick fix.&amp;rdquo; Sometimes, there&amp;rsquo;s even a customer (internal or external) eagerly awaiting the result. We recently introduced &amp;ldquo;Future Fridays&amp;rdquo; to help dedicate time to longer-term, open-ended work despite these urgent temptations.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artsy&#39;s Engineering Compensation Framework</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/03/artsy-engineering-compensation-framework/</link>
+      <pubDate>Fri, 03 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/04/03/artsy-engineering-compensation-framework/</guid>
+      <description>&lt;p&gt;Fair compensation is an important part of cultivating and growing engineers, and determining how much money someone is going to make is often more art than science, especially in young start-ups. We wanted this to be a collaborative process and not an adversarial one, and as our engineering team grew past 20 members it became important to think about compensation more systematically.&lt;/p&gt;
+
+&lt;p&gt;In this post I will share our individual contributor engineering ladder and our performance evaluation and compensation process.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/05/hello-world/</link>
+      <pubDate>Thu, 05 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/01/05/hello-world/</guid>
+      <description>We&amp;rsquo;ve been building cool stuff at Artsy and are looking forward to sharing all things tech with you.</description>
+    </item>
+    
+  </channel>
+</rss>

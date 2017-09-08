@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analytics on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/analytics/</link>
+    <description>Recent content in Analytics on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mashing Data, Making Maps</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/25/mashing-maps/</link>
+      <pubDate>Wed, 25 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2017/01/25/mashing-maps/</guid>
+      <description>&lt;p&gt;We have a lot of really awesome data. Things worth exploring, and visualizing. We have an entire team devoted to it, &lt;a href=&#34;https://www.artsy.net/article/artsy-jobs-data-analyst&#34;&gt;looks like they&amp;rsquo;re hiring too&lt;/a&gt;. Not all of the output of the data comes from that team though, 2 years ago our Director of Product Engineering, &lt;a href=&#34;https://github.com/craigspaeth&#34;&gt;Craig Spaeth&lt;/a&gt; created a &lt;a href=&#34;https://github.com/artsy/partner-map&#34;&gt;static-site generator&lt;/a&gt; that mapped our partners around the globe. Last week I&amp;rsquo;ve been improving it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hizkifw.github.io/artsy.github.io-hugo/images/mappings/preview.gif&#34; alt=&#34;An animated map of galleries&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Projects like these happen in most companies, quick hacks for one offs that are opened 2 years later by someone completely different to build on top of it. In trying to follow &lt;a href=&#34;http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule&#34;&gt;the Boy Scout rule&lt;/a&gt;, I&amp;rsquo;ve cleaned it up and consolidated some other similar projects. This post is a rough road-map of what making &lt;a href=&#34;https://github.com/artsy/partner-map/pull/3&#34;&gt;this PR&lt;/a&gt; looked like.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Aspect-Oriented Programming and ARAnalytics</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/06/aspect-oriented-programming-and-aranalytics/</link>
+      <pubDate>Tue, 06 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2014/05/06/aspect-oriented-programming-and-aranalytics/</guid>
+      <description>&lt;p&gt;Analytics are common in iOS applications. They help inform our decisions
+about products. Since analytics are so common, Artsy developed a library called
+&lt;a href=&#34;https://github.com/orta/ARAnalytics&#34;&gt;ARAnalytics&lt;/a&gt;. This library provides a
+single interface to many different backend analytics providers, freeing
+developers from having to write code for each of the providers that they&amp;rsquo;re
+using.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s consider a typical view controller on iOS. View controllers on iOS
+represent the glue code between models and views. When a model changes, the view
+controller updates the appearance of the UI. Similarly, when the UI is
+interacted with by the user, the view controller updates the model. This is the
+core of any standard iOS application.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s say that a button is pressed. We&amp;rsquo;ll handle that interaction in a
+method called &lt;code&gt;buttonWasPressed:&lt;/code&gt;. We&amp;rsquo;ll want to update our model, but also to
+track the analytics event.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)buttonWasPressed:(id)sender
+{
+	self.model.hearted = YES;
+
+	[ARAnalytics event:@&amp;quot;hearted&amp;quot;];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Simple enough, but consider that the analytics tracking code doesn&amp;rsquo;t fall within
+our definition of a view controller – the button handler just happens to be a
+convenient place to put the tracking code. Also consider that &lt;em&gt;every single&lt;/em&gt;
+button handler is going to have to have similar code implemented.&lt;/p&gt;
+
+&lt;h2 id=&#34;there-has-to-be-a-better-way&#34;&gt;There has to be a better way.&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ARAnalytics - Analytics for iOS Apps</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2013/04/10/aranalytics/</link>
+      <pubDate>Wed, 10 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2013/04/10/aranalytics/</guid>
+      <description>&lt;p&gt;In both my &lt;a href=&#34;http://orta.github.com&#34;&gt;personal apps&lt;/a&gt; and Artsy Folio, I&amp;rsquo;m always after a deeper understanding of how people use the app. There&amp;rsquo;s three ways to do this: ask users, watch users and track usage. I&amp;rsquo;d like to talk about the third of these.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve experimented with quite a lot of analytics tools for the Artsy website, and it seemed fitting to do the same for our mobile app. We wanted the freedom to change the analytics tool without having to change the code, and so &lt;a href=&#34;http://github.com/orta/ARAnalytics&#34;&gt;ARAnalytics&lt;/a&gt; was born.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Start Small with Big Data and Google Analytics</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/</link>
+      <pubDate>Tue, 01 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2012/05/01/how-to-start-small-with-big-data-and-google-analytics/</guid>
+      <description>&lt;p&gt;Why do so many companies write a homegrown pageviews tracking system? Between Google Analytics, Kissmetrics and many others, isn&amp;rsquo;t that a completely solved problem?&lt;/p&gt;
+
+&lt;p&gt;These popular solutions lack domain knowledge. They are easily capable of segmenting users by region or browser, but they fail to recognize rules core to your business. Tracking pageviews with a homegrown system becomes your next sprint&amp;rsquo;s goal.&lt;/p&gt;
+
+&lt;p&gt;Implementing a hit counter service is quite tricky. This is a write-heavy, asynchronous problem that must minimize impact on page rendering time, while dealing with rapidly growing amounts of data. Is there a middle ground between using Google Analytics and rolling out our own homegrown implementation? How can we use Google Analytics for data collection and inject domain knowledge into gathered data, incrementally, without writing our own service?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

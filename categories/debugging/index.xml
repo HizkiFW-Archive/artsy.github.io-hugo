@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugging on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/debugging/</link>
+    <description>Recent content in Debugging on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/debugging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using OCR To Fix a Hilarious Bug</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</link>
+      <pubDate>Thu, 12 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/11/12/Using-OCR-To-Fix-A-Hilarious-Bug/</guid>
+      <description>&lt;p&gt;For a little while, we would get very strange bug reports. People would complain that artist thumbnails (viewed in several different contexts across the web and our iOS apps) would not be an image of the artist&amp;rsquo;s work, but rather text, which had inexplicably become an actual JPG. This wasn&amp;rsquo;t just text appearing in a &lt;code&gt;div&lt;/code&gt; that should contain an &lt;code&gt;img&lt;/code&gt; or something like that, these were actual JPG&amp;rsquo;s that were pictures of text.&lt;/p&gt;
+
+&lt;p&gt;We would fix these as they came up, chalking the strangeness up to some relic of an old image processing pipeline, data being migrated, etc.&lt;/p&gt;
+
+&lt;p&gt;However, the reports kept coming in. This blog post is about how we diagnosed this actual bug, and how we used a simple Ruby script and OCR to help us detect and fix the existing images.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Notorious BUG – The Unbugged Sessions Part 1</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/30/Notorious-BUG-Part-1/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/07/30/Notorious-BUG-Part-1/</guid>
+      <description>&lt;p&gt;When the odds are stacked against you, your mind is overflowing, and you are ready to just pop, there’s always practical
+debugging tips to help you through a cloudy day.&lt;/p&gt;
+
+&lt;p&gt;In this post I’ll take you through a debugging session where I reproduce a crash, for which we were receiving a bunch of
+crash reports, but I was unable to reproduce by just using the application.&lt;/p&gt;
+
+&lt;p&gt;It will cover the following topics:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Narrow down the breakpoint to the method invocation where the crash occurs.&lt;/li&gt;
+&lt;li&gt;Locate the exact instruction that causes the crash.&lt;/li&gt;
+&lt;li&gt;Look at the implementation of the method where the crash occurs.&lt;/li&gt;
+&lt;li&gt;Simulate the crash.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

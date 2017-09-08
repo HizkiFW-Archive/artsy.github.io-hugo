@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Accessibility // Artsy Engineering
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.26" />
+
+  <meta property="og:title" content="Accessibility" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://hizkifw.github.io/artsy.github.io-hugo/categories/accessibility/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://hizkifw.github.io/artsy.github.io-hugo/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/accessibility/index.xml" rel="alternate" type="application/rss+xml" title="Artsy Engineering" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://hizkifw.github.io/artsy.github.io-hugo">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/">Making Artsy Editorial Accessible</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>29</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2017</span>
+		          </span>
+      				
+      				
+      					By <a class="post-author" >eve</a>
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>5 min. read</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-web" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/web">web</a>
+      					
+					        <a class="post-category post-category-accessibility" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/accessibility">accessibility</a>
+      					
+					        <a class="post-category post-category-publishing" href="https://hizkifw.github.io/artsy.github.io-hugo/categories/publishing">publishing</a>
+      					
+      					</div>
+      				
+            </p>
+            
+              <article class="post-summary">
+            	<p>During Artsy&rsquo;s recent 2017 Hackathon we tackled making all of our editorial content <a href="https://en.wikipedia.org/wiki/Accessibility">accessible</a>. The idea was hatched at  Berlin JSConf this spring, where <a href="https://youtu.be/H4FzW9oFObs">Laura Carvajal gave a talk</a> following the <em>Financial Times</em>&rsquo; experience implementing better accessibility requirements, and how they built these considerations into their testing process.</p>
+
+<p>What does accessibility mean in a browser? Generally the term refers to supporting the wide range of assistive technologies for users with vision or motor impairments. These include screen readers, as well as mouseless navigation using a keyboard, eye tracking and other devices. Interestingly these technologies are implemented at the OS level rather than the browser itself. Mac&rsquo;s OS includes a built in screen-reader, and <a href="http://www.freedomscientific.com/Products/Blindness/JAWS">JAWS</a> is the most popular application in this vein. It is also notable that browsers do not track users who employ assistive tools.</p>
+
+<p>Two users on <a href="http://webaim.org/discussion/mail_thread?thread=6326">WebAIM&rsquo;s forum</a> excellently present the case for accessibility as a developer&rsquo;s responsibility:</p>
+
+<blockquote>
+<p>&ldquo;Users may be highly resistant to having their disabilities identified as they go throughout the web. Most persons with disabilities would really just rather that <em>the Web just work</em> for them.&rdquo;</p>
+
+<p>&ldquo;Looking at accessibility as a way to serve a specific population is missing the point that accessibility is about inclusion of all people.&rdquo;</p>
+</blockquote>
+
+<p>A central tenant of Artsy&rsquo;s mission is to &lsquo;make art as accessible as music&rsquo;. By expanding accessibility for the visually and motor impaired to writing on art and culture, this projects allows us to follow through on this statement in a very literal way. Furthermore, there&rsquo;s no reason to ignore this audience; accommodating use of assistive technologies is an ethically responsible thing to do.</p>
+
+<p></p>
+              </article>
+			  <div class="read-more-link">
+				<a href="/artsy.github.io-hugo/2017/08/29/Making-Artsy-Editorial-Accessible/"><span class="read-more-slashes">//</span>Read More...</a>
+			  </div>
+            
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dependencies on Artsy Engineering</title>
+    <link>https://hizkifw.github.io/artsy.github.io-hugo/categories/dependencies/</link>
+    <description>Recent content in Dependencies on Artsy Engineering</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hizkifw.github.io/artsy.github.io-hugo/categories/dependencies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why does my team&#39;s Podfile.lock Podspec checksums change?</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</link>
+      <pubDate>Tue, 03 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2016/05/03/podspec-checksums/</guid>
+      <description>&lt;p&gt;We use CocoaPods, and &lt;a href=&#34;https://github.com/artsy/eigen/issues/418&#34;&gt;we don&amp;rsquo;t check in our Pods&lt;/a&gt; directory for one of our fastest moving apps, &lt;a href=&#34;https://github.com/artsy/eigen/&#34;&gt;Eigen&lt;/a&gt;. This sometimes can cause an &lt;a href=&#34;https://github.com/artsy/eigen/pull/1464&#34;&gt;interesting data churn&lt;/a&gt; inside the &lt;code&gt;Podfile.lock&lt;/code&gt; when developers have different sha checksums for their Pods. This is weird, what gives?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cocoa Architecture: Dependencies</title>
+      <link>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/</link>
+      <pubDate>Fri, 18 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://hizkifw.github.io/artsy.github.io-hugo/2015/09/18/Cocoa-Architecture-Dependencies/</guid>
+      <description>&lt;p&gt;As a part of going through the design patterns we&amp;rsquo;ve found in the creation of the Artsy iOS apps, I&amp;rsquo;d like to talk a bit about some of
+the way in which we decide our apps dependencies.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s easy to think of your dependencies as being things in your Podfile, but it&amp;rsquo;s a bit more nuanced than that. The tools you use for development, deployment, testing and external integrations are all things in which you depend on others to make your app work. I&amp;rsquo;d like to look into the hows and the whys of the decisions we&amp;rsquo;ve made.&lt;/p&gt;
+
+&lt;h2 id=&#34;hugomore42&#34;&gt;&lt;/h2&gt;
+
+&lt;p&gt;The mobile team of is a collection of smart people; we aim to work with people who have different opinions, and different backgrounds. This means we often don&amp;rsquo;t agree on project direction but moving forwards is about finding compromise. Every technical project within Artsy has a de-facto leader, and they get to make the call at the end of the day.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
